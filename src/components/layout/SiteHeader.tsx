@@ -4,28 +4,32 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const nav = [
-  { href: "#work", label: "Work" },
-  { href: "#about", label: "About" },
+  { href: "#siveca", label: "SiVeCa" },
+  { href: "#systems", label: "Systems" },
   { href: "#approach", label: "Approach" },
+  { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ];
 
 export function SiteHeader() {
   return (
     <motion.header
-      className="fixed inset-x-0 top-0 z-50 border-b border-neutral-200/80 bg-neutral-50/80 backdrop-blur-md"
+      className="fixed inset-x-0 top-0 z-50 border-b border-neutral-200/90 bg-white/90 backdrop-blur-md"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-gutter md:h-16">
         <Link
           href="#hero"
-          className="font-display text-sm font-medium tracking-tight text-neutral-950 md:text-base"
+          className="text-[13px] font-medium tracking-[-0.02em] text-neutral-950 md:text-sm"
         >
-          Studio
+          Paulina Henkelsho
         </Link>
-        <nav className="flex gap-6 text-xs font-medium tracking-wide text-neutral-600 md:gap-8 md:text-[13px]">
+        <nav
+          className="flex gap-5 text-[11px] font-medium uppercase tracking-[0.14em] text-neutral-500 md:gap-7 md:text-[12px]"
+          aria-label="Primary"
+        >
           {nav.map((item) => (
             <Link
               key={item.href}

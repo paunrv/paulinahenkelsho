@@ -5,43 +5,36 @@ import { Reveal } from "@/components/motion/Reveal";
 
 export function Contact() {
   return (
-    <section id="contact" className="py-section">
+    <section
+      id="contact"
+      className="border-t border-neutral-900/20 bg-neutral-950 py-section text-white"
+    >
       <div className="mx-auto max-w-6xl px-gutter">
-        <div className="grid gap-12 border border-neutral-200 bg-neutral-950 px-8 py-12 text-white md:grid-cols-12 md:gap-0 md:px-0 md:py-0">
-          <Reveal className="md:col-span-5 md:border-r md:border-white/10 md:p-12 lg:p-14">
-            <p className="text-xs font-medium uppercase tracking-[0.22em] text-white/50">
-              Contact
-            </p>
-            <h2 className="mt-4 font-display text-display-sm font-light text-white">
-              Let&apos;s talk about the next hard problem.
+        <div className="grid gap-12 md:grid-cols-12 md:gap-16 md:items-end">
+          <Reveal className="md:col-span-7">
+            <h2 className="font-display text-title-md font-light text-white text-balance md:text-title-lg">
+              Let’s build something that holds under pressure.
             </h2>
-            <p className="mt-6 text-sm leading-relaxed text-white/65">
-              New collaborations, advisory conversations, or deep dives on
-              systems-heavy products — send a short note with context and
-              timeline.
-            </p>
           </Reveal>
-          <div className="flex flex-col justify-center md:col-span-7 md:p-12 lg:p-14">
-            <Reveal delay={0.1}>
+          <div className="md:col-span-5">
+            <Reveal delay={0.08} className="flex flex-col md:items-end md:text-right">
+              <p className="max-w-md text-sm leading-[1.65] text-white/55 md:max-w-sm">
+                For collaborations, advisory work, or deep dives on
+                systems-heavy products — send context and timeline.
+              </p>
               <motion.a
-                href="mailto:hello@example.com"
-                className="group inline-flex items-center gap-3 text-lg font-medium text-white md:text-xl"
+                href="mailto:hello@helpmepau.com"
+                className="mt-8 inline-flex items-center gap-2 text-base font-medium text-white md:mt-10"
                 whileHover={{ x: 4 }}
-                transition={{ type: "spring", stiffness: 400, damping: 28 }}
+                transition={{ type: "spring", stiffness: 420, damping: 30 }}
               >
-                <span className="border-b border-white/40 pb-0.5 transition-colors group-hover:border-white">
-                  hello@example.com
+                <span className="border-b border-white/35 pb-0.5 transition-colors hover:border-white">
+                  hello@helpmepau.com
                 </span>
-                <span
-                  className="text-white/40 transition-colors group-hover:text-white"
-                  aria-hidden
-                >
+                <span className="text-white/35" aria-hidden>
                   →
                 </span>
               </motion.a>
-              <p className="mt-8 text-xs uppercase tracking-[0.16em] text-white/40">
-                Based in Europe · Remote-friendly
-              </p>
             </Reveal>
           </div>
         </div>
