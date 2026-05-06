@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Fraunces, DM_Sans } from "next/font/google";
 import "./globals.css";
+import { cookies } from "next/headers";
+import { LanguageProvider, type Lang } from "@/i18n/i18n";
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -20,37 +23,24 @@ export const metadata: Metadata = {
     "Interfaces and systems that turn complexity into decisions. Product design grounded in systems thinking.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const langCookie = (await cookies()).get("lang")?.value;
+  const initialLang: Lang = langCookie === "es" ? "es" : "en";
+
   return (
-    <html lang="en" className={`${dmSans.variable} ${fraunces.variable}`}>
+    <html
+      lang={initialLang}
+      className={`${dmSans.variable} ${fraunces.variable}`}
+    >
       <body className="font-sans text-[15px] font-normal leading-relaxed tracking-[-0.01em] md:text-base md:tracking-normal">
-        <div
-          style={{
-            position: "fixed",
-            top: "20px",
-            right: "20px",
-            zIndex: 9999,
-            background: "red",
-            color: "white",
-            padding: "10px",
-          }}
-        >
-          DEBUG TOGGLE
-        </div>
-        <div className="fixed top-6 right-6 z-[9998] flex items-center gap-2 rounded-md border border-neutral-200/70 bg-white/75 px-3 py-2 text-sm tracking-tight text-neutral-950 shadow-sm backdrop-blur">
-          <button className="opacity-70 transition hover:opacity-100">
-            EN
-          </button>
-          <span className="opacity-60">/</span>
-          <button className="opacity-70 transition hover:opacity-100">
-            ES
-          </button>
-        </div>
-        {children}
+        <LanguageProvider initialLang={initialLang}>
+          <LanguageSwitcher />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

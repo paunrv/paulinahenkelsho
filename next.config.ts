@@ -5,6 +5,13 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   // Prefer this package as tracing root when other lockfiles exist higher in the tree
   outputFileTracingRoot: path.join(__dirname),
+  webpack: (config, { dev }) => {
+    if (dev) {
+      // Prevent occasional ENOENT errors from webpack persistent cache in dev.
+      config.cache = false;
+    }
+    return config;
+  },
 };
 
 export default nextConfig;

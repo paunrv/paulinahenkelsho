@@ -2,16 +2,19 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-
-const nav = [
-  { href: "#siveca", label: "SiVeCa" },
-  { href: "#systems", label: "Systems" },
-  { href: "#approach", label: "Approach" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
-];
+import { useT } from "@/i18n/i18n";
 
 export function SiteHeader() {
+  const t = useT();
+  const nav = [
+    { href: "#siveca", label: t.nav.siveca },
+    { href: "#systems", label: t.nav.systems },
+    { href: "#approach", label: t.nav.approach },
+    { href: "#about", label: t.nav.about },
+    { href: "#contact", label: t.nav.contact },
+    { href: "/cv", label: t.nav.cv },
+  ];
+
   return (
     <motion.header
       className="fixed inset-x-0 top-0 z-50 border-b border-neutral-200/90 bg-white/90 backdrop-blur-md"

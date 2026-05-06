@@ -1,8 +1,11 @@
 "use client";
 
 import { Reveal } from "@/components/motion/Reveal";
+import { useT } from "@/i18n/i18n";
 
 export function FeaturedProject() {
+  const t = useT();
+
   return (
     <section
       id="siveca"
@@ -13,35 +16,34 @@ export function FeaturedProject() {
       <div className="relative mx-auto max-w-6xl px-gutter">
         <Reveal>
           <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/45">
-            Featured project
+            {t.featured.eyebrow}
           </p>
           <div className="mt-8 grid gap-10 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-8">
               <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">
-                Environmental Intelligence Platform
+                {t.featured.platform}
               </p>
               <h2
                 id="siveca-heading"
                 className="mt-6 font-display text-display-sm font-light text-white text-balance md:text-display"
               >
-                We don’t measure particles.
+                {t.featured.title1}
                 <br />
-                We translate invisible systems.
+                {t.featured.title2}
               </h2>
               <p className="mt-8 max-w-2xl text-lg font-light leading-[1.55] text-white/72 md:text-xl">
-                From fragmented environmental data to decision-ready systems.
+                {t.featured.subtitle}
               </p>
             </div>
             <div className="md:col-span-4 md:pt-1">
               <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">
-                SiVeCa
+                {t.featured.projectName}
               </p>
               <p className="mt-4 text-xs leading-[1.6] text-white/45">
-                Built and tested in real-world environments.
+                {t.featured.projectKicker}
               </p>
               <p className="mt-5 text-base leading-[1.65] text-white/70">
-                A system for making irreversible decisions — where confidence
-                comes from structure, not intuition.
+                {t.featured.projectBody}
               </p>
             </div>
           </div>
@@ -51,36 +53,30 @@ export function FeaturedProject() {
           <Reveal>
             <div className="bg-neutral-950 p-8 md:p-10">
               <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">
-                Problem
+                {t.featured.cards.problem}
               </p>
               <p className="mt-6 text-sm leading-[1.65] text-white/70">
-                Environmental programs generate constant signals, but decisions
-                lag behind. Data arrives without meaning, context lives in too
-                many places, and accountability breaks when conditions shift.
+                {t.featured.problemBody}
               </p>
             </div>
           </Reveal>
           <Reveal delay={0.05}>
             <div className="bg-neutral-950 p-8 md:p-10">
               <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">
-                System
+                {t.featured.cards.system}
               </p>
               <p className="mt-6 text-sm leading-[1.65] text-white/70">
-                SiVeCa connects sensors, environmental variables, regulatory
-                frameworks, and user decisions — turning raw readings into an
-                interpretable chain from signal → implication → response.
+                {t.featured.systemBody}
               </p>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="bg-neutral-950 p-8 md:p-10">
               <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">
-                Outcome
+                {t.featured.cards.outcome}
               </p>
               <p className="mt-6 text-sm leading-[1.65] text-white/70">
-                A shift from monitoring to intelligence: clearer thresholds,
-                faster alignment, and decisions that hold up under scrutiny —
-                because the structure is explicit.
+                {t.featured.outcomeBody}
               </p>
             </div>
           </Reveal>

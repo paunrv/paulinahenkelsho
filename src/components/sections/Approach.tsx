@@ -1,25 +1,11 @@
-import { Reveal } from "@/components/motion/Reveal";
+"use client";
 
-const blocks = [
-  {
-    title: "Frame",
-    text: "Name the user, the risk, and the decision the product optimizes for — in language stakeholders can stress-test.",
-  },
-  {
-    title: "Model",
-    text: "Map objects, states, and handoffs. What stays visible; what sits one deliberate layer deeper.",
-  },
-  {
-    title: "Prototype",
-    text: "Flows and copy as one surface. Can people explain what happened — not only that they clicked through?",
-  },
-  {
-    title: "Ship",
-    text: "Instrument for learning, tighten edge cases, leave patterns that make the next release faster.",
-  },
-];
+import { Reveal } from "@/components/motion/Reveal";
+import { useT } from "@/i18n/i18n";
 
 export function Approach() {
+  const t = useT();
+
   return (
     <section
       id="approach"
@@ -28,15 +14,15 @@ export function Approach() {
       <div className="mx-auto max-w-6xl px-gutter">
         <Reveal>
           <h2 className="max-w-3xl font-display text-title-md font-light text-neutral-950 text-balance">
-            How I think — a loop, not a checklist
+            {t.approach.title}
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-[1.65] text-neutral-600">
-            Most products fail at the structure level, not the interface.
+            {t.approach.subtitle}
           </p>
         </Reveal>
 
         <div className="mt-14 grid gap-px bg-neutral-200/90 md:mt-20 md:grid-cols-2">
-          {blocks.map((block, i) => (
+          {t.approach.blocks.map((block, i) => (
             <Reveal key={block.title} delay={i * 0.05}>
               <div className="flex h-full flex-col bg-white p-8 md:p-10 lg:p-12">
                 <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-neutral-400">

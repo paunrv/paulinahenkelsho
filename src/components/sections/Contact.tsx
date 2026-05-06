@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/motion/Reveal";
+import { useT } from "@/i18n/i18n";
 
 export function Contact() {
+  const t = useT();
+
   return (
     <section
       id="contact"
@@ -13,14 +16,13 @@ export function Contact() {
         <div className="grid gap-12 md:grid-cols-12 md:gap-16 md:items-end">
           <Reveal className="md:col-span-7">
             <h2 className="font-display text-title-md font-light text-white text-balance md:text-title-lg">
-              Let’s build something that holds under pressure.
+              {t.contact.title}
             </h2>
           </Reveal>
           <div className="md:col-span-5">
             <Reveal delay={0.08} className="flex flex-col md:items-end md:text-right">
               <p className="max-w-md text-sm leading-[1.65] text-white/55 md:max-w-sm">
-                For collaborations, advisory work, or deep dives on
-                systems-heavy products — send context and timeline.
+                {t.contact.body}
               </p>
               <motion.a
                 href="mailto:hello@helpmepau.com"
