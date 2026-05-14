@@ -16,106 +16,169 @@ const COOKIE_KEY = "lang";
 const DICT = {
   en: {
     nav: {
-      siveca: "SiVeCa",
-      systems: "Systems",
+      work: "Work",
+      experience: "Experience",
       approach: "Approach",
       about: "About",
+      humi: "HUMI",
       contact: "Contact",
       cv: "CV",
     },
     hero: {
-      title: "Designing clarity in complex systems",
-      subtitle: "From real-world complexity to decision-ready systems.",
-      statement1: "We don’t design dashboards.",
-      statement2: "We design how decisions get made.",
+      title: "Product design and operational thinking for teams and live workflows",
+      subtitle:
+        "I help organize complexity across digital products, delivery, and programs—UX and UI, cross-functional coordination, and the structure teams need to execute.",
+      statement1: "Creating structure across products, teams, and operations.",
+      statement2:
+        "Clarity in who decides, what evidence they use, and how the group follows through.",
       scroll: "Scroll",
       cta: {
         cv: "View CV",
       },
     },
-    featured: {
-      eyebrow: "Featured project",
-      platform: "Environmental Intelligence Platform",
-      title1: "We don’t measure particles.",
-      title2: "We translate invisible systems.",
-      subtitle: "From fragmented environmental data to decision-ready systems.",
-      projectName: "SiVeCa",
-      projectKicker: "Built and tested in real-world environments.",
-      projectBody:
-        "A system for making irreversible decisions — where confidence comes from structure, not intuition.",
-      cards: {
-        problem: "Problem",
-        system: "System",
-        outcome: "Outcome",
+    selectedWork: {
+      sectionEyebrow: "Selected work",
+      sectionTitle: "Products, client programs, startup execution, and events",
+      sectionIntro:
+        "One thread across these: making workflows legible so people can align, ship, and follow up without losing the plot.",
+      siveca: {
+        platform: "Web product · monitoring & compliance workflows",
+        title1: "SiVeCa — from readings and rules",
+        title2: "to screens teams can run.",
+        subtitle:
+          "A modular web product for programs that reconcile field data, regulation, and sign-off. I owned UX, structure, and much of the product narrative alongside delivery work.",
+        projectName: "SiVeCa",
+        projectKicker: "Domain-heavy UX treated like any other operations product.",
+        projectBody:
+          "Decisions had to be traceable: what changed, which threshold applied, and why a response still made sense. The interface and the underlying structure needed to stay aligned.",
+        cards: {
+          problem: "Friction",
+          system: "Structure",
+          outcome: "Execution",
+        },
+        problemBody:
+          "Readings and context lived across spreadsheets, chats, and individual memory. When something shifted, it was hard to reconstruct who had agreed to what.",
+        systemBody:
+          "Flows tied inputs, variables, regulatory references, and roles into one path from signal to documented response—handoffs first, not a single hero screen.",
+        outcomeBody:
+          "Teams could rehearse decisions with explicit inputs, keep operators and reviewers on the same map, and iterate without rewriting the whole story each release.",
+        siteUrl: "https://www.siveca.com.mx/",
+        siteLabel: "siveca.com.mx",
       },
-      problemBody:
-        "Environmental programs generate constant signals, but decisions lag behind. Data arrives without meaning, context lives in too many places, and accountability breaks when conditions shift.",
-      systemBody:
-        "SiVeCa connects sensors, environmental variables, regulatory frameworks, and user decisions — turning raw readings into an interpretable chain from signal → implication → response.",
-      outcomeBody:
-        "A shift from monitoring to intelligence: clearer thresholds, faster alignment, and decisions that hold up under scrutiny — because the structure is explicit.",
-    },
-    systems: {
-      title: "Systems I work on",
-      intro: "I work across systems where clarity is critical:",
-      items: [
-        "Behavioral data systems (wellness)",
-        "Trust-driven platforms (real estate)",
-        "Experience-driven products (wine)",
-      ],
-    },
-    approach: {
-      title: "How I think — a loop, not a checklist",
-      subtitle: "Most products fail at the structure level, not the interface.",
-      blocks: [
+      engagements: [
         {
-          title: "Frame",
-          text: "Name the user, the risk, and the decision the product optimizes for — in language stakeholders can stress-test.",
+          title: "Cisco",
+          meta: "Field & product programs · 2023 – Present",
+          body:
+            "Technology and infrastructure programs for private and federal clients: on-site operational and safety work, translating requirements into usable workflows, and steady communication through delivery.",
         },
         {
-          title: "Model",
-          text: "Map objects, states, and handoffs. What stays visible; what sits one deliberate layer deeper.",
+          title: "Trato Hecho",
+          meta: "Startup · product & operations",
+          body:
+            "Early-stage contribution across product direction, site and content, Figma prototypes, light frontend support, and the day-to-day coordination startups rely on to move.",
+        },
+        {
+          title: "Events & programmes",
+          meta: "Logistics, participants, run-of-show",
+          body:
+            "End-to-end coordination for live formats—briefings, schedules, partners or volunteers, participant flow, and on-the-day adjustments when the plan meets reality.",
+        },
+      ],
+    },
+    experience: {
+      title: "Experience systems",
+      intro:
+        "Workshops, showcases, and community programmes behave like operational products: timelines, stakeholders, materials, and shared risk in the room. The same habits show up in the selected work above—from SiVeCa through HUMI.",
+      items: [
+        "Run-of-show and contingency planning so the schedule survives the day",
+        "Clear channels for participants, hosts, and partners—before, during, and after",
+        "Logistics treated as part of the experience, not an afterthought",
+        "Debriefs that turn friction into the next version of the playbook",
+      ],
+    },
+    humi: {
+      eyebrow: "Long-term platform",
+      title: "HUMI — academy, youth programming, and community infrastructure",
+      scale:
+        "60+ active students year-round · recurring cohorts · one annual masterclass or special event",
+      lead:
+        "A long-term academy and community environment built through structure, consistency, and clear human handoffs—not a side project.",
+      paragraphs: [
+        "For more than fifteen years HUMI has run as a steady, structured place—curricula and training halls alongside the planning, family-facing communication, and handoffs you would expect next to a product roadmap.",
+        "Locally it reads as infrastructure: coaching shifts, event support, and mentorship that give younger people paid practice in responsibility. The public face is a taekwondo academy; underneath are the same habits I bring to client work—owned decisions, steady weekly rhythms, and plain language for people who are not operators.",
+        "Once a year, one masterclass or special event—a scoped production. Guests rotate by edition; over the years that has included Olympic-level coaches, elite martial artists, and professional UFC athletes, never as a combined roster in the same weekend. I handle contracts, travel, registration, capacity, rehearsal, vendor and security handoffs, and day-of execution.",
+      ],
+      items: [
+        "Season-to-season leadership: staff, standards, and quality bar",
+        "Bridge between coaches, families, venues, and safety expectations",
+        "Enrollment, billing, and published calendars as repeatable touchpoints",
+        "Annual production from scope through run-of-show and on-site adjustments",
+        "Community channels that stay legible for non-operators",
+        "Paid pathways for young coaches and assistants—teaching, events, and support roles",
+      ],
+      eventsNote:
+        "Guests are chosen per edition for depth; each year is one production held to the same bar as any fixed-window programme.",
+      siteUrl: "https://humisite.vercel.app/",
+      siteLabel: "humisite.vercel.app",
+    },
+    approach: {
+      title: "How I work with teams",
+      subtitle:
+        "Iteration, communication, and explicit structure beat one-off inspiration. Many alignment gaps are vocabulary problems between disciplines, not pixel problems.",
+      blocks: [
+        {
+          title: "Listen & align",
+          text: "Surface who decides what, by when, and with which inputs. Make trade-offs speakable so stakeholders are not guessing each other's constraints.",
+        },
+        {
+          title: "Structure",
+          text: "Turn goals into flows, rituals, and artifacts people reuse: journeys that match operations, ticket-ready UI, or a one-page brief everyone can annotate.",
         },
         {
           title: "Prototype",
-          text: "Flows and copy as one surface. Can people explain what happened — not only that they clicked through?",
+          text: "Low or medium fidelity on purpose—enough truth to test coordination, copy, and edge states without polishing a direction you might drop next week.",
         },
         {
-          title: "Ship",
-          text: "Instrument for learning, tighten edge cases, leave patterns that make the next release faster.",
+          title: "Execute & adapt",
+          text: "Stay close during rollout: unblock adoption, capture surprises, adjust messaging and training. Operations feedback is product feedback.",
         },
       ],
     },
     about: {
-      title: "Grounded in how systems actually behave",
+      title: "Multidisciplinary product practice",
       body:
-        "I work with teams in regulated, technical, and politically sensitive spaces — where ambiguity has a cost and every session has to earn trust.",
+        "Background in digital design engineering with years between UX, hands-on product work, and operations-side coordination—in startups, venture-adjacent programs, and client delivery. Outside those contracts I lead HUMI, a long-run academy and community platform where scheduling, cohorts, an annual guest programme, and local work opportunities for young coaches run with the same operational rigor as a product roadmap. I translate between specialists and decision-makers so teams can execute without losing intent.",
       pillars: [
         {
-          title: "Systems",
-          body: "Incentives, constraints, and feedback loops first — so the product scales without losing coherence.",
-        },
-        {
           title: "Product",
-          body: "Scope, sequencing, and the narrative teams need when trade-offs are unavoidable.",
+          body: "Scope, sequencing, and UX craft for software people actually use—not only evaluate in a review.",
         },
         {
-          title: "Environment",
-          body: "Durable patterns, accessible defaults, and honest lifecycle thinking for work that leaves a footprint.",
+          title: "Operations",
+          body: "Workflows, documentation, and touchpoints that keep handoffs honest when volume, regulation, or time pressure spike.",
+        },
+        {
+          title: "People",
+          body: "Facilitation, async updates, and light rituals so cross-functional groups stay informed without drowning in noise.",
         },
       ],
     },
     contact: {
-      title: "Let’s build something that holds under pressure.",
+      title: "Say hello",
       body:
-        "For collaborations, advisory work, or deep dives on systems-heavy products — send context and timeline.",
+        "If you are building or running something that needs structure—not another slogan—send a short note with what you are working on and how I might help.",
     },
     footer: {
-      tagline: "Designing clarity in complex systems",
+      tagline: "Product, coordination, execution",
+      links: [
+        { label: "SiVeCa", href: "https://www.siveca.com.mx/" },
+        { label: "HUMI", href: "https://humisite.vercel.app/" },
+      ],
     },
     cv: {
       title: "CV",
-      role: "Product Designer | Systems Thinking | SaaS & Environmental Data",
+      role: "Product Designer · Product strategy & coordination",
       location: "Mexico (Remote-ready / Open to relocation)",
       languages: "Spanish (Native), English (Fluent)",
       actions: {
@@ -133,18 +196,18 @@ const DICT = {
         focus: "Focus areas",
       },
       summary:
-        "Product Designer with a background in Digital Design Engineering, combining systems thinking, UX/UI, and data-driven product development. Experienced in translating complex environments — including environmental data, digital platforms, and operational workflows — into intuitive and actionable solutions. Strong in bridging technical systems, user experience, and real-world operations. Currently focused on building SaaS platforms and environmental intelligence systems with global applications.",
+        "Product designer (B.S. Digital Design Engineering) working across UX/UI, product structure, and coordination with engineering, clients, and field teams. Recent work spans a web product for monitoring and compliance-style workflows (SiVeCa), infrastructure-related delivery with Cisco, startup product and ops (Trato Hecho), venture-ecosystem support (La Ruta VCC), and live programmes run with the same discipline as shipping software. For more than fifteen years I have also led HUMI, a community academy and operational platform—cohorts, events, staffing, and local work opportunities for young coaches. Figma-led design, clear documentation, and pragmatic use of AI for research and drafts—never as a substitute for judgment.",
       skills: [
-        "Product Design (UX/UI)",
-        "SaaS Product Development",
-        "Systems Thinking",
-        "Data Visualization",
-        "Environmental Data Interpretation",
-        "SEO Strategy",
-        "Content Writing",
-        "Product Strategy",
-        "User Research",
-        "Figma, Notion, AI",
+        "Product & UX/UI design",
+        "Cross-functional coordination (PM, eng, clients, field)",
+        "Workflow-heavy interfaces and service patterns",
+        "User research and facilitation",
+        "Data visualization for operational decisions",
+        "Event logistics, run-of-show, participant experience",
+        "Prototyping (Figma)",
+        "Specs, documentation, content",
+        "SEO and product communication",
+        "AI-assisted research and drafting",
       ],
       experience: [
         {
@@ -155,7 +218,7 @@ const DICT = {
             "Conducted on-site operational and safety analysis, connecting real-world systems with digital product workflows",
             "Supported product design processes by translating technical requirements into user-centered solutions",
             "Managed client communication and follow-up to align product delivery with stakeholder needs",
-            "Designed and developed the SiVeCa platform website, positioning it as an environmental data-driven product",
+            "Designed and shipped the SiVeCa product site and core product surfaces as part of broader client delivery work",
           ],
         },
         {
@@ -183,15 +246,25 @@ const DICT = {
       ],
       projects: [
         {
-          title: "SiVeCa — Environmental Intelligence Platform",
+          title: "SiVeCa — Web product for monitoring & decision workflows",
           bullets: [
-            "Designed and developed a platform for environmental monitoring and decision-making",
-            "Translated complex environmental data into clear, user-centered interfaces",
-            "Built a functional system aligned with regulatory frameworks (NOM standards)",
-            "Developed a compliance-oriented calculator for environmental metrics",
-            "Applied SEO and content strategy to position the platform in environmental and industrial sectors",
-            "Defined product vision toward a scalable SaaS environmental intelligence system",
-            "Positioned the platform as an Environmental Intelligence SaaS concept",
+            "Designed and shipped web surfaces for monitoring, thresholds, and review-heavy tasks",
+            "Structured inputs and outputs so operators and reviewers share a trace from reading to documented action",
+            "Aligned selected flows with Mexican regulatory references (NOM) where required",
+            "Built a compliance-oriented calculator for specific environmental metrics",
+            "Owned enough SEO and content for industrial and program audiences to find the product",
+            "Captured a credible path toward multi-tenant SaaS without overbuilding the first release",
+          ],
+        },
+        {
+          title: "HUMI — Long-term community platform",
+          bullets: [
+            "Lead operations for a taekwondo academy and youth-development environment with 60+ active students year-round",
+            "Maintain recurring workflows: schedules, instructor coordination, family communication, enrollment, and promotions",
+            "Plan and deliver one masterclass or special event per year—different high-level guests across editions, with the same operational rigor: contracts, travel, capacity, floor plans, registration, vendor or security coordination, and on-site execution",
+            "Coordinate multidisciplinary staff, volunteers, vendors, and safety or venue requirements under fixed clocks",
+            "Design work and mentorship paths for young coaches and assistants through teaching, logistics, and operational support",
+            "Publish community-facing information that stays legible for non-specialists while preserving operational detail",
           ],
         },
       ],
@@ -203,11 +276,12 @@ const DICT = {
         },
       ],
       focus: [
-        "Data-Driven Product Design",
-        "Environmental Intelligence Systems",
-        "SaaS Platforms & Digital Tools",
-        "Complex System Interfaces",
-        "Translating Data into Decision-Making",
+        "Product development & UX systems",
+        "Product operations and delivery coordination",
+        "Startup execution and venture-adjacent programs",
+        "Live events as operational experience design",
+        "Long-run community platforms (HUMI)",
+        "Data-informed interfaces without chart theatre",
       ],
     },
     language: {
@@ -218,106 +292,169 @@ const DICT = {
   },
   es: {
     nav: {
-      siveca: "SiVeCa",
-      systems: "Sistemas",
+      work: "Trabajo",
+      experience: "Experiencias",
       approach: "Enfoque",
       about: "Acerca",
+      humi: "HUMI",
       contact: "Contacto",
       cv: "CV",
     },
     hero: {
-      title: "Diseñando claridad en sistemas complejos",
-      subtitle: "De la complejidad real a sistemas listos para decidir.",
-      statement1: "No diseñamos dashboards.",
-      statement2: "Diseñamos cómo se toman decisiones.",
+      title: "Diseño de producto y pensamiento operativo para equipos y flujos reales",
+      subtitle:
+        "Ayudo a ordenar la complejidad entre producto digital, entrega y programas—UX/UI, coordinación cross-funcional y la estructura que los equipos necesitan para ejecutar.",
+      statement1: "Estructura entre producto, equipos y operaciones.",
+      statement2:
+        "Claridad en quién decide, con qué evidencia y cómo el grupo da seguimiento.",
       scroll: "Scroll",
       cta: {
         cv: "Ver CV",
       },
     },
-    featured: {
-      eyebrow: "Proyecto destacado",
-      platform: "Plataforma de Inteligencia Ambiental",
-      title1: "No medimos partículas.",
-      title2: "Traducimos sistemas invisibles.",
-      subtitle: "De datos ambientales fragmentados a sistemas listos para decidir.",
-      projectName: "SiVeCa",
-      projectKicker: "Construido y probado en entornos reales.",
-      projectBody:
-        "Un sistema para tomar decisiones irreversibles — donde la confianza viene de la estructura, no de la intuición.",
-      cards: {
-        problem: "Problema",
-        system: "Sistema",
-        outcome: "Resultado",
+    selectedWork: {
+      sectionEyebrow: "Trabajo seleccionado",
+      sectionTitle: "Productos, programas con clientes, ejecución startup y eventos",
+      sectionIntro:
+        "Un hilo común: hacer legibles los flujos para que la gente alinee, entregue y dé seguimiento sin perder el hilo.",
+      siveca: {
+        platform: "Producto web · flujos de monitoreo y cumplimiento",
+        title1: "SiVeCa — de lecturas y reglas",
+        title2: "a pantallas que el equipo puede operar.",
+        subtitle:
+          "Producto web modular para programas que concilian datos de campo, normativa y aprobaciones. Lideré UX, estructura y buena parte de la narrativa de producto junto con la entrega.",
+        projectName: "SiVeCa",
+        projectKicker: "UX con dominio fuerte, tratada como producto operativo.",
+        projectBody:
+          "Las decisiones debían ser trazables: qué cambió, qué umbral aplicó y por qué una respuesta seguía siendo válida. La interfaz y la estructura subyacente debían mantenerse alineadas.",
+        cards: {
+          problem: "Fricción",
+          system: "Estructura",
+          outcome: "Ejecución",
+        },
+        problemBody:
+          "Lecturas y contexto vivían repartidos entre hojas de cálculo, chats y memoria individual. Cuando algo cambiaba, costaba reconstruir quién había acordado qué.",
+        systemBody:
+          "Los flujos enlazaron insumos, variables, referencias regulatorias y roles en un solo camino de señal a respuesta documentada—primero los traspasos, no una sola pantalla hero.",
+        outcomeBody:
+          "Los equipos pudieron ensayar decisiones con insumos explícitos, mantener a operadores y revisores en el mismo mapa e iterar sin reescribir toda la historia en cada release.",
+        siteUrl: "https://www.siveca.com.mx/",
+        siteLabel: "siveca.com.mx",
       },
-      problemBody:
-        "Los programas ambientales generan señales constantes, pero las decisiones se quedan atrás. Los datos llegan sin significado, el contexto vive en demasiados lugares y la rendición de cuentas se rompe cuando cambian las condiciones.",
-      systemBody:
-        "SiVeCa conecta sensores, variables ambientales, marcos regulatorios y decisiones de usuario — transformando lecturas crudas en una cadena interpretable de señal → implicación → respuesta.",
-      outcomeBody:
-        "Un cambio de monitoreo a inteligencia: umbrales más claros, alineación más rápida y decisiones que resisten el escrutinio — porque la estructura es explícita.",
-    },
-    systems: {
-      title: "Sistemas en los que trabajo",
-      intro: "Trabajo en sistemas donde la claridad es crítica:",
-      items: [
-        "Sistemas de datos conductuales (bienestar)",
-        "Plataformas basadas en confianza (bienes raíces)",
-        "Productos guiados por experiencia (vino)",
-      ],
-    },
-    approach: {
-      title: "Cómo pienso — un ciclo, no una checklist",
-      subtitle: "La mayoría de los productos fallan en la estructura, no en la interfaz.",
-      blocks: [
+      engagements: [
         {
-          title: "Enmarcar",
-          text: "Definir el usuario, el riesgo y la decisión que el producto optimiza — en un lenguaje que el equipo y stakeholders puedan poner a prueba.",
+          title: "Cisco",
+          meta: "Programas de campo y producto · 2023 – Presente",
+          body:
+            "Programas de tecnología e infraestructura para clientes privados y federales: trabajo operativo y de seguridad en sitio, traducción de requisitos a flujos usables y comunicación constante durante la entrega.",
         },
         {
-          title: "Modelar",
-          text: "Mapear objetos, estados y traspasos. Qué queda visible; qué vive una capa deliberada más abajo.",
+          title: "Trato Hecho",
+          meta: "Startup · producto y operaciones",
+          body:
+            "Contribución temprana en dirección de producto, sitio y contenido, prototipos en Figma, apoyo ligero a frontend y la coordinación cotidiana que las startups usan para avanzar.",
+        },
+        {
+          title: "Eventos y programas",
+          meta: "Logística, participantes, guión del día",
+          body:
+            "Coordinación de punta a punta para formatos presenciales—briefings, cronogramas, aliados o voluntarios, flujo de participantes y ajustes en el día cuando el plan choca con la realidad.",
+        },
+      ],
+    },
+    experience: {
+      title: "Sistemas de experiencia",
+      intro:
+        "Talleres, showcases y programas comunitarios se comportan como productos operativos: tiempos, stakeholders, materiales y riesgo compartido en la sala. Los mismos hábitos aparecen en el trabajo seleccionado de arriba—desde SiVeCa hasta HUMI.",
+      items: [
+        "Guión del día y planes B para que el cronograma sobreviva a lo imprevisto",
+        "Canales claros para participantes, anfitriones y aliados—antes, durante y después",
+        "Logística como parte de la experiencia, no como apéndice",
+        "Debriefs que convierten la fricción en la siguiente versión del playbook",
+      ],
+    },
+    humi: {
+      eyebrow: "Plataforma de largo plazo",
+      title: "HUMI — academia, formación juvenil e infraestructura comunitaria",
+      scale:
+        "60+ alumnos activos durante el año · cohortes recurrentes · una clase magistral o evento especial al año",
+      lead:
+        "Un entorno comunitario de largo plazo, con estructura, constancia y traspasos humanos claros—no como pasatiempo.",
+      paragraphs: [
+        "Hace más de quince años HUMI opera como un lugar estable y estructurado—currículos y sala de entrenamiento junto a la planificación, la comunicación con familias y los traspasos que esperarías junto a un roadmap de producto.",
+        "A nivel local se lee como infraestructura: turnos de coaching, apoyo a eventos y mentoría que dan a personas jóvenes práctica pagada en responsabilidad. La cara pública es una academia de taekwondo; debajo están los mismos hábitos que llevo a clientes—decisiones con dueño, ritmos semanales firmes y lenguaje claro para quien no vive en la operación.",
+        "Una vez al año, una clase magistral o evento especial—producción acotada. Los invitados rotan por edición; a lo largo de los años han incluido entrenadores de nivel olímpico, artistas marciales de élite y atletas profesionales de UFC, nunca el mismo elenco en un solo fin de semana. Llevo contratos y viajes, registro y cupo, ensayo, traspasos con proveedores o seguridad y ejecución el día del evento.",
+      ],
+      items: [
+        "Liderazgo entre temporadas: staff, estándares y vara de calidad",
+        "Puente entre instructores, familias, sedes y expectativas de seguridad",
+        "Inscripción, cobros y calendarios publicados como puntos de contacto recurrentes",
+        "Producción anual: del alcance al guión del día y ajustes en sitio",
+        "Canales hacia la comunidad que siguen legibles para quien no es operador",
+        "Rutas pagadas para entrenadores jóvenes y asistentes—clases, eventos y roles de apoyo",
+      ],
+      eventsNote:
+        "Los invitados se eligen por edición por profundidad; cada año es una sola producción con la misma vara que cualquier ventana fija.",
+      siteUrl: "https://humisite.vercel.app/",
+      siteLabel: "humisite.vercel.app",
+    },
+    approach: {
+      title: "Cómo trabajo con equipos",
+      subtitle:
+        "Iteración, comunicación y estructura explícita ganan a la inspiración suelta. Muchas brechas de alineación son de vocabulario entre disciplinas, no de píxeles.",
+      blocks: [
+        {
+          title: "Escuchar y alinear",
+          text: "Dejar claro quién decide qué, para cuándo y con qué insumos. Que los trade-offs se puedan nombrar y los stakeholders no adivinen las restricciones del otro.",
+        },
+        {
+          title: "Estructurar",
+          text: "Convertir metas en flujos, rituales y artefactos reutilizables: journeys alineados a operaciones, UI lista para ticket o un brief de una página que todos puedan anotar.",
         },
         {
           title: "Prototipar",
-          text: "Flujos y copy como una sola superficie. ¿Las personas pueden explicar qué pasó — no solo que hicieron clic?",
+          text: "Baja o media fidelidad a propósito—suficiente verdad para probar coordinación, copy y estados límite sin pulir una dirección que podrías descartar la próxima semana.",
         },
         {
-          title: "Lanzar",
-          text: "Instrumentar para aprender, cerrar edge cases, dejar patrones que hagan el siguiente release más rápido.",
+          title: "Ejecutar y adaptar",
+          text: "Cerca durante el despliegue: desbloquear adopción, captar sorpresas, ajustar mensajes y capacitación. El feedback de operaciones es feedback de producto.",
         },
       ],
     },
     about: {
-      title: "Con base en cómo se comportan los sistemas en la vida real",
+      title: "Práctica multidisciplinaria de producto",
       body:
-        "Trabajo con equipos en espacios regulados, técnicos y políticamente sensibles — donde la ambigüedad tiene un costo y cada sesión tiene que ganarse la confianza.",
+        "Formación en ingeniería en diseño digital y años entre UX, producto hands-on y coordinación del lado operaciones—en startups, programas venture-adjacentes y entrega a clientes. Fuera de esos contratos lidero HUMI, una academia y plataforma comunitaria de largo plazo donde cronogramas, cohortes, un programa anual con invitados y oportunidades locales de trabajo para entrenadores jóvenes corren con la misma rigurosidad operativa que un roadmap de producto. Traduzco entre especialistas y quienes deciden para que el equipo ejecute sin perder la intención.",
       pillars: [
         {
-          title: "Sistemas",
-          body: "Primero incentivos, restricciones y loops de feedback — para que el producto escale sin perder coherencia.",
-        },
-        {
           title: "Producto",
-          body: "Alcance, secuencia y la narrativa que los equipos necesitan cuando los trade-offs son inevitables.",
+          body: "Alcance, secuencia y oficio UX para software que la gente usa de verdad—no solo evalúa en una revisión.",
         },
         {
-          title: "Entorno",
-          body: "Patrones durables, defaults accesibles y pensamiento honesto de ciclo de vida para trabajo que deja huella.",
+          title: "Operaciones",
+          body: "Flujos, documentación y puntos de contacto que mantienen honestos los traspasos cuando sube el volumen, la norma o la presión de tiempo.",
+        },
+        {
+          title: "Personas",
+          body: "Facilitación, actualizaciones async y rituales ligeros para que grupos cross-funcionales se mantengan informados sin ahogarse en ruido.",
         },
       ],
     },
     contact: {
-      title: "Construyamos algo que resista la presión.",
+      title: "Di hola",
       body:
-        "Para colaboraciones, trabajo advisory o deep dives en productos intensivos en sistemas — envía contexto y timeline.",
+        "Si estás construyendo o operando algo que necesita estructura—no otro eslogan—envía una nota breve con en qué trabajas y cómo podría ayudar.",
     },
     footer: {
-      tagline: "Diseñando claridad en sistemas complejos",
+      tagline: "Producto, coordinación, ejecución",
+      links: [
+        { label: "SiVeCa", href: "https://www.siveca.com.mx/" },
+        { label: "HUMI", href: "https://humisite.vercel.app/" },
+      ],
     },
     cv: {
       title: "CV",
-      role: "Product Designer | Systems Thinking | Environmental Data & SaaS",
+      role: "Product Designer · Estrategia de producto y coordinación",
       location: "México (Remoto / Abierta a reubicación)",
       languages: "Español (Nativo), Inglés (Fluido)",
       actions: {
@@ -335,18 +472,18 @@ const DICT = {
         focus: "Áreas de enfoque",
       },
       summary:
-        "Product Designer con formación en Digital Design Engineering, combinando pensamiento sistémico, UX/UI y desarrollo de producto basado en datos. Experiencia traduciendo entornos complejos — incluyendo datos ambientales, plataformas digitales y flujos operativos — en soluciones intuitivas y accionables. Fuerte conectando sistemas técnicos, experiencia de usuario y operaciones del mundo real. Actualmente enfocada en construir plataformas SaaS y sistemas de inteligencia ambiental con aplicaciones globales.",
+        "Diseñadora de producto (Lic. Digital Design Engineering) en UX/UI, estructura de producto y coordinación con ingeniería, clientes y equipos de campo. Trabajo reciente: producto web para monitoreo y flujos tipo cumplimiento (SiVeCa), entrega ligada a infraestructura con Cisco, producto y operaciones en startup (Trato Hecho), soporte en ecosistema venture (La Ruta VCC) y programas presenciales con la misma disciplina que un release de software. Desde hace más de quince años también lidero HUMI, una academia comunitaria y plataforma operativa—cohortes, eventos, staff y oportunidades locales de trabajo para entrenadores jóvenes. Diseño en Figma, documentación clara y uso pragmático de IA para investigación y borradores—nunca como sustituto del criterio.",
       skills: [
-        "Product Design (UX/UI)",
-        "Desarrollo de producto SaaS",
-        "Pensamiento sistémico",
-        "Visualización de datos",
-        "Interpretación de datos ambientales",
-        "Estrategia SEO",
-        "Redacción de contenido",
-        "Estrategia de producto",
-        "Investigación de usuarios",
-        "Figma, Notion, AI",
+        "Diseño de producto y UX/UI",
+        "Coordinación cross-funcional (PM, ingeniería, clientes, campo)",
+        "Interfaces con flujos pesados y patrones de servicio",
+        "Investigación de usuarios y facilitación",
+        "Visualización de datos para decisiones operativas",
+        "Logística de eventos, guión del día, experiencia de participantes",
+        "Prototipado (Figma)",
+        "Especificaciones, documentación, contenido",
+        "SEO y comunicación de producto",
+        "Investigación y borradores asistidos por IA",
       ],
       experience: [
         {
@@ -357,7 +494,7 @@ const DICT = {
             "Realicé análisis operativos y de seguridad en sitio, conectando sistemas del mundo real con flujos de producto digital",
             "Apoyé procesos de diseño de producto traduciendo requerimientos técnicos en soluciones centradas en el usuario",
             "Gestioné comunicación y seguimiento con clientes para alinear la entrega con necesidades de stakeholders",
-            "Diseñé y desarrollé el sitio del producto SiVeCa, posicionándolo como un producto impulsado por datos ambientales",
+            "Diseñé y publiqué el sitio del producto SiVeCa y superficies centrales como parte de la entrega a clientes",
           ],
         },
         {
@@ -385,15 +522,25 @@ const DICT = {
       ],
       projects: [
         {
-          title: "SiVeCa — Plataforma de Inteligencia Ambiental",
+          title: "SiVeCa — Producto web para monitoreo y flujos de decisión",
           bullets: [
-            "Diseñé y desarrollé una plataforma para monitoreo ambiental y toma de decisiones",
-            "Traduje datos ambientales complejos en interfaces claras centradas en el usuario",
-            "Construí un sistema funcional alineado con marcos regulatorios (normas NOM)",
-            "Desarrollé una calculadora orientada a cumplimiento para métricas ambientales",
-            "Apliqué SEO y estrategia de contenido para posicionar la plataforma en sectores ambientales e industriales",
-            "Definí visión de producto hacia un sistema SaaS escalable de inteligencia ambiental",
-            "Posicioné la plataforma como concepto de SaaS de Inteligencia Ambiental",
+            "Diseñé y publiqué superficies web para monitoreo, umbrales y tareas con mucha revisión",
+            "Organicé entradas y salidas para que operadores y revisores compartan una traza de lectura a acción documentada",
+            "Alineé flujos seleccionados con referencias regulatorias mexicanas (NOM) donde aplica",
+            "Construí una calculadora orientada a cumplimiento para métricas ambientales específicas",
+            "Lideré SEO y contenido suficientes para que audiencias industriales y de programa encontraran el producto",
+            "Dejé documentada una ruta creíble hacia SaaS multi-tenant sin sobreconstruir el primer release",
+          ],
+        },
+        {
+          title: "HUMI — Plataforma comunitaria de largo plazo",
+          bullets: [
+            "Operación de una academia de taekwondo y entorno de desarrollo juvenil con más de 60 alumnos activos durante el año",
+            "Flujos recurrentes: horarios, coordinación de instructores, comunicación con familias, inscripciones y promociones",
+            "Planificar y entregar una clase magistral o evento especial al año—invitados de alto nivel distintos según la edición, con la misma rigurosidad operativa: contratos, viajes, cupo, planos, registro, coordinación con proveedores o seguridad y ejecución en sitio",
+            "Coordinación de staff multidisciplinario, voluntarios, proveedores y requisitos de seguridad o sede bajo relojes fijos",
+            "Rutas de trabajo y mentoría para entrenadores jóvenes y asistentes mediante enseñanza, logística y soporte operativo",
+            "Información hacia la comunidad legible para no especialistas sin perder detalle operativo",
           ],
         },
       ],
@@ -405,11 +552,12 @@ const DICT = {
         },
       ],
       focus: [
-        "Diseño de producto basado en datos",
-        "Sistemas de inteligencia ambiental",
-        "Plataformas SaaS y herramientas digitales",
-        "Interfaces de sistemas complejos",
-        "Traducir datos en toma de decisiones",
+        "Desarrollo de producto y sistemas de UX",
+        "Operaciones de producto y coordinación de entrega",
+        "Ejecución en startup y programas venture-adjacentes",
+        "Eventos presenciales como diseño operativo de experiencia",
+        "Plataformas comunitarias de largo plazo (HUMI)",
+        "Interfaces con datos sin teatro de gráficos",
       ],
     },
     language: {

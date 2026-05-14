@@ -18,9 +18,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Paulina Henkelsho — Designing clarity in complex systems",
+  title: "Paulina Henkelsho — Product design, operations, and coordination",
   description:
-    "Interfaces and systems that turn complexity into decisions. Product design grounded in systems thinking.",
+    "Multidisciplinary product work: UX/UI, cross-functional coordination, delivery programs, startup execution, and live event operations.",
 };
 
 export default async function RootLayout({

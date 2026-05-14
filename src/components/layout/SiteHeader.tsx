@@ -7,10 +7,11 @@ import { useT } from "@/i18n/i18n";
 export function SiteHeader() {
   const t = useT();
   const nav = [
-    { href: "#siveca", label: t.nav.siveca },
-    { href: "#systems", label: t.nav.systems },
-    { href: "#approach", label: t.nav.approach },
     { href: "#about", label: t.nav.about },
+    { href: "#work", label: t.nav.work },
+    { href: "#approach", label: t.nav.approach },
+    { href: "#experience", label: t.nav.experience },
+    { href: "#humi", label: t.nav.humi },
     { href: "#contact", label: t.nav.contact },
     { href: "/cv", label: t.nav.cv },
   ];
