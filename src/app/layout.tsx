@@ -1,26 +1,46 @@
 import type { Metadata } from "next";
-import { Fraunces, DM_Sans } from "next/font/google";
+import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { cookies } from "next/headers";
 import { LanguageProvider, type Lang } from "@/i18n/i18n";
-import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Paulina Henkelsho — Product design, operations, and coordination",
+  title: "Paulina Henkel — Systems & Product Strategist",
   description:
-    "Multidisciplinary product work: UX/UI, cross-functional coordination, delivery programs, startup execution, and live event operations.",
+    "Transforming complex technology into intuitive experiences. Product, systems, operations, and AI.",
+  metadataBase: new URL("https://pauhenkelsho.com"),
+  openGraph: {
+    title: "Paulina Henkel — Systems & Product Strategist",
+    description:
+      "Transforming complex technology into intuitive experiences.",
+    url: "https://pauhenkelsho.com",
+    siteName: "Paulina Henkel",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Paulina Henkel — Systems & Product Strategist",
+    description:
+      "Transforming complex technology into intuitive experiences.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default async function RootLayout({
@@ -34,11 +54,24 @@ export default async function RootLayout({
   return (
     <html
       lang={initialLang}
-      className={`${dmSans.variable} ${fraunces.variable}`}
+      className={`${inter.variable} ${instrumentSerif.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body className="font-sans text-[15px] font-normal leading-relaxed tracking-[-0.01em] md:text-base md:tracking-normal">
+        <a
+          href="#hero"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-md focus:bg-neutral-950 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white dark:focus:bg-neutral-50 dark:focus:text-neutral-950"
+        >
+          Skip to content
+        </a>
         <LanguageProvider initialLang={initialLang}>
-          <LanguageSwitcher />
           {children}
         </LanguageProvider>
       </body>

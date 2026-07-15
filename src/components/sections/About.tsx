@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { useT } from "@/i18n/i18n";
 
@@ -9,34 +10,49 @@ export function About() {
   return (
     <section
       id="about"
-      className="border-t border-neutral-200/80 bg-white py-section"
+      className="border-t border-neutral-200/60 py-section dark:border-neutral-800/60"
     >
       <div className="mx-auto max-w-6xl px-gutter">
-        <div className="grid gap-12 md:grid-cols-12 md:gap-16 lg:gap-20">
-          <Reveal className="md:col-span-5">
-            <h2 className="font-display text-title-md font-light text-neutral-950 text-balance">
+        <div className="max-w-2xl">
+          <Reveal>
+            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-600">
               {t.about.title}
-            </h2>
-            <p className="mt-8 text-base leading-[1.65] text-neutral-600">
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.06}>
+            <p className="mt-8 font-display text-title-sm font-normal text-neutral-950 text-balance dark:text-neutral-50">
+              {t.about.lead}
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.12}>
+            <p className="mt-8 text-lg leading-[1.65] text-neutral-500 dark:text-neutral-400">
               {t.about.body}
             </p>
           </Reveal>
-          <div className="md:col-span-7">
-            <div className="grid gap-8 border-t border-neutral-200 pt-8 md:grid-cols-3 md:gap-6 md:pt-10 lg:gap-8">
-              {t.about.pillars.map((item, i) => (
-                <Reveal key={item.title} delay={i * 0.06}>
-                  <div className="flex flex-col border-neutral-200 md:border-0 md:pr-4">
-                    <h3 className="font-display text-lg font-light text-neutral-950">
-                      {item.title}
-                    </h3>
-                    <p className="mt-4 text-sm leading-[1.65] text-neutral-600">
-                      {item.body}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
+
+          <Reveal delay={0.18}>
+            <p className="mt-6 text-lg leading-[1.65] text-neutral-700 dark:text-neutral-300">
+              {t.about.closing}
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.24}>
+            <div className="mt-12">
+              <Link
+                href="/cv"
+                className="group inline-flex items-center gap-3 text-sm font-medium text-neutral-950 dark:text-neutral-50"
+              >
+                <span className="border-b border-neutral-300 pb-0.5 transition-colors group-hover:border-neutral-950 dark:border-neutral-700 dark:group-hover:border-neutral-50">
+                  {t.about.cvLink}
+                </span>
+                <span className="text-neutral-400 transition-transform group-hover:translate-x-1 dark:text-neutral-600" aria-hidden>
+                  →
+                </span>
+              </Link>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -19,162 +19,105 @@ const DICT = {
       work: "Work",
       experience: "Experience",
       approach: "Approach",
+      process: "Process",
       about: "About",
       humi: "HUMI",
       contact: "Contact",
       cv: "CV",
     },
     hero: {
-      title: "Product design and operational thinking for teams and live workflows",
-      subtitle:
-        "I help organize complexity across digital products, delivery, and programs—UX and UI, cross-functional coordination, and the structure teams need to execute.",
-      statement1: "Creating structure across products, teams, and operations.",
-      statement2:
-        "Clarity in who decides, what evidence they use, and how the group follows through.",
-      scroll: "Scroll",
-      cta: {
-        cv: "View CV",
-      },
+      role: "Systems & Product Strategist",
+      headline: "Transforming complex technology into intuitive experiences.",
+      cta: "View my work",
+    },
+    philosophy: {
+      statement: "Technology should feel like an extension of our possibilities.",
+      lines: [
+        "Not a barrier.",
+        "Not a manual.",
+        "Not a system you fight against.",
+      ],
+      closing1: "My work lives at the intersection of product, systems, operations, and AI.",
+      closing2: "I don\u2019t build software. I build clarity.",
     },
     selectedWork: {
-      sectionEyebrow: "Selected work",
-      sectionTitle: "Products, client programs, startup execution, and events",
-      sectionIntro:
-        "One thread across these: making workflows legible so people can align, ship, and follow up without losing the plot.",
-      siveca: {
-        platform: "Web product · monitoring & compliance workflows",
-        title1: "SiVeCa — from readings and rules",
-        title2: "to screens teams can run.",
-        subtitle:
-          "A modular web product for programs that reconcile field data, regulation, and sign-off. I owned UX, structure, and much of the product narrative alongside delivery work.",
-        projectName: "SiVeCa",
-        projectKicker: "Domain-heavy UX treated like any other operations product.",
-        projectBody:
-          "Decisions had to be traceable: what changed, which threshold applied, and why a response still made sense. The interface and the underlying structure needed to stay aligned.",
-        cards: {
-          problem: "Friction",
-          system: "Structure",
-          outcome: "Execution",
-        },
-        problemBody:
-          "Readings and context lived across spreadsheets, chats, and individual memory. When something shifted, it was hard to reconstruct who had agreed to what.",
-        systemBody:
-          "Flows tied inputs, variables, regulatory references, and roles into one path from signal to documented response—handoffs first, not a single hero screen.",
-        outcomeBody:
-          "Teams could rehearse decisions with explicit inputs, keep operators and reviewers on the same map, and iterate without rewriting the whole story each release.",
-        siteUrl: "https://www.siveca.com.mx/",
-        siteLabel: "siveca.com.mx",
+      eyebrow: "Selected work",
+      title: "Things I\u2019ve built.",
+      labels: {
+        problem: "Problem",
+        approach: "Approach",
+        outcome: "Outcome",
+        lessons: "Lessons learned",
       },
-      engagements: [
+      cases: [
         {
-          title: "Cisco",
-          meta: "Field & product programs · 2023 – Present",
-          body:
-            "Technology and infrastructure programs for private and federal clients: on-site operational and safety work, translating requirements into usable workflows, and steady communication through delivery.",
+          name: "SiVeCa",
+          context: "Web product \u00b7 Monitoring & compliance workflows",
+          problem: "Field data, regulations, and sign-offs lived across spreadsheets, chats, and individual memory. When conditions changed, teams couldn\u2019t reconstruct who agreed to what.",
+          approach: "Designed a modular web product that ties inputs, variables, regulatory references, and roles into one traceable path\u2014from signal to documented response.",
+          outcome: "Teams can now rehearse decisions with explicit inputs, keep operators and reviewers aligned, and iterate without rewriting the entire story each release.",
+          lessons: "Domain-heavy products need the same UX rigor as consumer apps. Traceability is the product.",
+          url: "https://www.siveca.com.mx/",
+          urlLabel: "siveca.com.mx",
         },
         {
-          title: "Trato Hecho",
-          meta: "Startup · product & operations",
-          body:
-            "Early-stage contribution across product direction, site and content, Figma prototypes, light frontend support, and the day-to-day coordination startups rely on to move.",
+          name: "PROOF",
+          context: "Coming soon",
+          problem: "",
+          approach: "",
+          outcome: "",
+          lessons: "",
+          url: "",
+          urlLabel: "",
         },
         {
-          title: "Events & programmes",
-          meta: "Logistics, participants, run-of-show",
-          body:
-            "End-to-end coordination for live formats—briefings, schedules, partners or volunteers, participant flow, and on-the-day adjustments when the plan meets reality.",
+          name: "HUMI",
+          context: "Academy & community platform \u00b7 15+ years",
+          problem: "A youth academy with 60+ students needed the operational rigor of a product team\u2014schedules, cohorts, family communication, events\u2014without the overhead of enterprise tools.",
+          approach: "Built and run a long-term operational platform: curricula, instructor coordination, enrollment systems, and one annual production with high-level guests, managed end-to-end.",
+          outcome: "15+ years of consistent operation. Paid pathways for young coaches. A community that reads as infrastructure, not a side project.",
+          lessons: "The best systems are invisible. When operations work, people only see the experience.",
+          url: "https://humisite.vercel.app/",
+          urlLabel: "humisite.vercel.app",
+        },
+        {
+          name: "Home Exchange",
+          context: "Coming soon",
+          problem: "",
+          approach: "",
+          outcome: "",
+          lessons: "",
+          url: "",
+          urlLabel: "",
         },
       ],
     },
-    experience: {
-      title: "Experience systems",
-      intro:
-        "Workshops, showcases, and community programmes behave like operational products: timelines, stakeholders, materials, and shared risk in the room. The same habits show up in the selected work above—from SiVeCa through HUMI.",
-      items: [
-        "Run-of-show and contingency planning so the schedule survives the day",
-        "Clear channels for participants, hosts, and partners—before, during, and after",
-        "Logistics treated as part of the experience, not an afterthought",
-        "Debriefs that turn friction into the next version of the playbook",
-      ],
-    },
-    humi: {
-      eyebrow: "Long-term platform",
-      title: "HUMI — academy, youth programming, and community infrastructure",
-      scale:
-        "60+ active students year-round · recurring cohorts · one annual masterclass or special event",
-      lead:
-        "A long-term academy and community environment built through structure, consistency, and clear human handoffs—not a side project.",
-      paragraphs: [
-        "For more than fifteen years HUMI has run as a steady, structured place—curricula and training halls alongside the planning, family-facing communication, and handoffs you would expect next to a product roadmap.",
-        "Locally it reads as infrastructure: coaching shifts, event support, and mentorship that give younger people paid practice in responsibility. The public face is a taekwondo academy; underneath are the same habits I bring to client work—owned decisions, steady weekly rhythms, and plain language for people who are not operators.",
-        "Once a year, one masterclass or special event—a scoped production. Guests rotate by edition; over the years that has included Olympic-level coaches, elite martial artists, and professional UFC athletes, never as a combined roster in the same weekend. I handle contracts, travel, registration, capacity, rehearsal, vendor and security handoffs, and day-of execution.",
-      ],
-      items: [
-        "Season-to-season leadership: staff, standards, and quality bar",
-        "Bridge between coaches, families, venues, and safety expectations",
-        "Enrollment, billing, and published calendars as repeatable touchpoints",
-        "Annual production from scope through run-of-show and on-site adjustments",
-        "Community channels that stay legible for non-operators",
-        "Paid pathways for young coaches and assistants—teaching, events, and support roles",
-      ],
-      eventsNote:
-        "Guests are chosen per edition for depth; each year is one production held to the same bar as any fixed-window programme.",
-      siteUrl: "https://humisite.vercel.app/",
-      siteLabel: "humisite.vercel.app",
-    },
-    approach: {
-      title: "How I work with teams",
-      subtitle:
-        "Iteration, communication, and explicit structure beat one-off inspiration. Many alignment gaps are vocabulary problems between disciplines, not pixel problems.",
-      blocks: [
-        {
-          title: "Listen & align",
-          text: "Surface who decides what, by when, and with which inputs. Make trade-offs speakable so stakeholders are not guessing each other's constraints.",
-        },
-        {
-          title: "Structure",
-          text: "Turn goals into flows, rituals, and artifacts people reuse: journeys that match operations, ticket-ready UI, or a one-page brief everyone can annotate.",
-        },
-        {
-          title: "Prototype",
-          text: "Low or medium fidelity on purpose—enough truth to test coordination, copy, and edge states without polishing a direction you might drop next week.",
-        },
-        {
-          title: "Execute & adapt",
-          text: "Stay close during rollout: unblock adoption, capture surprises, adjust messaging and training. Operations feedback is product feedback.",
-        },
+    process: {
+      eyebrow: "Process",
+      title: "How I work.",
+      steps: [
+        { name: "Discover", description: "Map the real constraints before choosing a direction." },
+        { name: "Understand", description: "Talk to the people closest to the problem." },
+        { name: "Structure", description: "Turn ambiguity into a system others can navigate." },
+        { name: "Build", description: "Ship something real. Learn from what breaks." },
+        { name: "Document", description: "Make decisions traceable so the next person doesn\u2019t start from zero." },
+        { name: "Scale", description: "Design for the team that inherits it, not the one that built it." },
       ],
     },
     about: {
-      title: "Multidisciplinary product practice",
-      body:
-        "Background in digital design engineering with years between UX, hands-on product work, and operations-side coordination—in startups, venture-adjacent programs, and client delivery. Outside those contracts I lead HUMI, a long-run academy and community platform where scheduling, cohorts, an annual guest programme, and local work opportunities for young coaches run with the same operational rigor as a product roadmap. I translate between specialists and decision-makers so teams can execute without losing intent.",
-      pillars: [
-        {
-          title: "Product",
-          body: "Scope, sequencing, and UX craft for software people actually use—not only evaluate in a review.",
-        },
-        {
-          title: "Operations",
-          body: "Workflows, documentation, and touchpoints that keep handoffs honest when volume, regulation, or time pressure spike.",
-        },
-        {
-          title: "People",
-          body: "Facilitation, async updates, and light rituals so cross-functional groups stay informed without drowning in noise.",
-        },
-      ],
+      title: "How I think.",
+      lead: "I work at the intersection where people meet technology.",
+      body: "Most systems fail not because of bad code, but because no one translated complexity into something a team could use.",
+      closing: "I take complex systems\u2014regulatory, operational, technical\u2014and turn them into products that feel simple.",
+      cvLink: "Read full CV",
+    },
+    writing: {
+      eyebrow: "Writing",
+      title: "I write about systems, product, and the space between technology and people.",
+      status: "Essays coming soon.",
     },
     contact: {
-      title: "Say hello",
-      body:
-        "If you are building or running something that needs structure—not another slogan—send a short note with what you are working on and how I might help.",
-    },
-    footer: {
-      tagline: "Product, coordination, execution",
-      links: [
-        { label: "SiVeCa", href: "https://www.siveca.com.mx/" },
-        { label: "HUMI", href: "https://humisite.vercel.app/" },
-      ],
+      title: "Let\u2019s connect.",
     },
     cv: {
       title: "CV",
@@ -270,6 +213,12 @@ const DICT = {
       ],
       education: [
         {
+          title: "She Codes",
+          detail:
+            "Front-End Development Program · HTML · CSS · JS · APIs · GitHub · Bootstrap",
+          period: "2021",
+        },
+        {
           title: "CETYS Universidad",
           detail: "B.S. Digital Design Engineering",
           period: "2011 – 2016",
@@ -295,162 +244,105 @@ const DICT = {
       work: "Trabajo",
       experience: "Experiencias",
       approach: "Enfoque",
+      process: "Proceso",
       about: "Acerca",
       humi: "HUMI",
       contact: "Contacto",
       cv: "CV",
     },
     hero: {
-      title: "Diseño de producto y pensamiento operativo para equipos y flujos reales",
-      subtitle:
-        "Ayudo a ordenar la complejidad entre producto digital, entrega y programas—UX/UI, coordinación cross-funcional y la estructura que los equipos necesitan para ejecutar.",
-      statement1: "Estructura entre producto, equipos y operaciones.",
-      statement2:
-        "Claridad en quién decide, con qué evidencia y cómo el grupo da seguimiento.",
-      scroll: "Scroll",
-      cta: {
-        cv: "Ver CV",
-      },
+      role: "Estratega de Sistemas y Producto",
+      headline: "Transformo tecnología compleja en experiencias intuitivas.",
+      cta: "Ver mi trabajo",
+    },
+    philosophy: {
+      statement: "La tecnología debería sentirse como una extensión de nuestras posibilidades.",
+      lines: [
+        "No como una barrera.",
+        "No como un manual.",
+        "No como un sistema contra el que luchas.",
+      ],
+      closing1: "Mi trabajo vive en la intersección entre producto, sistemas, operaciones e IA.",
+      closing2: "No construyo software. Construyo claridad.",
     },
     selectedWork: {
-      sectionEyebrow: "Trabajo seleccionado",
-      sectionTitle: "Productos, programas con clientes, ejecución startup y eventos",
-      sectionIntro:
-        "Un hilo común: hacer legibles los flujos para que la gente alinee, entregue y dé seguimiento sin perder el hilo.",
-      siveca: {
-        platform: "Producto web · flujos de monitoreo y cumplimiento",
-        title1: "SiVeCa — de lecturas y reglas",
-        title2: "a pantallas que el equipo puede operar.",
-        subtitle:
-          "Producto web modular para programas que concilian datos de campo, normativa y aprobaciones. Lideré UX, estructura y buena parte de la narrativa de producto junto con la entrega.",
-        projectName: "SiVeCa",
-        projectKicker: "UX con dominio fuerte, tratada como producto operativo.",
-        projectBody:
-          "Las decisiones debían ser trazables: qué cambió, qué umbral aplicó y por qué una respuesta seguía siendo válida. La interfaz y la estructura subyacente debían mantenerse alineadas.",
-        cards: {
-          problem: "Fricción",
-          system: "Estructura",
-          outcome: "Ejecución",
-        },
-        problemBody:
-          "Lecturas y contexto vivían repartidos entre hojas de cálculo, chats y memoria individual. Cuando algo cambiaba, costaba reconstruir quién había acordado qué.",
-        systemBody:
-          "Los flujos enlazaron insumos, variables, referencias regulatorias y roles en un solo camino de señal a respuesta documentada—primero los traspasos, no una sola pantalla hero.",
-        outcomeBody:
-          "Los equipos pudieron ensayar decisiones con insumos explícitos, mantener a operadores y revisores en el mismo mapa e iterar sin reescribir toda la historia en cada release.",
-        siteUrl: "https://www.siveca.com.mx/",
-        siteLabel: "siveca.com.mx",
+      eyebrow: "Trabajo seleccionado",
+      title: "Lo que he construido.",
+      labels: {
+        problem: "Problema",
+        approach: "Enfoque",
+        outcome: "Resultado",
+        lessons: "Aprendizaje",
       },
-      engagements: [
+      cases: [
         {
-          title: "Cisco",
-          meta: "Programas de campo y producto · 2023 – Presente",
-          body:
-            "Programas de tecnología e infraestructura para clientes privados y federales: trabajo operativo y de seguridad en sitio, traducción de requisitos a flujos usables y comunicación constante durante la entrega.",
+          name: "SiVeCa",
+          context: "Producto web \u00b7 Flujos de monitoreo y cumplimiento",
+          problem: "Datos de campo, normativas y aprobaciones viv\u00edan en hojas de c\u00e1lculo, chats y memoria individual. Cuando las condiciones cambiaban, los equipos no pod\u00edan reconstruir qui\u00e9n acord\u00f3 qu\u00e9.",
+          approach: "Dise\u00f1\u00e9 un producto web modular que conecta insumos, variables, referencias regulatorias y roles en un camino trazable\u2014de la se\u00f1al a la respuesta documentada.",
+          outcome: "Los equipos ahora pueden ensayar decisiones con insumos expl\u00edcitos, mantener alineados a operadores y revisores, e iterar sin reescribir toda la historia en cada release.",
+          lessons: "Productos con dominio fuerte necesitan el mismo rigor de UX que apps de consumo. La trazabilidad es el producto.",
+          url: "https://www.siveca.com.mx/",
+          urlLabel: "siveca.com.mx",
         },
         {
-          title: "Trato Hecho",
-          meta: "Startup · producto y operaciones",
-          body:
-            "Contribución temprana en dirección de producto, sitio y contenido, prototipos en Figma, apoyo ligero a frontend y la coordinación cotidiana que las startups usan para avanzar.",
+          name: "PROOF",
+          context: "Pr\u00f3ximamente",
+          problem: "",
+          approach: "",
+          outcome: "",
+          lessons: "",
+          url: "",
+          urlLabel: "",
         },
         {
-          title: "Eventos y programas",
-          meta: "Logística, participantes, guión del día",
-          body:
-            "Coordinación de punta a punta para formatos presenciales—briefings, cronogramas, aliados o voluntarios, flujo de participantes y ajustes en el día cuando el plan choca con la realidad.",
+          name: "HUMI",
+          context: "Academia y plataforma comunitaria \u00b7 15+ a\u00f1os",
+          problem: "Una academia juvenil con 60+ alumnos necesitaba el rigor operativo de un equipo de producto\u2014horarios, cohortes, comunicaci\u00f3n con familias, eventos\u2014sin la sobrecarga de herramientas empresariales.",
+          approach: "Constru\u00ed y opero una plataforma operativa de largo plazo: curr\u00edculos, coordinaci\u00f3n de instructores, sistemas de inscripci\u00f3n y una producci\u00f3n anual con invitados de alto nivel, gestionada de punta a punta.",
+          outcome: "15+ a\u00f1os de operaci\u00f3n consistente. Rutas pagadas para entrenadores j\u00f3venes. Una comunidad que se lee como infraestructura, no como pasatiempo.",
+          lessons: "Los mejores sistemas son invisibles. Cuando la operaci\u00f3n funciona, la gente solo ve la experiencia.",
+          url: "https://humisite.vercel.app/",
+          urlLabel: "humisite.vercel.app",
+        },
+        {
+          name: "Home Exchange",
+          context: "Pr\u00f3ximamente",
+          problem: "",
+          approach: "",
+          outcome: "",
+          lessons: "",
+          url: "",
+          urlLabel: "",
         },
       ],
     },
-    experience: {
-      title: "Sistemas de experiencia",
-      intro:
-        "Talleres, showcases y programas comunitarios se comportan como productos operativos: tiempos, stakeholders, materiales y riesgo compartido en la sala. Los mismos hábitos aparecen en el trabajo seleccionado de arriba—desde SiVeCa hasta HUMI.",
-      items: [
-        "Guión del día y planes B para que el cronograma sobreviva a lo imprevisto",
-        "Canales claros para participantes, anfitriones y aliados—antes, durante y después",
-        "Logística como parte de la experiencia, no como apéndice",
-        "Debriefs que convierten la fricción en la siguiente versión del playbook",
-      ],
-    },
-    humi: {
-      eyebrow: "Plataforma de largo plazo",
-      title: "HUMI — academia, formación juvenil e infraestructura comunitaria",
-      scale:
-        "60+ alumnos activos durante el año · cohortes recurrentes · una clase magistral o evento especial al año",
-      lead:
-        "Un entorno comunitario de largo plazo, con estructura, constancia y traspasos humanos claros—no como pasatiempo.",
-      paragraphs: [
-        "Hace más de quince años HUMI opera como un lugar estable y estructurado—currículos y sala de entrenamiento junto a la planificación, la comunicación con familias y los traspasos que esperarías junto a un roadmap de producto.",
-        "A nivel local se lee como infraestructura: turnos de coaching, apoyo a eventos y mentoría que dan a personas jóvenes práctica pagada en responsabilidad. La cara pública es una academia de taekwondo; debajo están los mismos hábitos que llevo a clientes—decisiones con dueño, ritmos semanales firmes y lenguaje claro para quien no vive en la operación.",
-        "Una vez al año, una clase magistral o evento especial—producción acotada. Los invitados rotan por edición; a lo largo de los años han incluido entrenadores de nivel olímpico, artistas marciales de élite y atletas profesionales de UFC, nunca el mismo elenco en un solo fin de semana. Llevo contratos y viajes, registro y cupo, ensayo, traspasos con proveedores o seguridad y ejecución el día del evento.",
-      ],
-      items: [
-        "Liderazgo entre temporadas: staff, estándares y vara de calidad",
-        "Puente entre instructores, familias, sedes y expectativas de seguridad",
-        "Inscripción, cobros y calendarios publicados como puntos de contacto recurrentes",
-        "Producción anual: del alcance al guión del día y ajustes en sitio",
-        "Canales hacia la comunidad que siguen legibles para quien no es operador",
-        "Rutas pagadas para entrenadores jóvenes y asistentes—clases, eventos y roles de apoyo",
-      ],
-      eventsNote:
-        "Los invitados se eligen por edición por profundidad; cada año es una sola producción con la misma vara que cualquier ventana fija.",
-      siteUrl: "https://humisite.vercel.app/",
-      siteLabel: "humisite.vercel.app",
-    },
-    approach: {
-      title: "Cómo trabajo con equipos",
-      subtitle:
-        "Iteración, comunicación y estructura explícita ganan a la inspiración suelta. Muchas brechas de alineación son de vocabulario entre disciplinas, no de píxeles.",
-      blocks: [
-        {
-          title: "Escuchar y alinear",
-          text: "Dejar claro quién decide qué, para cuándo y con qué insumos. Que los trade-offs se puedan nombrar y los stakeholders no adivinen las restricciones del otro.",
-        },
-        {
-          title: "Estructurar",
-          text: "Convertir metas en flujos, rituales y artefactos reutilizables: journeys alineados a operaciones, UI lista para ticket o un brief de una página que todos puedan anotar.",
-        },
-        {
-          title: "Prototipar",
-          text: "Baja o media fidelidad a propósito—suficiente verdad para probar coordinación, copy y estados límite sin pulir una dirección que podrías descartar la próxima semana.",
-        },
-        {
-          title: "Ejecutar y adaptar",
-          text: "Cerca durante el despliegue: desbloquear adopción, captar sorpresas, ajustar mensajes y capacitación. El feedback de operaciones es feedback de producto.",
-        },
+    process: {
+      eyebrow: "Proceso",
+      title: "C\u00f3mo trabajo.",
+      steps: [
+        { name: "Descubrir", description: "Mapear las restricciones reales antes de elegir una direcci\u00f3n." },
+        { name: "Entender", description: "Hablar con las personas m\u00e1s cercanas al problema." },
+        { name: "Estructurar", description: "Convertir la ambig\u00fcedad en un sistema que otros puedan navegar." },
+        { name: "Construir", description: "Entregar algo real. Aprender de lo que se rompe." },
+        { name: "Documentar", description: "Hacer las decisiones trazables para que la siguiente persona no empiece de cero." },
+        { name: "Escalar", description: "Dise\u00f1ar para el equipo que lo hereda, no para el que lo construy\u00f3." },
       ],
     },
     about: {
-      title: "Práctica multidisciplinaria de producto",
-      body:
-        "Formación en ingeniería en diseño digital y años entre UX, producto hands-on y coordinación del lado operaciones—en startups, programas venture-adjacentes y entrega a clientes. Fuera de esos contratos lidero HUMI, una academia y plataforma comunitaria de largo plazo donde cronogramas, cohortes, un programa anual con invitados y oportunidades locales de trabajo para entrenadores jóvenes corren con la misma rigurosidad operativa que un roadmap de producto. Traduzco entre especialistas y quienes deciden para que el equipo ejecute sin perder la intención.",
-      pillars: [
-        {
-          title: "Producto",
-          body: "Alcance, secuencia y oficio UX para software que la gente usa de verdad—no solo evalúa en una revisión.",
-        },
-        {
-          title: "Operaciones",
-          body: "Flujos, documentación y puntos de contacto que mantienen honestos los traspasos cuando sube el volumen, la norma o la presión de tiempo.",
-        },
-        {
-          title: "Personas",
-          body: "Facilitación, actualizaciones async y rituales ligeros para que grupos cross-funcionales se mantengan informados sin ahogarse en ruido.",
-        },
-      ],
+      title: "C\u00f3mo pienso.",
+      lead: "Trabajo en la intersecci\u00f3n donde las personas encuentran la tecnolog\u00eda.",
+      body: "La mayor\u00eda de los sistemas fallan no por mal c\u00f3digo, sino porque nadie tradujo la complejidad en algo que un equipo pudiera usar.",
+      closing: "Tomo sistemas complejos\u2014regulatorios, operativos, t\u00e9cnicos\u2014y los convierto en productos que se sienten simples.",
+      cvLink: "Leer CV completo",
+    },
+    writing: {
+      eyebrow: "Escritura",
+      title: "Escribo sobre sistemas, producto y el espacio entre la tecnolog\u00eda y las personas.",
+      status: "Ensayos pr\u00f3ximamente.",
     },
     contact: {
-      title: "Di hola",
-      body:
-        "Si estás construyendo o operando algo que necesita estructura—no otro eslogan—envía una nota breve con en qué trabajas y cómo podría ayudar.",
-    },
-    footer: {
-      tagline: "Producto, coordinación, ejecución",
-      links: [
-        { label: "SiVeCa", href: "https://www.siveca.com.mx/" },
-        { label: "HUMI", href: "https://humisite.vercel.app/" },
-      ],
+      title: "Conectemos.",
     },
     cv: {
       title: "CV",
@@ -545,6 +437,12 @@ const DICT = {
         },
       ],
       education: [
+        {
+          title: "She Codes",
+          detail:
+            "Programa de desarrollo front-end · HTML · CSS · JS · APIs · GitHub · Bootstrap",
+          period: "2021",
+        },
         {
           title: "CETYS Universidad",
           detail: "Lic. Digital Design Engineering",

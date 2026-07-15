@@ -1,11 +1,11 @@
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Hero } from "@/components/sections/Hero";
-import { Approach } from "@/components/sections/Approach";
+import { Philosophy } from "@/components/sections/Philosophy";
 import { SelectedWork } from "@/components/sections/SelectedWork";
-import { ExperienceSystems } from "@/components/sections/ExperienceSystems";
-import { HumiSection } from "@/components/sections/HumiSection";
 import { About } from "@/components/sections/About";
+import { Process } from "@/components/sections/Process";
+import { Writing } from "@/components/sections/Writing";
 import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
@@ -14,11 +14,11 @@ export default function Home() {
       <SiteHeader />
       <main>
         <Hero />
-        <About />
+        <Philosophy />
         <SelectedWork />
-        <HumiSection />
-        <Approach />
-        <ExperienceSystems />
+        <About />
+        <Process />
+        <Writing />
         <Contact />
       </main>
       <SiteFooter />

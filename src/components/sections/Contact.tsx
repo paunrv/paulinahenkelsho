@@ -1,8 +1,22 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Reveal } from "@/components/motion/Reveal";
 import { useT } from "@/i18n/i18n";
+
+const links = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/paulina-nrv/",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/paunrv",
+  },
+  {
+    label: "Email",
+    href: "mailto:hello@helpmepau.com",
+  },
+];
 
 export function Contact() {
   const t = useT();
@@ -10,36 +24,35 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="border-t border-neutral-900/20 bg-neutral-950 py-section text-white"
+      className="border-t border-neutral-200/60 py-section dark:border-neutral-800/60"
     >
       <div className="mx-auto max-w-6xl px-gutter">
-        <div className="grid gap-12 md:grid-cols-12 md:gap-16 md:items-end">
-          <Reveal className="md:col-span-7">
-            <h2 className="font-display text-title-md font-light text-white text-balance md:text-title-lg">
-              {t.contact.title}
-            </h2>
-          </Reveal>
-          <div className="md:col-span-5">
-            <Reveal delay={0.08} className="flex flex-col md:items-end md:text-right">
-              <p className="max-w-md text-sm leading-[1.65] text-white/55 md:max-w-sm">
-                {t.contact.body}
-              </p>
-              <motion.a
-                href="mailto:hello@helpmepau.com"
-                className="mt-8 inline-flex items-center gap-2 text-base font-medium text-white md:mt-10"
-                whileHover={{ x: 4 }}
-                transition={{ type: "spring", stiffness: 420, damping: 30 }}
+        <Reveal>
+          <h2 className="font-display text-title-md font-normal text-neutral-950 dark:text-neutral-50">
+            {t.contact.title}
+          </h2>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <div className="mt-10 flex flex-col gap-4 md:mt-14 md:flex-row md:gap-10">
+            {links.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("mailto") ? undefined : "_blank"}
+                rel={link.href.startsWith("mailto") ? undefined : "noreferrer"}
+                className="group inline-flex items-center gap-2 text-base font-medium text-neutral-950 dark:text-neutral-50"
               >
-                <span className="border-b border-white/35 pb-0.5 transition-colors hover:border-white">
-                  hello@helpmepau.com
+                <span className="border-b border-neutral-300 pb-0.5 transition-colors group-hover:border-neutral-950 dark:border-neutral-700 dark:group-hover:border-neutral-50">
+                  {link.label}
                 </span>
-                <span className="text-white/35" aria-hidden>
-                  →
+                <span className="text-neutral-400 transition-transform group-hover:translate-x-1 dark:text-neutral-600" aria-hidden>
+                  {link.href.startsWith("mailto") ? "→" : "↗"}
                 </span>
-              </motion.a>
-            </Reveal>
+              </a>
+            ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

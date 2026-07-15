@@ -6,6 +6,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
@@ -13,7 +14,6 @@ const config: Config = {
         display: ["var(--font-display)", "Georgia", "serif"],
       },
       fontSize: {
-        /** Section titles — editorial */
         "title-sm": [
           "clamp(1.875rem, 4vw, 2.75rem)",
           { lineHeight: "1.12", letterSpacing: "-0.025em" },
@@ -26,7 +26,6 @@ const config: Config = {
           "clamp(2.75rem, 6.5vw, 4.5rem)",
           { lineHeight: "1.06", letterSpacing: "-0.032em" },
         ],
-        /** Hero / feature statements */
         "display-sm": [
           "clamp(2.5rem, 6vw, 4rem)",
           { lineHeight: "1.05", letterSpacing: "-0.03em" },
@@ -45,7 +44,6 @@ const config: Config = {
         ],
       },
       spacing: {
-        /** 8px grid — section vertical rhythm */
         section: "clamp(5rem, 14vw, 11rem)",
         "section-tight": "clamp(4rem, 10vw, 8rem)",
         gutter: "clamp(1.25rem, 4vw, 2.5rem)",
