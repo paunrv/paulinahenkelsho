@@ -109,47 +109,52 @@ export default function CvPage() {
 
       <Section title={t.cv.sections.aiProducts}>
         <div className="space-y-10">
-          {t.cv.aiProducts.map((product) => (
-            <div key={product.title} className="border-l border-lavender/50 pl-6">
-              <div className="flex flex-col gap-2">
-                <h3 className="font-display text-2xl font-light tracking-[-0.02em] text-ink">
-                  {product.title}
-                </h3>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-subtle">
-                  {product.period ? <span>{product.period}</span> : null}
-                  {product.status ? (
-                    <span className="inline-flex items-center rounded-full border border-lavender/40 bg-lavender-soft px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-[0.12em] text-lavender">
-                      {product.status}
-                    </span>
+          {t.cv.aiProducts.map((product) => {
+            const href = String(product.url || "");
+            const linkLabel = String(product.urlLabel || href);
+
+            return (
+              <div key={product.title} className="border-l border-lavender/50 pl-6">
+                <div className="flex flex-col gap-2">
+                  <h3 className="font-display text-2xl font-light tracking-[-0.02em] text-ink">
+                    {product.title}
+                  </h3>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-subtle">
+                    {product.period ? <span>{product.period}</span> : null}
+                    {product.status ? (
+                      <span className="inline-flex items-center rounded-full border border-lavender/40 bg-lavender-soft px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-[0.12em] text-lavender">
+                        {product.status}
+                      </span>
+                    ) : null}
+                  </div>
+                  {href ? (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener"
+                      className="w-fit text-sm font-medium text-accent underline decoration-accent/30 underline-offset-4 transition hover:decoration-accent"
+                    >
+                      {linkLabel}
+                      <span className="ml-1 text-lavender" aria-hidden>
+                        ↗
+                      </span>
+                    </a>
                   ) : null}
                 </div>
-                {product.url ? (
-                  <a
-                    href={product.url}
-                    target="_blank"
-                    rel="noopener"
-                    className="w-fit text-sm font-medium text-accent underline decoration-accent/30 underline-offset-4 transition hover:decoration-accent"
-                  >
-                    {product.urlLabel || product.url}
-                    <span className="ml-1 text-lavender" aria-hidden>
-                      ↗
-                    </span>
-                  </a>
-                ) : null}
+                <ul className="mt-5 space-y-2 text-sm leading-[1.7] text-muted">
+                  {product.bullets.map((b) => (
+                    <li key={b} className="relative pl-5">
+                      <span
+                        className="absolute left-0 top-[0.6em] h-1 w-1 rounded-full bg-accent"
+                        aria-hidden
+                      />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="mt-5 space-y-2 text-sm leading-[1.7] text-muted">
-                {product.bullets.map((b) => (
-                  <li key={b} className="relative pl-5">
-                    <span
-                      className="absolute left-0 top-[0.6em] h-1 w-1 rounded-full bg-accent"
-                      aria-hidden
-                    />
-                    {b}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Section>
 
