@@ -2,6 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Proposed palette tokens (v1) — for review before sitewide apply.
+  Intent: light, warm, feminine, still professional. WCAG AA on body text.
+
+  --ph-bg:            #FAF7F4  warm ivory page background
+  --ph-surface:       #FFFFFF  cards / elevated surfaces
+  --ph-text:          #2E2435  primary text (plum-charcoal, not pure black)
+  --ph-text-muted:    #6F6478  secondary body / captions
+  --ph-text-subtle:   #9A90A3  eyebrows, meta, disabled
+  --ph-accent:        #C0687E  dusty rose / mauve (primary accent)
+  --ph-accent-soft:   #F3E4E8  soft rose wash (hover/badge fills)
+  --ph-accent-2:      #A78BC4  soft lavender (sparingly: badges, links, rules)
+  --ph-accent-2-soft: #EFE8F6  lavender wash
+  --ph-border:        #E8E0DA  warm hairline borders
+  --ph-shadow:        0 8px 28px rgba(46, 36, 53, 0.06)  soft warm elevation
+  --ph-radius:        1rem     generous surface radius
+
+  Contrast notes (approx):
+  - #2E2435 on #FAF7F4 ≈ 12:1 (AAA body)
+  - #C0687E on #FAF7F4 ≈ 3.4:1 (large text / UI only; pair with #2E2435 for body links if needed)
+  - #A78BC4 on #FAF7F4 ≈ 3.1:1 (decorative / large UI; not body text)
+*/
+
+:root {
+  --ph-bg: #faf7f4;
+  --ph-surface: #ffffff;
+  --ph-text: #2e2435;
+  --ph-text-muted: #6f6478;
+  --ph-text-subtle: #9a90a3;
+  --ph-accent: #c0687e;
+  --ph-accent-soft: #f3e4e8;
+  --ph-accent-2: #a78bc4;
+  --ph-accent-2-soft: #efe8f6;
+  --ph-border: #e8e0da;
+  --ph-shadow: 0 8px 28px rgba(46, 36, 53, 0.06);
+  --ph-radius: 1rem;
+}
+
+.dark {
+  --ph-bg: #1a1520;
+  --ph-surface: #241e2b;
+  --ph-text: #f5f0f2;
+  --ph-text-muted: #b7aebf;
+  --ph-text-subtle: #8a8196;
+  --ph-accent: #d4899a;
+  --ph-accent-soft: #3a2a32;
+  --ph-accent-2: #b9a0d4;
+  --ph-accent-2-soft: #2f2838;
+  --ph-border: #3a3342;
+  --ph-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  --ph-radius: 1rem;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -21,6 +74,7 @@
     }
   }
 
+  /* Existing neutrals kept until palette tokens are approved for sitewide apply. */
   body {
     @apply bg-[#fafafa] text-neutral-950 antialiased;
   }
