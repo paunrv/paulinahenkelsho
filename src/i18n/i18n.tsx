@@ -26,8 +26,8 @@ const DICT = {
       cv: "CV",
     },
     hero: {
-      role: "Systems & Product Strategist",
-      headline: "Transforming complex technology into intuitive experiences.",
+      role: "Technical Product Strategist & Systems Designer · Builder of AI-Integrated Products",
+      headline: "I build AI-integrated products — from data layer to interface.",
       cta: "View my work",
     },
     philosophy: {
@@ -251,8 +251,8 @@ const DICT = {
       cv: "CV",
     },
     hero: {
-      role: "Estratega de Sistemas y Producto",
-      headline: "Transformo tecnología compleja en experiencias intuitivas.",
+      role: "Estratega Técnica de Producto y Diseñadora de Sistemas · Constructora de productos integrados con IA",
+      headline: "Construyo productos integrados con IA — de la capa de datos a la interfaz.",
       cta: "Ver mi trabajo",
     },
     philosophy: {

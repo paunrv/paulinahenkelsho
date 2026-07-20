@@ -18,14 +18,16 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Paulina Henkel — Systems & Product Strategist",
+  title:
+    "Paulina Henkel — Technical Product Strategist & Systems Designer",
   description:
-    "Transforming complex technology into intuitive experiences. Product, systems, operations, and AI.",
+    "Technical Product Strategist & Systems Designer · Builder of AI-integrated products. I design and ship systems from the data layer to the interface.",
   metadataBase: new URL("https://pauhenkelsho.com"),
   openGraph: {
-    title: "Paulina Henkel — Systems & Product Strategist",
+    title:
+      "Paulina Henkel — Technical Product Strategist & Systems Designer",
     description:
-      "Transforming complex technology into intuitive experiences.",
+      "Builder of AI-integrated products — from data layer to interface. Product strategy, systems design, and end-to-end shipping.",
     url: "https://pauhenkelsho.com",
     siteName: "Paulina Henkel",
     locale: "en_US",
@@ -33,9 +35,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Paulina Henkel — Systems & Product Strategist",
+    title:
+      "Paulina Henkel — Technical Product Strategist & Systems Designer",
     description:
-      "Transforming complex technology into intuitive experiences.",
+      "Builder of AI-integrated products — from data layer to interface. Product strategy, systems design, and end-to-end shipping.",
   },
   robots: {
     index: true,
