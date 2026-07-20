@@ -23,7 +23,7 @@ export function SiteHeader() {
   return (
     <>
       <motion.header
-        className="fixed inset-x-0 top-0 z-50 border-b border-neutral-200/60 bg-[#fafafa]/80 backdrop-blur-xl dark:border-neutral-800/60 dark:bg-[#0a0a0a]/80"
+        className="fixed inset-x-0 top-0 z-50 border-b border-line/80 bg-page/80 backdrop-blur-xl"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -31,7 +31,7 @@ export function SiteHeader() {
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-gutter md:h-16">
           <Link
             href="#hero"
-            className="text-[13px] font-medium tracking-[-0.02em] text-neutral-950 dark:text-neutral-50 md:text-sm"
+            className="text-[13px] font-medium tracking-[-0.02em] text-ink md:text-sm"
           >
             Paulina Henkel
           </Link>
@@ -39,32 +39,32 @@ export function SiteHeader() {
           {/* Desktop nav */}
           <div className="hidden items-center gap-7 md:flex">
             <nav
-              className="flex gap-7 text-[12px] font-medium uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400"
+              className="flex gap-7 text-[12px] font-medium uppercase tracking-[0.14em] text-muted"
               aria-label="Primary"
             >
               {nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="transition-colors hover:text-neutral-950 dark:hover:text-neutral-50"
+                  className="transition-colors hover:text-ink"
                 >
                   {item.label}
                 </Link>
               ))}
             </nav>
 
-            <div className="flex items-center gap-1 border-l border-neutral-200/60 pl-5 dark:border-neutral-800/60">
+            <div className="flex items-center gap-1 border-l border-line pl-5">
               {LANGS.map((l, idx) => (
-                <span key={l} className="flex items-center gap-1 text-[12px] font-medium tracking-[0.08em] text-neutral-400 dark:text-neutral-500">
+                <span key={l} className="flex items-center gap-1 text-[12px] font-medium tracking-[0.08em] text-subtle">
                   <button
                     type="button"
                     onClick={() => setLang(l)}
                     aria-pressed={l === lang}
-                    className={`transition-colors ${l === lang ? "text-neutral-950 dark:text-neutral-50" : "hover:text-neutral-950 dark:hover:text-neutral-50"}`}
+                    className={`transition-colors ${l === lang ? "text-ink" : "hover:text-ink"}`}
                   >
                     {dict.language[l]}
                   </button>
-                  {idx === 0 && <span className="text-neutral-300 dark:text-neutral-700">/</span>}
+                  {idx === 0 && <span className="text-line">/</span>}
                 </span>
               ))}
               <ThemeToggle />
@@ -77,7 +77,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="flex h-8 w-8 items-center justify-center text-neutral-600 dark:text-neutral-400"
+              className="flex h-8 w-8 items-center justify-center text-muted"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
             >
@@ -98,7 +98,7 @@ export function SiteHeader() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="fixed inset-0 z-40 flex flex-col bg-[#fafafa] pt-14 dark:bg-[#0a0a0a] md:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-page pt-14 md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -115,25 +115,25 @@ export function SiteHeader() {
                   <Link
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="font-display text-3xl text-neutral-950 dark:text-neutral-50"
+                    className="font-display text-3xl font-light text-ink"
                   >
                     {item.label}
                   </Link>
                 </motion.div>
               ))}
             </nav>
-            <div className="flex items-center justify-between border-t border-neutral-200/60 px-gutter py-6 dark:border-neutral-800/60">
-              <div className="flex gap-3 text-sm font-medium text-neutral-400 dark:text-neutral-500">
+            <div className="flex items-center justify-between border-t border-line px-gutter py-6">
+              <div className="flex gap-3 text-sm font-medium text-subtle">
                 {LANGS.map((l, idx) => (
                   <span key={l} className="flex items-center gap-2">
                     <button
                       type="button"
                       onClick={() => setLang(l)}
-                      className={l === lang ? "text-neutral-950 dark:text-neutral-50" : ""}
+                      className={l === lang ? "text-ink" : ""}
                     >
                       {dict.language[l]}
                     </button>
-                    {idx === 0 && <span className="text-neutral-300 dark:text-neutral-700">/</span>}
+                    {idx === 0 && <span className="text-line">/</span>}
                   </span>
                 ))}
               </div>

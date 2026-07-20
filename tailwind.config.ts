@@ -9,6 +9,22 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
+      colors: {
+        page: "rgb(var(--ph-bg) / <alpha-value>)",
+        surface: "rgb(var(--ph-surface) / <alpha-value>)",
+        ink: "rgb(var(--ph-text) / <alpha-value>)",
+        muted: "rgb(var(--ph-text-muted) / <alpha-value>)",
+        subtle: "rgb(var(--ph-text-subtle) / <alpha-value>)",
+        line: "rgb(var(--ph-border) / <alpha-value>)",
+        accent: {
+          DEFAULT: "rgb(var(--ph-accent) / <alpha-value>)",
+          soft: "rgb(var(--ph-accent-soft) / <alpha-value>)",
+        },
+        lavender: {
+          DEFAULT: "rgb(var(--ph-accent-2) / <alpha-value>)",
+          soft: "rgb(var(--ph-accent-2-soft) / <alpha-value>)",
+        },
+      },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         display: ["var(--font-display)", "Georgia", "serif"],
@@ -47,6 +63,12 @@ const config: Config = {
         section: "clamp(5rem, 14vw, 11rem)",
         "section-tight": "clamp(4rem, 10vw, 8rem)",
         gutter: "clamp(1.25rem, 4vw, 2.5rem)",
+      },
+      borderRadius: {
+        surface: "var(--ph-radius)",
+      },
+      boxShadow: {
+        soft: "var(--ph-shadow)",
       },
       transitionTimingFunction: {
         out: "cubic-bezier(0.22, 1, 0.36, 1)",
