@@ -38,7 +38,7 @@ const DICT = {
         "Not a system you fight against.",
       ],
       closing1: "My work lives at the intersection of product, systems, operations, and AI.",
-      closing2: "I don\u2019t build software. I build clarity.",
+      closing2: "I build AI-integrated systems that create clarity.",
     },
     selectedWork: {
       eyebrow: "Selected work",
@@ -51,17 +51,9 @@ const DICT = {
       },
       cases: [
         {
-          name: "SiVeCa",
-          context: "Web product \u00b7 Monitoring & compliance workflows",
-          problem: "Field data, regulations, and sign-offs lived across spreadsheets, chats, and individual memory. When conditions changed, teams couldn\u2019t reconstruct who agreed to what.",
-          approach: "Designed a modular web product that ties inputs, variables, regulatory references, and roles into one traceable path\u2014from signal to documented response.",
-          outcome: "Teams can now rehearse decisions with explicit inputs, keep operators and reviewers aligned, and iterate without rewriting the entire story each release.",
-          lessons: "Domain-heavy products need the same UX rigor as consumer apps. Traceability is the product.",
-          url: "https://www.siveca.com.mx/",
-          urlLabel: "siveca.com.mx",
-        },
-        {
           name: "PROOF",
+          subtitle: "",
+          status: "Coming soon",
           context: "Coming soon",
           problem: "",
           approach: "",
@@ -71,24 +63,36 @@ const DICT = {
           urlLabel: "",
         },
         {
-          name: "HUMI",
-          context: "Academy & community platform \u00b7 15+ years",
-          problem: "A youth academy with 60+ students needed the operational rigor of a product team\u2014schedules, cohorts, family communication, events\u2014without the overhead of enterprise tools.",
-          approach: "Built and run a long-term operational platform: curricula, instructor coordination, enrollment systems, and one annual production with high-level guests, managed end-to-end.",
-          outcome: "15+ years of consistent operation. Paid pathways for young coaches. A community that reads as infrastructure, not a side project.",
-          lessons: "The best systems are invisible. When operations work, people only see the experience.",
+          name: "HUMI \u2014 Academy Management & Logistics Platform",
+          subtitle: "Taekwondo Academy Management & Logistics Platform",
+          status: "Live in production",
+          context: "Live in production",
+          problem:
+            "HUMI has run real-world academy operations for 15+ years\u2014cohorts, staffing, events, family communication\u2014on people and process. That rigor needed a digital layer, not another spreadsheet stack.",
+          approach:
+            "Designed and built an AI-assisted management and logistics platform end to end: data model, AI-assisted workflows, frontend, and deployment\u2014the new digital layer on top of the existing organization.",
+          outcome:
+            "15+ years of real-world operations now run on a live product I shipped in 2025. Same community, new infrastructure.",
+          lessons:
+            "The best systems are invisible. When operations work, people only see the experience.",
           url: "https://humisite.vercel.app/",
-          urlLabel: "humisite.vercel.app",
+          urlLabel: "Visit site",
         },
         {
-          name: "Home Exchange",
-          context: "Coming soon",
-          problem: "",
-          approach: "",
-          outcome: "",
-          lessons: "",
-          url: "",
-          urlLabel: "",
+          name: "SiVeCa",
+          subtitle: "",
+          status: "",
+          context: "Web product \u00b7 Monitoring & compliance workflows",
+          problem:
+            "Leadership and IT needed a shared technical path for monitoring and compliance decisions\u2014with auditability and NOM alignment\u2014instead of decisions trapped in chats, spreadsheets, and individual memory.",
+          approach:
+            "Worked as technical liaison between CEO and IT: repository auditing, a parallel technical workstream, and translating NOM regulatory requirements into product logic. Designed and built the company landing site end to end.",
+          outcome:
+            "Operators and reviewers share a traceable path from signal to documented response. The public site ships the product narrative as finished work.",
+          lessons:
+            "Domain-heavy products need the same UX rigor as consumer apps. Traceability is the product\u2014and shipping the landing site is part of the system.",
+          url: "https://www.siveca.com.mx/",
+          urlLabel: "Visit site",
         },
       ],
     },
@@ -122,7 +126,7 @@ const DICT = {
     cv: {
       title: "CV",
       role: "Product Designer · Product strategy & coordination",
-      location: "Mexico (Remote-ready / Open to relocation)",
+      location: "Mexico (Remote, GMT-7)",
       languages: "Spanish (Native), English (Fluent)",
       actions: {
         download: "Download PDF",
@@ -189,25 +193,25 @@ const DICT = {
       ],
       projects: [
         {
-          title: "SiVeCa — Web product for monitoring & decision workflows",
+          title: "Taekwondo Academy Management & Logistics Platform (HUMI)",
           bullets: [
-            "Designed and shipped web surfaces for monitoring, thresholds, and review-heavy tasks",
-            "Structured inputs and outputs so operators and reviewers share a trace from reading to documented action",
-            "Aligned selected flows with Mexican regulatory references (NOM) where required",
-            "Built a compliance-oriented calculator for specific environmental metrics",
-            "Owned enough SEO and content for industrial and program audiences to find the product",
-            "Captured a credible path toward multi-tenant SaaS without overbuilding the first release",
+            "Designed and built an AI-assisted academy management and logistics platform end to end (data model, AI-assisted workflows, frontend, deployment)",
+            "Shipped in 2025 on top of 15+ years of HUMI community and academy operations",
+            "Maintain recurring workflows: schedules, instructor coordination, family communication, enrollment, and promotions",
+            "Plan and deliver one masterclass or special event per year with full operational rigor: contracts, travel, capacity, registration, vendors, and on-site execution",
+            "Coordinate multidisciplinary staff, volunteers, and venue requirements under fixed clocks",
+            "Design work and mentorship paths for young coaches through teaching, logistics, and operational support",
           ],
         },
         {
-          title: "HUMI — Long-term community platform",
+          title: "SiVeCa — Web product for monitoring & decision workflows",
           bullets: [
-            "Lead operations for a taekwondo academy and youth-development environment with 60+ active students year-round",
-            "Maintain recurring workflows: schedules, instructor coordination, family communication, enrollment, and promotions",
-            "Plan and deliver one masterclass or special event per year—different high-level guests across editions, with the same operational rigor: contracts, travel, capacity, floor plans, registration, vendor or security coordination, and on-site execution",
-            "Coordinate multidisciplinary staff, volunteers, vendors, and safety or venue requirements under fixed clocks",
-            "Design work and mentorship paths for young coaches and assistants through teaching, logistics, and operational support",
-            "Publish community-facing information that stays legible for non-specialists while preserving operational detail",
+            "Technical liaison between CEO and IT across product and delivery decisions",
+            "Repository auditing and a parallel technical workstream alongside client delivery",
+            "Translated NOM regulatory requirements into product logic and review-heavy flows",
+            "Designed and built the company landing site end to end (https://www.siveca.com.mx/)",
+            "Structured inputs and outputs so operators and reviewers share a trace from reading to documented action",
+            "Owned enough SEO and content for industrial and program audiences to find the product",
           ],
         },
       ],
@@ -256,14 +260,14 @@ const DICT = {
       cta: "Ver mi trabajo",
     },
     philosophy: {
-      statement: "La tecnología debería sentirse como una extensión de nuestras posibilidades.",
+      statement: "La tecnolog\u00eda deber\u00eda sentirse como una extensi\u00f3n de nuestras posibilidades.",
       lines: [
         "No como una barrera.",
         "No como un manual.",
         "No como un sistema contra el que luchas.",
       ],
-      closing1: "Mi trabajo vive en la intersección entre producto, sistemas, operaciones e IA.",
-      closing2: "No construyo software. Construyo claridad.",
+      closing1: "Mi trabajo vive en la intersecci\u00f3n entre producto, sistemas, operaciones e IA.",
+      closing2: "Construyo sistemas integrados con IA que crean claridad.",
     },
     selectedWork: {
       eyebrow: "Trabajo seleccionado",
@@ -276,17 +280,9 @@ const DICT = {
       },
       cases: [
         {
-          name: "SiVeCa",
-          context: "Producto web \u00b7 Flujos de monitoreo y cumplimiento",
-          problem: "Datos de campo, normativas y aprobaciones viv\u00edan en hojas de c\u00e1lculo, chats y memoria individual. Cuando las condiciones cambiaban, los equipos no pod\u00edan reconstruir qui\u00e9n acord\u00f3 qu\u00e9.",
-          approach: "Dise\u00f1\u00e9 un producto web modular que conecta insumos, variables, referencias regulatorias y roles en un camino trazable\u2014de la se\u00f1al a la respuesta documentada.",
-          outcome: "Los equipos ahora pueden ensayar decisiones con insumos expl\u00edcitos, mantener alineados a operadores y revisores, e iterar sin reescribir toda la historia en cada release.",
-          lessons: "Productos con dominio fuerte necesitan el mismo rigor de UX que apps de consumo. La trazabilidad es el producto.",
-          url: "https://www.siveca.com.mx/",
-          urlLabel: "siveca.com.mx",
-        },
-        {
           name: "PROOF",
+          subtitle: "",
+          status: "Pr\u00f3ximamente",
           context: "Pr\u00f3ximamente",
           problem: "",
           approach: "",
@@ -296,24 +292,36 @@ const DICT = {
           urlLabel: "",
         },
         {
-          name: "HUMI",
-          context: "Academia y plataforma comunitaria \u00b7 15+ a\u00f1os",
-          problem: "Una academia juvenil con 60+ alumnos necesitaba el rigor operativo de un equipo de producto\u2014horarios, cohortes, comunicaci\u00f3n con familias, eventos\u2014sin la sobrecarga de herramientas empresariales.",
-          approach: "Constru\u00ed y opero una plataforma operativa de largo plazo: curr\u00edculos, coordinaci\u00f3n de instructores, sistemas de inscripci\u00f3n y una producci\u00f3n anual con invitados de alto nivel, gestionada de punta a punta.",
-          outcome: "15+ a\u00f1os de operaci\u00f3n consistente. Rutas pagadas para entrenadores j\u00f3venes. Una comunidad que se lee como infraestructura, no como pasatiempo.",
-          lessons: "Los mejores sistemas son invisibles. Cuando la operaci\u00f3n funciona, la gente solo ve la experiencia.",
+          name: "HUMI \u2014 Plataforma de gesti\u00f3n y log\u00edstica para academias",
+          subtitle: "Taekwondo Academy Management & Logistics Platform",
+          status: "En producci\u00f3n",
+          context: "En producci\u00f3n",
+          problem:
+            "HUMI ha operado una academia en el mundo real durante m\u00e1s de 15 a\u00f1os\u2014cohortes, staff, eventos, comunicaci\u00f3n con familias\u2014sobre personas y proceso. Ese rigor necesitaba una capa digital, no otra pila de hojas de c\u00e1lculo.",
+          approach:
+            "Dise\u00f1\u00e9 y constru\u00ed de punta a punta una plataforma de gesti\u00f3n y log\u00edstica asistida por IA: modelo de datos, flujos asistidos por IA, frontend y despliegue\u2014la nueva capa digital sobre la organizaci\u00f3n existente.",
+          outcome:
+            "M\u00e1s de 15 a\u00f1os de operaci\u00f3n real ahora corren sobre un producto en vivo que entregu\u00e9 en 2025. Misma comunidad, nueva infraestructura.",
+          lessons:
+            "Los mejores sistemas son invisibles. Cuando la operaci\u00f3n funciona, la gente solo ve la experiencia.",
           url: "https://humisite.vercel.app/",
-          urlLabel: "humisite.vercel.app",
+          urlLabel: "Visitar sitio",
         },
         {
-          name: "Home Exchange",
-          context: "Pr\u00f3ximamente",
-          problem: "",
-          approach: "",
-          outcome: "",
-          lessons: "",
-          url: "",
-          urlLabel: "",
+          name: "SiVeCa",
+          subtitle: "",
+          status: "",
+          context: "Producto web \u00b7 Flujos de monitoreo y cumplimiento",
+          problem:
+            "Liderazgo e IT necesitaban un camino t\u00e9cnico compartido para decisiones de monitoreo y cumplimiento\u2014con auditabilidad y alineaci\u00f3n NOM\u2014en lugar de decisiones atrapadas en chats, hojas de c\u00e1lculo y memoria individual.",
+          approach:
+            "Fui enlace t\u00e9cnico entre CEO e IT: auditor\u00eda de repositorios, un workstream t\u00e9cnico paralelo y traducci\u00f3n de requisitos regulatorios NOM a l\u00f3gica de producto. Dise\u00f1\u00e9 y constru\u00ed el sitio landing de la empresa de punta a punta.",
+          outcome:
+            "Operadores y revisores comparten un camino trazable de la se\u00f1al a la respuesta documentada. El sitio p\u00fablico entrega la narrativa del producto como trabajo terminado.",
+          lessons:
+            "Productos con dominio fuerte necesitan el mismo rigor de UX que apps de consumo. La trazabilidad es el producto\u2014y publicar el landing es parte del sistema.",
+          url: "https://www.siveca.com.mx/",
+          urlLabel: "Visitar sitio",
         },
       ],
     },
@@ -347,7 +355,7 @@ const DICT = {
     cv: {
       title: "CV",
       role: "Product Designer · Estrategia de producto y coordinación",
-      location: "México (Remoto / Abierta a reubicación)",
+      location: "México (Remoto, GMT-7)",
       languages: "Español (Nativo), Inglés (Fluido)",
       actions: {
         download: "Descargar PDF",
@@ -414,25 +422,25 @@ const DICT = {
       ],
       projects: [
         {
-          title: "SiVeCa — Producto web para monitoreo y flujos de decisión",
+          title: "Taekwondo Academy Management & Logistics Platform (HUMI)",
           bullets: [
-            "Diseñé y publiqué superficies web para monitoreo, umbrales y tareas con mucha revisión",
-            "Organicé entradas y salidas para que operadores y revisores compartan una traza de lectura a acción documentada",
-            "Alineé flujos seleccionados con referencias regulatorias mexicanas (NOM) donde aplica",
-            "Construí una calculadora orientada a cumplimiento para métricas ambientales específicas",
-            "Lideré SEO y contenido suficientes para que audiencias industriales y de programa encontraran el producto",
-            "Dejé documentada una ruta creíble hacia SaaS multi-tenant sin sobreconstruir el primer release",
+            "Diseñé y construí de punta a punta una plataforma de gestión y logística de academias asistida por IA (modelo de datos, flujos asistidos por IA, frontend, despliegue)",
+            "Entregada en 2025 sobre más de 15 años de operaciones comunitarias y de academia de HUMI",
+            "Flujos recurrentes: horarios, coordinación de instructores, comunicación con familias, inscripciones y promociones",
+            "Planificar y entregar una clase magistral o evento especial al año con rigor operativo completo: contratos, viajes, cupo, registro, proveedores y ejecución en sitio",
+            "Coordinación de staff multidisciplinario, voluntarios y requisitos de sede bajo relojes fijos",
+            "Rutas de trabajo y mentoría para entrenadores jóvenes mediante enseñanza, logística y soporte operativo",
           ],
         },
         {
-          title: "HUMI — Plataforma comunitaria de largo plazo",
+          title: "SiVeCa — Producto web para monitoreo y flujos de decisión",
           bullets: [
-            "Operación de una academia de taekwondo y entorno de desarrollo juvenil con más de 60 alumnos activos durante el año",
-            "Flujos recurrentes: horarios, coordinación de instructores, comunicación con familias, inscripciones y promociones",
-            "Planificar y entregar una clase magistral o evento especial al año—invitados de alto nivel distintos según la edición, con la misma rigurosidad operativa: contratos, viajes, cupo, planos, registro, coordinación con proveedores o seguridad y ejecución en sitio",
-            "Coordinación de staff multidisciplinario, voluntarios, proveedores y requisitos de seguridad o sede bajo relojes fijos",
-            "Rutas de trabajo y mentoría para entrenadores jóvenes y asistentes mediante enseñanza, logística y soporte operativo",
-            "Información hacia la comunidad legible para no especialistas sin perder detalle operativo",
+            "Enlace técnico entre CEO e IT en decisiones de producto y entrega",
+            "Auditoría de repositorios y un workstream técnico paralelo junto a la entrega a clientes",
+            "Traduje requisitos regulatorios NOM a lógica de producto y flujos con mucha revisión",
+            "Diseñé y construí el sitio landing de la empresa de punta a punta (https://www.siveca.com.mx/)",
+            "Organicé entradas y salidas para que operadores y revisores compartan una traza de lectura a acción documentada",
+            "Lideré SEO y contenido suficientes para que audiencias industriales y de programa encontraran el producto",
           ],
         },
       ],

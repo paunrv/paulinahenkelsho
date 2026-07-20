@@ -25,6 +25,8 @@ export function SelectedWork() {
             <CaseStudy
               key={c.name}
               name={c.name}
+              subtitle={c.subtitle}
+              status={c.status}
               context={c.context}
               problem={c.problem}
               approach={c.approach}

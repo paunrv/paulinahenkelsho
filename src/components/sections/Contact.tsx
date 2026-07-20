@@ -14,7 +14,7 @@ const links = [
   },
   {
     label: "Email",
-    href: "mailto:hello@helpmepau.com",
+    href: "mailto:phsho007@gmail.com",
   },
 ];
 
@@ -40,7 +40,7 @@ export function Contact() {
                 key={link.label}
                 href={link.href}
                 target={link.href.startsWith("mailto") ? undefined : "_blank"}
-                rel={link.href.startsWith("mailto") ? undefined : "noreferrer"}
+                rel={link.href.startsWith("mailto") ? undefined : "noopener"}
                 className="group inline-flex items-center gap-2 text-base font-medium text-neutral-950 dark:text-neutral-50"
               >
                 <span className="border-b border-neutral-300 pb-0.5 transition-colors group-hover:border-neutral-950 dark:border-neutral-700 dark:group-hover:border-neutral-50">
