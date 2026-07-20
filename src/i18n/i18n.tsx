@@ -161,6 +161,7 @@ const DICT = {
       sections: {
         summary: "Summary",
         skills: "Skills",
+        aiProducts: "AI Products — Built Independently",
         experience: "Experience",
         projects: "Projects",
         education: "Education",
@@ -215,18 +216,31 @@ const DICT = {
           ],
         },
       ],
-      projects: [
+      aiProducts: [
         {
-          title: "Taekwondo Academy Management & Logistics Platform (HUMI)",
+          title: "Proof — AI-integrated wine production traceability platform",
+          period: "2025 – Present",
+          status: "In active development",
+          url: "",
+          urlLabel: "",
           bullets: [
-            "Designed and built an AI-assisted academy management and logistics platform end to end (data model, AI-assisted workflows, frontend, deployment)",
-            "Shipped in 2025 on top of 15+ years of HUMI community and academy operations",
-            "Maintain recurring workflows: schedules, instructor coordination, family communication, enrollment, and promotions",
-            "Plan and deliver one masterclass or special event per year with full operational rigor: contracts, travel, capacity, registration, vendors, and on-site execution",
-            "Coordinate multidisciplinary staff, volunteers, and venue requirements under fixed clocks",
-            "Design work and mentorship paths for young coaches through teaching, logistics, and operational support",
+            "Designed and built a lot-tracking system covering the full winemaking pipeline (harvest → analysis → fermentation → malolactic → aging → bottling), with an LLM-powered conversational interface for managing production lots via natural language (tool/function calling).",
+            "Stack: Supabase (PostgreSQL), REST APIs, LLM API integration, GitHub. Sole designer and builder — data model, workflows, prompts and UX.",
           ],
         },
+        {
+          title: "Taekwondo Academy Management & Logistics Platform (HUMI)",
+          period: "2025 – Present",
+          status: "Live in production",
+          url: "https://humisite.vercel.app/",
+          urlLabel: "Visit site",
+          bullets: [
+            "Built and deployed a management system for taekwondo academies and inter-academy logistics — currently in daily use by my affiliated organization; roadmap to expand into other activity verticals.",
+            "Owned the full cycle: problem discovery with real users, data model, AI-assisted workflows, frontend, deployment and iteration in production.",
+          ],
+        },
+      ],
+      projects: [
         {
           title: "SiVeCa — Web product for monitoring & decision workflows",
           bullets: [
@@ -414,6 +428,7 @@ const DICT = {
       sections: {
         summary: "Resumen",
         skills: "Habilidades",
+        aiProducts: "Productos de IA — Construidos de forma independiente",
         experience: "Experiencia",
         projects: "Proyectos",
         education: "Educación",
@@ -468,18 +483,31 @@ const DICT = {
           ],
         },
       ],
-      projects: [
+      aiProducts: [
         {
-          title: "Taekwondo Academy Management & Logistics Platform (HUMI)",
+          title: "Proof — Plataforma de trazabilidad de producción vinícola integrada con IA",
+          period: "2025 – Presente",
+          status: "En desarrollo activo",
+          url: "",
+          urlLabel: "",
           bullets: [
-            "Diseñé y construí de punta a punta una plataforma de gestión y logística de academias asistida por IA (modelo de datos, flujos asistidos por IA, frontend, despliegue)",
-            "Entregada en 2025 sobre más de 15 años de operaciones comunitarias y de academia de HUMI",
-            "Flujos recurrentes: horarios, coordinación de instructores, comunicación con familias, inscripciones y promociones",
-            "Planificar y entregar una clase magistral o evento especial al año con rigor operativo completo: contratos, viajes, cupo, registro, proveedores y ejecución en sitio",
-            "Coordinación de staff multidisciplinario, voluntarios y requisitos de sede bajo relojes fijos",
-            "Rutas de trabajo y mentoría para entrenadores jóvenes mediante enseñanza, logística y soporte operativo",
+            "Diseñé y construí un sistema de seguimiento de lotes que cubre todo el pipeline de elaboración (cosecha → análisis → fermentación → maloláctica → crianza → embotellado), con una interfaz conversacional LLM para gestionar lotes en lenguaje natural (tool/function calling).",
+            "Stack: Supabase (PostgreSQL), REST APIs, integración LLM API, GitHub. Diseñadora y constructora única — modelo de datos, flujos, prompts y UX.",
           ],
         },
+        {
+          title: "Taekwondo Academy Management & Logistics Platform (HUMI)",
+          period: "2025 – Presente",
+          status: "En producción",
+          url: "https://humisite.vercel.app/",
+          urlLabel: "Visitar sitio",
+          bullets: [
+            "Construí y desplegué un sistema de gestión para academias de taekwondo y logística inter-academia — en uso diario por mi organización afiliada; roadmap para expandir a otros verticales de actividad.",
+            "Dueña del ciclo completo: discovery con usuarios reales, modelo de datos, flujos asistidos por IA, frontend, despliegue e iteración en producción.",
+          ],
+        },
+      ],
+      projects: [
         {
           title: "SiVeCa — Producto web para monitoreo y flujos de decisión",
           bullets: [

@@ -107,6 +107,52 @@ export default function CvPage() {
         </ul>
       </Section>
 
+      <Section title={t.cv.sections.aiProducts}>
+        <div className="space-y-10">
+          {t.cv.aiProducts.map((product) => (
+            <div key={product.title} className="border-l border-neutral-200/60 pl-6 dark:border-neutral-800/60">
+              <div className="flex flex-col gap-2">
+                <h3 className="font-display text-2xl font-normal tracking-[-0.02em] text-neutral-950 dark:text-neutral-50">
+                  {product.title}
+                </h3>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-neutral-400 dark:text-neutral-600">
+                  {product.period ? <span>{product.period}</span> : null}
+                  {product.status ? (
+                    <span className="inline-flex items-center rounded-full border border-neutral-200/80 px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-[0.12em] text-neutral-500 dark:border-neutral-700 dark:text-neutral-400">
+                      {product.status}
+                    </span>
+                  ) : null}
+                </div>
+                {product.url ? (
+                  <a
+                    href={product.url}
+                    target="_blank"
+                    rel="noopener"
+                    className="w-fit text-sm font-medium text-neutral-950 underline decoration-neutral-300 underline-offset-4 transition hover:decoration-neutral-950 dark:text-neutral-50 dark:decoration-neutral-700 dark:hover:decoration-neutral-50"
+                  >
+                    {product.urlLabel || product.url}
+                    <span className="ml-1 text-neutral-400 dark:text-neutral-600" aria-hidden>
+                      ↗
+                    </span>
+                  </a>
+                ) : null}
+              </div>
+              <ul className="mt-5 space-y-2 text-sm leading-[1.7] text-neutral-600 dark:text-neutral-400">
+                {product.bullets.map((b) => (
+                  <li key={b} className="relative pl-5">
+                    <span
+                      className="absolute left-0 top-[0.6em] h-1 w-1 rounded-full bg-neutral-300 dark:bg-neutral-700"
+                      aria-hidden
+                    />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       <Section title={t.cv.sections.experience}>
         <div className="space-y-10">
           {t.cv.experience.map((role) => (
