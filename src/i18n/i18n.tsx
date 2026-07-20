@@ -51,14 +51,36 @@ const DICT = {
       },
       cases: [
         {
-          name: "PROOF",
-          subtitle: "",
-          status: "Coming soon",
-          context: "Coming soon",
+          name: "Proof \u2014 AI-integrated wine production traceability platform",
+          subtitle: "Personal project, sole designer & builder",
+          status: "In development",
+          context: "In development",
           problem: "",
           approach: "",
           outcome: "",
           lessons: "",
+          sections: [
+            {
+              label: "Problem",
+              body: "Wineries in Valle de Guadalupe and Ensenada\u2014Baja California wine country\u2014still track production lots across spreadsheets, notebooks, and memory. Traceability breaks between stages, and small producers have no affordable system built around how they actually work.",
+            },
+            {
+              label: "System",
+              body: "Proof tracks every lot through the full winemaking pipeline: harvest (cosecha) \u2192 lab analysis (an\u00e1lisis) \u2192 fermentation (fermentaci\u00f3n) \u2192 malolactic (malol\u00e1ctica) \u2192 aging (crianza) \u2192 bottling (embotellado).\n\nEach stage carries its own data and state. Lots move through the pipeline with full history, so any bottle can be traced back to its harvest.",
+            },
+            {
+              label: "AI layer",
+              body: "A conversational management layer sits on top of the system. An LLM interface with tool/function calling lets the winemaker manage production in natural language\u2014\u201cshow me active lots,\u201d \u201cmove lot X to fermentation,\u201d \u201cstart a new lot\u201d\u2014instead of navigating forms.\n\nThe model calls typed tools against the database. It doesn\u2019t guess.",
+            },
+            {
+              label: "Stack",
+              body: "Data model and backend on Supabase (PostgreSQL), exposed through REST APIs. LLM API integration with a defined tool schema per operation\u2014create lot, list active lots, advance stage, query history.\n\nI own the full cycle: domain research with real winemakers, data model, tool and prompt design, UX, and iteration.",
+            },
+            {
+              label: "Status",
+              body: "In active development. Flagship personal work\u2014and the clearest proof that I can take a messy real-world domain, design the system, and ship an AI-native interface on top of it, end to end, alone.",
+            },
+          ],
           url: "",
           urlLabel: "",
         },
@@ -75,6 +97,7 @@ const DICT = {
             "15+ years of real-world operations now run on a live product I shipped in 2025. Same community, new infrastructure.",
           lessons:
             "The best systems are invisible. When operations work, people only see the experience.",
+          sections: [],
           url: "https://humisite.vercel.app/",
           urlLabel: "Visit site",
         },
@@ -91,6 +114,7 @@ const DICT = {
             "Operators and reviewers share a traceable path from signal to documented response. The public site ships the product narrative as finished work.",
           lessons:
             "Domain-heavy products need the same UX rigor as consumer apps. Traceability is the product\u2014and shipping the landing site is part of the system.",
+          sections: [],
           url: "https://www.siveca.com.mx/",
           urlLabel: "Visit site",
         },
@@ -280,14 +304,36 @@ const DICT = {
       },
       cases: [
         {
-          name: "PROOF",
-          subtitle: "",
-          status: "Pr\u00f3ximamente",
-          context: "Pr\u00f3ximamente",
+          name: "Proof \u2014 Plataforma de trazabilidad de producci\u00f3n vin\u00edcola integrada con IA",
+          subtitle: "Proyecto personal, dise\u00f1adora y constructora \u00fanica",
+          status: "En desarrollo",
+          context: "En desarrollo",
           problem: "",
           approach: "",
           outcome: "",
           lessons: "",
+          sections: [
+            {
+              label: "Problema",
+              body: "Las vin\u00edcolas del Valle de Guadalupe y Ensenada\u2014la regi\u00f3n vin\u00edcola de Baja California\u2014a\u00fan rastrean lotes de producci\u00f3n en hojas de c\u00e1lculo, libretas y memoria. La trazabilidad se rompe entre etapas, y los productores peque\u00f1os no tienen un sistema asequible construido alrededor de c\u00f3mo trabajan de verdad.",
+            },
+            {
+              label: "Sistema",
+              body: "Proof rastrea cada lote a trav\u00e9s de todo el pipeline de elaboraci\u00f3n: cosecha \u2192 an\u00e1lisis de laboratorio \u2192 fermentaci\u00f3n \u2192 malol\u00e1ctica \u2192 crianza \u2192 embotellado.\n\nCada etapa carga sus propios datos y estado. Los lotes avanzan con historial completo, de modo que cualquier botella puede trazarse hasta su cosecha.",
+            },
+            {
+              label: "Capa de IA",
+              body: "Una capa de gesti\u00f3n conversacional se sienta encima del sistema. Una interfaz LLM con tool/function calling permite al en\u00f3logo gestionar la producci\u00f3n en lenguaje natural\u2014\u201cmu\u00e9strame lotes activos,\u201d \u201cmueve el lote X a fermentaci\u00f3n,\u201d \u201cinicia un lote nuevo\u201d\u2014en lugar de navegar formularios.\n\nEl modelo llama herramientas tipadas contra la base de datos. No adivina.",
+            },
+            {
+              label: "Stack",
+              body: "Modelo de datos y backend en Supabase (PostgreSQL), expuestos por REST APIs. Integraci\u00f3n con LLM API y un esquema de herramientas definido por operaci\u00f3n\u2014crear lote, listar activos, avanzar etapa, consultar historial.\n\nSoy due\u00f1a del ciclo completo: investigaci\u00f3n de dominio con en\u00f3logos reales, modelo de datos, dise\u00f1o de tools y prompts, UX e iteraci\u00f3n.",
+            },
+            {
+              label: "Estado",
+              body: "En desarrollo activo. Trabajo personal bandera\u2014y la prueba m\u00e1s clara de que puedo tomar un dominio real desordenado, dise\u00f1ar el sistema y entregar una interfaz nativa de IA encima, de punta a punta, sola.",
+            },
+          ],
           url: "",
           urlLabel: "",
         },
@@ -304,6 +350,7 @@ const DICT = {
             "M\u00e1s de 15 a\u00f1os de operaci\u00f3n real ahora corren sobre un producto en vivo que entregu\u00e9 en 2025. Misma comunidad, nueva infraestructura.",
           lessons:
             "Los mejores sistemas son invisibles. Cuando la operaci\u00f3n funciona, la gente solo ve la experiencia.",
+          sections: [],
           url: "https://humisite.vercel.app/",
           urlLabel: "Visitar sitio",
         },
@@ -320,6 +367,7 @@ const DICT = {
             "Operadores y revisores comparten un camino trazable de la se\u00f1al a la respuesta documentada. El sitio p\u00fablico entrega la narrativa del producto como trabajo terminado.",
           lessons:
             "Productos con dominio fuerte necesitan el mismo rigor de UX que apps de consumo. La trazabilidad es el producto\u2014y publicar el landing es parte del sistema.",
+          sections: [],
           url: "https://www.siveca.com.mx/",
           urlLabel: "Visitar sitio",
         },

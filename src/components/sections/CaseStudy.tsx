@@ -2,6 +2,11 @@
 
 import { Reveal } from "@/components/motion/Reveal";
 
+type CaseSection = {
+  label: string;
+  body: string;
+};
+
 type CaseStudyProps = {
   name: string;
   subtitle?: string;
@@ -11,6 +16,7 @@ type CaseStudyProps = {
   approach: string;
   outcome: string;
   lessons: string;
+  sections?: readonly CaseSection[];
   url: string;
   urlLabel: string;
   labels: {
@@ -30,11 +36,13 @@ export function CaseStudy({
   approach,
   outcome,
   lessons,
+  sections = [],
   url,
   urlLabel,
   labels,
 }: CaseStudyProps) {
-  const isPlaceholder = !problem;
+  const isRich = sections.length > 0;
+  const isPlaceholder = !isRich && !problem;
 
   if (isPlaceholder) {
     return (
@@ -51,17 +59,19 @@ export function CaseStudy({
     );
   }
 
-  const blocks = [
-    { label: labels.problem, body: problem },
-    { label: labels.approach, body: approach },
-    { label: labels.outcome, body: outcome },
-    { label: labels.lessons, body: lessons },
-  ];
+  const blocks: CaseSection[] = isRich
+    ? [...sections]
+    : [
+        { label: labels.problem, body: problem },
+        { label: labels.approach, body: approach },
+        { label: labels.outcome, body: outcome },
+        { label: labels.lessons, body: lessons },
+      ];
 
   return (
     <div className="border-t border-neutral-200/60 pt-12 dark:border-neutral-800/60 md:pt-16">
       <Reveal>
-        <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between md:gap-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between md:gap-8">
           <div className="min-w-0">
             <h3 className="font-display text-2xl font-normal text-neutral-950 md:text-3xl dark:text-neutral-50">
               {name}
@@ -73,21 +83,27 @@ export function CaseStudy({
             ) : null}
           </div>
           {(status || context) && (
-            <p className="shrink-0 text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-400 dark:text-neutral-600">
+            <span className="inline-flex w-fit shrink-0 items-center rounded-full border border-neutral-200/80 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-neutral-500 dark:border-neutral-700 dark:text-neutral-400">
               {status || context}
-            </p>
+            </span>
           )}
         </div>
       </Reveal>
 
-      <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-2 md:gap-x-16 md:gap-y-10">
+      <div
+        className={
+          isRich
+            ? "mt-10 space-y-8 md:mt-14 md:space-y-10"
+            : "mt-10 grid gap-8 md:mt-14 md:grid-cols-2 md:gap-x-16 md:gap-y-10"
+        }
+      >
         {blocks.map((block, i) => (
           <Reveal key={block.label} delay={i * 0.05}>
             <div>
               <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-400 dark:text-neutral-600">
                 {block.label}
               </p>
-              <p className="mt-3 text-sm leading-[1.7] text-neutral-600 dark:text-neutral-400">
+              <p className="mt-3 max-w-3xl text-sm leading-[1.75] text-neutral-600 dark:text-neutral-400 whitespace-pre-line">
                 {block.body}
               </p>
             </div>

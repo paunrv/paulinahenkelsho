@@ -32,6 +32,7 @@ export function SelectedWork() {
               approach={c.approach}
               outcome={c.outcome}
               lessons={c.lessons}
+              sections={c.sections}
               url={c.url}
               urlLabel={c.urlLabel}
               labels={w.labels}
