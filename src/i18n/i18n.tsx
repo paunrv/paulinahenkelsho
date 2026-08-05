@@ -119,8 +119,8 @@ const DICT = {
       ],
     },
     footer: {
-      prompt: "Interested in building technology people actually adopt?",
-      cta: "Let\u2019s talk.",
+      prompt: "Technology isn\u2019t progress by itself.",
+      cta: "Progress happens when people can actually use it.",
       location: "Mexico",
     },
     cv: {
@@ -368,8 +368,8 @@ const DICT = {
       ],
     },
     footer: {
-      prompt: "\u00bfTe interesa construir tecnolog\u00eda que la gente realmente adopte?",
-      cta: "Hablemos.",
+      prompt: "La tecnolog\u00eda no es progreso por s\u00ed sola.",
+      cta: "El progreso sucede cuando la gente realmente puede usarla.",
       location: "M\u00e9xico",
     },
     cv: {
