@@ -73,3 +73,10 @@ Instead:
 - Explain the problem.
 - Explain the decision.
 - Explain the tradeoff.
+
+When in doubt,
+
+- remove instead of adding.
+- clarify instead of decorating.
+- show instead of telling.
+- think before building.
