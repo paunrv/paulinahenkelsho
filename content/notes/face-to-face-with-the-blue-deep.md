@@ -62,7 +62,7 @@ Pero yo decido cuánto tiempo dura.
 
 No busco un beso largo.
 
-Busco un beso cachondo.
+Busco un beso intenso.
 
 Uno que me abrace.
 
@@ -70,15 +70,15 @@ Que me saque de la tierra.
 
 Y me deposite en ese azul profundo.
 
-Me mama la idea de estar, once again,
+Me emociona la idea de estar, once again,
 
-**face to face with the fackingbluuuedeep.**
+**face to face with the blue deep.**
 
 ---
 
-En el próximo *chapter* sé que voy a tronar.
+En el próximo *chapter* sé que voy a romperme.
 
-Y también sé que voy a mutar.
+Y también sé que voy a transformarme.
 
 Claridad.
 
@@ -96,13 +96,13 @@ O *wannabe atleta*.
 
 Llámalo como quieras.
 
-Pero llevar las métricas de mi cuerpo me genera una curiosidad inmensa.
+Pero llevar las métricas de mi cuerpo despierta mi curiosidad.
 
 El autoconocimiento me produce placer.
 
 En cualquier aspecto.
 
-Tener propósito.
+Tener un propósito.
 
 Tener retos.
 
@@ -130,6 +130,6 @@ Solo con el deseo intacto que tengo desde niña.
 
 Poder ser sirena.
 
-Aunque sea por un pinche día.
+Aunque sea por un día.
 
 🌊✨🧜‍♀️
