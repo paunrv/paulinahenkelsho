@@ -18,8 +18,6 @@ tags:
 
 # El desierto hospedando una planta que no puede fallar
 
-*Desarrollo, territorio y responsabilidad ambiental desde dentro de ECA LNG*
-
 Recuerdo venir de San Diego cuando era niña.
 
 A unos veinte minutos de casa aparecía una luz perdida en medio del desierto.
@@ -80,7 +78,7 @@ Así, cada procedimiento, cada restricción y cada medida responden a una misma 
 
 ---
 
-## Desarrollo vs. territorio
+# Desarrollo vs. territorio
 
 Detrás de Sempra y su proyecto ECA LNG, el discurso es claro.
 
