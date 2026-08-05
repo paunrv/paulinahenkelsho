@@ -5,13 +5,10 @@ import { Philosophy } from "@/components/sections/Philosophy";
 import { CurrentFocus } from "@/components/sections/CurrentFocus";
 import { Building } from "@/components/sections/Building";
 import { Notes } from "@/components/sections/Notes";
-import { Perspectives } from "@/components/sections/Perspectives";
 import { getFeaturedNotes } from "@/lib/notes";
-import { getFeaturedPerspectives } from "@/lib/perspectives";
 
 export default function Home() {
   const featuredNotes = getFeaturedNotes();
-  const featuredPerspectives = getFeaturedPerspectives();
 
   return (
     <>
@@ -22,7 +19,6 @@ export default function Home() {
         <CurrentFocus />
         <Building />
         <Notes notes={featuredNotes} />
-        <Perspectives perspectives={featuredPerspectives} />
       </main>
       <SiteFooter />
     </>

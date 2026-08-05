@@ -1,8 +1,20 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import {
+  isNoteCategory,
+  type NoteCategory,
+} from "@/lib/note-categories";
 
-export type NoteCategory = "Building" | "Field Notes";
+export type {
+  NoteCategory,
+} from "@/lib/note-categories";
+
+export {
+  NOTE_CATEGORIES,
+  formatCategoryLabel,
+  isNoteCategory,
+} from "@/lib/note-categories";
 
 export type NoteFrontmatter = {
   title: string;
@@ -26,10 +38,6 @@ export type Note = NoteMeta & {
 
 const NOTES_DIR = path.join(process.cwd(), "content/notes");
 
-function isCategory(value: unknown): value is NoteCategory {
-  return value === "Building" || value === "Field Notes";
-}
-
 function normalizeFrontmatter(
   data: Record<string, unknown>,
   slug: string
@@ -38,7 +46,7 @@ function normalizeFrontmatter(
     ? data.tags.filter((tag): tag is string => typeof tag === "string")
     : [];
 
-  if (!isCategory(data.category)) {
+  if (!isNoteCategory(data.category)) {
     throw new Error(`Invalid category in note "${slug}"`);
   }
 

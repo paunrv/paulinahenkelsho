@@ -4,10 +4,10 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 /**
- * Long-form reading styles for Notes and Perspectives.
+ * Long-form reading styles for Notes.
  * Homepage sections do not use this component.
  *
- * Aim: continuous essay immersion (New Yorker / Stripe Press / Every.to),
+ * Aim: continuous essay immersion — magazine / printed essay,
  * not sentence-by-sentence visual rhythm.
  */
 export function NoteMarkdown({ content }: { content: string }) {

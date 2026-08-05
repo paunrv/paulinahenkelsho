@@ -15,9 +15,7 @@ export function SiteHeader() {
 
   const nav = [
     { href: "/", label: t.nav.home },
-    { href: "/#building", label: t.nav.building },
     { href: "/notes", label: t.nav.notes },
-    { href: "/perspectives", label: t.nav.perspectives },
     { href: "/#philosophy", label: t.nav.about },
     { href: "/cv", label: t.nav.cv },
   ];

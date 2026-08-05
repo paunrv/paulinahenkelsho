@@ -1,88 +1,102 @@
-# Notes — Product Discovery
+# Notes — Product Architecture v2
 
-This website is evolving from a portfolio into a personal product.
+## Discovery
 
-Projects demonstrate what Paulina builds.
+Notes are not different products.
 
-Notes explain why she builds that way.
+They are simply different ways of thinking.
 
-## The Discovery
+Perspectives must not feel more important than Building or Field Notes.
 
-The most valuable thing Paulina has is not her portfolio.
+They all belong to the same notebook.
 
-It is her perspective.
+## Product Decision
 
-Projects show outcomes.
+Remove Perspectives as a top-level navigation item.
 
-Notes reveal the thinking behind those outcomes.
+Create a single section: **Notes**.
 
-The website should communicate both.
+Inside Notes, organize every publication by category.
 
-## What Notes Are
+Categories are part of the content architecture — not the site architecture.
 
-Notes are not a blog.
+## Final Navigation
 
-Notes are not articles, essays, or newsletters.
+Home · Notes · About · CV
 
-Notes are a living collection of observations — a personal library, a notebook, a place where experiences become ideas.
-
-Every note begins with something real:
-
-a conversation, a waiting room, the ocean, a winery, a hospital, a product decision, a question, a failure, a person, a place.
-
-If there is no real experience, there is no note.
-
-## Editorial Philosophy
-
-Paulina writes because she needs to understand the world — not to create content.
-
-Writing is observation.
-
-Observation becomes thinking.
-
-Thinking eventually becomes products.
-
-The process is never reversed.
-
-We never write to teach.
-
-We write to remember.
-
-We write to observe.
-
-We write to understand.
-
-Readers are invited into that process.
-
-## Categories
+## Categories (equal)
 
 ### Building
 
-How products are born.
-
-Product discovery, strategy, AI, systems thinking, UX, adoption, HUMI, PROOF, SiVeCa.
-
-These notes explain decisions, tradeoffs, questions, and mistakes.
-
-Never frameworks.
-
-Never “Top 5 Tips.”
-
-Structure when it fits:
-
-Problem → Discovery → Thinking → Decision → Reflection
+How products are built. Product Discovery. UX. AI. Systems. Decision making. Real projects.
 
 ### Field Notes
 
-Life outside the computer.
+Observations from real life. Hospitals. Open water. Travel. Taekwondo. Wine country. Industrial visits. People. Moments.
 
-Hospitals, open water, wine country, industrial visits, travel, family, taekwondo, waiting rooms, conversations.
+### Perspectives
 
-Observations only.
+Long-form reflections born from lived experience. Technology. Environmental responsibility. Industry. Latin America. Education. Ethics. Complex systems.
 
-Never force a product lesson.
+Not opinion pieces — thoughtful reflections grounded in real experience.
 
-If readers connect them to product thinking, that discovery belongs to them — not to the author.
+Perspectives should never have more visual importance than the other categories.
+
+## User Experience
+
+Visitors should never feel like they are entering different sections.
+
+They should feel like they are browsing the same notebook.
+
+Categories simply help organize the shelf.
+
+## Reading Experience
+
+Notes are designed for slow reading.
+
+Reading takes priority over visual rhythm.
+
+Reduce excessive vertical spacing.
+
+Create natural paragraphs.
+
+Separate only when the scene, emotional tone, or idea changes — or an important sentence deserves silence.
+
+Avoid breaking after every sentence.
+
+Optimize for immersion.
+
+The reading experience should feel closer to a magazine or a printed essay than a landing page.
+
+## Visual Hierarchy
+
+Category labels should be subtle and equal:
+
+FIELD NOTE · BUILDING · PERSPECTIVE
+
+Same typography. Same size. Same weight.
+
+## Philosophy
+
+Projects demonstrate what Paulina builds.
+
+Notes demonstrate how Paulina thinks.
+
+The website exists to preserve both.
+
+## Editorial Principle
+
+Every publication belongs to Notes.
+
+Some happen while building.
+
+Some happen while observing.
+
+Some happen while reflecting.
+
+All of them belong to the same notebook.
+
+That unity is more important than the category itself.
 
 ## Language
 
@@ -90,60 +104,10 @@ Publish each note in the language in which it was born.
 
 Never translate emotions, memories, or observations.
 
-Spanish stays Spanish.
+## Implementation
 
-English stays English.
-
-Language is part of the experience.
-
-The rest of the site is English for international work.
-
-Notes preserve authenticity.
-
-Optional frontmatter: `language: en | es`
-
-## Editorial Rules
-
-Never optimize for SEO, engagement, or algorithms.
-
-Optimize for truth, clarity, and permanence.
-
-Quiet. Minimal. Observational. Honest. Literary.
-
-Respect silence.
-
-Treat Notes like reading a magazine — continuous essay immersion, not sentence-by-sentence visual rhythm. Group related sentences into natural paragraphs. Insert whitespace only when the scene changes, the emotional tone shifts, a new idea begins, or an important sentence deserves emphasis. Avoid excessive vertical rhythm. The reader should forget they are on a website.
-
-Trust the reader.
-
-Never explain what the reader already understands.
-
-Never end with a moral.
-
-Never force a lesson.
-
-Sometimes the story itself is enough.
-
-No CTA. No comments. No sharing buttons. No reactions.
-
-This should feel closer to opening someone’s notebook than reading a blog.
-
-## Navigation
-
-Always call this section **Notes**.
-
-Never “Blog.”
-
-## Closing Principle
-
-A project explains what happened.
-
-A note explains what changed inside the person building it.
-
-Both are equally important.
-
-Technology taught Paulina how to build.
-
-People taught her why.
-
-Everything in this library should preserve that perspective.
+- Content lives in `content/notes/`
+- Categories: `Building` | `Field Notes` | `Perspectives`
+- Display labels via `formatCategoryLabel`: Building · Field Note · Perspective
+- Routes: `/notes`, `/notes/[slug]`
+- Legacy `/perspectives` and `/perspectives/:slug` redirect permanently to Notes

@@ -3,29 +3,52 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { NoteListItem } from "@/components/notes/NoteListItem";
 import {
+  formatCategoryLabel,
   getNotesByCategory,
+  type NoteCategory,
   type NoteMeta,
 } from "@/lib/notes";
 
+const CATEGORY_COPY: Record<
+  NoteCategory,
+  { description: string; empty: string }
+> = {
+  Building: {
+    description:
+      "How products are built — discovery, UX, AI, systems, decisions, and real projects.",
+    empty: "Nothing published here yet.",
+  },
+  "Field Notes": {
+    description:
+      "Observations from real life — hospitals, open water, travel, people, moments.",
+    empty: "Nothing published here yet.",
+  },
+  Perspectives: {
+    description:
+      "Long-form reflections grounded in lived experience. Not opinion pieces.",
+    empty: "Nothing published here yet.",
+  },
+};
+
 function CategoryBlock({
-  title,
-  description,
+  category,
   notes,
-  empty,
 }: {
-  title: string;
-  description: string;
+  category: NoteCategory;
   notes: NoteMeta[];
-  empty: string;
 }) {
+  const copy = CATEGORY_COPY[category];
+
   return (
     <section className="border-t border-line py-section">
       <div className="mx-auto max-w-6xl px-gutter">
         <div className="max-w-2xl">
           <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-subtle">
-            {title}
+            {formatCategoryLabel(category)}
           </p>
-          <p className="mt-6 text-lg leading-[1.65] text-muted">{description}</p>
+          <p className="mt-6 text-lg leading-[1.65] text-muted">
+            {copy.description}
+          </p>
         </div>
 
         {notes.length > 0 ? (
@@ -35,7 +58,7 @@ function CategoryBlock({
             ))}
           </ul>
         ) : (
-          <p className="mt-12 text-sm text-subtle md:mt-14">{empty}</p>
+          <p className="mt-12 text-sm text-subtle md:mt-14">{copy.empty}</p>
         )}
       </div>
     </section>
@@ -45,6 +68,7 @@ function CategoryBlock({
 export function NotesIndexPage() {
   const building = getNotesByCategory("Building");
   const fieldNotes = getNotesByCategory("Field Notes");
+  const perspectives = getNotesByCategory("Perspectives");
 
   return (
     <>
@@ -56,11 +80,12 @@ export function NotesIndexPage() {
               Notes
             </p>
             <h1 className="mt-6 max-w-3xl font-display text-title-md font-light text-ink text-balance md:text-title-lg">
-              A personal library of observations.
+              One notebook. Three ways of thinking.
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-[1.65] text-muted md:text-xl">
-              Projects show what was built. Notes reveal the thinking behind it
-              — moments worth preserving, written to understand, not to teach.
+              Projects show what was built. Notes show how she thinks — while
+              building, while observing, while reflecting. Categories organize
+              the shelf. They are not separate products.
             </p>
             <p className="mt-6 max-w-2xl text-base leading-[1.65] text-subtle">
               A notebook. Not a blog.
@@ -76,19 +101,9 @@ export function NotesIndexPage() {
           </div>
         </header>
 
-        <CategoryBlock
-          title="Building"
-          description="How products are born — decisions, tradeoffs, questions, and mistakes. Never frameworks."
-          notes={building}
-          empty="Nothing published here yet."
-        />
-
-        <CategoryBlock
-          title="Field Notes"
-          description="Life outside the computer. Observations only. No forced lesson."
-          notes={fieldNotes}
-          empty="Nothing published here yet."
-        />
+        <CategoryBlock category="Building" notes={building} />
+        <CategoryBlock category="Field Notes" notes={fieldNotes} />
+        <CategoryBlock category="Perspectives" notes={perspectives} />
       </main>
       <SiteFooter />
     </>

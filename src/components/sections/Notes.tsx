@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { useT } from "@/i18n/i18n";
+import { formatCategoryLabel } from "@/lib/note-categories";
 import type { NoteMeta } from "@/lib/notes";
 
 export function Notes({ notes }: { notes: NoteMeta[] }) {
@@ -43,7 +44,7 @@ export function Notes({ notes }: { notes: NoteMeta[] }) {
                     className="group block py-5 md:py-6"
                   >
                     <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-subtle">
-                      {note.category}
+                      {formatCategoryLabel(note.category)}
                     </p>
                     <p className="mt-3 text-base text-ink transition-colors group-hover:text-accent md:text-lg">
                       {note.title}
