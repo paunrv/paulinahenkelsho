@@ -122,16 +122,22 @@ En cuerpos aprendiendo a resistir antes de que pronuncien su nombre.
 
 ---
 
-Al final de la tarde.
+Aquí también existen los días que no cuentan.
 
-A mamá le pidieron regresar el 17 de febrero.
+No porque no hayan pasado cosas.
 
-Una última cita informativa.
+Sino porque el sistema decidió que hoy no era el día.
 
-Después vendrá la braquiterapia.
+Faltó un medicamento.
 
-Nos levantamos.
+Una firma.
 
-Guardamos las chamarras.
+Un trámite.
 
-Y volvimos a esperar.
+Una autorización.
+
+Entonces uno recoge sus cosas.
+
+Sale del hospital.
+
+Y entiende que mañana habrá que volver para intentar vivir el mismo día otra vez.
