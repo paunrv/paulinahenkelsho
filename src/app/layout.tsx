@@ -20,12 +20,12 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: "Paulina Henkel — Product Builder",
   description:
-    "Product Builder. I design technology people actually adopt — calm systems that fit real workflows.",
+    "Product Builder. Building technology people actually adopt — by understanding how people work first.",
   metadataBase: new URL("https://pauhenkelsho.com"),
   openGraph: {
     title: "Paulina Henkel — Product Builder",
     description:
-      "I design technology people actually adopt. Product philosophy, human-centered systems, and work in the real world.",
+      "Building technology people actually adopt. Philosophy, products shaped by real work, and field notes on product thinking.",
     url: "https://pauhenkelsho.com",
     siteName: "Paulina Henkel",
     locale: "en_US",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Paulina Henkel — Product Builder",
     description:
-      "I design technology people actually adopt. Product philosophy, human-centered systems, and work in the real world.",
+      "Building technology people actually adopt. Philosophy, products shaped by real work, and field notes on product thinking.",
   },
   robots: {
     index: true,

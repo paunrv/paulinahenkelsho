@@ -16,136 +16,112 @@ const COOKIE_KEY = "lang";
 const DICT = {
   en: {
     nav: {
-      work: "Work",
-      experience: "Experience",
-      approach: "Approach",
-      process: "Approach",
-      about: "Thinking",
-      humi: "HUMI",
+      philosophy: "Philosophy",
+      building: "Building",
+      notes: "Notes",
+      focus: "Focus",
       contact: "Contact",
       cv: "CV",
     },
     hero: {
       role: "Product Builder",
-      headline: "I design technology people actually adopt.",
-      cta: "See what\u2019s in use",
+      headline: "Building technology people actually adopt.",
+      subheadline:
+        "I build products by understanding how people work first, then designing technology that naturally fits into their daily lives.",
+      ctaWork: "View My Work",
+      ctaNotes: "Read My Notes",
     },
     philosophy: {
-      statement: "Technology should adapt to people.",
-      lines: [
-        "Not the other way around.",
-        "Not a barrier.",
-        "Not a system you fight against.",
+      headline:
+        "Technology should adapt to people\u2014not the other way around.",
+      paragraphs: [
+        "The best products are not the ones with the most features.",
+        "They are the ones people naturally adopt.",
       ],
-      closing1: "I work where people, operations, and systems meet.",
-      closing2: "I build products that fit real workflows \u2014 so they get used, not abandoned.",
+      lead: "Every product I build starts the same way.",
+      principles: ["Listen.", "Understand.", "Simplify.", "Build.", "Iterate."],
     },
-    selectedWork: {
-      eyebrow: "In practice",
-      title: "Work in the real world.",
+    building: {
+      eyebrow: "Building",
+      title: "Products shaped by real work.",
       labels: {
         problem: "Problem",
-        approach: "Decision",
-        outcome: "Adoption",
-        lessons: "Tradeoff",
+        approach: "Approach",
+        outcome: "Outcome",
       },
       cases: [
         {
-          name: "Proof \u2014 Wine production traceability",
-          subtitle: "Personal project \u2014 designed with winemakers, built alone",
-          status: "In development",
-          context: "In development",
-          problem: "",
-          approach: "",
-          outcome: "",
-          lessons: "",
-          sections: [
-            {
-              label: "Problem",
-              body: "Wineries in Valle de Guadalupe and Ensenada\u2014Baja California wine country\u2014still track production lots across spreadsheets, notebooks, and memory. Traceability breaks between stages. Small producers have no affordable system built around how they already work.",
-            },
-            {
-              label: "System",
-              body: "Proof follows every lot through the winemaking pipeline: harvest (cosecha) \u2192 lab analysis (an\u00e1lisis) \u2192 fermentation (fermentaci\u00f3n) \u2192 malolactic (malol\u00e1ctica) \u2192 aging (crianza) \u2192 bottling (embotellado).\n\nEach stage keeps its own data and state. Lots move with full history, so any bottle can be traced back to its harvest.",
-            },
-            {
-              label: "Interface",
-              body: "Instead of asking winemakers to learn a new maze of forms, the system can be managed in plain language\u2014\u201cshow me active lots,\u201d \u201cmove lot X to fermentation,\u201d \u201cstart a new lot.\u201d\n\nAn LLM calls typed tools against the database. It does not invent state. It executes the operations the domain already needs.",
-            },
-            {
-              label: "Build",
-              body: "Data model and backend on Supabase (PostgreSQL), exposed through REST APIs. Each operation has a defined tool schema\u2014create lot, list active lots, advance stage, query history.\n\nThe cycle starts with domain research alongside real winemakers, then data model, prompts, interface, and iteration.",
-            },
-            {
-              label: "Status",
-              body: "In active development. The question is not whether the technology is impressive\u2014it is whether a producer will trust it on a busy harvest day.",
-            },
-          ],
-          url: "",
-          urlLabel: "",
-        },
-        {
-          name: "HUMI \u2014 Academy operations platform",
-          subtitle: "Management and logistics for a taekwondo academy",
+          name: "HUMI",
+          subtitle: "Academy operations platform",
           status: "Live in production",
           context: "Live in production",
           problem:
-            "HUMI has run academy operations for 15+ years\u2014cohorts, staffing, events, family communication\u2014on people and process. That rigor needed a digital layer that matched the work, not another spreadsheet stack.",
+            "Sports organizations deserved software designed around their reality\u2014not generic management systems.",
           approach:
-            "Design the system around existing operations: data model, workflows, and a calm interface that staff can use without changing how the academy already runs. Build and deploy the full product on top of a real organization.",
+            "Designed an operating system around how academies already run: cohorts, staffing, events, and family communication\u2014with simplicity, onboarding, and adoption as the constraints.",
           outcome:
-            "The same 15+ years of operations now run on a live product shipped in 2025. Same community. New infrastructure they actually use.",
-          lessons:
-            "The best systems disappear into the day. When operations work, people notice the experience\u2014not the software.",
-          sections: [],
+            "Fifteen years of academy operations now run on a live product shipped in 2025. Same community. Infrastructure people actually use.",
           url: "https://humisite.vercel.app/",
           urlLabel: "Visit site",
         },
         {
-          name: "SiVeCa",
-          subtitle: "",
-          status: "",
-          context: "Monitoring and compliance workflows",
+          name: "Proof",
+          subtitle: "Wine production traceability",
+          status: "In development",
+          context: "In development",
           problem:
-            "Leadership and IT needed a shared path for monitoring and compliance decisions\u2014with auditability and NOM alignment\u2014instead of decisions trapped in chats, spreadsheets, and individual memory.",
+            "Small wineries in Baja California still track production lots across spreadsheets, notebooks, and memory. Traceability breaks between stages.",
           approach:
-            "Act as technical liaison between CEO and IT: audit repositories, run a parallel technical workstream, and translate NOM requirements into product logic people can follow. Design and ship the public site as part of that system.",
+            "Start with how winemakers already work. Model the full lot pipeline, then let them manage it in plain language instead of learning a new form maze.",
           outcome:
-            "Operators and reviewers share a traceable path from signal to documented response. The product is used because the path is clearer than the workarounds it replaced.",
-          lessons:
-            "In heavy domains, clarity is the product. Traceability only matters if people can follow it under pressure.",
-          sections: [],
+            "In active development with producers in the loop. The measure of success is trust on a busy harvest day\u2014not a feature demo.",
+          url: "",
+          urlLabel: "",
+        },
+        {
+          name: "SiVeCa",
+          subtitle: "Monitoring and compliance workflows",
+          status: "",
+          context: "In use",
+          problem:
+            "Monitoring and compliance decisions lived in chats, spreadsheets, and individual memory\u2014with no shared, auditable path.",
+          approach:
+            "Translate regulatory requirements into product logic people can follow. Give operators and reviewers one clear path from signal to documented response.",
+          outcome:
+            "A shared, traceable workflow replaced the workarounds. The product holds because the path is clearer than what came before.",
           url: "https://www.siveca.com.mx/",
           urlLabel: "Visit site",
         },
       ],
     },
-    process: {
-      eyebrow: "Approach",
-      title: "How I build.",
-      steps: [
-        { name: "Discover", description: "Map the real constraints before choosing a direction." },
-        { name: "Listen", description: "Talk to the people closest to the work\u2014not only the ones requesting the tool." },
-        { name: "Structure", description: "Turn ambiguity into a system others can navigate without you." },
-        { name: "Build", description: "Ship something real into a real workflow. Learn from what breaks." },
-        { name: "Document", description: "Make decisions traceable so the next person doesn\u2019t start from zero." },
-        { name: "Leave room", description: "Design for the team that inherits it\u2014and for the day you are not in the room." },
+    notes: {
+      eyebrow: "Notes",
+      title: "Field notes on product and people.",
+      intro:
+        "Not a blog. Notes from building\u2014problems, decisions, and what the work taught me.",
+      items: [
+        "Why I Build",
+        "The Hospital That Taught Me More About Product",
+        "15 Kilometers of Product Thinking",
+        "What Winemakers Taught Me About AI",
+      ],
+      status: "Notes in progress.",
+    },
+    focus: {
+      eyebrow: "Current focus",
+      title: "What I\u2019m exploring now.",
+      topics: [
+        "AI Product Development",
+        "Product Adoption",
+        "Systems Thinking",
+        "Agentic Systems",
+        "Human-centered AI",
       ],
     },
-    about: {
-      title: "How I think.",
-      lead: "I start with people and the work they already do.",
-      body: "Most systems fail in adoption, not in code. They ask people to change for the tool\u2014and the tool quietly loses.",
-      closing: "I translate messy, real-world complexity\u2014operational, regulatory, technical\u2014into products simple enough to trust.",
-      cvLink: "Read full CV",
-    },
-    writing: {
-      eyebrow: "Writing",
-      title: "I write about product, systems, and what makes technology stick.",
-      status: "Writing in progress.",
-    },
-    contact: {
-      title: "Get in touch.",
+    footer: {
+      prompt: "Interested in building technology people actually adopt?",
+      cta: "Let\u2019s talk.",
+      location: "Mexico",
     },
     cv: {
       title: "CV",
@@ -283,136 +259,118 @@ const DICT = {
   },
   es: {
     nav: {
-      work: "Trabajo",
-      experience: "Experiencias",
-      approach: "Enfoque",
-      process: "Enfoque",
-      about: "Pensamiento",
-      humi: "HUMI",
+      philosophy: "Filosof\u00eda",
+      building: "Construyendo",
+      notes: "Notas",
+      focus: "Enfoque",
       contact: "Contacto",
       cv: "CV",
     },
     hero: {
       role: "Product Builder",
-      headline: "Diseño tecnología que la gente realmente adopta.",
-      cta: "Ver lo que está en uso",
+      headline: "Construyendo tecnolog\u00eda que la gente realmente adopta.",
+      subheadline:
+        "Construyo productos entendiendo primero c\u00f3mo trabaja la gente, y despu\u00e9s dise\u00f1ando tecnolog\u00eda que encaja de forma natural en su d\u00eda a d\u00eda.",
+      ctaWork: "Ver mi trabajo",
+      ctaNotes: "Leer mis notas",
     },
     philosophy: {
-      statement: "La tecnolog\u00eda deber\u00eda adaptarse a las personas.",
-      lines: [
-        "No al rev\u00e9s.",
-        "No como una barrera.",
-        "No como un sistema contra el que luchas.",
+      headline:
+        "La tecnolog\u00eda deber\u00eda adaptarse a las personas\u2014no al rev\u00e9s.",
+      paragraphs: [
+        "Los mejores productos no son los que tienen m\u00e1s funciones.",
+        "Son los que la gente adopta de forma natural.",
       ],
-      closing1: "Trabajo donde se encuentran personas, operaciones y sistemas.",
-      closing2: "Construyo productos que encajan en flujos reales \u2014 para que se usen, no se abandonen.",
+      lead: "Cada producto que construyo empieza igual.",
+      principles: [
+        "Escuchar.",
+        "Entender.",
+        "Simplificar.",
+        "Construir.",
+        "Iterar.",
+      ],
     },
-    selectedWork: {
-      eyebrow: "En la pr\u00e1ctica",
-      title: "Trabajo en el mundo real.",
+    building: {
+      eyebrow: "Construyendo",
+      title: "Productos formados por trabajo real.",
       labels: {
         problem: "Problema",
-        approach: "Decisi\u00f3n",
-        outcome: "Adopci\u00f3n",
-        lessons: "Compensaci\u00f3n",
+        approach: "Enfoque",
+        outcome: "Resultado",
       },
       cases: [
         {
-          name: "Proof \u2014 Trazabilidad de producci\u00f3n vin\u00edcola",
-          subtitle: "Proyecto personal \u2014 dise\u00f1ado con en\u00f3logos, construido sola",
-          status: "En desarrollo",
-          context: "En desarrollo",
-          problem: "",
-          approach: "",
-          outcome: "",
-          lessons: "",
-          sections: [
-            {
-              label: "Problema",
-              body: "Las vin\u00edcolas del Valle de Guadalupe y Ensenada\u2014la regi\u00f3n vin\u00edcola de Baja California\u2014a\u00fan rastrean lotes de producci\u00f3n en hojas de c\u00e1lculo, libretas y memoria. La trazabilidad se rompe entre etapas. Los productores peque\u00f1os no tienen un sistema asequible construido alrededor de c\u00f3mo ya trabajan.",
-            },
-            {
-              label: "Sistema",
-              body: "Proof sigue cada lote a trav\u00e9s del pipeline de elaboraci\u00f3n: cosecha \u2192 an\u00e1lisis de laboratorio \u2192 fermentaci\u00f3n \u2192 malol\u00e1ctica \u2192 crianza \u2192 embotellado.\n\nCada etapa conserva sus propios datos y estado. Los lotes avanzan con historial completo, de modo que cualquier botella puede trazarse hasta su cosecha.",
-            },
-            {
-              label: "Interfaz",
-              body: "En lugar de pedirles a los en\u00f3logos que aprendan un laberinto nuevo de formularios, el sistema se puede gestionar en lenguaje cotidiano\u2014\u201cmu\u00e9strame lotes activos,\u201d \u201cmueve el lote X a fermentaci\u00f3n,\u201d \u201cinicia un lote nuevo.\u201d\n\nUn LLM llama herramientas tipadas contra la base de datos. No inventa estado. Ejecuta las operaciones que el dominio ya necesita.",
-            },
-            {
-              label: "Construcci\u00f3n",
-              body: "Modelo de datos y backend en Supabase (PostgreSQL), expuestos por REST APIs. Cada operaci\u00f3n tiene un esquema de herramientas definido\u2014crear lote, listar activos, avanzar etapa, consultar historial.\n\nEl ciclo empieza con investigaci\u00f3n de dominio junto a en\u00f3logos reales; despu\u00e9s modelo de datos, prompts, interfaz e iteraci\u00f3n.",
-            },
-            {
-              label: "Estado",
-              body: "En desarrollo activo. La pregunta no es si la tecnolog\u00eda impresiona\u2014es si un productor confiar\u00e1 en ella un d\u00eda de cosecha ajetreado.",
-            },
-          ],
-          url: "",
-          urlLabel: "",
-        },
-        {
-          name: "HUMI \u2014 Plataforma de operaciones para academias",
-          subtitle: "Gesti\u00f3n y log\u00edstica para una academia de taekwondo",
+          name: "HUMI",
+          subtitle: "Plataforma de operaciones para academias",
           status: "En producci\u00f3n",
           context: "En producci\u00f3n",
           problem:
-            "HUMI ha operado una academia durante m\u00e1s de 15 a\u00f1os\u2014cohortes, staff, eventos, comunicaci\u00f3n con familias\u2014sobre personas y proceso. Ese rigor necesitaba una capa digital alineada al trabajo, no otra pila de hojas de c\u00e1lculo.",
+            "Las organizaciones deportivas merec\u00edan software dise\u00f1ado alrededor de su realidad\u2014no sistemas gen\u00e9ricos de gesti\u00f3n.",
           approach:
-            "Dise\u00f1ar el sistema alrededor de la operaci\u00f3n existente: modelo de datos, flujos e interfaz calmada que el staff pueda usar sin cambiar c\u00f3mo ya corre la academia. Construir y desplegar el producto completo sobre una organizaci\u00f3n real.",
+            "Dise\u00f1\u00e9 un sistema operativo alrededor de c\u00f3mo ya corren las academias: cohortes, staff, eventos y comunicaci\u00f3n con familias\u2014con simplicidad, onboarding y adopci\u00f3n como restricciones.",
           outcome:
-            "Los mismos 15+ a\u00f1os de operaci\u00f3n ahora corren sobre un producto en vivo entregado en 2025. Misma comunidad. Nueva infraestructura que s\u00ed usan.",
-          lessons:
-            "Los mejores sistemas se disuelven en el d\u00eda. Cuando la operaci\u00f3n funciona, la gente nota la experiencia\u2014no el software.",
-          sections: [],
+            "Quince a\u00f1os de operaci\u00f3n de academia ahora corren sobre un producto en vivo entregado en 2025. Misma comunidad. Infraestructura que s\u00ed usan.",
           url: "https://humisite.vercel.app/",
           urlLabel: "Visitar sitio",
         },
         {
-          name: "SiVeCa",
-          subtitle: "",
-          status: "",
-          context: "Flujos de monitoreo y cumplimiento",
+          name: "Proof",
+          subtitle: "Trazabilidad de producci\u00f3n vin\u00edcola",
+          status: "En desarrollo",
+          context: "En desarrollo",
           problem:
-            "Liderazgo e IT necesitaban un camino compartido para decisiones de monitoreo y cumplimiento\u2014con auditabilidad y alineaci\u00f3n NOM\u2014en lugar de decisiones atrapadas en chats, hojas de c\u00e1lculo y memoria individual.",
+            "Vin\u00edcolas peque\u00f1as en Baja California a\u00fan rastrean lotes en hojas de c\u00e1lculo, libretas y memoria. La trazabilidad se rompe entre etapas.",
           approach:
-            "Ser enlace t\u00e9cnico entre CEO e IT: auditar repositorios, llevar un workstream t\u00e9cnico paralelo y traducir requisitos NOM a l\u00f3gica de producto que la gente pueda seguir. Dise\u00f1ar y publicar el sitio p\u00fablico como parte de ese sistema.",
+            "Empezar por c\u00f3mo ya trabajan los en\u00f3logos. Modelar todo el pipeline del lote y permitir gestionarlo en lenguaje cotidiano, sin aprender un laberinto de formularios.",
           outcome:
-            "Operadores y revisores comparten un camino trazable de la se\u00f1al a la respuesta documentada. El producto se usa porque el camino es m\u00e1s claro que los atajos que reemplaz\u00f3.",
-          lessons:
-            "En dominios densos, la claridad es el producto. La trazabilidad solo importa si la gente puede seguirla bajo presi\u00f3n.",
-          sections: [],
+            "En desarrollo activo con productores en el ciclo. La medida de \u00e9xito es la confianza en un d\u00eda de cosecha ajetreado\u2014no una demo de funciones.",
+          url: "",
+          urlLabel: "",
+        },
+        {
+          name: "SiVeCa",
+          subtitle: "Flujos de monitoreo y cumplimiento",
+          status: "",
+          context: "En uso",
+          problem:
+            "Las decisiones de monitoreo y cumplimiento viv\u00edan en chats, hojas de c\u00e1lculo y memoria individual\u2014sin un camino compartido y auditable.",
+          approach:
+            "Traducir requisitos regulatorios a l\u00f3gica de producto que la gente pueda seguir. Dar a operadores y revisores un camino claro de la se\u00f1al a la respuesta documentada.",
+          outcome:
+            "Un flujo compartido y trazable reemplaz\u00f3 los atajos. El producto se sostiene porque el camino es m\u00e1s claro que lo anterior.",
           url: "https://www.siveca.com.mx/",
           urlLabel: "Visitar sitio",
         },
       ],
     },
-    process: {
-      eyebrow: "Enfoque",
-      title: "C\u00f3mo construyo.",
-      steps: [
-        { name: "Descubrir", description: "Mapear las restricciones reales antes de elegir una direcci\u00f3n." },
-        { name: "Escuchar", description: "Hablar con las personas m\u00e1s cercanas al trabajo\u2014no solo con quienes piden la herramienta." },
-        { name: "Estructurar", description: "Convertir la ambig\u00fcedad en un sistema que otros puedan navegar sin ti." },
-        { name: "Construir", description: "Entregar algo real dentro de un flujo real. Aprender de lo que se rompe." },
-        { name: "Documentar", description: "Hacer las decisiones trazables para que la siguiente persona no empiece de cero." },
-        { name: "Dejar espacio", description: "Dise\u00f1ar para el equipo que lo hereda\u2014y para el d\u00eda en que no est\u00e1s en la sala." },
+    notes: {
+      eyebrow: "Notas",
+      title: "Notas de campo sobre producto y personas.",
+      intro:
+        "No es un blog. Notas desde la construcci\u00f3n\u2014problemas, decisiones y lo que ense\u00f1\u00f3 el trabajo.",
+      items: [
+        "Por qu\u00e9 construyo",
+        "El hospital que me ense\u00f1\u00f3 m\u00e1s sobre producto",
+        "15 kil\u00f3metros de pensamiento de producto",
+        "Lo que los en\u00f3logos me ense\u00f1aron sobre IA",
+      ],
+      status: "Notas en progreso.",
+    },
+    focus: {
+      eyebrow: "Enfoque actual",
+      title: "Lo que exploro ahora.",
+      topics: [
+        "Desarrollo de productos con IA",
+        "Adopci\u00f3n de producto",
+        "Pensamiento de sistemas",
+        "Sistemas ag\u00e9nticos",
+        "IA centrada en las personas",
       ],
     },
-    about: {
-      title: "C\u00f3mo pienso.",
-      lead: "Empiezo por las personas y el trabajo que ya hacen.",
-      body: "La mayor\u00eda de los sistemas fallan en la adopci\u00f3n, no en el c\u00f3digo. Piden que la gente cambie por la herramienta\u2014y la herramienta pierde en silencio.",
-      closing: "Traduzco complejidad real\u2014operativa, regulatoria, t\u00e9cnica\u2014en productos lo bastante simples para merecer confianza.",
-      cvLink: "Leer CV completo",
-    },
-    writing: {
-      eyebrow: "Escritura",
-      title: "Escribo sobre producto, sistemas y lo que hace que la tecnolog\u00eda se quede.",
-      status: "Escritura en progreso.",
-    },
-    contact: {
-      title: "Hablemos.",
+    footer: {
+      prompt: "\u00bfTe interesa construir tecnolog\u00eda que la gente realmente adopte?",
+      cta: "Hablemos.",
+      location: "M\u00e9xico",
     },
     cv: {
       title: "CV",

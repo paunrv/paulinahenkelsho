@@ -15,15 +15,12 @@ type CaseStudyProps = {
   problem: string;
   approach: string;
   outcome: string;
-  lessons: string;
-  sections?: readonly CaseSection[];
   url: string;
   urlLabel: string;
   labels: {
     problem: string;
     approach: string;
     outcome: string;
-    lessons: string;
   };
 };
 
@@ -35,16 +32,11 @@ export function CaseStudy({
   problem,
   approach,
   outcome,
-  lessons,
-  sections = [],
   url,
   urlLabel,
   labels,
 }: CaseStudyProps) {
-  const isRich = sections.length > 0;
-  const isPlaceholder = !isRich && !problem;
-
-  if (isPlaceholder) {
+  if (!problem) {
     return (
       <div className="border-t border-line py-12">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
@@ -59,14 +51,11 @@ export function CaseStudy({
     );
   }
 
-  const blocks: CaseSection[] = isRich
-    ? [...sections]
-    : [
-        { label: labels.problem, body: problem },
-        { label: labels.approach, body: approach },
-        { label: labels.outcome, body: outcome },
-        { label: labels.lessons, body: lessons },
-      ];
+  const blocks: CaseSection[] = [
+    { label: labels.problem, body: problem },
+    { label: labels.approach, body: approach },
+    { label: labels.outcome, body: outcome },
+  ];
 
   return (
     <div className="border-t border-line pt-12 md:pt-16">
@@ -90,13 +79,7 @@ export function CaseStudy({
         </div>
       </Reveal>
 
-      <div
-        className={
-          isRich
-            ? "mt-10 space-y-8 md:mt-14 md:space-y-10"
-            : "mt-10 grid gap-8 md:mt-14 md:grid-cols-2 md:gap-x-16 md:gap-y-10"
-        }
-      >
+      <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-3 md:gap-x-12 md:gap-y-10">
         {blocks.map((block, i) => (
           <Reveal key={block.label} delay={i * 0.05}>
             <div>

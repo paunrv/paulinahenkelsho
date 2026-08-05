@@ -14,9 +14,10 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const nav = [
-    { href: "#work", label: t.nav.work },
-    { href: "#about", label: t.nav.about },
-    { href: "#process", label: t.nav.process ?? "Process" },
+    { href: "#philosophy", label: t.nav.philosophy },
+    { href: "#focus", label: t.nav.focus },
+    { href: "#building", label: t.nav.building },
+    { href: "#notes", label: t.nav.notes },
     { href: "#contact", label: t.nav.contact },
   ];
 
@@ -36,7 +37,6 @@ export function SiteHeader() {
             Paulina Henkel
           </Link>
 
-          {/* Desktop nav */}
           <div className="hidden items-center gap-7 md:flex">
             <nav
               className="flex gap-7 text-[12px] font-medium uppercase tracking-[0.14em] text-muted"
@@ -71,7 +71,6 @@ export function SiteHeader() {
             </div>
           </div>
 
-          {/* Mobile controls */}
           <div className="flex items-center gap-2 md:hidden">
             <ThemeToggle />
             <button
@@ -94,7 +93,6 @@ export function SiteHeader() {
         </div>
       </motion.header>
 
-      {/* Mobile drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

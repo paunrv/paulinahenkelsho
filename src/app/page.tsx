@@ -2,11 +2,9 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Hero } from "@/components/sections/Hero";
 import { Philosophy } from "@/components/sections/Philosophy";
-import { SelectedWork } from "@/components/sections/SelectedWork";
-import { About } from "@/components/sections/About";
-import { Process } from "@/components/sections/Process";
-import { Writing } from "@/components/sections/Writing";
-import { Contact } from "@/components/sections/Contact";
+import { CurrentFocus } from "@/components/sections/CurrentFocus";
+import { Building } from "@/components/sections/Building";
+import { Notes } from "@/components/sections/Notes";
 
 export default function Home() {
   return (
@@ -15,11 +13,9 @@ export default function Home() {
       <main>
         <Hero />
         <Philosophy />
-        <SelectedWork />
-        <About />
-        <Process />
-        <Writing />
-        <Contact />
+        <CurrentFocus />
+        <Building />
+        <Notes />
       </main>
       <SiteFooter />
     </>
