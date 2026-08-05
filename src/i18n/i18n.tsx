@@ -98,14 +98,9 @@ const DICT = {
       eyebrow: "Notes",
       title: "Field notes on product and people.",
       intro:
-        "Not a blog. Notes from building\u2014problems, decisions, and what the work taught me.",
-      items: [
-        "Why I Build",
-        "The Hospital That Taught Me More About Product",
-        "15 Kilometers of Product Thinking",
-        "What Winemakers Taught Me About AI",
-      ],
-      status: "Notes in progress.",
+        "Not a blog. A notebook of observations and product thinking — written to share how attention moves.",
+      status: "First note forthcoming.",
+      allNotes: "Browse all notes",
     },
     focus: {
       eyebrow: "Current focus",
@@ -347,14 +342,9 @@ const DICT = {
       eyebrow: "Notas",
       title: "Notas de campo sobre producto y personas.",
       intro:
-        "No es un blog. Notas desde la construcci\u00f3n\u2014problemas, decisiones y lo que ense\u00f1\u00f3 el trabajo.",
-      items: [
-        "Por qu\u00e9 construyo",
-        "El hospital que me ense\u00f1\u00f3 m\u00e1s sobre producto",
-        "15 kil\u00f3metros de pensamiento de producto",
-        "Lo que los en\u00f3logos me ense\u00f1aron sobre IA",
-      ],
-      status: "Notas en progreso.",
+        "No es un blog. Un cuaderno de observaciones y pensamiento de producto \u2014 escrito para compartir c\u00f3mo se mueve la atenci\u00f3n.",
+      status: "Primera nota pr\u00f3ximamente.",
+      allNotes: "Ver todas las notas",
     },
     focus: {
       eyebrow: "Enfoque actual",

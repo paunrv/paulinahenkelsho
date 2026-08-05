@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useT } from "@/i18n/i18n";
 
@@ -65,8 +66,8 @@ export function Hero() {
                 →
               </span>
             </a>
-            <a
-              href="#notes"
+            <Link
+              href="/notes"
               className="group inline-flex items-center gap-3 text-sm font-medium text-ink"
             >
               <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent">
@@ -75,7 +76,7 @@ export function Hero() {
               <span className="text-accent transition-transform group-hover:translate-x-1" aria-hidden>
                 →
               </span>
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>

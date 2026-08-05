@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { useT } from "@/i18n/i18n";
+import type { NoteMeta } from "@/lib/notes";
 
-export function Notes() {
+export function Notes({ notes }: { notes: NoteMeta[] }) {
   const t = useT();
   const n = t.notes;
 
@@ -29,24 +31,53 @@ export function Notes() {
               {n.intro}
             </p>
           </Reveal>
+        </div>
 
-          <Reveal delay={0.14}>
-            <ul className="mt-12 space-y-0 border-t border-line md:mt-14">
-              {n.items.map((item) => (
-                <li
-                  key={item}
-                  className="border-b border-line py-5 text-base text-ink md:py-6 md:text-lg"
-                >
-                  {item}
+        <Reveal delay={0.14}>
+          {notes.length > 0 ? (
+            <ul className="mt-12 max-w-2xl border-t border-line md:mt-14">
+              {notes.map((note) => (
+                <li key={note.slug} className="border-b border-line">
+                  <Link
+                    href={`/notes/${note.slug}`}
+                    className="group block py-5 md:py-6"
+                  >
+                    <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-subtle">
+                      {note.category}
+                    </p>
+                    <p className="mt-3 text-base text-ink transition-colors group-hover:text-accent md:text-lg">
+                      {note.title}
+                    </p>
+                    {note.subtitle ? (
+                      <p className="mt-1 text-sm text-muted">{note.subtitle}</p>
+                    ) : null}
+                  </Link>
                 </li>
               ))}
             </ul>
-          </Reveal>
+          ) : (
+            <p className="mt-12 text-sm text-subtle md:mt-14">{n.status}</p>
+          )}
+        </Reveal>
 
-          <Reveal delay={0.2}>
-            <p className="mt-8 text-sm text-subtle">{n.status}</p>
-          </Reveal>
-        </div>
+        <Reveal delay={0.2}>
+          <div className="mt-10">
+            <Link
+              href="/notes"
+              className="group inline-flex items-center gap-3 text-sm font-medium text-ink"
+            >
+              <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent">
+                {n.allNotes}
+              </span>
+              <span
+                className="text-accent transition-transform group-hover:translate-x-1"
+                aria-hidden
+              >
+                →
+              </span>
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -5,8 +5,11 @@ import { Philosophy } from "@/components/sections/Philosophy";
 import { CurrentFocus } from "@/components/sections/CurrentFocus";
 import { Building } from "@/components/sections/Building";
 import { Notes } from "@/components/sections/Notes";
+import { getFeaturedNotes } from "@/lib/notes";
 
 export default function Home() {
+  const featuredNotes = getFeaturedNotes();
+
   return (
     <>
       <SiteHeader />
@@ -15,7 +18,7 @@ export default function Home() {
         <Philosophy />
         <CurrentFocus />
         <Building />
-        <Notes />
+        <Notes notes={featuredNotes} />
       </main>
       <SiteFooter />
     </>

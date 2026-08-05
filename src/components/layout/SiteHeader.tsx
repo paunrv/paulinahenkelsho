@@ -14,11 +14,11 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const nav = [
-    { href: "#philosophy", label: t.nav.philosophy },
-    { href: "#focus", label: t.nav.focus },
-    { href: "#building", label: t.nav.building },
-    { href: "#notes", label: t.nav.notes },
-    { href: "#contact", label: t.nav.contact },
+    { href: "/#philosophy", label: t.nav.philosophy },
+    { href: "/#focus", label: t.nav.focus },
+    { href: "/#building", label: t.nav.building },
+    { href: "/notes", label: t.nav.notes },
+    { href: "/#contact", label: t.nav.contact },
   ];
 
   return (
@@ -31,7 +31,7 @@ export function SiteHeader() {
       >
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-gutter md:h-16">
           <Link
-            href="#hero"
+            href="/"
             className="text-[13px] font-medium tracking-[-0.02em] text-ink md:text-sm"
           >
             Paulina Henkel
