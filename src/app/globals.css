@@ -71,3 +71,27 @@
     text-wrap: balance;
   }
 }
+
+/* Notes + Perspectives: continuous essay reading (not homepage) */
+@layer components {
+  .essay .essay-quote > p {
+    margin-top: 0.55em;
+  }
+
+  .essay .essay-quote > p:first-child {
+    margin-top: 0;
+  }
+
+  /* After a section break or heading, keep flow calm */
+  .essay > h1 + .essay-p,
+  .essay > h2 + .essay-p,
+  .essay > h3 + .essay-p,
+  .essay > hr + .essay-p {
+    margin-top: 1.15em;
+  }
+
+  .essay > h1 + em,
+  .essay > h1 + p {
+    margin-top: 0.85em;
+  }
+}

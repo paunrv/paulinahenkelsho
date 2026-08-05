@@ -82,7 +82,7 @@ Quiet. Minimal. Observational. Honest. Literary.
 
 Respect silence.
 
-Use whitespace.
+Magazine reading, not stacked one-liners: group related sentences into paragraphs. Break only for scene, tone, idea, or emphasis. Continuous immersion over visual rhythm.
 
 Trust the reader.
 

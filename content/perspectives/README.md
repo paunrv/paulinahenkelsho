@@ -39,6 +39,12 @@ language: en | es
 tags: []
 ```
 
+## Reading experience
+
+Continuous essay prose. Natural paragraphs. Sparse section breaks.
+
+Do not break after every sentence. Whitespace only for scene, tone, idea, or emphasis.
+
 ## Structure
 
 ```markdown
@@ -48,7 +54,7 @@ Subtitle
 
 ---
 
-Body
+Body in continuous paragraphs
 
 ---
 

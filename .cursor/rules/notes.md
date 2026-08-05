@@ -112,7 +112,7 @@ Quiet. Minimal. Observational. Honest. Literary.
 
 Respect silence.
 
-Use whitespace.
+Treat Notes like reading a magazine — continuous essay immersion, not sentence-by-sentence visual rhythm. Group related sentences into natural paragraphs. Insert whitespace only when the scene changes, the emotional tone shifts, a new idea begins, or an important sentence deserves emphasis. Avoid excessive vertical rhythm. The reader should forget they are on a website.
 
 Trust the reader.
 

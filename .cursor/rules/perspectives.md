@@ -67,6 +67,8 @@ Never optimized for engagement or SEO.
 
 Long-form is encouraged.
 
+Treat Perspectives like reading a magazine — continuous essay immersion (The New Yorker, Stripe Press, Wait But Why articles, Every.to, Delayed Gratification). Do not break after every sentence. Group related sentences into natural paragraphs. Insert whitespace only when the scene changes, the emotional tone shifts, a new idea begins, or an important sentence deserves emphasis. Optimize for immersion, not visual rhythm. The reader should feel they are reading an essay.
+
 ## Language
 
 Publish in the language originally written.

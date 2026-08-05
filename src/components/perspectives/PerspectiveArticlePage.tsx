@@ -18,7 +18,7 @@ export function PerspectiveArticlePage({
       <main className="pt-14 md:pt-16">
         <article className="pb-section" lang={perspective.language}>
           <header className="border-b border-line py-section">
-            <div className="mx-auto max-w-3xl px-gutter">
+            <div className="mx-auto max-w-2xl px-gutter md:max-w-[42rem]">
               <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-subtle">
                 Perspectives
               </p>
@@ -36,11 +36,11 @@ export function PerspectiveArticlePage({
             </div>
           </header>
 
-          <div className="mx-auto max-w-3xl px-gutter pt-14 md:pt-16">
+          <div className="mx-auto max-w-2xl px-gutter pt-12 md:max-w-[42rem] md:pt-14">
             <NoteMarkdown content={perspective.content} />
           </div>
 
-          <div className="mx-auto max-w-3xl px-gutter pt-16 md:pt-20">
+          <div className="mx-auto max-w-2xl px-gutter pt-14 md:max-w-[42rem] md:pt-16">
             <Link
               href="/perspectives"
               className="text-sm font-medium text-ink border-b border-accent/40 pb-0.5 transition-colors hover:border-accent"
