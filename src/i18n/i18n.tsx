@@ -16,11 +16,11 @@ const COOKIE_KEY = "lang";
 const DICT = {
   en: {
     nav: {
-      philosophy: "Philosophy",
+      home: "Home",
       building: "Building",
       notes: "Notes",
-      focus: "Focus",
-      contact: "Contact",
+      perspectives: "Perspectives",
+      about: "About",
       cv: "CV",
     },
     hero: {
@@ -101,6 +101,14 @@ const DICT = {
         "Projects show outcomes. Notes reveal the thinking behind them — a living library of observations, not a blog.",
       status: "The library is just beginning.",
       allNotes: "Open the library",
+    },
+    perspectives: {
+      eyebrow: "Perspectives",
+      title: "What I think after living through it.",
+      intro:
+        "Essays for questions without simple answers. Experience first. Reflection second. Not written to convince.",
+      status: "First perspective forthcoming.",
+      allPerspectives: "Read perspectives",
     },
     focus: {
       eyebrow: "Current focus",
@@ -254,11 +262,11 @@ const DICT = {
   },
   es: {
     nav: {
-      philosophy: "Filosof\u00eda",
+      home: "Inicio",
       building: "Construyendo",
       notes: "Notas",
-      focus: "Enfoque",
-      contact: "Contacto",
+      perspectives: "Perspectivas",
+      about: "Acerca",
       cv: "CV",
     },
     hero: {
@@ -345,6 +353,14 @@ const DICT = {
         "Los proyectos muestran resultados. Las notas revelan el pensamiento detr\u00e1s \u2014 una biblioteca viva de observaciones, no un blog.",
       status: "La biblioteca apenas comienza.",
       allNotes: "Abrir la biblioteca",
+    },
+    perspectives: {
+      eyebrow: "Perspectivas",
+      title: "Lo que pienso despu\u00e9s de vivirlo.",
+      intro:
+        "Ensayos para preguntas sin respuesta simple. Primero la experiencia. Despu\u00e9s la reflexi\u00f3n. No se escriben para convencer.",
+      status: "Primera perspectiva pr\u00f3ximamente.",
+      allPerspectives: "Leer perspectivas",
     },
     focus: {
       eyebrow: "Enfoque actual",

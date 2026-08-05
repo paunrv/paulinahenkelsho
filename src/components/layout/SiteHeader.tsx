@@ -14,11 +14,12 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const nav = [
-    { href: "/#philosophy", label: t.nav.philosophy },
-    { href: "/#focus", label: t.nav.focus },
+    { href: "/", label: t.nav.home },
     { href: "/#building", label: t.nav.building },
     { href: "/notes", label: t.nav.notes },
-    { href: "/#contact", label: t.nav.contact },
+    { href: "/perspectives", label: t.nav.perspectives },
+    { href: "/#philosophy", label: t.nav.about },
+    { href: "/cv", label: t.nav.cv },
   ];
 
   return (
@@ -39,7 +40,7 @@ export function SiteHeader() {
 
           <div className="hidden items-center gap-7 md:flex">
             <nav
-              className="flex gap-7 text-[12px] font-medium uppercase tracking-[0.14em] text-muted"
+              className="flex gap-6 text-[12px] font-medium uppercase tracking-[0.14em] text-muted lg:gap-7"
               aria-label="Primary"
             >
               {nav.map((item) => (
