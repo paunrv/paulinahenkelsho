@@ -12,6 +12,7 @@ export type NoteFrontmatter = {
   readingTime: string;
   featured: boolean;
   published: boolean;
+  language: "en" | "es";
   tags: string[];
 };
 
@@ -41,6 +42,8 @@ function normalizeFrontmatter(
     throw new Error(`Invalid category in note "${slug}"`);
   }
 
+  const language = data.language === "es" ? "es" : "en";
+
   return {
     title: String(data.title ?? ""),
     subtitle: String(data.subtitle ?? ""),
@@ -49,6 +52,7 @@ function normalizeFrontmatter(
     readingTime: String(data.readingTime ?? ""),
     featured: Boolean(data.featured),
     published: data.published !== false,
+    language,
     tags,
   };
 }

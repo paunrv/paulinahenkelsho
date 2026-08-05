@@ -56,13 +56,16 @@ export function NotesIndexPage() {
               Notes
             </p>
             <h1 className="mt-6 max-w-3xl font-display text-title-md font-light text-ink text-balance md:text-title-lg">
-              A notebook, not a newsletter.
+              A personal library of observations.
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-[1.65] text-muted md:text-xl">
-              Ideas, observations, and product thinking — written to share how
-              attention moves, not to teach a lesson.
+              Projects show what was built. Notes reveal the thinking behind it
+              — moments worth preserving, written to understand, not to teach.
             </p>
-            <p className="mt-6">
+            <p className="mt-6 max-w-2xl text-base leading-[1.65] text-subtle">
+              A notebook. Not a blog.
+            </p>
+            <p className="mt-8">
               <Link
                 href="/#notes"
                 className="text-sm font-medium text-ink border-b border-accent/40 pb-0.5 transition-colors hover:border-accent"
@@ -75,14 +78,14 @@ export function NotesIndexPage() {
 
         <CategoryBlock
           title="Building"
-          description="Notes from making products — problem, discovery, thinking, decision, reflection."
+          description="How products are born — decisions, tradeoffs, questions, and mistakes. Never frameworks."
           notes={building}
           empty="Nothing published here yet."
         />
 
         <CategoryBlock
           title="Field Notes"
-          description="Moments that changed how people are understood. Observation first. No forced lesson."
+          description="Life outside the computer. Observations only. No forced lesson."
           notes={fieldNotes}
           empty="Nothing published here yet."
         />

@@ -96,11 +96,11 @@ const DICT = {
     },
     notes: {
       eyebrow: "Notes",
-      title: "Field notes on product and people.",
+      title: "Why I build the way I build.",
       intro:
-        "Not a blog. A notebook of observations and product thinking — written to share how attention moves.",
-      status: "First note forthcoming.",
-      allNotes: "Browse all notes",
+        "Projects show outcomes. Notes reveal the thinking behind them — a living library of observations, not a blog.",
+      status: "The library is just beginning.",
+      allNotes: "Open the library",
     },
     focus: {
       eyebrow: "Current focus",
@@ -340,11 +340,11 @@ const DICT = {
     },
     notes: {
       eyebrow: "Notas",
-      title: "Notas de campo sobre producto y personas.",
+      title: "Por qu\u00e9 construyo como construyo.",
       intro:
-        "No es un blog. Un cuaderno de observaciones y pensamiento de producto \u2014 escrito para compartir c\u00f3mo se mueve la atenci\u00f3n.",
-      status: "Primera nota pr\u00f3ximamente.",
-      allNotes: "Ver todas las notas",
+        "Los proyectos muestran resultados. Las notas revelan el pensamiento detr\u00e1s \u2014 una biblioteca viva de observaciones, no un blog.",
+      status: "La biblioteca apenas comienza.",
+      allNotes: "Abrir la biblioteca",
     },
     focus: {
       eyebrow: "Enfoque actual",

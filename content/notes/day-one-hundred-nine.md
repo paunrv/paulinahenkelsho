@@ -6,6 +6,7 @@ date: 2026-08-05
 readingTime: 5 min
 featured: true
 published: false
+language: en
 tags:
   - hospital
   - waiting

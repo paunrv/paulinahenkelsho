@@ -9,7 +9,7 @@ export function NoteArticlePage({ note }: { note: Note }) {
     <>
       <SiteHeader />
       <main className="pt-14 md:pt-16">
-        <article className="pb-section">
+        <article className="pb-section" lang={note.language}>
           <header className="border-b border-line py-section">
             <div className="mx-auto max-w-3xl px-gutter">
               <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-subtle">
@@ -17,7 +17,7 @@ export function NoteArticlePage({ note }: { note: Note }) {
               </p>
               <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm text-subtle">
                 <time dateTime={note.date}>
-                  {formatNoteDate(note.date)}
+                  {formatNoteDate(note.date, note.language)}
                 </time>
                 {note.readingTime ? <span>{note.readingTime}</span> : null}
               </div>

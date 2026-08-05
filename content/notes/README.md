@@ -2,65 +2,145 @@
 
 Notes is a personal knowledge library — not a blog, newsletter, or content engine.
 
-## Purpose
+Projects show what Paulina builds.
 
-Document ideas, observations, and product thinking.
+Notes reveal why she builds that way.
 
-Readers should leave understanding how Paulina thinks — not what she knows.
+## The Discovery
+
+The most valuable thing here is not the portfolio.
+
+It is the perspective.
+
+Projects show outcomes.
+
+Notes reveal the thinking behind those outcomes.
+
+## Philosophy
+
+Writing is observation.
+
+Observation becomes thinking.
+
+Thinking eventually becomes products.
+
+Never reverse that order.
+
+Never write to teach.
+
+Write to remember, observe, and understand.
+
+## What Counts as a Note
+
+Every note begins with something real.
+
+A conversation. A waiting room. The ocean. A winery. A hospital. A product decision. A question. A failure. A person. A place.
+
+If there is no real experience, there is no note.
 
 ## Categories
 
 ### Building
 
-Articles about building products.
+How products are born — decisions, tradeoffs, questions, mistakes.
 
-Structure every Building note as:
+Topics may include product discovery, strategy, AI, systems thinking, UX, adoption, HUMI, PROOF, SiVeCa.
+
+Never frameworks.
+
+Never “Top 5 Tips.”
+
+When structure helps:
 
 Problem → Discovery → Thinking → Decision → Reflection
 
-Show reasoning. Do not force lessons.
-
 ### Field Notes
 
-Observations from life.
+Life outside the computer.
 
-Hospitals, open water, illness, wine country, field work, family, taekwondo, waiting rooms, conversations.
+Hospitals, open water, wine country, industrial visits, travel, family, taekwondo, waiting rooms, conversations.
 
 Never force a product lesson.
 
-Observation is more important than explanation.
+If readers connect dots to product thinking, that belongs to them.
 
-Trust the reader to connect the dots.
+## Language
 
-## Writing
+Publish each note in the language in which it was born.
 
-- Short paragraphs
-- Calm, reflective, honest
-- Literary, not corporate
-- No SEO optimization
-- No clickbait
-- No CTA
-- No “Lessons Learned”
-- No conclusion unless it belongs to the story
+Never translate emotions, memories, or observations.
 
-## One question
+Spanish stays Spanish.
 
-Every note answers:
+English stays English.
 
-“What made me stop and pay attention?”
+Optional frontmatter field: `language: en` or `language: es`
 
-Not:
+## Writing Style
 
-“What do I want to teach?”
+Quiet. Minimal. Observational. Honest. Literary.
 
-## Final rule
+Respect silence.
 
-If a story is already powerful:
+Use whitespace.
 
-- remove instead of adding
-- clarify instead of explaining
-- observe instead of teaching
-- trust the reader
+Trust the reader.
+
+Never explain what the reader already understands.
+
+Never end with a moral.
+
+Never force a lesson.
+
+Never optimize for SEO, engagement, or algorithms.
+
+Optimize for truth, clarity, and permanence.
+
+## Frontmatter
+
+```yaml
+title:
+subtitle:
+category: Building | Field Notes
+date: YYYY-MM-DD
+readingTime:
+featured: true|false
+published: true|false
+language: en | es
+tags: []
+```
+
+Set `published: false` for drafts.
+
+## Structure
+
+```markdown
+# Title
+
+Subtitle
+
+---
+
+Body
+
+---
+
+Optional quiet closing
+```
+
+No CTA.
+
+No “Lessons Learned.”
+
+No conclusion unless it belongs to the story.
+
+## Final Rule
+
+A project explains what happened.
+
+A note explains what changed inside the person building it.
+
+Both are equally important.
 
 Technology taught Paulina how to build.
 
