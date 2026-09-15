@@ -9,7 +9,7 @@ function Statement({ text, id }: { text: string; id: string }) {
   return (
     <h2
       id={id}
-      className="mt-8 font-display text-title-md font-light text-[rgb(var(--fd-ink))] md:mt-10 md:text-title-lg"
+      className="field-desk-statement mt-8 text-[rgb(var(--fd-ink))] md:mt-10"
     >
       {lines.map((line) => (
         <span key={line} className="block">
@@ -58,7 +58,7 @@ export function FieldDesk() {
 
         <div className="field-desk-field">
           <Reveal delay={0.06}>
-            <p className="font-display text-title-sm font-light tracking-[-0.02em] text-[rgb(var(--fd-ink))] md:text-title-md">
+            <p className="field-desk-pole text-[rgb(var(--fd-field-accent))]">
               {copy.fieldLabel}
             </p>
             <WordList words={copy.fieldWords} />
@@ -67,7 +67,7 @@ export function FieldDesk() {
 
         <div className="field-desk-desk">
           <Reveal delay={0.1}>
-            <p className="font-display text-title-sm font-light tracking-[-0.02em] text-[rgb(var(--fd-ink))] md:text-title-md">
+            <p className="field-desk-pole text-[rgb(var(--fd-desk-accent))]">
               {copy.deskLabel}
             </p>
             <WordList words={copy.deskWords} />
