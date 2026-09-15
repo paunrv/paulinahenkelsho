@@ -46,7 +46,7 @@ export function FieldDesk() {
       <div className="field-desk-grid">
         <div className="field-desk-editorial">
           <Reveal>
-            <p className="max-w-md text-sm leading-[1.6] text-[rgb(var(--fd-muted))] md:text-base">
+            <p className="max-w-sm text-sm leading-[1.55] text-[rgb(var(--fd-muted))] md:text-[15px]">
               {copy.core}
             </p>
             <Statement id="field-desk-heading" text={copy.headline} />
