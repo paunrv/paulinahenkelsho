@@ -26,7 +26,7 @@ const DICT = {
       role: "Product Builder",
       headline: "Building technology people actually adopt.",
       subheadline:
-        "I build products by understanding how people work first, then designing technology that naturally fits into their daily lives.",
+        "I build products from understanding how work actually happens.",
       ctaWork: "View My Work",
       ctaNotes: "Read My Notes",
     },
@@ -278,7 +278,7 @@ const DICT = {
       role: "Product Builder",
       headline: "Construyendo tecnolog\u00eda que la gente realmente adopta.",
       subheadline:
-        "Construyo productos entendiendo primero c\u00f3mo trabaja la gente, y despu\u00e9s dise\u00f1ando tecnolog\u00eda que encaja de forma natural en su d\u00eda a d\u00eda.",
+        "Construyo productos a partir de entender c\u00f3mo sucede el trabajo realmente.",
       ctaWork: "Ver mi trabajo",
       ctaNotes: "Leer mis notas",
     },
