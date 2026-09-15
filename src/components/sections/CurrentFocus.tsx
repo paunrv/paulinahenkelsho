@@ -18,7 +18,7 @@ export function CurrentFocus() {
           <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-subtle">
             {f.eyebrow}
           </p>
-          <h2 className="mt-6 font-display text-title-md font-light text-ink">
+          <h2 className="mt-6 font-outfit text-title-md font-bold text-ink">
             {f.title}
           </h2>
         </Reveal>
@@ -26,7 +26,7 @@ export function CurrentFocus() {
         <div className="mt-14 max-w-2xl md:mt-16">
           {f.topics.map((topic, i) => (
             <Reveal key={topic} delay={i * 0.04}>
-              <p className="border-t border-line py-6 font-display text-xl font-light text-ink md:py-7 md:text-2xl">
+              <p className="border-t border-line py-6 font-outfit text-xl font-bold text-ink md:py-7 md:text-2xl">
                 {topic}
               </p>
             </Reveal>

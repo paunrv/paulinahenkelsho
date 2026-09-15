@@ -40,10 +40,10 @@ export function CaseStudy({
     return (
       <div className="border-t border-line py-12">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
-          <h3 className="font-display text-2xl font-light text-ink md:text-3xl">
+          <h3 className="font-outfit text-2xl font-extrabold tracking-[-0.03em] text-ink md:text-3xl">
             {name}
           </h3>
-          <p className="text-xs font-medium uppercase tracking-[0.15em] text-subtle">
+          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-subtle">
             {status || context}
           </p>
         </div>
@@ -60,21 +60,21 @@ export function CaseStudy({
   return (
     <div className="border-t border-line pt-12 md:pt-16">
       <Reveal>
-        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between md:gap-8">
+        <div className="flex flex-col gap-5 md:flex-row md:items-baseline md:justify-between md:gap-8">
           <div className="min-w-0">
-            <h3 className="font-display text-2xl font-light text-ink md:text-3xl">
+            <h3 className="font-outfit text-2xl font-extrabold tracking-[-0.03em] text-ink md:text-3xl">
               {name}
             </h3>
             {subtitle ? (
-              <p className="mt-2 text-sm leading-[1.5] text-muted">
+              <p className="mt-3 text-sm leading-[1.5] text-muted">
                 {subtitle}
               </p>
             ) : null}
           </div>
           {(status || context) && (
-            <span className="inline-flex w-fit shrink-0 items-center rounded-full border border-lavender/40 bg-lavender-soft px-3 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-lavender">
+            <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-subtle">
               {status || context}
-            </span>
+            </p>
           )}
         </div>
       </Reveal>
@@ -101,10 +101,10 @@ export function CaseStudy({
               href={url}
               target="_blank"
               rel="noopener"
-              className="text-sm font-medium text-accent underline decoration-accent/30 underline-offset-4 transition hover:decoration-accent"
+              className="text-sm font-medium text-ink underline decoration-ink/25 underline-offset-4 transition hover:decoration-seam focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
             >
               {urlLabel}
-              <span className="ml-1 text-lavender" aria-hidden>
+              <span className="ml-1" aria-hidden>
                 ↗
               </span>
             </a>

@@ -24,7 +24,7 @@ export function SiteFooter() {
   return (
     <footer id="contact" className="border-t border-line py-section">
       <div className="mx-auto max-w-6xl px-gutter">
-        <p className="max-w-xl font-display text-title-sm font-light text-ink text-balance">
+        <p className="max-w-xl font-outfit text-title-sm font-bold text-ink text-balance">
           {f.prompt}
         </p>
         <p className="mt-6 text-lg text-muted">{f.cta}</p>
@@ -36,13 +36,13 @@ export function SiteFooter() {
               href={link.href}
               target={link.href.startsWith("mailto") ? undefined : "_blank"}
               rel={link.href.startsWith("mailto") ? undefined : "noopener"}
-              className="group inline-flex items-center gap-2 text-base font-medium text-ink"
+              className="group inline-flex items-center gap-2 text-base font-medium text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
             >
-              <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent">
+              <span className="border-b border-ink/25 pb-0.5 transition-colors group-hover:border-seam">
                 {link.label}
               </span>
               <span
-                className="text-accent transition-transform group-hover:translate-x-1"
+                className="transition-transform group-hover:translate-x-1"
                 aria-hidden
               >
                 {link.href.startsWith("mailto") ? "→" : "↗"}

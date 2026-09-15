@@ -23,7 +23,7 @@ export function Hero() {
           </motion.p>
 
           <motion.h1
-            className="mt-8 font-display text-display font-light text-ink text-balance md:mt-10 md:text-display-lg"
+            className="mt-8 font-outfit text-display font-extrabold text-ink text-balance md:mt-10 md:text-display-lg"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15, ease }}
@@ -32,7 +32,7 @@ export function Hero() {
           </motion.h1>
 
           <motion.p
-            className="mt-6 max-w-2xl font-display text-title-sm font-light text-ink text-balance md:mt-8 md:text-title-md"
+            className="mt-6 max-w-2xl font-outfit text-title-sm font-bold text-ink text-balance md:mt-8 md:text-title-md"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.28, ease }}
@@ -57,23 +57,23 @@ export function Hero() {
           >
             <a
               href="#building"
-              className="group inline-flex items-center gap-3 text-sm font-medium text-ink"
+              className="group inline-flex items-center gap-3 text-sm font-medium text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
             >
-              <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent">
+              <span className="border-b border-ink/25 pb-0.5 transition-colors group-hover:border-seam">
                 {t.hero.ctaWork}
               </span>
-              <span className="text-accent transition-transform group-hover:translate-x-1" aria-hidden>
+              <span className="transition-transform group-hover:translate-x-1" aria-hidden>
                 →
               </span>
             </a>
             <Link
               href="/notes"
-              className="group inline-flex items-center gap-3 text-sm font-medium text-ink"
+              className="group inline-flex items-center gap-3 text-sm font-medium text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
             >
-              <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent">
+              <span className="border-b border-ink/25 pb-0.5 transition-colors group-hover:border-seam">
                 {t.hero.ctaNotes}
               </span>
-              <span className="text-accent transition-transform group-hover:translate-x-1" aria-hidden>
+              <span className="transition-transform group-hover:translate-x-1" aria-hidden>
                 →
               </span>
             </Link>

@@ -24,10 +24,12 @@ const config: Config = {
           DEFAULT: "rgb(var(--ph-accent-2) / <alpha-value>)",
           soft: "rgb(var(--ph-accent-2-soft) / <alpha-value>)",
         },
+        seam: "rgb(var(--ph-seam) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         display: ["var(--font-display)", "Georgia", "serif"],
+        outfit: ["var(--font-outfit)", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       fontSize: {
         "title-sm": [

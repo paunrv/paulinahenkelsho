@@ -41,12 +41,12 @@ export function Notes({ notes }: { notes: NoteMeta[] }) {
                 <li key={note.slug} className="border-b border-line">
                   <Link
                     href={`/notes/${note.slug}`}
-                    className="group block py-5 md:py-6"
+                    className="group block py-5 md:py-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
                   >
                     <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-subtle">
                       {formatCategoryLabel(note.category)}
                     </p>
-                    <p className="mt-3 text-base text-ink transition-colors group-hover:text-accent md:text-lg">
+                    <p className="mt-3 font-display text-xl font-light text-ink underline decoration-transparent underline-offset-4 transition-[text-decoration-color] group-hover:decoration-seam md:text-2xl">
                       {note.title}
                     </p>
                     {note.subtitle ? (
@@ -65,13 +65,13 @@ export function Notes({ notes }: { notes: NoteMeta[] }) {
           <div className="mt-10">
             <Link
               href="/notes"
-              className="group inline-flex items-center gap-3 text-sm font-medium text-ink"
+              className="group inline-flex items-center gap-3 text-sm font-medium text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
             >
-              <span className="border-b border-accent/40 pb-0.5 transition-colors group-hover:border-accent">
+              <span className="border-b border-ink/25 pb-0.5 transition-colors group-hover:border-seam">
                 {n.allNotes}
               </span>
               <span
-                className="text-accent transition-transform group-hover:translate-x-1"
+                className="transition-transform group-hover:translate-x-1"
                 aria-hidden
               >
                 →
