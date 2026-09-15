@@ -41,7 +41,7 @@ export function FieldDesk() {
     <section
       id="field-desk"
       aria-labelledby="field-desk-heading"
-      className="field-desk overflow-x-clip"
+      className="field-desk"
     >
       <div className="field-desk-grid">
         <div className="field-desk-editorial">

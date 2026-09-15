@@ -96,16 +96,16 @@
   font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   font-weight: 700;
   font-size: clamp(1.85rem, 4.2vw, 3.15rem);
-  line-height: 1.06;
-  letter-spacing: -0.04em;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
 }
 
 .field-desk-pole {
   font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   font-weight: 800;
-  font-size: clamp(3rem, 8vw, 5.75rem);
-  line-height: 0.88;
-  letter-spacing: -0.05em;
+  font-size: clamp(2.75rem, 12vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
 }
 
 .field-desk-editorial {
@@ -144,7 +144,8 @@
   }
 
   .field-desk-pole {
-    font-size: clamp(4rem, 6.8vw, 6.25rem);
+    font-size: clamp(4.25rem, 6.4vw, 6rem);
+    letter-spacing: -0.035em;
   }
 
   .field-desk-editorial {
