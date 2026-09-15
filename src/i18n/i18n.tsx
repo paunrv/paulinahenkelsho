@@ -40,6 +40,21 @@ const DICT = {
       lead: "Every product I build starts the same way.",
       principles: ["Listen.", "Understand.", "Simplify.", "Build.", "Iterate."],
     },
+    fieldDesk: {
+      core: "I work between the physical and digital worlds.",
+      headline: "Different environments. Same way of thinking.",
+      support: "I understand the work first. Then I build around it.",
+      fieldLabel: "FIELD",
+      deskLabel: "DESK",
+      fieldWords: [
+        "Operations",
+        "Safety",
+        "Monitoring",
+        "Logistics",
+        "Clients",
+      ],
+      deskWords: ["Product", "Systems", "Research", "Design", "Technology"],
+    },
     building: {
       eyebrow: "Building",
       title: "Products shaped by real work.",
@@ -281,6 +296,28 @@ const DICT = {
         "Simplificar.",
         "Construir.",
         "Iterar.",
+      ],
+    },
+    fieldDesk: {
+      core: "Trabajo entre el mundo f\u00edsico y el digital.",
+      headline: "Entornos distintos. La misma forma de pensar.",
+      support:
+        "Primero entiendo el trabajo. Despu\u00e9s construyo alrededor de \u00e9l.",
+      fieldLabel: "FIELD",
+      deskLabel: "DESK",
+      fieldWords: [
+        "Operaciones",
+        "Seguridad",
+        "Monitoreo",
+        "Log\u00edstica",
+        "Clientes",
+      ],
+      deskWords: [
+        "Producto",
+        "Sistemas",
+        "Investigaci\u00f3n",
+        "Dise\u00f1o",
+        "Tecnolog\u00eda",
       ],
     },
     building: {
