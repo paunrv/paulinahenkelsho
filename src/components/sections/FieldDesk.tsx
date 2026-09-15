@@ -9,7 +9,7 @@ function Statement({ text, id }: { text: string; id: string }) {
   return (
     <h2
       id={id}
-      className="mt-8 max-w-xl font-display text-title-md font-light text-[rgb(var(--fd-ink))] text-balance md:mt-10 md:text-title-lg"
+      className="mt-8 font-display text-title-md font-light text-[rgb(var(--fd-ink))] md:mt-10 md:text-title-lg"
     >
       {lines.map((line) => (
         <span key={line} className="block">
