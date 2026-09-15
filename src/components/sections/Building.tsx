@@ -15,7 +15,7 @@ export function Building() {
           <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-subtle">
             {w.eyebrow}
           </p>
-          <h2 className="mt-6 font-display text-title-md font-light text-ink">
+          <h2 className="mt-6 font-outfit text-title-md font-bold text-ink">
             {w.title}
           </h2>
         </Reveal>

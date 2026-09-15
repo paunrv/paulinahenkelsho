@@ -31,7 +31,7 @@ export function SiteHeader() {
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-gutter md:h-16">
           <Link
             href="/"
-            className="text-[13px] font-medium tracking-[-0.02em] text-ink md:text-sm"
+            className="font-outfit text-[13px] font-bold tracking-[-0.02em] text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink md:text-sm"
           >
             Paulina Henkel
           </Link>
@@ -42,11 +42,11 @@ export function SiteHeader() {
               aria-label="Primary"
             >
               {nav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="transition-colors hover:text-ink"
-                >
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
+                  >
                   {item.label}
                 </Link>
               ))}
@@ -59,7 +59,7 @@ export function SiteHeader() {
                     type="button"
                     onClick={() => setLang(l)}
                     aria-pressed={l === lang}
-                    className={`transition-colors ${l === lang ? "text-ink" : "hover:text-ink"}`}
+                    className={`transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink ${l === lang ? "text-ink" : "hover:text-ink"}`}
                   >
                     {dict.language[l]}
                   </button>
@@ -75,7 +75,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="flex h-8 w-8 items-center justify-center text-muted"
+              className="flex h-8 w-8 items-center justify-center text-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
             >
@@ -112,7 +112,7 @@ export function SiteHeader() {
                   <Link
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="font-display text-3xl font-light text-ink"
+                    className="text-3xl font-medium tracking-[-0.02em] text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
                   >
                     {item.label}
                   </Link>
@@ -126,7 +126,7 @@ export function SiteHeader() {
                     <button
                       type="button"
                       onClick={() => setLang(l)}
-                      className={l === lang ? "text-ink" : ""}
+                      className={`focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink ${l === lang ? "text-ink" : ""}`}
                     >
                       {dict.language[l]}
                     </button>

@@ -20,6 +20,11 @@
   --ph-border: 232 224 218;
   --ph-shadow: 0 8px 28px rgba(46, 36, 53, 0.06);
   --ph-radius: 1rem;
+  --ph-field: 40 56 47;
+  --ph-desk: 64 55 184;
+  --ph-lime: 216 240 106;
+  --ph-electric: 174 183 255;
+  --ph-seam: 244 166 215;
 }
 
 .dark {
@@ -74,12 +79,12 @@
 
 /* FIELD ↔ DESK — scoped to the homepage chapter only */
 .field-desk {
-  --fd-field: 40 56 47;
-  --fd-desk: 64 55 184;
+  --fd-field: var(--ph-field);
+  --fd-desk: var(--ph-desk);
   --fd-hinge: 26 34 30;
-  --fd-bridge: 244 166 215;
-  --fd-field-accent: 216 240 106;
-  --fd-desk-accent: 174 183 255;
+  --fd-bridge: var(--ph-seam);
+  --fd-field-accent: var(--ph-lime);
+  --fd-desk-accent: var(--ph-electric);
   --fd-ink: 250 247 244;
   --fd-muted: 214 210 200;
 }
