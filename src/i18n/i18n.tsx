@@ -26,7 +26,7 @@ const DICT = {
       role: "Product Builder",
       headline: "Building technology people actually adopt.",
       subheadline:
-        "I build products by understanding how people work first, then designing technology that naturally fits into their daily lives.",
+        "I build products from understanding how work actually happens.",
       ctaWork: "View My Work",
       ctaNotes: "Read My Notes",
     },
@@ -39,6 +39,21 @@ const DICT = {
       ],
       lead: "Every product I build starts the same way.",
       principles: ["Listen.", "Understand.", "Simplify.", "Build.", "Iterate."],
+    },
+    fieldDesk: {
+      core: "I work between the physical and the digital.",
+      headline: "Different environments. Same way of thinking.",
+      support: "I understand the work first. Then I build around it.",
+      fieldLabel: "FIELD",
+      deskLabel: "DESK",
+      fieldWords: [
+        "Operations",
+        "Safety",
+        "Monitoring",
+        "Logistics",
+        "Clients",
+      ],
+      deskWords: ["Product", "Systems", "Research", "Design", "Technology"],
     },
     building: {
       eyebrow: "Building",
@@ -263,7 +278,7 @@ const DICT = {
       role: "Product Builder",
       headline: "Construyendo tecnolog\u00eda que la gente realmente adopta.",
       subheadline:
-        "Construyo productos entendiendo primero c\u00f3mo trabaja la gente, y despu\u00e9s dise\u00f1ando tecnolog\u00eda que encaja de forma natural en su d\u00eda a d\u00eda.",
+        "Construyo productos a partir de entender c\u00f3mo sucede el trabajo realmente.",
       ctaWork: "Ver mi trabajo",
       ctaNotes: "Leer mis notas",
     },
@@ -281,6 +296,28 @@ const DICT = {
         "Simplificar.",
         "Construir.",
         "Iterar.",
+      ],
+    },
+    fieldDesk: {
+      core: "Trabajo entre lo f\u00edsico y lo digital.",
+      headline: "Entornos distintos. La misma forma de pensar.",
+      support:
+        "Primero entiendo el trabajo. Despu\u00e9s construyo alrededor de \u00e9l.",
+      fieldLabel: "FIELD",
+      deskLabel: "DESK",
+      fieldWords: [
+        "Operaciones",
+        "Seguridad",
+        "Monitoreo",
+        "Log\u00edstica",
+        "Clientes",
+      ],
+      deskWords: [
+        "Producto",
+        "Sistemas",
+        "Investigaci\u00f3n",
+        "Dise\u00f1o",
+        "Tecnolog\u00eda",
       ],
     },
     building: {

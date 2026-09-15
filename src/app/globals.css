@@ -72,6 +72,116 @@
   }
 }
 
+/* FIELD ↔ DESK — scoped to the homepage chapter only */
+.field-desk {
+  --fd-field: 40 56 47;
+  --fd-desk: 64 55 184;
+  --fd-hinge: 26 34 30;
+  --fd-bridge: 244 166 215;
+  --fd-field-accent: 216 240 106;
+  --fd-desk-accent: 174 183 255;
+  --fd-ink: 250 247 244;
+  --fd-muted: 214 210 200;
+}
+
+.field-desk-grid {
+  display: grid;
+  grid-template-areas:
+    "field"
+    "editorial"
+    "desk";
+}
+
+.field-desk-statement {
+  font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4.8vw, 2.55rem);
+  line-height: 1.04;
+  letter-spacing: -0.038em;
+}
+
+.field-desk-pole {
+  font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.95rem, 12.75vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.field-desk-editorial {
+  grid-area: editorial;
+  background-color: rgb(var(--fd-hinge));
+  border-top: 1px solid rgb(var(--fd-bridge));
+  padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.field-desk-field {
+  grid-area: field;
+  background-color: rgb(var(--fd-field));
+  padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.field-desk-desk {
+  grid-area: desk;
+  background-color: rgb(var(--fd-desk));
+  border-top: 1px solid rgb(var(--fd-bridge));
+  padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 4vw, 2.5rem);
+}
+
+@media (min-width: 768px) {
+  .field-desk-grid {
+    min-height: 78vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "editorial editorial"
+      "field desk";
+  }
+
+  .field-desk-statement {
+    font-size: clamp(2.35rem, 3.7vw, 3.6rem);
+    line-height: 1.03;
+    letter-spacing: -0.04em;
+  }
+
+  .field-desk-pole {
+    font-size: clamp(4.25rem, 6.4vw, 6rem);
+    letter-spacing: -0.035em;
+  }
+
+  .field-desk-editorial {
+    border-top: 0;
+    border-bottom: 1px solid rgb(var(--fd-bridge));
+    padding: clamp(4.5rem, 9vw, 7rem) clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .field-desk-bridge {
+    max-width: 54rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .field-desk-field,
+  .field-desk-desk {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 42vh;
+  }
+
+  .field-desk-field {
+    padding: clamp(4.5rem, 10vw, 8rem) clamp(3rem, 6vw, 5.5rem)
+      clamp(4.5rem, 10vw, 8rem) clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .field-desk-desk {
+    border-top: 0;
+    border-left: 2px solid rgb(var(--fd-bridge));
+    padding: clamp(4.5rem, 10vw, 8rem) clamp(1.25rem, 4vw, 2.5rem)
+      clamp(4.5rem, 10vw, 8rem) clamp(3rem, 6vw, 5.5rem);
+  }
+}
+
 /* Notes + Perspectives: continuous essay reading (not homepage) */
 @layer components {
   .essay .essay-quote > p {

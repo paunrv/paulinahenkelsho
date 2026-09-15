@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Inter, Instrument_Serif, Outfit } from "next/font/google";
 import "./globals.css";
 import { cookies } from "next/headers";
 import { LanguageProvider, type Lang } from "@/i18n/i18n";
@@ -14,6 +14,13 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-display",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--font-outfit",
   display: "swap",
 });
 
@@ -54,7 +61,7 @@ export default async function RootLayout({
   return (
     <html
       lang={initialLang}
-      className={`${inter.variable} ${instrumentSerif.variable}`}
+      className={`${inter.variable} ${instrumentSerif.variable} ${outfit.variable}`}
       suppressHydrationWarning
     >
       <head>
