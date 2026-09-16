@@ -8,6 +8,7 @@ type TimelineEventProps = {
   left: number;
   width: number;
   onPointRef?: (id: string, node: HTMLElement | null) => void;
+  onActivate?: (id: string) => void;
 };
 
 export function TimelineEvent({
@@ -16,6 +17,7 @@ export function TimelineEvent({
   left,
   width,
   onPointRef,
+  onActivate,
 }: TimelineEventProps) {
   const span = getEventSpan(event.year);
   const isRange = Boolean(span && span.end > span.start);
@@ -33,6 +35,7 @@ export function TimelineEvent({
       data-event-id={event.id}
       tabIndex={-1}
       aria-current={isActive ? "true" : undefined}
+      onFocus={() => onActivate?.(event.id)}
       style={
         {
           left: `${left}%`,

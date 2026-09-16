@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FieldDesk } from "@/components/sections/FieldDesk";
 import { Timeline } from "@/components/timeline/Timeline";
+import { TimelineEventDisplay } from "@/components/timeline/TimelineEventDisplay";
 import { getTimelineEvents } from "@/lib/timeline";
 
 export function DigitalArtEngineer() {
@@ -16,6 +17,11 @@ export function DigitalArtEngineer() {
       className="lifetime-feature"
       onPointerLeave={() => setActiveEventId(null)}
     >
+      <FieldDesk
+        activeField={activeEvent?.field}
+        activeDesk={activeEvent?.desk}
+        engaged={Boolean(activeEvent)}
+      />
       <div id="digital-art-engineer" className="lifetime-track">
         <div className="mx-auto max-w-6xl px-gutter">
           <Timeline
@@ -23,13 +29,9 @@ export function DigitalArtEngineer() {
             activeEventId={activeEventId}
             onActiveEventIdChange={setActiveEventId}
           />
+          <TimelineEventDisplay event={activeEvent} />
         </div>
       </div>
-      <FieldDesk
-        activeField={activeEvent?.field}
-        activeDesk={activeEvent?.desk}
-        engaged={Boolean(activeEvent)}
-      />
     </div>
   );
 }
