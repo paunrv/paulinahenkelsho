@@ -13,9 +13,9 @@ export function DigitalArtEngineer() {
       <div className="mx-auto max-w-6xl px-gutter">
         <h2
           id="digital-art-engineer-heading"
-          className="font-outfit text-title-md font-bold text-ink"
+          className="font-outfit text-sm font-bold tracking-[0.2em] text-ink"
         >
-          Digital Art Engineer
+          DIGITAL ART ENGINEER
         </h2>
         <Timeline events={events} />
       </div>
