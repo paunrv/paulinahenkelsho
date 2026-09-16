@@ -115,6 +115,7 @@ export function Timeline({ events }: TimelineProps) {
     >
       <div className="timeline-scroll">
         <div ref={boardRef} className="timeline-board">
+          <div className="timeline-line" aria-hidden />
           <ol className="timeline-track">
             {events.map((item, index) => (
               <TimelineEvent

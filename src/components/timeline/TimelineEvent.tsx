@@ -66,7 +66,6 @@ export function TimelineEvent({
         ) : null}
       </div>
       <div className="timeline-event-mark" aria-hidden>
-        <span className="timeline-event-connector" />
         {range ? (
           <div
             className="timeline-event-span"
@@ -74,7 +73,6 @@ export function TimelineEvent({
             ref={(node) => onPointRef?.(event.id, node)}
           >
             <span className="timeline-event-tick" />
-            <span className="timeline-event-rail" />
             <span className="timeline-event-tick" />
           </div>
         ) : (

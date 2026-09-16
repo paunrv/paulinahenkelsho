@@ -8,7 +8,7 @@ export function DigitalArtEngineer() {
     <section
       id="digital-art-engineer"
       aria-labelledby="digital-art-engineer-heading"
-      className="border-t border-line py-section"
+      className="pb-section pt-10 md:pt-12"
     >
       <div className="mx-auto max-w-6xl px-gutter">
         <h2

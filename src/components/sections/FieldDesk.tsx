@@ -2,6 +2,7 @@
 
 import { Reveal } from "@/components/motion/Reveal";
 import { useT } from "@/i18n/i18n";
+import "@/components/timeline/timeline.css";
 
 function Statement({ text, id }: { text: string; id: string }) {
   const lines = text.split(/(?<=\.)\s+/);
