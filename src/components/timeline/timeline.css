@@ -70,6 +70,19 @@
   background: var(--timeline-ink);
 }
 
+.timeline-event.is-active .timeline-event-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.timeline-event.is-active .timeline-event-year {
+  color: var(--timeline-ink);
+}
+
+.timeline-event.is-active .timeline-event-title {
+  font-weight: 600;
+}
+
 .timeline-event-copy {
   padding-top: 0.85rem;
 }
