@@ -16,8 +16,17 @@ type TimelineProps = {
   events: readonly TimelineEventData[];
 };
 
+type TooltipOrigin = {
+  x: number;
+  y: number;
+};
+
 export function Timeline({ events }: TimelineProps) {
   const [activeEventId, setActiveEventId] = useState<string | null>(null);
+  const [tooltipOrigin, setTooltipOrigin] = useState<TooltipOrigin | null>(
+    null
+  );
+  const boardRef = useRef<HTMLDivElement>(null);
   const pointRefs = useRef(new Map<string, HTMLElement>());
 
   const registerPoint = useCallback((id: string, node: HTMLElement | null) => {
@@ -49,16 +58,45 @@ export function Timeline({ events }: TimelineProps) {
     [events]
   );
 
+  const measureOrigin = useCallback((id: string | null) => {
+    if (!id) return null;
+
+    const board = boardRef.current;
+    const point = pointRefs.current.get(id);
+    if (!board || !point) return null;
+
+    const boardRect = board.getBoundingClientRect();
+    const pointRect = point.getBoundingClientRect();
+
+    return {
+      x: pointRect.left - boardRect.left + pointRect.width / 2,
+      y: pointRect.top - boardRect.top,
+    };
+  }, []);
+
   const onPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (event.pointerType === "touch") return;
 
     const nextId = nearestEventId(event.clientX);
+    const nextOrigin = measureOrigin(nextId);
+
     setActiveEventId((current) => (current === nextId ? current : nextId));
+    setTooltipOrigin((current) => {
+      if (!nextOrigin) return null;
+      if (current && current.x === nextOrigin.x && current.y === nextOrigin.y) {
+        return current;
+      }
+      return nextOrigin;
+    });
   };
 
   const onPointerLeave = () => {
     setActiveEventId(null);
+    setTooltipOrigin(null);
   };
+
+  const activeEvent =
+    events.find((item) => item.id === activeEventId) ?? null;
 
   return (
     <div
@@ -68,6 +106,7 @@ export function Timeline({ events }: TimelineProps) {
     >
       <div className="timeline-scroll">
         <div
+          ref={boardRef}
           className="timeline-board"
           style={{ "--timeline-count": events.length } as CSSProperties}
         >
@@ -82,9 +121,13 @@ export function Timeline({ events }: TimelineProps) {
               />
             ))}
           </ol>
+          <TimelineTooltip
+            event={activeEvent}
+            x={tooltipOrigin?.x ?? 0}
+            y={tooltipOrigin?.y ?? 0}
+          />
         </div>
       </div>
-      <TimelineTooltip event={null} />
     </div>
   );
 }

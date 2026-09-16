@@ -6,6 +6,7 @@
   --timeline-dot: 0.375rem;
   --timeline-year-row: 1.15rem;
   --timeline-mark-row: 1.75rem;
+  --timeline-tooltip-space: 2.5rem;
 }
 
 .timeline-scroll {
@@ -17,13 +18,17 @@
 .timeline-board {
   position: relative;
   min-width: 58rem;
+  padding-top: var(--timeline-tooltip-space);
 }
 
 .timeline-line {
   position: absolute;
   left: calc(50% / var(--timeline-count, 1));
   right: calc(50% / var(--timeline-count, 1));
-  top: calc(var(--timeline-year-row) + (var(--timeline-mark-row) / 2));
+  top: calc(
+    var(--timeline-tooltip-space) + var(--timeline-year-row) +
+      (var(--timeline-mark-row) / 2)
+  );
   height: 1px;
   background: var(--timeline-line);
   pointer-events: none;
@@ -81,6 +86,18 @@
 
 .timeline-event.is-active .timeline-event-title {
   font-weight: 600;
+}
+
+.timeline-tooltip {
+  position: absolute;
+  z-index: 1;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--timeline-line);
+  border-radius: 50%;
+  background: rgb(var(--ph-bg));
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 0.45rem));
 }
 
 .timeline-event-copy {
