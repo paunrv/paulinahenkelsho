@@ -181,14 +181,9 @@
   clip-path: inset(0);
 }
 
-.timeline-event-piece-art {
-  color: var(--timeline-ink);
-}
-
-.timeline-event-piece-art svg {
-  display: block;
-  width: 4.5rem;
-  height: 4.5rem;
+.timeline-event-piece-emoji {
+  font-size: 2.25rem;
+  line-height: 1;
 }
 
 .timeline-event-piece-copy {
@@ -311,9 +306,8 @@
     gap: 1.75rem 2.75rem;
   }
 
-  .timeline-event-piece-art svg {
-    width: 5.25rem;
-    height: 5.25rem;
+  .timeline-event-piece-emoji {
+    font-size: 2.5rem;
   }
 }
 
@@ -329,9 +323,8 @@
     align-items: start;
   }
 
-  .timeline-event-piece-art svg {
-    width: 3.5rem;
-    height: 3.5rem;
+  .timeline-event-piece-emoji {
+    font-size: 2rem;
   }
 }
 

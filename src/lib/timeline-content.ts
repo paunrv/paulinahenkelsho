@@ -1,5 +1,22 @@
 import type { TimelineEventId } from "@/lib/timeline";
 
+export const TIMELINE_EMOJIS = {
+  born: "🐣",
+  "black-belt": "🥷",
+  "humi-first-anniversary": "⛩️",
+  "first-job": "👩‍💻",
+  "digital-design-engineering": "🎓",
+  "field-operations-environmental-monitoring": "👷‍♀️",
+  "trato-hecho-product-owner": "🚀",
+  "safety-project-management": "♻️",
+  "field-operations-responsibility": "⚙️",
+  "humi-16-years": "⛩️",
+} as const satisfies Record<TimelineEventId, string>;
+
+export function getTimelineEmoji(id: string): string | undefined {
+  return TIMELINE_EMOJIS[id as TimelineEventId];
+}
+
 export const TIMELINE_SCRIPTS = {
   born: "Todo empezó antes de que existiera una pantalla.",
   "black-belt": "Aprendí que repetir también es una forma de diseñar.",

@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState, type JSX } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { TimelineEventData } from "@/lib/timeline";
-import { getTimelineScript } from "@/lib/timeline-content";
-import { getTimelineArtwork } from "./TimelineArtwork";
+import { getTimelineEmoji, getTimelineScript } from "@/lib/timeline-content";
 
 type TimelineEventDisplayProps = {
   event: TimelineEventData | null;
@@ -12,7 +11,7 @@ type TimelineEventDisplayProps = {
 type Piece = {
   event: TimelineEventData;
   script: string;
-  Artwork: () => JSX.Element;
+  emoji: string;
 };
 
 export function TimelineEventDisplay({ event }: TimelineEventDisplayProps) {
@@ -33,10 +32,10 @@ export function TimelineEventDisplay({ event }: TimelineEventDisplayProps) {
     if (!event) return hide();
 
     const script = getTimelineScript(event.id);
-    const Artwork = getTimelineArtwork(event.id);
-    if (!script || !Artwork) return hide();
+    const emoji = getTimelineEmoji(event.id);
+    if (!script || !emoji) return hide();
 
-    const next: Piece = { event, script, Artwork };
+    const next: Piece = { event, script, emoji };
 
     if (shownId.current === event.id) {
       setPiece(next);
@@ -73,7 +72,7 @@ export function TimelineEventDisplay({ event }: TimelineEventDisplayProps) {
 }
 
 function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
-  const { event, script, Artwork } = piece;
+  const { event, script, emoji } = piece;
   const isJob = event.type === "job";
   const organization = event.organization ?? (isJob ? event.title : undefined);
   const context = event.context ?? event.subtitle;
@@ -88,8 +87,8 @@ function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
         active ? "timeline-event-piece is-in" : "timeline-event-piece"
       }
     >
-      <div className="timeline-event-piece-art" aria-hidden>
-        <Artwork />
+      <div className="timeline-event-piece-emoji" aria-hidden>
+        {emoji}
       </div>
       <div className="timeline-event-piece-copy">
         {event.year ? (
