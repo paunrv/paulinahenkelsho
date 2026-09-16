@@ -5,13 +5,16 @@ export type TimelineEventData = {
   year: string | null;
   title: string;
   subtitle?: string;
+  organization?: string;
+  context?: string;
+  progression?: string;
   type?: TimelineEventType;
 };
 
 /**
  * Ordered Digital Art Engineer events.
- * Components identify records by `id`, never by year.
- * Artwork, scripts, and EN/ES copy can attach later via `id`.
+ * Components identify records by `id`, never by year, title, or index.
+ * Artwork and scripts attach via `id`.
  */
 export const TIMELINE_EVENTS = [
   {
@@ -33,7 +36,8 @@ export const TIMELINE_EVENTS = [
     id: "first-job",
     year: null,
     title: "La Ruta VCC+",
-    subtitle: "Startup",
+    subtitle: "Startup Turismo",
+    progression: "Prácticas Profesionales → Ventas",
     type: "job",
   },
   {
@@ -43,23 +47,40 @@ export const TIMELINE_EVENTS = [
   },
   {
     id: "field-operations-environmental-monitoring",
-    year: "2018–2020",
-    title: "FIELD OPERATIONS & ENVIRONMENTAL MONITORING",
+    year: "2018–2019",
+    title: "Field Operations & Environmental Monitoring",
+    organization: "Cisco",
+    context: "Consultoría Ambiental",
+    type: "job",
+  },
+  {
+    id: "trato-hecho-product-owner",
+    year: "2020–2021",
+    title: "Trato Hecho",
+    subtitle: "Startup Inmobiliario",
+    progression: "Front End + SEO → Product Owner",
+    type: "job",
   },
   {
     id: "safety-project-management",
     year: "2021–2024",
-    title: "SAFETY & PROJECT MANAGEMENT",
+    title: "Safety & Project Management",
+    organization: "Cisco",
+    context: "Consultoría Ambiental",
+    type: "job",
   },
   {
     id: "field-operations-responsibility",
     year: "2025",
-    title: "FIELD OPERATIONS RESPONSIBILITY",
+    title: "Field Operations",
+    organization: "Cisco",
+    context: "Consultoría Ambiental",
+    type: "job",
   },
   {
     id: "humi-16-years",
     year: "2026",
-    title: "HUMI, 16 años",
+    title: "HUMI, 16vo aniversario",
   },
 ] as const satisfies readonly TimelineEventData[];
 

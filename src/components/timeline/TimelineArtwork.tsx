@@ -105,6 +105,7 @@ export const TIMELINE_ARTWORK = {
   "humi-first-anniversary": HumiFirstArt,
   "first-job": FirstJobArt,
   "digital-design-engineering": DigitalDesignArt,
+  "trato-hecho-product-owner": FirstJobArt,
   "field-operations-environmental-monitoring": FieldMonitoringArt,
   "safety-project-management": SafetyArt,
   "field-operations-responsibility": FieldResponsibilityArt,

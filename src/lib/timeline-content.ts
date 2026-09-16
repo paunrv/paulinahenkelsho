@@ -6,6 +6,8 @@ export const TIMELINE_SCRIPTS = {
   "humi-first-anniversary": "Mi primer producto en producción.",
   "first-job":
     "El primer lugar donde la idea tuvo que sobrevivir al mundo real.",
+  "trato-hecho-product-owner":
+    "El primer lugar donde producto, negocio y usuario tuvieron que encontrarse.",
   "digital-design-engineering": "Aprendí a pensar entre disciplinas.",
   "field-operations-environmental-monitoring":
     "Del escritorio al campo. Datos, sistemas y condiciones reales.",
