@@ -6,7 +6,7 @@
   --timeline-dot: 0.375rem;
   --timeline-year-row: 1.15rem;
   --timeline-mark-row: 1.75rem;
-  --timeline-tooltip-space: 2.5rem;
+  --timeline-tooltip-space: 8.25rem;
 }
 
 .timeline-scroll {
@@ -91,13 +91,42 @@
 .timeline-tooltip {
   position: absolute;
   z-index: 1;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 10.25rem;
+  padding: 0.55rem 0.65rem 0.6rem;
   border: 1px solid var(--timeline-line);
-  border-radius: 50%;
   background: rgb(var(--ph-bg));
   pointer-events: none;
-  transform: translate(-50%, calc(-100% - 0.45rem));
+  transform: translate(-50%, calc(-100% - 0.5rem));
+}
+
+.timeline-tooltip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 1px;
+  height: 0.5rem;
+  background: var(--timeline-line);
+  transform: translateX(-50%);
+}
+
+.timeline-tooltip-art {
+  display: flex;
+  justify-content: center;
+  color: var(--timeline-ink);
+}
+
+.timeline-tooltip-art svg {
+  display: block;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.timeline-tooltip-script {
+  margin: 0.4rem 0 0;
+  font-size: 0.6875rem;
+  line-height: 1.35;
+  color: var(--timeline-ink);
 }
 
 .timeline-event-copy {
