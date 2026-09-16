@@ -7,7 +7,7 @@ type TimelineEventProps = {
 export function TimelineEvent({ event }: TimelineEventProps) {
   return (
     <li>
-      <time dateTime={String(event.year)}>{event.year}</time>
+      {event.year ? <time dateTime={event.year}>{event.year}</time> : null}
     </li>
   );
 }
