@@ -79,15 +79,12 @@
 
 .timeline-event-year {
   align-self: end;
-  max-width: 100%;
-  overflow: hidden;
   font-size: 0.625rem;
   font-weight: 400;
   letter-spacing: 0.01em;
   font-variant-numeric: tabular-nums;
   line-height: 1.2;
   white-space: nowrap;
-  text-overflow: ellipsis;
   color: var(--timeline-subtle);
   opacity: 0;
   visibility: hidden;
@@ -106,6 +103,7 @@
   color: var(--timeline-ink);
   opacity: 1;
   visibility: visible;
+  overflow: visible;
   transition:
     opacity var(--timeline-motion) var(--timeline-ease),
     color var(--timeline-motion) var(--timeline-ease),

@@ -11,6 +11,10 @@ export function DigitalArtEngineer() {
   const [activeEventId, setActiveEventId] = useState<string | null>(null);
   const activeEvent =
     events.find((item) => item.id === activeEventId) ?? null;
+  const engaged = Boolean(
+    (activeEvent?.field?.length ?? 0) > 0 ||
+      (activeEvent?.desk?.length ?? 0) > 0
+  );
 
   return (
     <div
@@ -20,7 +24,7 @@ export function DigitalArtEngineer() {
       <FieldDesk
         activeField={activeEvent?.field}
         activeDesk={activeEvent?.desk}
-        engaged={Boolean(activeEvent)}
+        engaged={engaged}
       />
       <div id="digital-art-engineer" className="lifetime-track">
         <div className="mx-auto max-w-6xl px-gutter">
