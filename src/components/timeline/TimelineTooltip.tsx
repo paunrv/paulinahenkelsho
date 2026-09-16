@@ -11,29 +11,6 @@ type TimelineTooltipProps = {
   y: number;
 };
 
-function naturalize(value: string): string {
-  return value
-    .split(/(→)/)
-    .map((chunk) => {
-      if (chunk === "→") return chunk;
-      let firstWord = true;
-      return chunk.replace(/[^\s+&]+|[+&]|\s+/g, (token) => {
-        if (/^\s+$/.test(token) || token === "+" || token === "&") return token;
-        if (/^[A-Z0-9]{2,}\+?$/.test(token)) {
-          firstWord = false;
-          return token;
-        }
-        const lower = token.toLocaleLowerCase("es");
-        const next = firstWord
-          ? lower.charAt(0).toLocaleUpperCase("es") + lower.slice(1)
-          : lower;
-        firstWord = false;
-        return next;
-      });
-    })
-    .join("");
-}
-
 export function TimelineTooltip({ event, x, y }: TimelineTooltipProps) {
   const [active, setActive] = useState<TimelineEventData | null>(null);
   const [visible, setVisible] = useState(false);
@@ -80,21 +57,24 @@ export function TimelineTooltip({ event, x, y }: TimelineTooltipProps) {
       {isJob ? (
         <div className="timeline-tooltip-meta">
           {organization ? (
-            <p className="timeline-tooltip-org">{naturalize(organization)}</p>
+            <p className="timeline-tooltip-org">{organization}</p>
           ) : null}
           {context ? (
-            <p className="timeline-tooltip-context">{naturalize(context)}</p>
+            <p className="timeline-tooltip-context">{context}</p>
           ) : null}
-          {role ? (
-            <p className="timeline-tooltip-role">{naturalize(role)}</p>
-          ) : null}
+          {role ? <p className="timeline-tooltip-role">{role}</p> : null}
           {active.progression ? (
-            <p className="timeline-tooltip-progression">
-              {naturalize(active.progression)}
-            </p>
+            <p className="timeline-tooltip-progression">{active.progression}</p>
           ) : null}
         </div>
-      ) : null}
+      ) : (
+        <div className="timeline-tooltip-meta">
+          <p className="timeline-tooltip-org">{active.title}</p>
+          {active.subtitle ? (
+            <p className="timeline-tooltip-context">{active.subtitle}</p>
+          ) : null}
+        </div>
+      )}
       <p className="timeline-tooltip-script">{script}</p>
     </div>
   );

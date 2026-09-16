@@ -1,44 +1,28 @@
 import type { CSSProperties } from "react";
 import type { TimelineEventData } from "@/lib/timeline";
+import { getEventSpan } from "@/lib/timeline";
 
 type TimelineEventProps = {
   event: TimelineEventData;
   isActive?: boolean;
-  isFirst?: boolean;
-  isLast?: boolean;
+  left: number;
+  width: number;
   onPointRef?: (id: string, node: HTMLElement | null) => void;
 };
-
-export function getYearRange(
-  year: string | null
-): { start: string; end: string } | null {
-  if (!year) return null;
-  const match = /^(\d{4})–(\d{4})$/.exec(year);
-  if (!match || match[1] === match[2]) return null;
-  return { start: match[1], end: match[2] };
-}
-
-export function getSpanWeight(year: string | null): number {
-  const range = getYearRange(year);
-  if (!range) return 1;
-  return Math.max(2, Number(range.end) - Number(range.start));
-}
 
 export function TimelineEvent({
   event,
   isActive = false,
-  isFirst = false,
-  isLast = false,
+  left,
+  width,
   onPointRef,
 }: TimelineEventProps) {
-  const range = getYearRange(event.year);
-  const weight = getSpanWeight(event.year);
+  const span = getEventSpan(event.year);
+  const isRange = Boolean(span && span.end > span.start);
   const className = [
     "timeline-event",
     isActive ? "is-active" : "",
-    range ? "is-span" : "",
-    isFirst ? "is-first" : "",
-    isLast ? "is-last" : "",
+    isRange ? "is-span" : "is-point",
   ]
     .filter(Boolean)
     .join(" ");
@@ -51,22 +35,18 @@ export function TimelineEvent({
       aria-current={isActive ? "true" : undefined}
       style={
         {
-          "--timeline-span-weight": weight,
+          left: `${left}%`,
+          width: isRange ? `${width}%` : undefined,
         } as CSSProperties
       }
     >
       <div className="timeline-event-year">
-        {range ? (
-          <>
-            <time dateTime={range.start}>{range.start}</time>
-            <time dateTime={range.end}>{range.end}</time>
-          </>
-        ) : event.year ? (
+        {event.year ? (
           <time dateTime={event.year}>{event.year}</time>
         ) : null}
       </div>
       <div className="timeline-event-mark" aria-hidden>
-        {range ? (
+        {isRange ? (
           <div
             className="timeline-event-span"
             data-timeline-hit="span"

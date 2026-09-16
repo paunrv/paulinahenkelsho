@@ -10,7 +10,7 @@ function Statement({ text, id }: { text: string; id: string }) {
   return (
     <h2
       id={id}
-      className="field-desk-statement mt-8 text-[rgb(var(--fd-ink))] md:mt-10"
+      className="field-desk-statement mt-4 text-[rgb(var(--fd-ink))] md:mt-5"
     >
       {lines.map((line) => (
         <span key={line} className="block">
@@ -23,7 +23,7 @@ function Statement({ text, id }: { text: string; id: string }) {
 
 function WordList({ words }: { words: readonly string[] }) {
   return (
-    <p className="mt-5 text-sm leading-[1.9] text-[rgb(var(--fd-muted))] md:mt-6 md:text-[15px]">
+    <p className="mt-2 text-sm leading-[1.7] text-[rgb(var(--fd-muted))] md:mt-3 md:text-[15px]">
       {words.map((word, i) => (
         <span key={word}>
           {i > 0 ? <span aria-hidden> · </span> : null}
@@ -51,7 +51,7 @@ export function FieldDesk() {
               {copy.core}
             </p>
             <Statement id="field-desk-heading" text={copy.headline} />
-            <p className="mt-8 text-lg leading-[1.65] text-[rgb(var(--fd-muted))] md:mt-10">
+            <p className="mt-4 text-base leading-[1.55] text-[rgb(var(--fd-muted))] md:mt-5">
               {copy.support}
             </p>
           </Reveal>

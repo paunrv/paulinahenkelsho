@@ -17,8 +17,10 @@ export default function Home() {
       <main>
         <Hero />
         <Philosophy />
-        <FieldDesk />
-        <DigitalArtEngineer />
+        <div className="lifetime-feature">
+          <FieldDesk />
+          <DigitalArtEngineer />
+        </div>
         <Building />
         <Notes notes={featuredNotes} />
       </main>
