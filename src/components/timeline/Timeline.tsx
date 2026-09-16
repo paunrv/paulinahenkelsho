@@ -33,7 +33,11 @@ function distanceToHit(clientX: number, node: HTMLElement) {
   }
 
   const centerX = rect.left + rect.width / 2;
-  return { distance: Math.abs(clientX - centerX), size: rect.width };
+  const radius = Math.max(rect.width / 2, 14);
+  return {
+    distance: Math.max(0, Math.abs(clientX - centerX) - radius),
+    size: rect.width,
+  };
 }
 
 function buildYearWeights(
