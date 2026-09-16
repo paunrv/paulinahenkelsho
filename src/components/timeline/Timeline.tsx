@@ -4,7 +4,6 @@ import {
   useCallback,
   useRef,
   useState,
-  type CSSProperties,
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import type { TimelineEventData } from "@/lib/timeline";
@@ -20,6 +19,20 @@ type TooltipOrigin = {
   x: number;
   y: number;
 };
+
+function distanceToHit(clientX: number, node: HTMLElement): number {
+  const rect = node.getBoundingClientRect();
+  if (node.dataset.timelineHit === "span") {
+    if (clientX >= rect.left && clientX <= rect.right) return 0;
+    return Math.min(
+      Math.abs(clientX - rect.left),
+      Math.abs(clientX - rect.right)
+    );
+  }
+
+  const centerX = rect.left + rect.width / 2;
+  return Math.abs(clientX - centerX);
+}
 
 export function Timeline({ events }: TimelineProps) {
   const [activeEventId, setActiveEventId] = useState<string | null>(null);
@@ -43,10 +56,7 @@ export function Timeline({ events }: TimelineProps) {
         const point = pointRefs.current.get(event.id);
         if (!point) continue;
 
-        const rect = point.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const distance = Math.abs(clientX - centerX);
-
+        const distance = distanceToHit(clientX, point);
         if (distance < nextDistance) {
           nextDistance = distance;
           nextId = event.id;
@@ -70,7 +80,7 @@ export function Timeline({ events }: TimelineProps) {
 
     return {
       x: pointRect.left - boardRect.left + pointRect.width / 2,
-      y: pointRect.top - boardRect.top,
+      y: pointRect.top - boardRect.top + pointRect.height / 2,
     };
   }, []);
 
@@ -82,7 +92,7 @@ export function Timeline({ events }: TimelineProps) {
 
     setActiveEventId((current) => (current === nextId ? current : nextId));
     setTooltipOrigin((current) => {
-      if (!nextOrigin) return null;
+      if (!nextOrigin) return current;
       if (current && current.x === nextOrigin.x && current.y === nextOrigin.y) {
         return current;
       }
@@ -92,7 +102,6 @@ export function Timeline({ events }: TimelineProps) {
 
   const onPointerLeave = () => {
     setActiveEventId(null);
-    setTooltipOrigin(null);
   };
 
   const activeEvent =
@@ -105,18 +114,15 @@ export function Timeline({ events }: TimelineProps) {
       onPointerLeave={onPointerLeave}
     >
       <div className="timeline-scroll">
-        <div
-          ref={boardRef}
-          className="timeline-board"
-          style={{ "--timeline-count": events.length } as CSSProperties}
-        >
-          <div className="timeline-line" aria-hidden />
+        <div ref={boardRef} className="timeline-board">
           <ol className="timeline-track">
-            {events.map((item) => (
+            {events.map((item, index) => (
               <TimelineEvent
                 key={item.id}
                 event={item}
                 isActive={activeEventId === item.id}
+                isFirst={index === 0}
+                isLast={index === events.length - 1}
                 onPointRef={registerPoint}
               />
             ))}
