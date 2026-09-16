@@ -15,6 +15,8 @@ import "./timeline.css";
 
 type TimelineProps = {
   events: readonly TimelineEventData[];
+  activeEventId: string | null;
+  onActiveEventIdChange: (id: string | null) => void;
 };
 
 type TooltipOrigin = {
@@ -41,8 +43,42 @@ function distanceToHit(clientX: number, node: HTMLElement) {
   return { distance: Math.abs(clientX - centerX), size: rect.width };
 }
 
-export function Timeline({ events }: TimelineProps) {
-  const [activeEventId, setActiveEventId] = useState<string | null>(null);
+function buildYearWeights(
+  events: readonly TimelineEventData[],
+  min: number,
+  max: number
+) {
+  const weights: number[] = [];
+  for (let year = min; year <= max; year += 1) {
+    let covering = 0;
+    for (const event of events) {
+      const span = getEventSpan(event.year);
+      if (!span) continue;
+      if (year >= span.start && year <= span.end) covering += 1;
+    }
+    weights.push(1 + covering);
+  }
+  return weights;
+}
+
+function yearToPercent(
+  year: number,
+  min: number,
+  weights: number[],
+  total: number
+) {
+  let acc = 0;
+  for (let y = min; y < year; y += 1) {
+    acc += weights[y - min] ?? 1;
+  }
+  return (acc / total) * 100;
+}
+
+export function Timeline({
+  events,
+  activeEventId,
+  onActiveEventIdChange,
+}: TimelineProps) {
   const [tooltipOrigin, setTooltipOrigin] = useState<TooltipOrigin | null>(
     null
   );
@@ -59,9 +95,11 @@ export function Timeline({ events }: TimelineProps) {
       max = Math.max(max, span.end);
     }
     if (!Number.isFinite(min) || !Number.isFinite(max)) {
-      return { min: 0, range: 1 };
+      return { min: 0, weights: [1], total: 1 };
     }
-    return { min, range: Math.max(1, max - min) };
+    const weights = buildYearWeights(events, min, max);
+    const total = weights.reduce((sum, value) => sum + value, 0);
+    return { min, weights, total: Math.max(1, total) };
   }, [events]);
 
   const registerPoint = useCallback((id: string, node: HTMLElement | null) => {
@@ -117,7 +155,7 @@ export function Timeline({ events }: TimelineProps) {
     const nextId = nearestEventId(event.clientX);
     const nextOrigin = measureOrigin(nextId);
 
-    setActiveEventId((current) => (current === nextId ? current : nextId));
+    onActiveEventIdChange(nextId);
     setTooltipOrigin((current) => {
       if (!nextOrigin) return current;
       if (current && current.x === nextOrigin.x && current.y === nextOrigin.y) {
@@ -127,19 +165,11 @@ export function Timeline({ events }: TimelineProps) {
     });
   };
 
-  const onPointerLeave = () => {
-    setActiveEventId(null);
-  };
-
   const activeEvent =
     events.find((item) => item.id === activeEventId) ?? null;
 
   return (
-    <div
-      className="timeline"
-      onPointerMove={onPointerMove}
-      onPointerLeave={onPointerLeave}
-    >
+    <div className="timeline" onPointerMove={onPointerMove}>
       <div className="timeline-scroll">
         <div ref={boardRef} className="timeline-board">
           <div className="timeline-line" aria-hidden />
@@ -148,8 +178,18 @@ export function Timeline({ events }: TimelineProps) {
               const span = getEventSpan(item.year);
               const start = span?.start ?? domain.min;
               const end = span?.end ?? start;
-              const left = ((start - domain.min) / domain.range) * 100;
-              const width = ((end - start) / domain.range) * 100;
+              const left = yearToPercent(
+                start,
+                domain.min,
+                domain.weights,
+                domain.total
+              );
+              const right = yearToPercent(
+                end,
+                domain.min,
+                domain.weights,
+                domain.total
+              );
 
               return (
                 <TimelineEvent
@@ -157,7 +197,7 @@ export function Timeline({ events }: TimelineProps) {
                   event={item}
                   isActive={activeEventId === item.id}
                   left={left}
-                  width={width}
+                  width={Math.max(0, right - left)}
                   onPointRef={registerPoint}
                 />
               );

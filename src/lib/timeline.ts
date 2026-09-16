@@ -1,5 +1,24 @@
 export type TimelineEventType = "job";
 
+export const FIELD_DISCIPLINES = [
+  "operations",
+  "safety",
+  "monitoring",
+  "logistics",
+  "clients",
+] as const;
+
+export const DESK_DISCIPLINES = [
+  "product",
+  "systems",
+  "research",
+  "design",
+  "technology",
+] as const;
+
+export type FieldDiscipline = (typeof FIELD_DISCIPLINES)[number];
+export type DeskDiscipline = (typeof DESK_DISCIPLINES)[number];
+
 export type TimelineEventData = {
   id: string;
   year: string | null;
@@ -9,6 +28,8 @@ export type TimelineEventData = {
   context?: string;
   progression?: string;
   type?: TimelineEventType;
+  field?: readonly FieldDiscipline[];
+  desk?: readonly DeskDiscipline[];
 };
 
 export type TimelineYearSpan = {
@@ -19,7 +40,7 @@ export type TimelineYearSpan = {
 /**
  * Ordered lifetime events.
  * Components identify records by `id`, never by year, title, or index.
- * Artwork and scripts attach via `id`.
+ * Artwork, scripts, and field/desk disciplines attach via `id`.
  */
 export const TIMELINE_EVENTS = [
   {
@@ -36,6 +57,8 @@ export const TIMELINE_EVENTS = [
     id: "humi-first-anniversary",
     year: "2010",
     title: "HUMI Borns",
+    desk: ["product", "design", "technology"],
+    field: ["clients"],
   },
   {
     id: "first-job",
@@ -44,11 +67,14 @@ export const TIMELINE_EVENTS = [
     subtitle: "Startup turismo",
     progression: "Prácticas profesionales → Ventas",
     type: "job",
+    field: ["operations", "logistics", "clients"],
+    desk: ["product"],
   },
   {
     id: "digital-design-engineering",
     year: "2017",
     title: "Digital Art Engineer",
+    desk: ["design", "technology", "product"],
   },
   {
     id: "field-operations-environmental-monitoring",
@@ -57,6 +83,8 @@ export const TIMELINE_EVENTS = [
     organization: "Cisco",
     context: "Consultoría ambiental",
     type: "job",
+    field: ["operations", "monitoring", "logistics", "clients"],
+    desk: ["systems", "research", "technology"],
   },
   {
     id: "trato-hecho-product-owner",
@@ -65,6 +93,8 @@ export const TIMELINE_EVENTS = [
     subtitle: "Startup inmobiliario",
     progression: "Front end + SEO → Product owner",
     type: "job",
+    desk: ["product", "design", "technology", "systems"],
+    field: ["clients"],
   },
   {
     id: "safety-project-management",
@@ -73,6 +103,8 @@ export const TIMELINE_EVENTS = [
     organization: "Cisco",
     context: "Consultoría ambiental",
     type: "job",
+    field: ["safety", "operations", "clients"],
+    desk: ["systems", "research", "product"],
   },
   {
     id: "field-operations-responsibility",
@@ -81,12 +113,16 @@ export const TIMELINE_EVENTS = [
     organization: "Cisco",
     context: "Consultoría ambiental",
     type: "job",
+    field: ["operations", "monitoring", "logistics", "clients"],
+    desk: ["systems", "research"],
   },
   {
     id: "humi-16-years",
     year: "2026",
     title: "HUMI",
-    subtitle: "16yo",
+    subtitle: "16vo aniversario",
+    desk: ["product", "design", "technology"],
+    field: ["clients"],
   },
 ] as const satisfies readonly TimelineEventData[];
 

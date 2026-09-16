@@ -2,7 +2,6 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Hero } from "@/components/sections/Hero";
 import { Philosophy } from "@/components/sections/Philosophy";
-import { FieldDesk } from "@/components/sections/FieldDesk";
 import { DigitalArtEngineer } from "@/components/sections/DigitalArtEngineer";
 import { Building } from "@/components/sections/Building";
 import { Notes } from "@/components/sections/Notes";
@@ -17,10 +16,7 @@ export default function Home() {
       <main>
         <Hero />
         <Philosophy />
-        <div className="lifetime-feature">
-          <FieldDesk />
-          <DigitalArtEngineer />
-        </div>
+        <DigitalArtEngineer />
         <Building />
         <Notes notes={featuredNotes} />
       </main>
