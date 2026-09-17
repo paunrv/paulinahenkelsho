@@ -29,6 +29,44 @@ function rangeWorlds(left: number, width: number, worldSeam: number) {
   };
 }
 
+export function TimelineRangeFill({
+  left,
+  width,
+  worldSeam,
+}: {
+  left: number;
+  width: number;
+  worldSeam: number;
+}) {
+  const worlds = rangeWorlds(left, width, worldSeam);
+
+  return (
+    <span className="timeline-event-range-fill">
+      {worlds.fieldWidth > 0 ? (
+        <span
+          className="timeline-event-range-seg is-field"
+          style={{ width: `${worlds.fieldWidth}%` }}
+        />
+      ) : null}
+      {worlds.crosses ? (
+        <span
+          className="timeline-event-range-seg is-seam"
+          style={{ left: `${worlds.seamLeft}%` }}
+        />
+      ) : null}
+      {worlds.deskWidth > 0 ? (
+        <span
+          className="timeline-event-range-seg is-desk"
+          style={{
+            left: `${worlds.deskLeft}%`,
+            width: `${worlds.deskWidth}%`,
+          }}
+        />
+      ) : null}
+    </span>
+  );
+}
+
 export function TimelineEvent({
   event,
   isActive = false,
@@ -40,7 +78,6 @@ export function TimelineEvent({
 }: TimelineEventProps) {
   const span = getEventSpan(event.year);
   const isRange = Boolean(span && span.end > span.start);
-  const worlds = isRange ? rangeWorlds(left, width, worldSeam) : null;
   const className = [
     "timeline-event",
     isActive ? "is-active" : "",
@@ -87,29 +124,11 @@ export function TimelineEvent({
             ref={(node) => onPointRef?.(event.id, node)}
           >
             <span className="timeline-event-range">
-              <span className="timeline-event-range-fill">
-                {worlds && worlds.fieldWidth > 0 ? (
-                  <span
-                    className="timeline-event-range-seg is-field"
-                    style={{ width: `${worlds.fieldWidth}%` }}
-                  />
-                ) : null}
-                {worlds?.crosses ? (
-                  <span
-                    className="timeline-event-range-seg is-seam"
-                    style={{ left: `${worlds.seamLeft}%` }}
-                  />
-                ) : null}
-                {worlds && worlds.deskWidth > 0 ? (
-                  <span
-                    className="timeline-event-range-seg is-desk"
-                    style={{
-                      left: `${worlds.deskLeft}%`,
-                      width: `${worlds.deskWidth}%`,
-                    }}
-                  />
-                ) : null}
-              </span>
+              <TimelineRangeFill
+                left={left}
+                width={width}
+                worldSeam={worldSeam}
+              />
               <span className="timeline-event-range-arrow">→</span>
             </span>
             <span className="timeline-event-tick" />

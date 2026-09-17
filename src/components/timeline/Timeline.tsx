@@ -9,8 +9,10 @@ import {
 } from "react";
 import type { TimelineEventData } from "@/lib/timeline";
 import { getEventSpan } from "@/lib/timeline";
-import { TimelineEvent } from "./TimelineEvent";
+import { TimelineEvent, TimelineRangeFill } from "./TimelineEvent";
 import "./timeline.css";
+
+const HUMI_IDS = new Set(["humi-first-anniversary", "humi-16-years"]);
 
 type TimelineProps = {
   events: readonly TimelineEventData[];
@@ -141,6 +143,25 @@ export function Timeline({
     domain.total
   );
 
+  const humiBorn = events.find((item) => item.id === "humi-first-anniversary");
+  const humiNow = events.find((item) => item.id === "humi-16-years");
+  const humiStartYear = getEventSpan(humiBorn?.year ?? null)?.start;
+  const humiEndYear = getEventSpan(humiNow?.year ?? null)?.end;
+  const humiLeft =
+    humiStartYear != null
+      ? yearToPercent(humiStartYear, domain.min, domain.weights, domain.total)
+      : null;
+  const humiRight =
+    humiEndYear != null
+      ? yearToPercent(humiEndYear, domain.min, domain.weights, domain.total)
+      : null;
+  const humiEra =
+    humiLeft != null && humiRight != null
+      ? { left: humiLeft, width: Math.max(0, humiRight - humiLeft) }
+      : null;
+  const humiActive =
+    activeEventId != null && HUMI_IDS.has(activeEventId);
+
   return (
     <div
       className={activeEventId ? "timeline is-reading" : "timeline"}
@@ -149,6 +170,28 @@ export function Timeline({
       <div className="timeline-scroll">
         <div className="timeline-board">
           <div className="timeline-line" aria-hidden />
+          {humiEra ? (
+            <div
+              className={
+                humiActive ? "timeline-humi-era is-active" : "timeline-humi-era"
+              }
+              aria-hidden
+            >
+              <div
+                className="timeline-humi-era-bar"
+                style={{
+                  left: `${humiEra.left}%`,
+                  width: `${humiEra.width}%`,
+                }}
+              >
+                <TimelineRangeFill
+                  left={humiEra.left}
+                  width={humiEra.width}
+                  worldSeam={worldSeam}
+                />
+              </div>
+            </div>
+          ) : null}
           <ol className="timeline-track">
             {events.map((item) => {
               const span = getEventSpan(item.year);
@@ -171,7 +214,10 @@ export function Timeline({
                 <TimelineEvent
                   key={item.id}
                   event={item}
-                  isActive={activeEventId === item.id}
+                  isActive={
+                    activeEventId === item.id ||
+                    (humiActive && HUMI_IDS.has(item.id))
+                  }
                   left={left}
                   width={Math.max(0, right - left)}
                   worldSeam={worldSeam}

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { TimelineEventData } from "@/lib/timeline";
 import { getEventSpan } from "@/lib/timeline";
-import { getTimelineEmoji, getTimelineScript } from "@/lib/timeline-content";
+import { getTimelineEmoji } from "@/lib/timeline-content";
 
 type TimelineEventDisplayProps = {
   event: TimelineEventData | null;
@@ -12,7 +12,6 @@ type TimelineEventDisplayProps = {
 
 type Piece = {
   event: TimelineEventData;
-  script: string;
   emoji: string;
   left: number;
 };
@@ -94,13 +93,11 @@ export function TimelineEventDisplay({
 
     if (!event) return hide();
 
-    const script = getTimelineScript(event.id);
     const emoji = getTimelineEmoji(event.id);
-    if (!script || !emoji) return hide();
+    if (!emoji) return hide();
 
     const next: Piece = {
       event,
-      script,
       emoji,
       left: eventLeftPercent(events, event),
     };
@@ -140,7 +137,7 @@ export function TimelineEventDisplay({
 }
 
 function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
-  const { event, script, emoji, left } = piece;
+  const { event, emoji, left } = piece;
   const isJob = event.type === "job";
   const organization = event.organization ?? (isJob ? event.title : undefined);
   const context = event.context ?? event.subtitle;
@@ -188,7 +185,6 @@ function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
             ) : null}
           </>
         )}
-        <p className="timeline-event-piece-script">{script}</p>
       </div>
     </div>
   );
