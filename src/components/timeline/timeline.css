@@ -192,14 +192,15 @@
 }
 
 .timeline-event-piece-copy {
-  width: min(75rem, 100%, calc(100vw - 2.5rem));
-  max-width: min(75rem, calc(100vw - 2.5rem));
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
   padding-top: 2.7rem;
-  margin-left: clamp(
-    0px,
-    calc(var(--active-left, 0%) - 0.2rem),
-    max(0px, 100% - min(75rem, 100%, calc(100vw - 2.5rem)))
+  padding-left: min(
+    max(0px, calc(var(--active-left, 0%) - 0.15rem)),
+    max(0px, 100% - min(36rem, 100%))
   );
+  margin-left: 0;
 }
 
 .timeline-event-piece-title,
@@ -211,6 +212,7 @@
   letter-spacing: 0;
   text-transform: none;
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  max-width: 36rem;
 }
 
 .timeline-event-piece-title {
@@ -239,7 +241,7 @@
 
 .timeline-event-piece-script {
   margin-top: 0.85rem;
-  max-width: 38rem;
+  max-width: 36rem;
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.55;
@@ -315,12 +317,6 @@
 
   .timeline-event-piece-emoji {
     font-size: 1.7rem;
-  }
-
-  .timeline-event-piece-copy {
-    width: 100%;
-    max-width: none;
-    margin-left: 0;
   }
 }
 
