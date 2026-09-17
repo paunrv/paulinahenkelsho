@@ -43,11 +43,22 @@ export function TimelineEvent({
         } as CSSProperties
       }
     >
-      <div className="timeline-event-year">
-        {event.year ? (
-          <time dateTime={event.year}>{event.year}</time>
-        ) : null}
-      </div>
+      {isRange && span ? (
+        <div className="timeline-event-years">
+          <div className="timeline-event-year is-start">
+            <time dateTime={String(span.start)}>{span.start}</time>
+          </div>
+          <div className="timeline-event-year is-end">
+            <time dateTime={String(span.end)}>{span.end}</time>
+          </div>
+        </div>
+      ) : (
+        <div className="timeline-event-year">
+          {event.year ? (
+            <time dateTime={event.year}>{event.year}</time>
+          ) : null}
+        </div>
+      )}
       <div className="timeline-event-mark" aria-hidden>
         {isRange ? (
           <div
@@ -55,6 +66,10 @@ export function TimelineEvent({
             data-timeline-hit="span"
             ref={(node) => onPointRef?.(event.id, node)}
           >
+            <span className="timeline-event-range">
+              <span className="timeline-event-range-fill" />
+              <span className="timeline-event-range-arrow">→</span>
+            </span>
             <span className="timeline-event-tick" />
             <span className="timeline-event-tick" />
           </div>
