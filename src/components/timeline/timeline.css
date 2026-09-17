@@ -155,9 +155,11 @@
 
 .timeline-event-display {
   position: relative;
+  box-sizing: border-box;
   width: auto;
+  max-width: none;
   min-height: 16.5rem;
-  margin-top: 0.5rem;
+  margin-top: 0.35rem;
   margin-inline: var(--timeline-gutter);
   padding: 0;
 }
@@ -167,7 +169,7 @@
   display: block;
   width: 100%;
   opacity: 0;
-  transform: translateY(0.28rem);
+  transform: translateY(0.22rem);
   clip-path: inset(0 0 100% 0);
   pointer-events: none;
   transition:
@@ -183,22 +185,29 @@
 }
 
 .timeline-event-piece-emoji {
-  position: absolute;
-  top: 0;
-  left: var(--active-left, 0%);
-  transform: translateX(-50%);
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 0 0.7rem;
+  margin-left: var(--active-left, 0%);
+  transform: translateX(-50%) translateY(0.16rem);
   font-size: 1.85rem;
   line-height: 1;
+  transition: transform var(--timeline-motion) var(--timeline-ease);
+}
+
+.timeline-event-piece.is-in .timeline-event-piece-emoji {
+  transform: translateX(-50%) translateY(0);
 }
 
 .timeline-event-piece-copy {
   box-sizing: border-box;
   width: 100%;
   max-width: none;
-  padding-top: 2.7rem;
+  padding-top: 0;
   padding-left: min(
-    max(0px, calc(var(--active-left, 0%) - 0.15rem)),
-    max(0px, 100% - min(36rem, 100%))
+    max(0px, calc(var(--active-left, 0%) - 1rem)),
+    max(0px, 100% - min(44rem, 100%))
   );
   margin-left: 0;
 }
@@ -209,14 +218,15 @@
 .timeline-event-piece-progression,
 .timeline-event-piece-script {
   margin: 0;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   text-transform: none;
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  max-width: 36rem;
+  max-width: min(44rem, 100%);
+  overflow-wrap: break-word;
 }
 
 .timeline-event-piece-title {
-  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
   font-weight: 500;
   line-height: 1.3;
   color: var(--timeline-ink);
@@ -236,12 +246,12 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.45;
+  letter-spacing: -0.01em;
   color: var(--timeline-ink);
 }
 
 .timeline-event-piece-script {
-  margin-top: 0.85rem;
-  max-width: 36rem;
+  margin-top: 0.75rem;
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.55;
@@ -346,6 +356,12 @@
     transition: none;
     transform: none;
     clip-path: none;
+  }
+
+  .timeline-event-piece-emoji,
+  .timeline-event-piece.is-in .timeline-event-piece-emoji {
+    transition: none;
+    transform: translateX(-50%);
   }
 }
 
