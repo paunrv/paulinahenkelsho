@@ -296,12 +296,9 @@
 .timeline-event-piece-copy {
   --x: calc(var(--active-left, 0) * 1cqi);
   box-sizing: border-box;
-  width: max-content;
-  max-width: min(40rem, 100cqi);
+  width: 100%;
   padding-top: 0;
-  margin-left: 0;
   text-align: center;
-  translate: clamp(0px, calc(var(--x) - 50%), calc(100cqi - 100%)) 0;
 }
 
 .timeline-event-piece-title,
@@ -309,12 +306,16 @@
 .timeline-event-piece-role,
 .timeline-event-piece-progression,
 .timeline-event-piece-script {
-  margin: 0 auto;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: min(36rem, 100%);
+  margin: 0;
   letter-spacing: -0.02em;
   text-transform: none;
+  text-align: center;
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  max-width: min(36rem, 100%);
   overflow-wrap: break-word;
+  translate: clamp(0px, calc(var(--x) - 50%), calc(100cqi - 100%)) 0;
 }
 
 .timeline-event-piece-title {
