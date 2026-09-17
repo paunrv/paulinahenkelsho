@@ -67,7 +67,11 @@ function eventLeftPercent(
     weights.reduce((sum, value) => sum + value, 0)
   );
   const span = getEventSpan(event.year);
-  return yearToPercent(span?.start ?? min, min, weights, total);
+  if (!span) return 0;
+  const start = yearToPercent(span.start, min, weights, total);
+  if (span.end <= span.start) return start;
+  const end = yearToPercent(span.end, min, weights, total);
+  return (start + end) / 2;
 }
 
 export function TimelineEventDisplay({
