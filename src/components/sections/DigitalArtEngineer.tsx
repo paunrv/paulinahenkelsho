@@ -27,14 +27,12 @@ export function DigitalArtEngineer() {
         engaged={engaged}
       />
       <div id="digital-art-engineer" className="lifetime-track">
-        <div className="mx-auto max-w-6xl px-gutter">
-          <Timeline
-            events={events}
-            activeEventId={activeEventId}
-            onActiveEventIdChange={setActiveEventId}
-          />
-          <TimelineEventDisplay event={activeEvent} />
-        </div>
+        <Timeline
+          events={events}
+          activeEventId={activeEventId}
+          onActiveEventIdChange={setActiveEventId}
+        />
+        <TimelineEventDisplay event={activeEvent} />
       </div>
     </div>
   );

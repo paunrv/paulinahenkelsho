@@ -4,8 +4,9 @@
 }
 
 .lifetime-track {
-  padding-top: clamp(1.5rem, 3.5vw, 2.5rem);
-  padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  width: 100%;
+  padding-top: clamp(0.7rem, 1.6vw, 1.15rem);
+  padding-bottom: clamp(3.5rem, 8vw, 6.5rem);
 }
 
 .timeline {
@@ -46,7 +47,7 @@
   position: relative;
   z-index: 1;
   height: calc(var(--timeline-year-row) + var(--timeline-mark-row));
-  margin: 0;
+  margin: 0 clamp(1.25rem, 4vw, 3.5rem);
   padding: 0;
   list-style: none;
 }
@@ -152,10 +153,13 @@
 }
 
 .timeline-event-display {
-  min-height: 13.5rem;
+  width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin-top: 1.75rem;
+  min-height: 20rem;
+  margin-top: 2.75rem;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
 }
 
 .timeline-event-piece {
@@ -163,8 +167,9 @@
   grid-template-columns: auto minmax(0, 1fr);
   gap: 1.5rem 2.25rem;
   align-items: center;
-  width: 100%;
-  max-width: 40rem;
+  width: min(100%, 42rem);
+  max-width: 42rem;
+  margin-inline: auto;
   opacity: 0;
   transform: translateY(0.4rem);
   clip-path: inset(0 0 100% 0);
@@ -274,9 +279,9 @@
 
 .lifetime-feature .field-desk-grid {
   grid-template-areas:
+    "editorial"
     "field"
-    "desk"
-    "editorial";
+    "desk";
 }
 
 @media (min-width: 768px) {
@@ -288,8 +293,8 @@
   .lifetime-feature .field-desk-grid {
     min-height: 0;
     grid-template-areas:
-      "field desk"
-      "editorial editorial";
+      "editorial editorial"
+      "field desk";
   }
 
   .lifetime-feature .field-desk-field,
@@ -298,8 +303,8 @@
   }
 
   .timeline-event-display {
-    min-height: 14.5rem;
-    margin-top: 2.25rem;
+    min-height: 22.5rem;
+    margin-top: 3.25rem;
   }
 
   .timeline-event-piece {
@@ -313,8 +318,7 @@
 
 @media (max-width: 639px) {
   .timeline-event-display {
-    min-height: 16.5rem;
-    align-items: flex-start;
+    min-height: 22rem;
   }
 
   .timeline-event-piece {
@@ -330,8 +334,8 @@
 
 @media (min-width: 1024px) {
   .lifetime-track {
-    padding-top: clamp(1.75rem, 3vw, 2.75rem);
-    padding-bottom: clamp(3rem, 6vw, 5rem);
+    padding-top: 1rem;
+    padding-bottom: clamp(4.25rem, 8vw, 7rem);
   }
 
   .timeline-scroll {
@@ -357,11 +361,19 @@
   }
 }
 
-.lifetime-feature .field-desk-editorial,
+.lifetime-feature .field-desk-editorial {
+  border-top: 0;
+  border-bottom: 0;
+}
+
 .lifetime-feature .field-desk-field,
 .lifetime-feature .field-desk-desk {
   padding-top: clamp(2.75rem, 6vw, 4.5rem);
-  padding-bottom: clamp(2.75rem, 6vw, 4.5rem);
+  padding-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.lifetime-feature .field-desk-desk {
+  border-top: 0;
 }
 
 .lifetime-feature .field-desk-pole {
@@ -369,24 +381,13 @@
 }
 
 @media (min-width: 768px) {
-  .lifetime-feature .field-desk-statement {
-    font-size: clamp(1.85rem, 3vw, 2.6rem);
-  }
-
   .lifetime-feature .field-desk-pole {
     font-size: clamp(3.5rem, 5.6vw, 5.25rem);
-  }
-
-  .lifetime-feature .field-desk-editorial {
-    padding-top: clamp(2.5rem, 5vw, 3.75rem);
-    padding-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
-    border-bottom: 0;
-    border-top: 0;
   }
 
   .lifetime-feature .field-desk-field,
   .lifetime-feature .field-desk-desk {
     padding-top: clamp(3.5rem, 8vw, 6rem);
-    padding-bottom: clamp(3.5rem, 8vw, 6rem);
+    padding-bottom: clamp(2.25rem, 4.5vw, 3.25rem);
   }
 }
