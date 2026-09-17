@@ -3,6 +3,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Hero } from "@/components/sections/Hero";
 import { Philosophy } from "@/components/sections/Philosophy";
 import { FieldDesk } from "@/components/sections/FieldDesk";
+import { DigitalArtEngineer } from "@/components/sections/DigitalArtEngineer";
 import { CurrentFocus } from "@/components/sections/CurrentFocus";
 import { Building } from "@/components/sections/Building";
 import { Notes } from "@/components/sections/Notes";
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero />
         <Philosophy />
         <FieldDesk />
+        <DigitalArtEngineer />
         <CurrentFocus />
         <Building />
         <Notes notes={featuredNotes} />

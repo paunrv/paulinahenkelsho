@@ -119,6 +119,7 @@ const DICT = {
     focus: {
       eyebrow: "Current focus",
       title: "What I\u2019m exploring now.",
+      lede: "I\u2019m interested in what happens between an idea and its adoption.",
       topics: [
         "AI Product Development",
         "Product Adoption",
@@ -384,6 +385,7 @@ const DICT = {
     focus: {
       eyebrow: "Enfoque actual",
       title: "Lo que exploro ahora.",
+      lede: "Me interesa lo que ocurre entre una idea y su adopci\u00f3n.",
       topics: [
         "Desarrollo de productos con IA",
         "Adopci\u00f3n de producto",
