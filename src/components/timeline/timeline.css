@@ -168,6 +168,7 @@
   position: relative;
   display: block;
   width: 100%;
+  container-type: inline-size;
   opacity: 0;
   transform: translateY(0.22rem);
   clip-path: inset(0 0 100% 0);
@@ -189,7 +190,7 @@
   width: max-content;
   max-width: 100%;
   margin: 0 0 0.7rem;
-  margin-left: var(--active-left, 0%);
+  margin-left: calc(var(--active-left, 0) * 1%);
   transform: translateX(-50%) translateY(0.16rem);
   font-size: 1.85rem;
   line-height: 1;
@@ -201,15 +202,14 @@
 }
 
 .timeline-event-piece-copy {
+  --copy-pad: max(0px, calc(var(--active-left, 0) * 1cqi - 1rem));
   box-sizing: border-box;
-  width: 100%;
-  max-width: none;
+  width: max-content;
+  max-width: min(44rem, 100cqi);
   padding-top: 0;
-  padding-left: min(
-    max(0px, calc(var(--active-left, 0%) - 1rem)),
-    max(0px, 100% - min(44rem, 100%))
-  );
-  margin-left: 0;
+  padding-left: 0;
+  margin-left: var(--copy-pad);
+  translate: min(0px, calc(100cqi - 100% - var(--copy-pad))) 0;
 }
 
 .timeline-event-piece-title,

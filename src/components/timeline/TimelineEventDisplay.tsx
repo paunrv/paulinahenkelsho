@@ -150,7 +150,7 @@ function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
       className={
         active ? "timeline-event-piece is-in" : "timeline-event-piece"
       }
-      style={{ "--active-left": `${left}%` } as CSSProperties}
+      style={{ "--active-left": left } as CSSProperties}
     >
       <div className="timeline-event-piece-emoji" aria-hidden>
         {emoji}
