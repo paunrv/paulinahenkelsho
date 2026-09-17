@@ -5,6 +5,7 @@ import {
   useMemo,
   useRef,
   type PointerEvent as ReactPointerEvent,
+  type ReactNode,
 } from "react";
 import type { TimelineEventData } from "@/lib/timeline";
 import { getEventSpan } from "@/lib/timeline";
@@ -15,6 +16,7 @@ type TimelineProps = {
   events: readonly TimelineEventData[];
   activeEventId: string | null;
   onActiveEventIdChange: (id: string | null) => void;
+  children?: ReactNode;
 };
 
 function distanceToHit(clientX: number, node: HTMLElement) {
@@ -75,6 +77,7 @@ export function Timeline({
   events,
   activeEventId,
   onActiveEventIdChange,
+  children,
 }: TimelineProps) {
   const pointRefs = useRef(new Map<string, HTMLElement>());
 
@@ -167,6 +170,7 @@ export function Timeline({
               );
             })}
           </ol>
+          {children}
         </div>
       </div>
     </div>

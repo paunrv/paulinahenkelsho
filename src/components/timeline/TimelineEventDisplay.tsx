@@ -1,20 +1,79 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { TimelineEventData } from "@/lib/timeline";
+import { getEventSpan } from "@/lib/timeline";
 import { getTimelineEmoji, getTimelineScript } from "@/lib/timeline-content";
 
 type TimelineEventDisplayProps = {
   event: TimelineEventData | null;
+  events: readonly TimelineEventData[];
 };
 
 type Piece = {
   event: TimelineEventData;
   script: string;
   emoji: string;
+  left: number;
 };
 
-export function TimelineEventDisplay({ event }: TimelineEventDisplayProps) {
+function buildYearWeights(
+  events: readonly TimelineEventData[],
+  min: number,
+  max: number
+) {
+  const weights: number[] = [];
+  for (let year = min; year <= max; year += 1) {
+    let covering = 0;
+    for (const item of events) {
+      const span = getEventSpan(item.year);
+      if (!span) continue;
+      if (year >= span.start && year <= span.end) covering += 1;
+    }
+    weights.push(1 + covering);
+  }
+  return weights;
+}
+
+function yearToPercent(
+  year: number,
+  min: number,
+  weights: number[],
+  total: number
+) {
+  let acc = 0;
+  for (let y = min; y < year; y += 1) {
+    acc += weights[y - min] ?? 1;
+  }
+  return (acc / total) * 100;
+}
+
+function eventLeftPercent(
+  events: readonly TimelineEventData[],
+  event: TimelineEventData
+) {
+  let min = Infinity;
+  let max = -Infinity;
+  for (const item of events) {
+    const span = getEventSpan(item.year);
+    if (!span) continue;
+    min = Math.min(min, span.start);
+    max = Math.max(max, span.end);
+  }
+  if (!Number.isFinite(min) || !Number.isFinite(max)) return 0;
+  const weights = buildYearWeights(events, min, max);
+  const total = Math.max(
+    1,
+    weights.reduce((sum, value) => sum + value, 0)
+  );
+  const span = getEventSpan(event.year);
+  return yearToPercent(span?.start ?? min, min, weights, total);
+}
+
+export function TimelineEventDisplay({
+  event,
+  events,
+}: TimelineEventDisplayProps) {
   const [piece, setPiece] = useState<Piece | null>(null);
   const [phase, setPhase] = useState<"in" | "out">("out");
   const shownId = useRef<string | null>(null);
@@ -35,7 +94,12 @@ export function TimelineEventDisplay({ event }: TimelineEventDisplayProps) {
     const emoji = getTimelineEmoji(event.id);
     if (!script || !emoji) return hide();
 
-    const next: Piece = { event, script, emoji };
+    const next: Piece = {
+      event,
+      script,
+      emoji,
+      left: eventLeftPercent(events, event),
+    };
 
     if (shownId.current === event.id) {
       setPiece(next);
@@ -56,7 +120,7 @@ export function TimelineEventDisplay({ event }: TimelineEventDisplayProps) {
     }
 
     reveal();
-  }, [event]);
+  }, [event, events]);
 
   return (
     <div
@@ -72,7 +136,7 @@ export function TimelineEventDisplay({ event }: TimelineEventDisplayProps) {
 }
 
 function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
-  const { event, script, emoji } = piece;
+  const { event, script, emoji, left } = piece;
   const isJob = event.type === "job";
   const organization = event.organization ?? (isJob ? event.title : undefined);
   const context = event.context ?? event.subtitle;
@@ -86,15 +150,16 @@ function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
       className={
         active ? "timeline-event-piece is-in" : "timeline-event-piece"
       }
+      style={{ "--active-left": `${left}%` } as CSSProperties}
     >
       <div className="timeline-event-piece-emoji" aria-hidden>
         {emoji}
       </div>
       <div className="timeline-event-piece-copy">
         {event.year ? (
-          <p className="timeline-event-piece-year">
-            <time dateTime={event.year}>{event.year}</time>
-          </p>
+          <time className="sr-only" dateTime={event.year}>
+            {event.year}
+          </time>
         ) : null}
         {isJob ? (
           <>

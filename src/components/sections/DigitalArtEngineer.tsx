@@ -31,8 +31,9 @@ export function DigitalArtEngineer() {
           events={events}
           activeEventId={activeEventId}
           onActiveEventIdChange={setActiveEventId}
-        />
-        <TimelineEventDisplay event={activeEvent} />
+        >
+          <TimelineEventDisplay event={activeEvent} events={events} />
+        </Timeline>
       </div>
     </div>
   );
