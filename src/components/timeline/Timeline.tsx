@@ -135,7 +135,10 @@ export function Timeline({
   };
 
   return (
-    <div className="timeline" onPointerMove={onPointerMove}>
+    <div
+      className={activeEventId ? "timeline is-reading" : "timeline"}
+      onPointerMove={onPointerMove}
+    >
       <div className="timeline-scroll">
         <div className="timeline-board">
           <div className="timeline-line" aria-hidden />
