@@ -334,26 +334,20 @@
   right: clamp(4.6rem, 10vw, 7rem);
   bottom: 0.85rem;
   z-index: 1;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
+  justify-content: center;
   align-items: end;
-  gap: 1rem;
-  color: rgb(var(--etch-cream) / 0.42);
-  font-size: 0.52rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  line-height: 1.35;
-  text-transform: uppercase;
-  pointer-events: none;
 }
 
 .notes-index-contact {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 0.45rem;
   pointer-events: auto;
+  font-size: 0.52rem;
+  font-weight: 500;
   letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .notes-index-contact a {
@@ -363,14 +357,6 @@
 
 .notes-index-contact a:hover {
   color: rgb(var(--etch-cream));
-}
-
-.notes-index-bezel-c {
-  text-align: center;
-}
-
-.notes-index-bezel-r {
-  text-align: right;
 }
 
 .notes-index-knob {
@@ -504,17 +490,5 @@
   .notes-index-bezel {
     left: clamp(3.8rem, 16vw, 5.5rem);
     right: clamp(3.8rem, 16vw, 5.5rem);
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .notes-index-bezel-l,
-  .notes-index-bezel-r {
-    display: none;
-  }
-
-  .notes-index-bezel-c,
-  .notes-index-bezel-r {
-    text-align: center;
   }
 }

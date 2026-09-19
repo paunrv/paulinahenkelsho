@@ -141,35 +141,18 @@ export function NotesIndexPage() {
         </main>
 
         <footer className="notes-index-bezel">
-          <p className="notes-index-bezel-l">
-            Curiosity
-            <br />
-            moves
-            <br />
-            things
-          </p>
-          <div className="notes-index-bezel-c">
-            <p>Ideas → Observations → Reflections</p>
-            <p className="notes-index-contact">
-              <a
-                href="https://www.linkedin.com/in/paulina-nrv/"
-                target="_blank"
-                rel="noopener"
-              >
-                LinkedIn
-              </a>
-              <a href="https://github.com/paunrv" target="_blank" rel="noopener">
-                GitHub
-              </a>
-              <a href="mailto:phsho007@gmail.com">Email</a>
-            </p>
-          </div>
-          <p className="notes-index-bezel-r">
-            A brighter
-            <br />
-            more human
-            <br />
-            tomorrow
+          <p className="notes-index-contact">
+            <a
+              href="https://www.linkedin.com/in/paulina-nrv/"
+              target="_blank"
+              rel="noopener"
+            >
+              LinkedIn
+            </a>
+            <a href="https://github.com/paunrv" target="_blank" rel="noopener">
+              GitHub
+            </a>
+            <a href="mailto:phsho007@gmail.com">Email</a>
           </p>
         </footer>
 
