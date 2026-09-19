@@ -56,7 +56,9 @@ export function Notes() {
         </div>
 
         <footer id="contact" className="notes-end-footer">
-          <p className="notes-end-footer-name">Paulina Henkel</p>
+          <p className="notes-end-footer-credit">
+            {new Date().getFullYear()} Paulina Henkel
+          </p>
           <p className="notes-end-footer-links">
             {FOOTER_LINKS.map((link) => {
               const isMail = link.href.startsWith("mailto:");
@@ -73,10 +75,7 @@ export function Notes() {
               );
             })}
           </p>
-          <p className="notes-end-footer-meta">
-            <span>© {new Date().getFullYear()} Paulina Henkel</span>
-            <span>{t.footer.location}</span>
-          </p>
+          <p className="notes-end-footer-place">{t.footer.location}</p>
         </footer>
       </div>
     </section>

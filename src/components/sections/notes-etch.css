@@ -143,48 +143,38 @@
 }
 
 .notes-end-footer {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  grid-template-areas:
-    "name links"
-    "meta meta";
-  align-content: start;
-  column-gap: 0.9rem;
-  row-gap: 0.28rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.45rem 1.1rem;
   margin-top: clamp(1.15rem, 2.8vw, 1.75rem);
   padding: 0 0.1rem 0.15rem;
   font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(0.68rem, 1.05vw, 0.8rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
   color: rgb(var(--ph-text-muted));
 }
 
-.notes-end-footer-name {
-  grid-area: name;
+.notes-end-footer-credit,
+.notes-end-footer-place {
   margin: 0;
-  font-size: clamp(0.68rem, 1.05vw, 0.8rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: rgb(var(--ph-text));
 }
 
 .notes-end-footer-links {
-  grid-area: links;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: center;
+  align-items: baseline;
   gap: 0.7rem 1.05rem;
   margin: 0;
-  font-size: clamp(0.52rem, 0.85vw, 0.62rem);
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 
 .notes-end-footer-links a {
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   gap: 0.22rem;
-  color: rgb(var(--ph-text-muted));
+  color: inherit;
   text-decoration: none;
 }
 
@@ -195,17 +185,6 @@
 .notes-end-footer-links a:focus-visible {
   outline: 2px solid rgb(var(--ph-text));
   outline-offset: 3px;
-}
-
-.notes-end-footer-meta {
-  grid-area: meta;
-  display: flex;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin: 0;
-  font-size: clamp(0.48rem, 0.78vw, 0.58rem);
-  letter-spacing: 0.06em;
-  color: rgb(var(--ph-text-subtle));
 }
 
 .notes-etch-knob {
@@ -287,24 +266,7 @@
   }
 
   .notes-end-footer {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "name"
-      "links"
-      "meta";
-    justify-items: start;
-    row-gap: 0.28rem;
     margin-top: 1.15rem;
-  }
-
-  .notes-end-footer-links {
-    justify-content: flex-start;
-    gap: 0.45rem 0.9rem;
-  }
-
-  .notes-end-footer-meta {
-    width: 100%;
-    padding-top: 0.04rem;
   }
 }
 
