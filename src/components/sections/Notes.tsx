@@ -1,84 +1,83 @@
 "use client";
 
 import Link from "next/link";
-import { Reveal } from "@/components/motion/Reveal";
 import { useT } from "@/i18n/i18n";
-import { formatCategoryLabel } from "@/lib/note-categories";
-import type { NoteMeta } from "@/lib/notes";
+import "./notes-etch.css";
 
-export function Notes({ notes }: { notes: NoteMeta[] }) {
+const FOOTER_LINKS = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/paulina-nrv/",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/paunrv",
+  },
+  {
+    label: "Email",
+    href: "mailto:phsho007@gmail.com",
+  },
+] as const;
+
+export function Notes() {
   const t = useT();
   const n = t.notes;
 
   return (
-    <section
-      id="notes"
-      aria-label="Notes"
-      className="border-t border-line py-section"
-    >
-      <div className="mx-auto max-w-6xl px-gutter">
-        <div className="max-w-2xl">
-          <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-subtle">
-              {n.eyebrow}
-            </p>
-            <h2 className="mt-6 font-display text-title-sm font-light text-ink text-balance md:text-title-md">
-              {n.title}
-            </h2>
-          </Reveal>
+    <section id="notes" aria-label="Notes" className="notes-etch-section">
+      <div className="notes-etch">
+        <div className="notes-etch-body">
+          <div className="notes-etch-screen">
+            <h2 className="notes-etch-word">{n.word}</h2>
 
-          <Reveal delay={0.08}>
-            <p className="mt-8 text-lg leading-[1.65] text-muted">
-              {n.intro}
-            </p>
-          </Reveal>
-        </div>
+            <div className="notes-etch-layout">
+              <div className="notes-etch-copy">
+                <p className="notes-etch-lead">{n.lead}</p>
+                <p className="notes-etch-intro">{n.intro}</p>
+              </div>
 
-        <Reveal delay={0.14}>
-          {notes.length > 0 ? (
-            <ul className="mt-12 max-w-2xl border-t border-line md:mt-14">
-              {notes.map((note) => (
-                <li key={note.slug} className="border-b border-line">
-                  <Link
-                    href={`/notes/${note.slug}`}
-                    className="group block py-5 md:py-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
-                  >
-                    <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-subtle">
-                      {formatCategoryLabel(note.category)}
-                    </p>
-                    <p className="mt-3 font-display text-xl font-light text-ink underline decoration-transparent underline-offset-4 transition-[text-decoration-color] group-hover:decoration-seam md:text-2xl">
-                      {note.title}
-                    </p>
-                    {note.subtitle ? (
-                      <p className="mt-1 text-sm text-muted">{note.subtitle}</p>
-                    ) : null}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="mt-12 text-sm text-subtle md:mt-14">{n.status}</p>
-          )}
-        </Reveal>
+              <div className="notes-etch-draw" aria-hidden="true">
+                <span className="notes-etch-draw-h" />
+                <span className="notes-etch-draw-v" />
+              </div>
 
-        <Reveal delay={0.2}>
-          <div className="mt-10">
-            <Link
-              href="/notes"
-              className="group inline-flex items-center gap-3 text-sm font-medium text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
-            >
-              <span className="border-b border-ink/25 pb-0.5 transition-colors group-hover:border-seam">
-                {n.allNotes}
-              </span>
-              <span
-                className="transition-transform group-hover:translate-x-1"
-                aria-hidden
+              <Link
+                href="/notes"
+                className="notes-etch-cta"
               >
-                →
-              </span>
-            </Link>
+                {n.cta}
+                <span aria-hidden>→</span>
+              </Link>
+            </div>
           </div>
-        </Reveal>
+
+          <footer id="contact" className="notes-etch-footer">
+            <p className="notes-etch-footer-name">Paulina Henkel</p>
+            <p className="notes-etch-footer-links">
+              {FOOTER_LINKS.map((link) => {
+                const isMail = link.href.startsWith("mailto:");
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target={isMail ? undefined : "_blank"}
+                    rel={isMail ? undefined : "noopener"}
+                  >
+                    {link.label}
+                    <span aria-hidden>{isMail ? "→" : "↗"}</span>
+                  </a>
+                );
+              })}
+            </p>
+            <p className="notes-etch-footer-meta">
+              <span>© {new Date().getFullYear()} Paulina Henkel</span>
+              <span>{t.footer.location}</span>
+            </p>
+          </footer>
+
+          <span className="notes-etch-knob notes-etch-knob-l" aria-hidden />
+          <span className="notes-etch-knob notes-etch-knob-r" aria-hidden />
+        </div>
       </div>
     </section>
   );
