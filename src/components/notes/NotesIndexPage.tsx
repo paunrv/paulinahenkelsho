@@ -1,111 +1,181 @@
 import Link from "next/link";
-import { SiteHeader } from "@/components/layout/SiteHeader";
-import { SiteFooter } from "@/components/layout/SiteFooter";
-import { NoteListItem } from "@/components/notes/NoteListItem";
+import { NotesIndexNav } from "@/components/notes/NotesIndexNav";
 import {
+  NOTE_CATEGORIES,
   formatCategoryLabel,
   getNotesByCategory,
   type NoteCategory,
   type NoteMeta,
 } from "@/lib/notes";
+import "./notes-index-etch.css";
 
-const CATEGORY_COPY: Record<
-  NoteCategory,
-  { description: string; empty: string }
-> = {
-  Building: {
-    description:
-      "How products are built — discovery, UX, AI, systems, decisions, and real projects.",
-    empty: "Nothing published here yet.",
-  },
-  "Field Notes": {
-    description:
-      "Observations from real life — hospitals, open water, travel, people, moments.",
-    empty: "Nothing published here yet.",
-  },
-  Perspectives: {
-    description:
-      "Long-form reflections grounded in lived experience. Not opinion pieces.",
-    empty: "Nothing published here yet.",
-  },
+const EMPTY_COPY: Record<NoteCategory, string> = {
+  Building: "Nothing published here yet.",
+  "Field Notes": "Nothing published here yet.",
+  Perspectives: "Nothing published here yet.",
 };
 
-function CategoryBlock({
-  category,
-  notes,
-}: {
-  category: NoteCategory;
-  notes: NoteMeta[];
-}) {
-  const copy = CATEGORY_COPY[category];
+type TableRow = {
+  key: string;
+  category: string;
+  showCategory: boolean;
+  title: string;
+  href?: string;
+  date: string;
+  dateTime?: string;
+  readingTime: string;
+};
 
-  return (
-    <section className="border-t border-line py-section">
-      <div className="mx-auto max-w-6xl px-gutter">
-        <div className="max-w-2xl">
-          <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-subtle">
-            {formatCategoryLabel(category)}
-          </p>
-          <p className="mt-6 text-lg leading-[1.65] text-muted">
-            {copy.description}
-          </p>
-        </div>
+function formatTableDate(date: string) {
+  const parsed = new Date(`${date}T12:00:00`);
+  if (Number.isNaN(parsed.getTime())) return date;
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  }).format(parsed);
+}
 
-        {notes.length > 0 ? (
-          <ul className="mt-12 max-w-3xl border-t border-line md:mt-14">
-            {notes.map((note) => (
-              <NoteListItem key={note.slug} note={note} />
-            ))}
-          </ul>
-        ) : (
-          <p className="mt-12 text-sm text-subtle md:mt-14">{copy.empty}</p>
-        )}
-      </div>
-    </section>
-  );
+function buildRows(): TableRow[] {
+  const rows: TableRow[] = [];
+
+  for (const category of NOTE_CATEGORIES) {
+    const notes: NoteMeta[] = getNotesByCategory(category);
+    const label = formatCategoryLabel(category);
+
+    if (notes.length === 0) {
+      rows.push({
+        key: `${category}-empty`,
+        category: label,
+        showCategory: true,
+        title: EMPTY_COPY[category],
+        date: "—",
+        readingTime: "—",
+      });
+      continue;
+    }
+
+    notes.forEach((note, index) => {
+      rows.push({
+        key: note.slug,
+        category: label,
+        showCategory: index === 0,
+        title: note.title,
+        href: `/notes/${note.slug}`,
+        date: formatTableDate(note.date),
+        dateTime: note.date,
+        readingTime: note.readingTime || "—",
+      });
+    });
+  }
+
+  return rows;
 }
 
 export function NotesIndexPage() {
-  const building = getNotesByCategory("Building");
-  const fieldNotes = getNotesByCategory("Field Notes");
-  const perspectives = getNotesByCategory("Perspectives");
+  const rows = buildRows();
 
   return (
-    <>
-      <SiteHeader />
-      <main className="pt-14 md:pt-16">
-        <header className="py-section">
-          <div className="mx-auto max-w-6xl px-gutter">
-            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-subtle">
-              Notes
-            </p>
-            <h1 className="mt-6 max-w-3xl font-display text-title-md font-light text-ink text-balance md:text-title-lg">
-              One notebook. Three ways of thinking.
-            </h1>
-            <p className="mt-8 max-w-2xl text-lg leading-[1.65] text-muted md:text-xl">
-              Projects show what was built. Notes show how she thinks — while
-              building, while observing, while reflecting. Categories organize
-              the shelf. They are not separate products.
-            </p>
-            <p className="mt-6 max-w-2xl text-base leading-[1.65] text-subtle">
-              A notebook. Not a blog.
-            </p>
-            <p className="mt-8">
-              <Link
-                href="/#notes"
-                className="text-sm font-medium text-ink border-b border-accent/40 pb-0.5 transition-colors hover:border-accent"
+    <div className="notes-index-page">
+      <div className="notes-index-body">
+        <NotesIndexNav />
+
+        <main className="notes-index-screen">
+          <header className="notes-index-masthead">
+            <h1 className="notes-index-word">Notes</h1>
+            <div className="notes-index-draw" aria-hidden="true">
+              <span className="notes-index-draw-h" />
+              <span className="notes-index-draw-v" />
+            </div>
+            <Link href="/#notes" className="notes-index-cta">
+              Back home
+              <span aria-hidden>→</span>
+            </Link>
+          </header>
+
+          <p className="notes-index-lede">
+            One notebook. Three ways of thinking.
+          </p>
+          <p className="notes-index-intro">
+            Projects show what was built. Notes show how she thinks — while
+            building, while observing, while reflecting. Categories organize
+            the shelf. They are not separate products.
+          </p>
+          <p className="notes-index-aside">A notebook. Not a blog.</p>
+
+          <table className="notes-index-table">
+            <caption className="sr-only">All notes</caption>
+            <thead>
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Note</th>
+                <th scope="col">Date</th>
+                <th scope="col">Read time</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr key={row.key}>
+                  <td className="notes-index-cat">
+                    {row.showCategory ? row.category : null}
+                  </td>
+                  <td className="notes-index-note">
+                    {row.href ? (
+                      <Link href={row.href}>{row.title}</Link>
+                    ) : (
+                      <span className="is-empty">{row.title}</span>
+                    )}
+                  </td>
+                  <td className="notes-index-date">
+                    {row.dateTime ? (
+                      <time dateTime={row.dateTime}>{row.date}</time>
+                    ) : (
+                      row.date
+                    )}
+                  </td>
+                  <td className="notes-index-time">{row.readingTime}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </main>
+
+        <footer className="notes-index-bezel">
+          <p className="notes-index-bezel-l">
+            Curiosity
+            <br />
+            moves
+            <br />
+            things
+          </p>
+          <div className="notes-index-bezel-c">
+            <p>Ideas → Observations → Reflections</p>
+            <p className="notes-index-contact">
+              <a
+                href="https://www.linkedin.com/in/paulina-nrv/"
+                target="_blank"
+                rel="noopener"
               >
-                Back home
-              </Link>
+                LinkedIn
+              </a>
+              <a href="https://github.com/paunrv" target="_blank" rel="noopener">
+                GitHub
+              </a>
+              <a href="mailto:phsho007@gmail.com">Email</a>
             </p>
           </div>
-        </header>
+          <p className="notes-index-bezel-r">
+            A brighter
+            <br />
+            more human
+            <br />
+            tomorrow
+          </p>
+        </footer>
 
-        <CategoryBlock category="Building" notes={building} />
-        <CategoryBlock category="Field Notes" notes={fieldNotes} />
-        <CategoryBlock category="Perspectives" notes={perspectives} />
-      </main>
-      <SiteFooter />
-    </>
+        <span className="notes-index-knob notes-index-knob-l" aria-hidden />
+        <span className="notes-index-knob notes-index-knob-r" aria-hidden />
+      </div>
+    </div>
   );
 }
