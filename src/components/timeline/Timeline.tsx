@@ -8,11 +8,9 @@ import {
   type ReactNode,
 } from "react";
 import type { TimelineEventData } from "@/lib/timeline";
-import { getEventSpan } from "@/lib/timeline";
+import { HUMI_IDS, getEventSpan } from "@/lib/timeline";
 import { TimelineEvent, TimelineRangeFill } from "./TimelineEvent";
 import "./timeline.css";
-
-const HUMI_IDS = new Set(["humi-first-anniversary", "humi-16-years"]);
 
 type TimelineProps = {
   events: readonly TimelineEventData[];
@@ -159,12 +157,17 @@ export function Timeline({
     humiLeft != null && humiRight != null
       ? { left: humiLeft, width: Math.max(0, humiRight - humiLeft) }
       : null;
+  const revealingBorn = activeEventId == null || activeEventId === "born";
   const humiActive =
     activeEventId != null && HUMI_IDS.has(activeEventId);
 
   return (
     <div
-      className={activeEventId ? "timeline is-reading" : "timeline"}
+      className={
+        activeEventId && activeEventId !== "born"
+          ? "timeline is-reading"
+          : "timeline"
+      }
       onPointerMove={onPointerMove}
     >
       <div className="timeline-scroll">
@@ -215,8 +218,10 @@ export function Timeline({
                   key={item.id}
                   event={item}
                   isActive={
-                    activeEventId === item.id ||
-                    (humiActive && HUMI_IDS.has(item.id))
+                    item.id === "born"
+                      ? revealingBorn
+                      : activeEventId === item.id ||
+                        (humiActive && HUMI_IDS.has(item.id))
                   }
                   left={left}
                   width={Math.max(0, right - left)}
