@@ -51,33 +51,33 @@ export function Notes() {
             </div>
           </div>
 
-          <footer id="contact" className="notes-etch-footer">
-            <p className="notes-etch-footer-name">Paulina Henkel</p>
-            <p className="notes-etch-footer-links">
-              {FOOTER_LINKS.map((link) => {
-                const isMail = link.href.startsWith("mailto:");
-                return (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target={isMail ? undefined : "_blank"}
-                    rel={isMail ? undefined : "noopener"}
-                  >
-                    {link.label}
-                    <span aria-hidden>{isMail ? "→" : "↗"}</span>
-                  </a>
-                );
-              })}
-            </p>
-            <p className="notes-etch-footer-meta">
-              <span>© {new Date().getFullYear()} Paulina Henkel</span>
-              <span>{t.footer.location}</span>
-            </p>
-          </footer>
-
           <span className="notes-etch-knob notes-etch-knob-l" aria-hidden />
           <span className="notes-etch-knob notes-etch-knob-r" aria-hidden />
         </div>
+
+        <footer id="contact" className="notes-end-footer">
+          <p className="notes-end-footer-name">Paulina Henkel</p>
+          <p className="notes-end-footer-links">
+            {FOOTER_LINKS.map((link) => {
+              const isMail = link.href.startsWith("mailto:");
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={isMail ? undefined : "_blank"}
+                  rel={isMail ? undefined : "noopener"}
+                >
+                  {link.label}
+                  <span aria-hidden>{isMail ? "→" : "↗"}</span>
+                </a>
+              );
+            })}
+          </p>
+          <p className="notes-end-footer-meta">
+            <span>© {new Date().getFullYear()} Paulina Henkel</span>
+            <span>{t.footer.location}</span>
+          </p>
+        </footer>
       </div>
     </section>
   );

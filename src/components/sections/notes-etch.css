@@ -1,6 +1,6 @@
 .notes-etch-section {
   overflow-x: clip;
-  padding: clamp(3.5rem, 8vw, 6.5rem) 0 clamp(0.85rem, 2.2vw, 1.5rem);
+  padding: clamp(3.5rem, 8vw, 6.5rem) 0 clamp(1.5rem, 3.5vw, 2.4rem);
 }
 
 .notes-etch {
@@ -13,7 +13,6 @@
   --etch-red: 209 44 36;
   --etch-screen: 214 210 202;
   --etch-trace: 90 86 80;
-  --etch-cream: 250 247 244;
   --etch-knob: 244 240 232;
   --etch-knob-well: 214 208 196;
   position: relative;
@@ -143,41 +142,31 @@
   outline-offset: 3px;
 }
 
-.notes-etch-footer {
-  position: absolute;
-  left: clamp(4.55rem, 10.5vw, 7.25rem);
-  right: clamp(4.55rem, 10.5vw, 7.25rem);
-  bottom: 0;
-  z-index: 1;
+.notes-end-footer {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-areas:
     "name links"
     "meta meta";
-  align-content: center;
+  align-content: start;
   column-gap: 0.9rem;
   row-gap: 0.28rem;
-  min-height: clamp(4.4rem, 8.5vw, 6.4rem);
-  padding: 0.4rem 0 0.55rem;
+  margin-top: clamp(1.15rem, 2.8vw, 1.75rem);
+  padding: 0 0.1rem 0.15rem;
   font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
-  color: rgb(var(--etch-cream) / 0.7);
-  pointer-events: none;
+  color: rgb(var(--ph-text-muted));
 }
 
-.notes-etch-footer a {
-  pointer-events: auto;
-}
-
-.notes-etch-footer-name {
+.notes-end-footer-name {
   grid-area: name;
   margin: 0;
   font-size: clamp(0.68rem, 1.05vw, 0.8rem);
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: rgb(var(--etch-cream) / 0.92);
+  color: rgb(var(--ph-text));
 }
 
-.notes-etch-footer-links {
+.notes-end-footer-links {
   grid-area: links;
   display: flex;
   flex-wrap: wrap;
@@ -191,24 +180,24 @@
   text-transform: uppercase;
 }
 
-.notes-etch-footer-links a {
+.notes-end-footer-links a {
   display: inline-flex;
   align-items: center;
   gap: 0.22rem;
-  color: rgb(var(--etch-cream) / 0.58);
+  color: rgb(var(--ph-text-muted));
   text-decoration: none;
 }
 
-.notes-etch-footer-links a:hover {
-  color: rgb(var(--etch-cream));
+.notes-end-footer-links a:hover {
+  color: rgb(var(--ph-text));
 }
 
-.notes-etch-footer-links a:focus-visible {
-  outline: 1px solid rgb(var(--etch-cream) / 0.85);
+.notes-end-footer-links a:focus-visible {
+  outline: 2px solid rgb(var(--ph-text));
   outline-offset: 3px;
 }
 
-.notes-etch-footer-meta {
+.notes-end-footer-meta {
   grid-area: meta;
   display: flex;
   justify-content: space-between;
@@ -216,7 +205,7 @@
   margin: 0;
   font-size: clamp(0.48rem, 0.78vw, 0.58rem);
   letter-spacing: 0.06em;
-  color: rgb(var(--etch-cream) / 0.48);
+  color: rgb(var(--ph-text-subtle));
 }
 
 .notes-etch-knob {
@@ -294,10 +283,10 @@
   }
 
   .notes-etch-body {
-    padding-bottom: clamp(6.6rem, 26vw, 7.8rem);
+    padding-bottom: clamp(4.1rem, 18vw, 5.25rem);
   }
 
-  .notes-etch-footer {
+  .notes-end-footer {
     grid-template-columns: 1fr;
     grid-template-areas:
       "name"
@@ -305,19 +294,15 @@
       "meta";
     justify-items: start;
     row-gap: 0.28rem;
-    left: 0.85rem;
-    right: 0.85rem;
-    bottom: clamp(3.55rem, 16vw, 4.5rem);
-    min-height: 0;
-    padding: 0.45rem 0.1rem 0.2rem;
+    margin-top: 1.15rem;
   }
 
-  .notes-etch-footer-links {
+  .notes-end-footer-links {
     justify-content: flex-start;
     gap: 0.45rem 0.9rem;
   }
 
-  .notes-etch-footer-meta {
+  .notes-end-footer-meta {
     width: 100%;
     padding-top: 0.04rem;
   }
