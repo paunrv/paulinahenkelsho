@@ -64,4 +64,3 @@ Nadar sin *wetsuit* para mí es perderme en el mar de la forma más orgánica y 
 
 Solo con el deseo intacto que tengo desde niña. Poder ser sirena. Aunque sea por un día.
 
-🌊✨🧜‍♀️

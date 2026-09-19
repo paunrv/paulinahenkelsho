@@ -40,10 +40,10 @@
 .notes-index-nav {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
+  gap: 1.15rem;
   min-height: 3.35rem;
   padding: 0.55rem 0.35rem 0.65rem;
   color: rgb(var(--etch-cream) / 0.88);
@@ -85,7 +85,6 @@
   display: flex;
   align-items: center;
   gap: 0.15rem;
-  margin-left: auto;
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -120,7 +119,6 @@
   gap: 5px;
   width: 2rem;
   height: 2rem;
-  margin-left: auto;
   border: 0;
   background: transparent;
   color: rgb(var(--etch-cream) / 0.85);
@@ -410,10 +408,6 @@
 }
 
 @media (max-width: 859px) {
-  .notes-index-nav {
-    grid-template-columns: auto auto auto;
-  }
-
   .notes-index-masthead {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;

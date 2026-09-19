@@ -84,6 +84,7 @@ export function NoteArticlePage({ note }: { note: Note }) {
 
           <div className="note-article-body">
             <NoteMarkdown content={body} />
+            <p className="note-article-signoff">Pau</p>
           </div>
 
           <nav className="note-article-endnav" aria-label="Notes">

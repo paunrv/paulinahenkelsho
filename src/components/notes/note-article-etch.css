@@ -172,6 +172,14 @@
   text-decoration-color: rgb(var(--ph-seam));
 }
 
+.note-article-signoff {
+  margin: 1.85rem 0 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgb(var(--etch-trace));
+}
+
 .note-article-endnav {
   margin-top: 2.75rem;
   padding-top: 1.25rem;
