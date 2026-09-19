@@ -1,12 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties } from "react";
-import type { TimelineEventData } from "@/lib/timeline";
-import { getEventSpan } from "@/lib/timeline";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import {
+  HUMI_EVENT_IDS,
+  HUMI_IDS,
+  getEventSpan,
+  type TimelineEventData,
+} from "@/lib/timeline";
 import { getTimelineEmoji } from "@/lib/timeline-content";
 
 type TimelineEventDisplayProps = {
-  event: TimelineEventData | null;
+  activeEventId: string | null;
   events: readonly TimelineEventData[];
 };
 
@@ -73,55 +77,58 @@ function eventLeftPercent(
   return (start + end) / 2;
 }
 
+function eventsToShow(
+  activeEventId: string | null,
+  events: readonly TimelineEventData[]
+) {
+  if (!activeEventId || activeEventId === "born") {
+    const born = events.find((item) => item.id === "born");
+    return born ? [born] : [];
+  }
+
+  if (HUMI_IDS.has(activeEventId)) {
+    return HUMI_EVENT_IDS.map((id) =>
+      events.find((item) => item.id === id)
+    ).filter((item): item is TimelineEventData => Boolean(item));
+  }
+
+  const event = events.find((item) => item.id === activeEventId);
+  return event ? [event] : [];
+}
+
 export function TimelineEventDisplay({
-  event,
+  activeEventId,
   events,
 }: TimelineEventDisplayProps) {
-  const [piece, setPiece] = useState<Piece | null>(null);
-  const [phase, setPhase] = useState<"in" | "out">("out");
-  const shownId = useRef<string | null>(null);
+  const shown = useMemo(
+    () => eventsToShow(activeEventId, events),
+    [activeEventId, events]
+  );
+  const [phase, setPhase] = useState<"in" | "out">("in");
+  const signature = shown.map((item) => item.id).join("|");
+  const previousSignature = useRef(signature);
 
   useEffect(() => {
-    const hide = () => {
-      setPhase("out");
-      const timer = window.setTimeout(() => {
-        shownId.current = null;
-        setPiece(null);
-      }, 240);
-      return () => window.clearTimeout(timer);
-    };
-
-    if (!event) return hide();
-
-    const emoji = getTimelineEmoji(event.id);
-    if (!emoji) return hide();
-
-    const next: Piece = {
-      event,
-      emoji,
-      left: eventLeftPercent(events, event),
-    };
-
-    if (shownId.current === event.id) {
-      setPiece(next);
+    if (previousSignature.current === signature) return;
+    previousSignature.current = signature;
+    setPhase("out");
+    const frame = requestAnimationFrame(() => {
       setPhase("in");
-      return;
-    }
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [signature]);
 
-    const reveal = () => {
-      shownId.current = event.id;
-      setPiece(next);
-      requestAnimationFrame(() => setPhase("in"));
-    };
-
-    if (shownId.current) {
-      setPhase("out");
-      const swap = window.setTimeout(reveal, 180);
-      return () => window.clearTimeout(swap);
-    }
-
-    reveal();
-  }, [event, events]);
+  const pieces: Piece[] = shown.flatMap((event) => {
+    const emoji = getTimelineEmoji(event.id);
+    if (!emoji) return [];
+    return [
+      {
+        event,
+        emoji,
+        left: eventLeftPercent(events, event),
+      },
+    ];
+  });
 
   return (
     <div
@@ -129,9 +136,13 @@ export function TimelineEventDisplay({
       aria-live="polite"
       aria-atomic="true"
     >
-      {piece ? (
-        <PieceView piece={piece} active={phase === "in"} />
-      ) : null}
+      {pieces.map((piece) => (
+        <PieceView
+          key={piece.event.id}
+          piece={piece}
+          active={phase === "in"}
+        />
+      ))}
     </div>
   );
 }
@@ -179,8 +190,10 @@ function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
           </>
         ) : (
           <>
-            <p className="timeline-event-piece-title">{event.title}</p>
-            {event.subtitle ? (
+            <p className="timeline-event-piece-title">
+              {event.id === "humi-16-years" ? "HUMI 16vo" : event.title}
+            </p>
+            {event.id !== "humi-16-years" && event.subtitle ? (
               <p className="timeline-event-piece-context">{event.subtitle}</p>
             ) : null}
           </>
