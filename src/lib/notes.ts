@@ -130,3 +130,74 @@ export function formatNoteDate(date: string, locale: string = "en") {
     day: "numeric",
   }).format(parsed);
 }
+
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+export function splitNoteBody(
+  content: string,
+  title: string
+): { body: string; location?: string } {
+  let body = content.replace(/^\uFEFF/, "").replace(/\r\n/g, "\n").trim();
+  body = body.replace(new RegExp(`^#\\s+${escapeRegExp(title)}\\s*\\n+`, "u"), "");
+
+  const locationMatch = body.match(/^\*([^*]+)\*\s*\n+/);
+  let location: string | undefined;
+  if (locationMatch) {
+    location = locationMatch[1].trim();
+    body = body.slice(locationMatch[0].length);
+  }
+
+  body = body.replace(/^# /gm, "## ");
+  return { body, location };
+}
+
+export function noteExcerpt(content: string, title: string): string {
+  const { body } = splitNoteBody(content, title);
+  const blocks = body.split(/\n{2,}/);
+
+  for (const block of blocks) {
+    const line = block.trim();
+    if (
+      !line ||
+      line === "---" ||
+      line.startsWith("#") ||
+      line.startsWith(">") ||
+      line.startsWith("|")
+    ) {
+      continue;
+    }
+
+    const text = line
+      .replace(/\*\*([^*]+)\*\*/g, "$1")
+      .replace(/\*([^*]+)\*/g, "$1")
+      .replace(/_([^_]+)_/g, "$1")
+      .replace(/`([^`]+)`/g, "$1")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    if (text.length < 24) continue;
+    if (text.length <= 158) return text;
+
+    const cut = text.slice(0, 157);
+    const space = cut.lastIndexOf(" ");
+    return `${(space > 80 ? cut.slice(0, space) : cut).trim()}…`;
+  }
+
+  return title;
+}
+
+export function getAdjacentNotes(slug: string): {
+  older: NoteMeta | null;
+  newer: NoteMeta | null;
+} {
+  const notes = getAllNotes();
+  const index = notes.findIndex((note) => note.slug === slug);
+  if (index < 0) return { older: null, newer: null };
+
+  return {
+    newer: index > 0 ? notes[index - 1] : null,
+    older: index < notes.length - 1 ? notes[index + 1] : null,
+  };
+}
