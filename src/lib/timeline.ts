@@ -126,6 +126,13 @@ export const TIMELINE_EVENTS = [
   },
 ] as const satisfies readonly TimelineEventData[];
 
+export const HUMI_EVENT_IDS = [
+  "humi-first-anniversary",
+  "humi-16-years",
+] as const;
+
+export const HUMI_IDS = new Set<string>(HUMI_EVENT_IDS);
+
 export type TimelineEventId = (typeof TIMELINE_EVENTS)[number]["id"];
 
 export function getEventSpan(year: string | null): TimelineYearSpan | null {

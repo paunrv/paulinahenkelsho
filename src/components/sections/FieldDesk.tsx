@@ -2,6 +2,11 @@
 
 import { Reveal } from "@/components/motion/Reveal";
 import { useT } from "@/i18n/i18n";
+import {
+  DESK_WORD_IDS,
+  FIELD_WORD_IDS,
+  useLifetime,
+} from "@/components/timeline/LifetimeContext";
 
 function Statement({ text, id }: { text: string; id: string }) {
   const lines = text.split(/(?<=\.)\s+/);
@@ -20,15 +25,31 @@ function Statement({ text, id }: { text: string; id: string }) {
   );
 }
 
-function WordList({ words }: { words: readonly string[] }) {
+function WordList({
+  words,
+  ids,
+  lit,
+  playing,
+}: {
+  words: readonly string[];
+  ids: readonly string[];
+  lit: ReadonlySet<string>;
+  playing: boolean;
+}) {
   return (
-    <p className="mt-5 text-sm leading-[1.9] text-[rgb(var(--fd-muted))] md:mt-6 md:text-[15px]">
-      {words.map((word, i) => (
-        <span key={word}>
-          {i > 0 ? <span aria-hidden> · </span> : null}
-          {word}
-        </span>
-      ))}
+    <p className="field-desk-words mt-5 text-sm leading-[1.9] md:mt-6 md:text-[15px]">
+      {words.map((word, i) => {
+        const id = ids[i];
+        const state = playing ? (id && lit.has(id) ? "is-lit" : "is-dim") : "";
+        return (
+          <span key={word}>
+            {i > 0 ? <span aria-hidden> · </span> : null}
+            <span className={["field-desk-word", state].filter(Boolean).join(" ")}>
+              {word}
+            </span>
+          </span>
+        );
+      })}
     </p>
   );
 }
@@ -36,6 +57,7 @@ function WordList({ words }: { words: readonly string[] }) {
 export function FieldDesk() {
   const t = useT();
   const copy = t.fieldDesk;
+  const { fieldLit, deskLit, isPlaying } = useLifetime();
 
   return (
     <section
@@ -61,7 +83,12 @@ export function FieldDesk() {
             <p className="field-desk-pole text-[rgb(var(--fd-field-accent))]">
               {copy.fieldLabel}
             </p>
-            <WordList words={copy.fieldWords} />
+            <WordList
+              words={copy.fieldWords}
+              ids={FIELD_WORD_IDS}
+              lit={fieldLit}
+              playing={isPlaying}
+            />
           </Reveal>
         </div>
 
@@ -70,7 +97,12 @@ export function FieldDesk() {
             <p className="field-desk-pole text-[rgb(var(--fd-desk-accent))]">
               {copy.deskLabel}
             </p>
-            <WordList words={copy.deskWords} />
+            <WordList
+              words={copy.deskWords}
+              ids={DESK_WORD_IDS}
+              lit={deskLit}
+              playing={isPlaying}
+            />
           </Reveal>
         </div>
       </div>

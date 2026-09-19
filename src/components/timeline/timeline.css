@@ -316,13 +316,16 @@
 }
 
 .timeline-event-piece {
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
   display: block;
   width: 100%;
   container-type: inline-size;
   opacity: 0;
   transform: translateY(0.22rem);
-  clip-path: inset(0 0 100% 0);
+  clip-path: inset(0 -3rem 100% -3rem);
   pointer-events: none;
   transition:
     opacity var(--timeline-motion) var(--timeline-ease),
@@ -333,7 +336,7 @@
 .timeline-event-piece.is-in {
   opacity: 1;
   transform: translateY(0);
-  clip-path: inset(0);
+  clip-path: inset(0 -3rem 0 -3rem);
 }
 
 .timeline-event-piece-emoji {
@@ -341,10 +344,15 @@
   width: max-content;
   max-width: 100%;
   margin: 0 0 0.7rem;
-  margin-left: calc(var(--active-left, 0) * 1%);
+  margin-left: clamp(
+    1.85rem,
+    calc(var(--active-left, 0) * 1%),
+    calc(100% - 1.85rem)
+  );
   transform: translateX(-50%) translateY(0.12rem);
   font-size: 1.85rem;
   line-height: 1;
+  overflow: visible;
   transition: transform var(--timeline-motion) var(--timeline-ease);
 }
 

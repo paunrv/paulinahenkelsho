@@ -1,15 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import { Timeline } from "@/components/timeline/Timeline";
 import { TimelineEventDisplay } from "@/components/timeline/TimelineEventDisplay";
+import { useLifetime } from "@/components/timeline/LifetimeContext";
 import { getTimelineEvents } from "@/lib/timeline";
 
 export function DigitalArtEngineer() {
   const events = getTimelineEvents();
-  const [activeEventId, setActiveEventId] = useState<string | null>(null);
-  const activeEvent =
-    events.find((item) => item.id === activeEventId) ?? null;
+  const { activeEventId, setActiveEventId } = useLifetime();
 
   return (
     <section
@@ -24,7 +22,7 @@ export function DigitalArtEngineer() {
         activeEventId={activeEventId}
         onActiveEventIdChange={setActiveEventId}
       >
-        <TimelineEventDisplay event={activeEvent} events={events} />
+        <TimelineEventDisplay activeEventId={activeEventId} events={events} />
       </Timeline>
     </section>
   );
