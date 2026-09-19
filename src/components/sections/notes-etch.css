@@ -147,7 +147,7 @@
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: center;
-  gap: 0.35rem 1.15rem;
+  gap: 0.3rem 0.75rem;
   margin-top: clamp(1.15rem, 2.8vw, 1.75rem);
   padding: 0 0.1rem 0.15rem;
   font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
@@ -168,7 +168,7 @@
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: center;
-  gap: 0.55rem 0.85rem;
+  gap: 0.5rem 0.7rem;
   margin: 0;
   font-weight: 500;
 }
