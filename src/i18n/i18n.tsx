@@ -276,7 +276,7 @@ const DICT = {
     },
     hero: {
       role: "Product Builder",
-      headline: "Construyendo tecnolog\u00eda que la gente realmente adopta.",
+      headline: "Construyendo tecnolog\u00eda que la gente adopta.",
       subheadline:
         "Construyo productos a partir de entender c\u00f3mo sucede el trabajo realmente.",
       ctaWork: "Ver mi trabajo",
@@ -322,7 +322,7 @@ const DICT = {
     },
     building: {
       eyebrow: "Construyendo",
-      title: "Productos formados por trabajo real.",
+      title: "Productos by Pau",
       labels: {
         problem: "Problema",
         approach: "Enfoque",
