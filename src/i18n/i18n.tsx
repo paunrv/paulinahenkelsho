@@ -57,7 +57,7 @@ const DICT = {
     },
     building: {
       eyebrow: "Building",
-      title: "Products shaped by real work.",
+      title: "Products by Pau",
       labels: {
         problem: "Problem",
         approach: "Approach",
