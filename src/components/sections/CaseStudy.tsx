@@ -67,7 +67,7 @@ export function CaseStudy({
 
   if (!problem) {
     return (
-      <div className={`${tone.rule} py-12`}>
+      <div className={`${tone.rule} py-8 md:py-10`}>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
           <h3
             className={`flex items-baseline gap-3 font-outfit text-[1.75rem] font-extrabold leading-[0.95] tracking-[-0.04em] md:text-4xl ${tone.text}`}
@@ -96,9 +96,9 @@ export function CaseStudy({
   ];
 
   return (
-    <div className={`${tone.rule} pt-12 md:pt-16`}>
+    <div className={`${tone.rule} pt-8 pb-3 md:pt-12 md:pb-4`}>
       <Reveal>
-        <div className="flex flex-col gap-5 md:flex-row md:items-baseline md:justify-between md:gap-8">
+        <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between md:gap-8">
           <div className="min-w-0">
             <h3
               className={`flex items-baseline gap-3 font-outfit text-[1.75rem] font-extrabold leading-[0.95] tracking-[-0.04em] md:text-4xl lg:text-[2.75rem] ${tone.text}`}
@@ -114,7 +114,7 @@ export function CaseStudy({
               <span>{name}</span>
             </h3>
             {subtitle ? (
-              <p className="mt-3 max-w-md font-sans text-sm leading-[1.55] text-muted">
+              <p className="mt-1.5 max-w-md font-sans text-sm leading-[1.55] text-muted md:mt-2">
                 {subtitle}
               </p>
             ) : null}
@@ -129,14 +129,14 @@ export function CaseStudy({
         </div>
       </Reveal>
 
-      <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-3 md:gap-x-12 md:gap-y-10">
+      <div className="mt-8 grid gap-6 md:mt-11 md:grid-cols-3 md:gap-x-12 md:gap-y-8">
         {blocks.map((block, i) => (
           <Reveal key={block.label} delay={i * 0.05}>
             <div>
               <p className="font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-subtle">
                 {block.label}
               </p>
-              <p className="mt-3 max-w-prose whitespace-pre-line font-sans text-[0.9375rem] leading-[1.7] text-muted">
+              <p className="mt-2.5 max-w-prose whitespace-pre-line font-sans text-[0.9375rem] leading-[1.7] text-muted">
                 {block.body}
               </p>
             </div>
@@ -146,7 +146,7 @@ export function CaseStudy({
 
       {url && (
         <Reveal delay={0.25}>
-          <div className="mt-8 md:mt-10">
+          <div className="mt-7 md:mt-8">
             <a
               href={url}
               target="_blank"

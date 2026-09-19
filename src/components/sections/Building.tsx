@@ -18,18 +18,18 @@ export function Building() {
   const w = t.building;
 
   return (
-    <section id="building" className="border-t border-line py-section">
+    <section id="building" className="border-t border-line pt-12 pb-14 md:pt-16 md:pb-16">
       <div className="mx-auto max-w-6xl px-gutter">
         <Reveal>
           <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-subtle">
             {w.eyebrow}
           </p>
-          <h2 className="mt-6 max-w-3xl font-outfit text-title-md font-bold tracking-[-0.035em] text-ink">
+          <h2 className="mt-3.5 max-w-3xl font-outfit text-title-md font-bold tracking-[-0.035em] text-ink md:mt-4">
             {w.title}
           </h2>
         </Reveal>
 
-        <div className="mt-12 md:mt-16">
+        <div className="mt-10 md:mt-12">
           {w.cases.map((c) => {
             const visual = caseVisual(c.name);
             return (
