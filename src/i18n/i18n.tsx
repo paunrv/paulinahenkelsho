@@ -65,7 +65,7 @@ const DICT = {
       },
       cases: [
         {
-          name: "HUMI",
+          name: "HUMI io",
           subtitle: "Academy operations platform",
           status: "Live in production",
           context: "Live in production",
@@ -95,7 +95,7 @@ const DICT = {
         {
           name: "SiVeCa",
           subtitle: "Monitoring and compliance workflows",
-          status: "",
+          status: "In use",
           context: "In use",
           problem:
             "Monitoring and compliance decisions lived in chats, spreadsheets, and individual memory\u2014with no shared, auditable path.",
@@ -109,12 +109,11 @@ const DICT = {
       ],
     },
     notes: {
-      eyebrow: "Notes",
-      title: "How I think.",
+      word: "Notes",
+      lead: "Curiosities, ideas, and things I come across.",
       intro:
-        "One notebook. Building, Field Notes, and Perspectives — different ways of thinking, equal on the shelf.",
-      status: "The library is just beginning.",
-      allNotes: "Open the notebook",
+        "An open notebook about work, technology, places, people, and everything that makes me think.",
+      cta: "Open the notebook",
     },
     focus: {
       eyebrow: "Current focus",
@@ -277,7 +276,7 @@ const DICT = {
     },
     hero: {
       role: "Product Builder",
-      headline: "Construyendo tecnolog\u00eda que la gente realmente adopta.",
+      headline: "Construyendo tecnolog\u00eda que la gente adopta.",
       subheadline:
         "Construyo productos a partir de entender c\u00f3mo sucede el trabajo realmente.",
       ctaWork: "Ver mi trabajo",
@@ -323,7 +322,7 @@ const DICT = {
     },
     building: {
       eyebrow: "Construyendo",
-      title: "Productos formados por trabajo real.",
+      title: "Productos by Pau",
       labels: {
         problem: "Problema",
         approach: "Enfoque",
@@ -331,7 +330,7 @@ const DICT = {
       },
       cases: [
         {
-          name: "HUMI",
+          name: "HUMI io",
           subtitle: "Plataforma de operaciones para academias",
           status: "En producci\u00f3n",
           context: "En producci\u00f3n",
@@ -361,7 +360,7 @@ const DICT = {
         {
           name: "SiVeCa",
           subtitle: "Flujos de monitoreo y cumplimiento",
-          status: "",
+          status: "En uso",
           context: "En uso",
           problem:
             "Las decisiones de monitoreo y cumplimiento viv\u00edan en chats, hojas de c\u00e1lculo y memoria individual\u2014sin un camino compartido y auditable.",
@@ -375,12 +374,11 @@ const DICT = {
       ],
     },
     notes: {
-      eyebrow: "Notas",
-      title: "C\u00f3mo pienso.",
+      word: "Notes",
+      lead: "Curiosidades, ideas y cosas que me encuentro.",
       intro:
-        "Un cuaderno. Building, Field Notes y Perspectives \u2014 distintas formas de pensar, iguales en el estante.",
-      status: "La biblioteca apenas comienza.",
-      allNotes: "Abrir el cuaderno",
+        "Un cuaderno abierto sobre trabajo, tecnolog\u00eda, lugares, personas y todo lo que me hace pensar.",
+      cta: "Abrir el cuaderno",
     },
     focus: {
       eyebrow: "Enfoque actual",

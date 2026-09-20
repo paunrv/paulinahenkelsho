@@ -1,7 +1,27 @@
-"use client";
-
+import type { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+
+function childText(node: ReactNode): string {
+  if (node == null || typeof node === "boolean") return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(childText).join("");
+  if (typeof node === "object" && node !== null && "props" in node) {
+    return childText(
+      (node as { props?: { children?: ReactNode } }).props?.children
+    );
+  }
+  return "";
+}
+
+function headingId(children: ReactNode) {
+  return childText(children)
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
 
 /**
  * Long-form reading styles for Notes.
@@ -16,46 +36,45 @@ export function NoteMarkdown({ content }: { content: string }) {
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
-          h1: ({ children }) => (
-            <h1 className="font-display text-title-md font-light text-ink text-balance md:text-title-lg">
-              {children}
-            </h1>
-          ),
-          h2: ({ children }) => (
-            <h2 className="mt-12 font-display text-2xl font-light text-ink md:mt-14 md:text-3xl">
-              {children}
-            </h2>
-          ),
+          h1: ({ children }) => {
+            const id = headingId(children);
+            return (
+              <h2 id={id || undefined} className="note-article-h2">
+                {children}
+              </h2>
+            );
+          },
+          h2: ({ children }) => {
+            const id = headingId(children);
+            return (
+              <h2 id={id || undefined} className="note-article-h2">
+                {children}
+              </h2>
+            );
+          },
           h3: ({ children }) => (
-            <h3 className="mt-10 text-[11px] font-medium uppercase tracking-[0.18em] text-subtle">
-              {children}
-            </h3>
+            <h3 className="note-article-h3">{children}</h3>
           ),
           p: ({ children }) => (
-            <p className="essay-p mt-[1.15em] text-lg leading-[1.72] text-ink/80 first:mt-0 md:text-xl md:leading-[1.75]">
-              {children}
-            </p>
+            <p className="essay-p note-article-p">{children}</p>
           ),
-          hr: () => (
-            <hr className="my-10 border-0 border-t border-line/80 md:my-12" />
-          ),
+          hr: () => <hr className="note-article-rule" />,
           ul: ({ children }) => (
-            <ul className="mt-[1.15em] list-disc space-y-2 pl-5 text-lg leading-[1.72] text-ink/80 md:text-xl">
-              {children}
-            </ul>
+            <ul className="note-article-list">{children}</ul>
           ),
           ol: ({ children }) => (
-            <ol className="mt-[1.15em] list-decimal space-y-2 pl-5 text-lg leading-[1.72] text-ink/80 md:text-xl">
+            <ol className="note-article-list is-ordered">{children}</ol>
+          ),
+          li: ({ children }) => <li>{children}</li>,
+          strong: ({ children }) => <strong>{children}</strong>,
+          em: ({ children }) => <em>{children}</em>,
+          a: ({ href, children }) => (
+            <a href={href} className="note-article-inline-link">
               {children}
-            </ol>
+            </a>
           ),
-          li: ({ children }) => <li className="pl-1">{children}</li>,
-          strong: ({ children }) => (
-            <strong className="font-medium text-ink">{children}</strong>
-          ),
-          em: ({ children }) => <em className="italic text-ink/90">{children}</em>,
           blockquote: ({ children }) => (
-            <blockquote className="essay-quote mt-8 border-l border-line pl-5 text-lg leading-[1.72] text-ink/70 md:mt-10 md:pl-6 md:text-xl md:leading-[1.75]">
+            <blockquote className="essay-quote note-article-quote">
               {children}
             </blockquote>
           ),

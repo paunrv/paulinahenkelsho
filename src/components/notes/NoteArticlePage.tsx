@@ -1,44 +1,115 @@
 import Link from "next/link";
-import { SiteHeader } from "@/components/layout/SiteHeader";
-import { SiteFooter } from "@/components/layout/SiteFooter";
+import { NotesEtchFrame } from "@/components/notes/NotesEtchFrame";
 import { NoteMarkdown } from "@/components/notes/NoteMarkdown";
-import { formatCategoryLabel, formatNoteDate, type Note } from "@/lib/notes";
+import {
+  formatCategoryLabel,
+  formatNoteDate,
+  getAdjacentNotes,
+  noteExcerpt,
+  splitNoteBody,
+  type Note,
+} from "@/lib/notes";
+import "./note-article-etch.css";
+
+const SITE = "https://pauhenkelsho.com";
+
+export function NoteJsonLd({ note }: { note: Note }) {
+  const url = `${SITE}/notes/${note.slug}`;
+  const description = noteExcerpt(note.content, note.title);
+
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: note.title,
+    description,
+    inLanguage: note.language,
+    datePublished: note.date,
+    author: {
+      "@type": "Person",
+      name: "Paulina Henkel",
+      url: SITE,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
+    url,
+    articleSection: formatCategoryLabel(note.category),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
 
 export function NoteArticlePage({ note }: { note: Note }) {
+  const { body, location } = splitNoteBody(note.content, note.title);
+  const adjacent = getAdjacentNotes(note.slug);
+  const dateLabel = formatNoteDate(note.date, note.language);
+
   return (
-    <>
-      <SiteHeader />
-      <main className="pt-14 md:pt-16">
-        <article className="pb-section" lang={note.language}>
-          <header className="border-b border-line py-section">
-            <div className="mx-auto max-w-2xl px-gutter md:max-w-[42rem]">
-              <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-subtle">
-                {formatCategoryLabel(note.category)}
-              </p>
-              <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm text-subtle">
-                <time dateTime={note.date}>
-                  {formatNoteDate(note.date, note.language)}
-                </time>
-                {note.readingTime ? <span>{note.readingTime}</span> : null}
-              </div>
-            </div>
+    <NotesEtchFrame className="note-article-etch">
+      <NoteJsonLd note={note} />
+      <main className="notes-index-screen note-article-screen">
+        <article
+          id="content"
+          className="note-article"
+          lang={note.language}
+        >
+          <p className="note-article-back">
+            <Link href="/notes">← All notes</Link>
+          </p>
+
+          <header className="note-article-header">
+            <p className="note-article-kicker">
+              {formatCategoryLabel(note.category)}
+            </p>
+            <h1 className="note-article-title">{note.title}</h1>
+            <p className="note-article-meta">
+              <time dateTime={note.date}>{dateLabel}</time>
+              {note.readingTime ? (
+                <>
+                  <span aria-hidden> · </span>
+                  <span>{note.readingTime}</span>
+                </>
+              ) : null}
+            </p>
+            {location ? (
+              <p className="note-article-location">{location}</p>
+            ) : null}
           </header>
 
-          <div className="mx-auto max-w-2xl px-gutter pt-12 md:max-w-[42rem] md:pt-14">
-            <NoteMarkdown content={note.content} />
+          <div className="note-article-body">
+            <NoteMarkdown content={body} />
+            <p className="note-article-signoff">Pau</p>
           </div>
 
-          <div className="mx-auto max-w-2xl px-gutter pt-14 md:max-w-[42rem] md:pt-16">
-            <Link
-              href="/notes"
-              className="text-sm font-medium text-ink border-b border-accent/40 pb-0.5 transition-colors hover:border-accent"
-            >
-              All notes
+          <nav className="note-article-endnav" aria-label="Notes">
+            <Link href="/notes" className="note-article-all">
+              ← All notes
             </Link>
-          </div>
+            {adjacent.older || adjacent.newer ? (
+              <p className="note-article-adjacent">
+                {adjacent.older ? (
+                  <Link href={`/notes/${adjacent.older.slug}`}>
+                    ← {adjacent.older.title}
+                  </Link>
+                ) : (
+                  <span />
+                )}
+                {adjacent.newer ? (
+                  <Link href={`/notes/${adjacent.newer.slug}`}>
+                    {adjacent.newer.title} →
+                  </Link>
+                ) : null}
+              </p>
+            ) : null}
+          </nav>
         </article>
       </main>
-      <SiteFooter />
-    </>
+    </NotesEtchFrame>
   );
 }

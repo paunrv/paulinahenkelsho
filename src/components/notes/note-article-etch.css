@@ -1,0 +1,225 @@
+.note-article-etch .notes-index-body {
+  min-height: calc(100dvh - 2 * clamp(0.65rem, 1.7vw, 1.45rem));
+}
+
+.note-article-screen {
+  overflow: visible;
+}
+
+.note-article {
+  width: min(42rem, 100%);
+  margin-inline: auto;
+  color: rgb(var(--etch-trace));
+}
+
+.note-article-back {
+  margin: 0 0 1.75rem;
+}
+
+.note-article-back a,
+.note-article-all,
+.note-article-adjacent a {
+  color: rgb(var(--etch-muted));
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgb(var(--etch-rule) / 0.28);
+}
+
+.note-article-back a:hover,
+.note-article-all:hover,
+.note-article-adjacent a:hover {
+  color: rgb(var(--etch-trace));
+  border-bottom-color: rgb(var(--ph-seam));
+}
+
+.note-article-back a:focus-visible,
+.note-article-all:focus-visible,
+.note-article-adjacent a:focus-visible,
+.note-article-inline-link:focus-visible {
+  outline: 2px solid rgb(var(--etch-trace));
+  outline-offset: 3px;
+}
+
+.note-article-header {
+  padding-bottom: 1.35rem;
+  border-bottom: 1px solid rgb(var(--etch-rule) / 0.22);
+}
+
+.note-article-kicker {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgb(var(--etch-muted));
+}
+
+.note-article-title {
+  margin: 0.7rem 0 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2rem, 4.6vw, 3.15rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: rgb(var(--etch-trace));
+  text-wrap: balance;
+}
+
+.note-article-meta {
+  margin: 0.85rem 0 0;
+  font-size: 0.8125rem;
+  color: rgb(var(--etch-muted));
+}
+
+.note-article-location {
+  margin: 0.45rem 0 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: rgb(var(--etch-muted));
+}
+
+.note-article-body {
+  padding-top: 1.5rem;
+}
+
+.note-article-p {
+  margin: 1.15em 0 0;
+  max-width: 70ch;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: rgb(var(--etch-trace) / 0.92);
+}
+
+.note-article-body .essay > .note-article-p:first-child {
+  margin-top: 0;
+}
+
+.note-article-h2 {
+  margin: 2.1rem 0 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.45rem, 2.6vw, 1.85rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: rgb(var(--etch-trace));
+}
+
+.note-article-h2 + .note-article-p,
+.note-article-rule + .note-article-p {
+  margin-top: 1em;
+}
+
+.note-article-h3 {
+  margin: 1.6rem 0 0;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgb(var(--etch-muted));
+}
+
+.note-article-rule {
+  margin: 1.65rem 0;
+  border: 0;
+  border-top: 1px solid rgb(var(--etch-rule) / 0.22);
+}
+
+.note-article-list {
+  margin: 1.15em 0 0;
+  padding-left: 1.2rem;
+  max-width: 70ch;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: rgb(var(--etch-trace) / 0.92);
+}
+
+.note-article-list.is-ordered {
+  list-style: decimal;
+}
+
+.note-article-list:not(.is-ordered) {
+  list-style: disc;
+}
+
+.note-article-quote {
+  margin: 1.6rem 0 0;
+  padding-left: 1.1rem;
+  border-left: 1px solid rgb(var(--etch-rule) / 0.35);
+  max-width: 70ch;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: rgb(var(--etch-trace) / 0.82);
+}
+
+.note-article-quote .note-article-p {
+  margin-top: 0.55em;
+}
+
+.note-article-quote .note-article-p:first-child {
+  margin-top: 0;
+}
+
+.note-article-inline-link {
+  color: rgb(var(--etch-trace));
+  text-underline-offset: 0.18em;
+}
+
+.note-article-inline-link:hover {
+  text-decoration-color: rgb(var(--ph-seam));
+}
+
+.note-article-signoff {
+  margin: 1.85rem 0 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgb(var(--etch-trace));
+}
+
+.note-article-endnav {
+  margin-top: 2.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgb(var(--etch-rule) / 0.22);
+}
+
+.note-article-adjacent {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin: 1.15rem 0 0;
+}
+
+.note-article-adjacent a {
+  max-width: 48%;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+@media (max-width: 767px) {
+  .note-article-p,
+  .note-article-list,
+  .note-article-quote {
+    font-size: 1.02rem;
+    line-height: 1.7;
+  }
+
+  .note-article-adjacent {
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .note-article-adjacent a {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .note-article-etch * {
+    scroll-behavior: auto;
+  }
+}

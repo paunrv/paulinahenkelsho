@@ -1,5 +1,5 @@
 ---
-title: "Face to Face with the Blue Deep"
+title: "15k, 2025"
 subtitle: "Todos Santos → Ensenada · 15 km · Open Water"
 category: "Field Notes"
 date: "2025-08-30"
@@ -14,7 +14,7 @@ tags:
   - libertad
 ---
 
-# Face to Face with the Blue Deep
+# 15k, 2025
 
 *Todos Santos → Ensenada · 15 km*
 
@@ -64,4 +64,3 @@ Nadar sin *wetsuit* para mí es perderme en el mar de la forma más orgánica y 
 
 Solo con el deseo intacto que tengo desde niña. Poder ser sirena. Aunque sea por un día.
 
-🌊✨🧜‍♀️

@@ -1,8 +1,17 @@
 "use client";
 
 import { Reveal } from "@/components/motion/Reveal";
-import { CaseStudy } from "@/components/sections/CaseStudy";
+import {
+  CaseStudy,
+  type CaseAccent,
+} from "@/components/sections/CaseStudy";
 import { useT } from "@/i18n/i18n";
+
+function caseVisual(name: string): { emoji: string; accent: CaseAccent } {
+  if (name.startsWith("HUMI")) return { emoji: "⛩️", accent: "seam" };
+  if (name === "Proof") return { emoji: "🍷", accent: "electric" };
+  return { emoji: "🌬️", accent: "lime" };
+}
 
 export function Building() {
   const t = useT();
@@ -21,21 +30,26 @@ export function Building() {
         </Reveal>
 
         <div className="mt-12 md:mt-16">
-          {w.cases.map((c) => (
-            <CaseStudy
-              key={c.name}
-              name={c.name}
-              subtitle={c.subtitle}
-              status={c.status}
-              context={c.context}
-              problem={c.problem}
-              approach={c.approach}
-              outcome={c.outcome}
-              url={c.url}
-              urlLabel={c.urlLabel}
-              labels={w.labels}
-            />
-          ))}
+          {w.cases.map((c) => {
+            const visual = caseVisual(c.name);
+            return (
+              <CaseStudy
+                key={c.name}
+                name={c.name}
+                emoji={visual.emoji}
+                accent={visual.accent}
+                subtitle={c.subtitle}
+                status={c.status}
+                context={c.context}
+                problem={c.problem}
+                approach={c.approach}
+                outcome={c.outcome}
+                url={c.url}
+                urlLabel={c.urlLabel}
+                labels={w.labels}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
