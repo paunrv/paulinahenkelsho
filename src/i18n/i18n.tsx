@@ -24,9 +24,9 @@ const DICT = {
     },
     hero: {
       role: "Product Builder",
-      headline: "Building technology people actually adopt.",
-      subheadline:
-        "I build products from understanding how work actually happens.",
+      headline:
+        "Ten years across industrial field operations\u2014safety, environmental compliance, project execution.",
+      subheadline: "Then I build the systems and products around that reality.",
       ctaWork: "View My Work",
       ctaNotes: "Read My Notes",
     },
@@ -276,9 +276,9 @@ const DICT = {
     },
     hero: {
       role: "Product Builder",
-      headline: "Construyendo tecnolog\u00eda que la gente adopta.",
-      subheadline:
-        "Construyo productos a partir de entender c\u00f3mo sucede el trabajo realmente.",
+      headline:
+        "Diez a\u00f1os en operaciones industriales de campo\u2014seguridad, cumplimiento ambiental, ejecuci\u00f3n de proyectos.",
+      subheadline: "Despu\u00e9s construyo los sistemas y productos alrededor de esa realidad.",
       ctaWork: "Ver mi trabajo",
       ctaNotes: "Leer mis notas",
     },
