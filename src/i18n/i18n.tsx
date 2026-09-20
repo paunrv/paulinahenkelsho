@@ -25,7 +25,7 @@ const DICT = {
     hero: {
       role: "Product Builder",
       headline:
-        "I've worked industrial sites in boots, and built software from a desk.",
+        "I've worked industrial sites in boots and built software from a desk.",
       subheadline: "I like order, design, discipline, and technology.",
       ctaWork: "View My Work",
       ctaNotes: "Read My Notes",
@@ -277,7 +277,7 @@ const DICT = {
     hero: {
       role: "Product Builder",
       headline:
-        "Me pongo botas, casco, y me rijo por los altos est\u00e1ndares de seguridad y regulaci\u00f3n industrial, o construyo software desde mi escritorio.",
+        "Me pongo botas y casco, y me rijo por los altos est\u00e1ndares de seguridad y regulaci\u00f3n industriales, o construyo software desde mi escritorio.",
       subheadline: "Me gusta el orden, el dise\u00f1o, la disciplina y la tecnolog\u00eda.",
       ctaWork: "Ver mi trabajo",
       ctaNotes: "Leer mis notas",
