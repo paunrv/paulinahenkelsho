@@ -23,7 +23,7 @@ const DICT = {
       cv: "CV",
     },
     hero: {
-      role: "Product Builder",
+      role: "Hello, I'm",
       headline:
         "I've worked industrial sites in boots and built software from a desk.",
       subheadline: "I like order, design, discipline, and technology.",
@@ -275,7 +275,7 @@ const DICT = {
       cv: "CV",
     },
     hero: {
-      role: "Product Builder",
+      role: "Hola, soy",
       headline:
         "Cumplo la normativa industrial en botas y casco, o construyo software desde mi escritorio.",
       subheadline: "Me gusta el orden, el dise\u00f1o, la disciplina y la tecnolog\u00eda.",
