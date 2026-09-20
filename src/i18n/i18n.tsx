@@ -25,8 +25,8 @@ const DICT = {
     hero: {
       role: "Product Builder",
       headline:
-        "Ten years across industrial field operations\u2014safety, environmental compliance, project execution.",
-      subheadline: "Then I build the systems and products around that reality.",
+        "I've worked construction sites in boots, and built software from a desk.",
+      subheadline: "What's below is the proof, not a resume line.",
       ctaWork: "View My Work",
       ctaNotes: "Read My Notes",
     },
@@ -277,8 +277,8 @@ const DICT = {
     hero: {
       role: "Product Builder",
       headline:
-        "Diez a\u00f1os en operaciones industriales de campo\u2014seguridad, cumplimiento ambiental, ejecuci\u00f3n de proyectos.",
-      subheadline: "Despu\u00e9s construyo los sistemas y productos alrededor de esa realidad.",
+        "He trabajado en sitios industriales con botas puestas, y construido software desde un escritorio.",
+      subheadline: "Lo de abajo es la prueba, no una l\u00ednea de curr\u00edculum.",
       ctaWork: "Ver mi trabajo",
       ctaNotes: "Leer mis notas",
     },
