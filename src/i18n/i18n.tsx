@@ -277,7 +277,7 @@ const DICT = {
     hero: {
       role: "Product Builder",
       headline:
-        "Me pongo botas y casco, y me rijo por los altos est\u00e1ndares de seguridad y regulaci\u00f3n industriales, o construyo software desde mi escritorio.",
+        "Cumplo la normativa industrial en botas y casco, o construyo software desde mi escritorio.",
       subheadline: "Me gusta el orden, el dise\u00f1o, la disciplina y la tecnolog\u00eda.",
       ctaWork: "Ver mi trabajo",
       ctaNotes: "Leer mis notas",
