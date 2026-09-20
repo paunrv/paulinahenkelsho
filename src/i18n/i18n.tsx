@@ -25,7 +25,7 @@ const DICT = {
     hero: {
       role: "Product Builder",
       headline:
-        "I've worked construction sites in boots, and built software from a desk.",
+        "I hold industrial sites to strict safety and regulatory standards, in boots and a hardhat, or build software from a desk.",
       subheadline: "What's below is the proof, not a resume line.",
       ctaWork: "View My Work",
       ctaNotes: "Read My Notes",
