@@ -4,11 +4,13 @@ import {
   useCallback,
   useMemo,
   useRef,
+  useState,
   type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from "react";
 import type { TimelineEventData } from "@/lib/timeline";
 import { HUMI_IDS, getEventSpan } from "@/lib/timeline";
+import { useT } from "@/i18n/i18n";
 import { TimelineEvent, TimelineRangeFill } from "./TimelineEvent";
 import "./timeline.css";
 
@@ -79,6 +81,8 @@ export function Timeline({
   onActiveEventIdChange,
   children,
 }: TimelineProps) {
+  const t = useT();
+  const [showTapHint, setShowTapHint] = useState(true);
   const pointRefs = useRef(new Map<string, HTMLElement>());
 
   const domain = useMemo(() => {
@@ -133,6 +137,14 @@ export function Timeline({
     if (event.pointerType === "touch") return;
     onActiveEventIdChange(nearestEventId(event.clientX));
   };
+
+  const onActivate = useCallback(
+    (id: string) => {
+      setShowTapHint(false);
+      onActiveEventIdChange(id);
+    },
+    [onActiveEventIdChange]
+  );
 
   const worldSeam = yearToPercent(
     2017,
@@ -227,11 +239,21 @@ export function Timeline({
                   width={Math.max(0, right - left)}
                   worldSeam={worldSeam}
                   onPointRef={registerPoint}
-                  onActivate={onActiveEventIdChange}
+                  onActivate={onActivate}
                 />
               );
             })}
           </ol>
+          <p
+            className={
+              showTapHint
+                ? "timeline-tap-hint"
+                : "timeline-tap-hint is-hidden"
+            }
+            aria-hidden={!showTapHint}
+          >
+            {t.timeline.tapHint}
+          </p>
           {children}
         </div>
       </div>

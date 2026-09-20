@@ -93,6 +93,7 @@ export function TimelineEvent({
       tabIndex={-1}
       aria-current={isActive ? "true" : undefined}
       onFocus={() => onActivate?.(event.id)}
+      onClick={() => onActivate?.(event.id)}
       style={
         {
           left: `${left}%`,

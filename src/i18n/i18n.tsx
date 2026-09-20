@@ -30,6 +30,9 @@ const DICT = {
       ctaWork: "View My Work",
       ctaNotes: "Read My Notes",
     },
+    timeline: {
+      tapHint: "Tap to explore \u2192",
+    },
     philosophy: {
       headline:
         "Technology should adapt to people\u2014not the other way around.",
@@ -281,6 +284,9 @@ const DICT = {
       subheadline: "Me gusta el orden, el dise\u00f1o, la disciplina y la tecnolog\u00eda.",
       ctaWork: "Ver mi trabajo",
       ctaNotes: "Leer mis notas",
+    },
+    timeline: {
+      tapHint: "Toca para explorar \u2192",
     },
     philosophy: {
       headline:

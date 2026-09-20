@@ -14,7 +14,10 @@ export function DigitalArtEngineer() {
       id="digital-art-engineer"
       aria-label="Digital Art Engineer"
       className="timeline-floor pb-10 md:pb-14"
-      onPointerLeave={() => setActiveEventId(null)}
+      onPointerLeave={(event) => {
+        if (event.pointerType === "touch") return;
+        setActiveEventId(null);
+      }}
     >
       <h2 className="sr-only">Digital Art Engineer</h2>
       <Timeline
