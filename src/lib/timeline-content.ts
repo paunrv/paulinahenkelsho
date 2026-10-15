@@ -4,8 +4,7 @@ export const TIMELINE_EMOJIS = {
   born: "🐣",
   "black-belt": "🥷",
   "humi-first-anniversary": "⛩️",
-  "congreso-di-geek": "🎤",
-  "startup-weekend-ensenada": "🏁",
+  "technology-events": "🎤",
   "first-job": "👩‍💻",
   "summer-camp": "🌊",
   "digital-design-engineering": "🎓",
@@ -27,19 +26,17 @@ export const TIMELINE_SCRIPTS = {
   born: "Todo empezó antes de que existiera una pantalla.",
   "black-belt": "Aprendí que repetir también es una forma de diseñar.",
   "humi-first-anniversary": "Mi primer servicio, sin tener un plan.",
-  "congreso-di-geek":
-    "Dos días, doscientos participantes, y el comité del evento.",
-  "startup-weekend-ensenada":
-    "Tres años en el comité de producción y logística.",
+  "technology-events":
+    "Producción y logística de eventos para jóvenes, mujeres y niños.",
   "first-job":
     "El primer lugar donde la idea tuvo que sobrevivir al mundo real.",
   "summer-camp":
-    "Programa de cuatro semanas para preadolescentes y adolescentes. Actividades en el mar. 50 participantes inscritos.",
+    "Programas de cuatro a seis semanas. Actividades en el mar. Coordinación del programa.",
   "trato-hecho-product-owner":
     "El primer lugar donde producto, negocio y usuario tuvieron que encontrarse.",
   "digital-design-engineering": "Aprendí a pensar entre disciplinas.",
   "tkd-olympic-bootcamp":
-    "Master classes con campeones olímpicos. Logística internacional, desarrollo y ejecución del programa.",
+    "Master classes con campeones olímpicos. Logística internacional, desarrollo y ejecución del programa. Financiamiento privado y gubernamental.",
   "field-operations-environmental-monitoring":
     "Del escritorio al campo. Datos, sistemas y condiciones reales.",
   "cisco-consulting":
@@ -70,27 +67,24 @@ type ManagementEventCopy = {
 
 const MANAGEMENT_EVENT_COPY = {
   en: {
-    "congreso-di-geek": {
-      title: "Director of the event committee",
-      organization: "Congreso Di-Geek",
-      context: "Two-day event",
-      progression: "200 participants",
-    },
-    "startup-weekend-ensenada": {
-      title: "Startup Weekend Ensenada by Google",
-      organization: "Startup Weekend Ensenada by Google",
-      context: "Production and logistics committee.",
+    "technology-events": {
+      title: "Technology Events & Community Programs",
+      organization: "Technology Events & Community Programs",
+      context:
+        "Event production and logistics for youth, women, and children · Licensed industry brands",
     },
     "summer-camp": {
       title: "Project Manager",
       organization: "Project Manager — Summer Camp at Hotel Coral & Marina",
       context:
-        "Four-week program for preteens and teenagers · Activities in the sea · 50 enrolled participants",
+        "Four- to six-week programs · Sea activities · Program coordination",
     },
     "tkd-olympic-bootcamp": {
       title: "International logistics · Program development · Execution",
-      organization: "TKD Olympic Bootcamp",
+      organization: "Project Manager — TKD Olympic Bootcamp",
       context: "Master classes with Olympic champions",
+      progression:
+        "Private and government funding · 300+ registered participants",
     },
     "ki-game-2021": {
       title: "Ki-Game",
@@ -116,28 +110,24 @@ const MANAGEMENT_EVENT_COPY = {
     },
   },
   es: {
-    "congreso-di-geek": {
-      title: "Directora del comité del evento",
-      organization: "Congreso Di-Geek",
-      context: "Evento de dos días",
-      progression: "200 participantes",
-    },
-    "startup-weekend-ensenada": {
-      title: "Startup Weekend Ensenada by Google",
-      organization: "Startup Weekend Ensenada by Google",
-      context: "Comité de producción y logística.",
+    "technology-events": {
+      title: "Eventos de Tecnología y Comunidad",
+      organization: "Eventos de Tecnología y Comunidad",
+      context:
+        "Producción y logística de eventos para jóvenes, mujeres y niños · Marcas con licencias de la industria",
     },
     "summer-camp": {
-      title: "Gerente de proyecto",
-      organization:
-        "Project Manager — Campamento de verano en Hotel Coral & Marina",
+      title: "Project Manager",
+      organization: "Project Manager — Summer Camp en Hotel Coral & Marina",
       context:
-        "Programa de cuatro semanas para preadolescentes y adolescentes · Actividades en el mar · 50 participantes inscritos",
+        "Programas de cuatro a seis semanas · Actividades en el mar · Coordinación del programa",
     },
     "tkd-olympic-bootcamp": {
       title: "Logística internacional · Desarrollo y ejecución del programa",
-      organization: "TKD Olympic Bootcamp",
+      organization: "Project Manager — TKD Olympic Bootcamp",
       context: "Master classes con campeones olímpicos",
+      progression:
+        "Financiamiento privado y gubernamental · Más de 300 inscritos",
     },
     "ki-game-2021": {
       title: "Ki-Game",

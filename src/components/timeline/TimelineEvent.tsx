@@ -12,6 +12,7 @@ type TimelineEventProps = {
   worldSeam?: number;
   onPointRef?: (id: string, node: HTMLElement | null) => void;
   onActivate?: (id: string) => void;
+  onPick?: (clientX: number) => void;
 };
 
 function rangeWorlds(left: number, width: number, worldSeam: number) {
@@ -103,6 +104,7 @@ export function TimelineEvent({
   worldSeam = 50,
   onPointRef,
   onActivate,
+  onPick,
 }: TimelineEventProps) {
   const { lang } = useI18n();
   const copy = applyTimelineCopy(event, lang);
@@ -130,7 +132,7 @@ export function TimelineEvent({
       tabIndex={-1}
       aria-current={isActive ? "true" : undefined}
       onFocus={() => onActivate?.(event.id)}
-      onClick={() => onActivate?.(event.id)}
+      onClick={(domEvent) => onPick?.(domEvent.clientX)}
       style={
         {
           left: `${left}%`,

@@ -29,24 +29,24 @@ type TimelineProps = {
 
 function distanceToHit(clientX: number, node: HTMLElement) {
   const rect = node.getBoundingClientRect();
+  const centerX = rect.left + rect.width / 2;
+  const center = Math.abs(clientX - centerX);
   if (node.dataset.timelineHit === "span") {
-    if (clientX >= rect.left && clientX <= rect.right) {
-      return { distance: 0, size: rect.width };
-    }
+    const inside = clientX >= rect.left && clientX <= rect.right;
     return {
-      distance: Math.min(
-        Math.abs(clientX - rect.left),
-        Math.abs(clientX - rect.right)
-      ),
+      distance: inside
+        ? 0
+        : Math.min(Math.abs(clientX - rect.left), Math.abs(clientX - rect.right)),
       size: rect.width,
+      center,
     };
   }
 
-  const centerX = rect.left + rect.width / 2;
   const radius = Math.max(rect.width / 2, 14);
   return {
     distance: Math.max(0, Math.abs(clientX - centerX) - radius),
     size: rect.width,
+    center,
   };
 }
 
@@ -71,18 +71,23 @@ export function Timeline({
     (clientX: number) => {
       let nextId: string | null = null;
       let nextDistance = Infinity;
+      let nextCenter = Infinity;
       let nextSize = Infinity;
 
       for (const event of events) {
         const point = pointRefs.current.get(event.id);
         if (!point) continue;
 
-        const { distance, size } = distanceToHit(clientX, point);
+        const { distance, size, center } = distanceToHit(clientX, point);
         if (
           distance < nextDistance ||
-          (distance === nextDistance && size < nextSize)
+          (distance === nextDistance && center < nextCenter) ||
+          (distance === nextDistance &&
+            center === nextCenter &&
+            size < nextSize)
         ) {
           nextDistance = distance;
+          nextCenter = center;
           nextSize = size;
           nextId = event.id;
         }
@@ -104,6 +109,14 @@ export function Timeline({
       onActiveEventIdChange(id);
     },
     [onActiveEventIdChange]
+  );
+
+  const onPick = useCallback(
+    (clientX: number) => {
+      const id = nearestEventId(clientX);
+      if (id) onActivate(id);
+    },
+    [nearestEventId, onActivate]
   );
 
   const worldSeam = yearToPercent(
@@ -186,6 +199,7 @@ export function Timeline({
                   worldSeam={worldSeam}
                   onPointRef={registerPoint}
                   onActivate={onActivate}
+                  onPick={onPick}
                 />
               );
             })}

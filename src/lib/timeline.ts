@@ -70,12 +70,12 @@ export const TIMELINE_EVENTS = [
     field: ["clients"],
   },
   {
-    id: "congreso-di-geek",
-    year: "2013",
-    title: "Director of the event committee",
-    organization: "Congreso Di-Geek",
-    context: "Two-day event",
-    progression: "200 participants",
+    id: "technology-events",
+    year: "2012–2016",
+    title: "Technology Events & Community Programs",
+    organization: "Technology Events & Community Programs",
+    context:
+      "Event production and logistics for youth, women, and children · Licensed industry brands",
     type: "job",
     management: [
       "leadership",
@@ -83,15 +83,6 @@ export const TIMELINE_EVENTS = [
       "event-coordination",
       "project-management",
     ],
-  },
-  {
-    id: "startup-weekend-ensenada",
-    year: "2013–2015",
-    title: "Startup Weekend Ensenada by Google",
-    organization: "Startup Weekend Ensenada by Google",
-    context: "Production and logistics committee.",
-    type: "job",
-    management: ["event-coordination", "project-management"],
   },
   {
     id: "first-job",
@@ -105,11 +96,11 @@ export const TIMELINE_EVENTS = [
   },
   {
     id: "summer-camp",
-    year: "2016–2017",
+    year: "2015–2017",
     title: "Project Manager",
     organization: "Project Manager — Summer Camp at Hotel Coral & Marina",
     context:
-      "Four-week program for preteens and teenagers · Activities in the sea · 50 enrolled participants",
+      "Four- to six-week programs · Sea activities · Program coordination",
     type: "job",
     management: [
       "leadership",
@@ -128,8 +119,10 @@ export const TIMELINE_EVENTS = [
     id: "tkd-olympic-bootcamp",
     year: "2017–2020",
     title: "International logistics · Program development · Execution",
-    organization: "TKD Olympic Bootcamp",
+    organization: "Project Manager — TKD Olympic Bootcamp",
     context: "Master classes with Olympic champions",
+    progression:
+      "Private and government funding · 300+ registered participants",
     type: "job",
     management: ["event-coordination", "project-management"],
   },

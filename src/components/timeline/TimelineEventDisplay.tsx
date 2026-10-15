@@ -95,10 +95,12 @@ export function TimelineEventDisplay({
 }
 
 const PROJECT_DETAIL_IDS = new Set([
-  "startup-weekend-ensenada",
+  "technology-events",
   "summer-camp",
   "tkd-olympic-bootcamp",
 ]);
+
+const SPLIT_TITLE_IDS = new Set(["summer-camp", "tkd-olympic-bootcamp"]);
 
 function phraseBreaks(text: string) {
   const parts = text.split(" · ");
@@ -141,7 +143,7 @@ function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
   const { event, emoji, left } = piece;
   const isJob = event.type === "job";
   const isProject = PROJECT_DETAIL_IDS.has(event.id);
-  const isCamp = event.id === "summer-camp";
+  const isSplitTitle = SPLIT_TITLE_IDS.has(event.id);
   const organization = event.organization ?? (isJob ? event.title : undefined);
   const context = event.context ?? event.subtitle;
   const role =
@@ -152,7 +154,7 @@ function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
     "timeline-event-piece",
     active ? "is-in" : "",
     isProject ? "is-project" : "",
-    isCamp ? "is-camp" : "",
+    isSplitTitle ? "is-split-title" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -175,7 +177,7 @@ function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
           <>
             {organization ? (
               <p className="timeline-event-piece-title">
-                {isCamp ? <CampTitle text={organization} /> : organization}
+                {isSplitTitle ? <CampTitle text={organization} /> : organization}
               </p>
             ) : null}
             {context ? (
@@ -190,7 +192,7 @@ function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
             ) : null}
             {event.progression ? (
               <p className="timeline-event-piece-progression">
-                {event.progression}
+                {isProject ? phraseBreaks(event.progression) : event.progression}
               </p>
             ) : null}
           </>

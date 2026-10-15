@@ -322,9 +322,8 @@
   background: linear-gradient(
     90deg,
     rgb(var(--ph-lime)) 0%,
-    rgb(var(--ph-lime)) calc(var(--seam) - 1.25rem),
-    rgb(var(--ph-seam)) var(--seam),
-    rgb(var(--ph-electric)) calc(var(--seam) + 1.25rem),
+    rgb(var(--ph-lime)) var(--seam),
+    rgb(var(--ph-electric)) var(--seam),
     rgb(var(--ph-electric)) 100%
   );
 }
@@ -506,7 +505,7 @@
   text-wrap: balance;
 }
 
-.timeline-event-piece.is-camp .timeline-event-piece-title {
+.timeline-event-piece.is-split-title .timeline-event-piece-title {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -550,6 +549,16 @@
   font-weight: 500;
   letter-spacing: 0.015em;
   line-height: 1.4;
+}
+
+.timeline-event-piece.is-project .timeline-event-piece-progression {
+  max-width: min(24rem, calc(100vw - 3rem));
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  color: var(--timeline-muted);
 }
 
 @media (max-width: 420px) {
