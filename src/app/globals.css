@@ -85,16 +85,26 @@
   --fd-bridge: var(--ph-seam);
   --fd-field-accent: var(--ph-lime);
   --fd-desk-accent: var(--ph-electric);
+  --fd-management: var(--ph-seam);
+  --fd-management-accent: var(--fd-hinge);
+  --fd-management-muted: 64 40 54;
   --fd-ink: 250 247 244;
   --fd-muted: 214 210 200;
+  --fd-pole-size: clamp(2.95rem, 12.75vw, 4.5rem);
+  --fd-panel-pad-block: clamp(1.7rem, 8vw, 2.5rem);
 }
 
 .field-desk-grid {
   display: grid;
   grid-template-areas:
+    "management"
     "field"
     "editorial"
     "desk";
+}
+
+.field-desk-stage {
+  display: contents;
 }
 
 .field-desk-statement {
@@ -108,7 +118,7 @@
 .field-desk-pole {
   font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   font-weight: 800;
-  font-size: clamp(2.95rem, 12.75vw, 4.5rem);
+  font-size: var(--fd-pole-size);
   line-height: 0.95;
   letter-spacing: -0.03em;
 }
@@ -120,10 +130,35 @@
   padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 4vw, 2.5rem);
 }
 
+.field-desk-management,
+.field-desk-field,
+.field-desk-desk {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.field-desk-management {
+  grid-area: management;
+  container-type: inline-size;
+  background-color: rgb(var(--fd-management));
+  padding: var(--fd-panel-pad-block) clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.field-desk-management .field-desk-words {
+  color: rgb(var(--fd-management-muted));
+}
+
+.field-desk-management .field-desk-pole {
+  font-size: min(var(--fd-pole-size), 14cqi);
+}
+
 .field-desk-field {
   grid-area: field;
   background-color: rgb(var(--fd-field));
-  padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 4vw, 2.5rem);
+  border-top: 1px solid rgb(var(--fd-bridge));
+  padding: var(--fd-panel-pad-block) clamp(1.25rem, 4vw, 2.5rem);
 }
 
 .field-desk-words {
@@ -153,17 +188,45 @@
   grid-area: desk;
   background-color: rgb(var(--fd-desk));
   border-top: 1px solid rgb(var(--fd-bridge));
-  padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 4vw, 2.5rem);
+  padding: var(--fd-panel-pad-block) clamp(1.25rem, 4vw, 2.5rem);
+}
+
+@media (max-width: 767px) {
+  .field-desk-management,
+  .field-desk-field,
+  .field-desk-desk {
+    min-height: calc(
+      var(--fd-panel-pad-block) * 2 + var(--fd-pole-size) * 0.95 + 1.25rem +
+        1.9 * 2 * 0.875rem + 1px
+    );
+  }
 }
 
 @media (min-width: 768px) {
+  .field-desk {
+    --fd-pole-size: clamp(4.25rem, 6.4vw, 6rem);
+    --fd-panel-pad-block: clamp(3.25rem, 5.2vw, 4.4rem);
+    --fd-panel-min: 29.4vh;
+  }
+
   .field-desk-grid {
-    min-height: 78vh;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto;
     grid-template-areas:
       "editorial editorial"
+      "stage stage";
+    align-content: start;
+  }
+
+  .field-desk-stage {
+    display: grid;
+    grid-area: stage;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, minmax(var(--fd-panel-min), 1fr));
+    grid-template-areas:
+      "management management"
       "field desk";
+    min-height: calc(var(--fd-panel-min) * 2);
   }
 
   .field-desk-statement {
@@ -173,7 +236,6 @@
   }
 
   .field-desk-pole {
-    font-size: clamp(4.25rem, 6.4vw, 6rem);
     letter-spacing: -0.035em;
   }
 
@@ -189,24 +251,15 @@
     text-align: center;
   }
 
-  .field-desk-field,
-  .field-desk-desk {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 42vh;
-  }
-
   .field-desk-field {
-    padding: clamp(4.5rem, 10vw, 8rem) clamp(3rem, 6vw, 5.5rem)
-      clamp(4.5rem, 10vw, 8rem) clamp(1.25rem, 4vw, 2.5rem);
+    padding: var(--fd-panel-pad-block) clamp(3rem, 6vw, 5.5rem)
+      var(--fd-panel-pad-block) clamp(1.25rem, 4vw, 2.5rem);
   }
 
   .field-desk-desk {
-    border-top: 0;
     border-left: 2px solid rgb(var(--fd-bridge));
-    padding: clamp(4.5rem, 10vw, 8rem) clamp(1.25rem, 4vw, 2.5rem)
-      clamp(4.5rem, 10vw, 8rem) clamp(3rem, 6vw, 5.5rem);
+    padding: var(--fd-panel-pad-block) clamp(1.25rem, 4vw, 2.5rem)
+      var(--fd-panel-pad-block) clamp(3rem, 6vw, 5.5rem);
   }
 }
 
