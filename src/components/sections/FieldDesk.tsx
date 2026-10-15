@@ -5,6 +5,7 @@ import { useT } from "@/i18n/i18n";
 import {
   DESK_WORD_IDS,
   FIELD_WORD_IDS,
+  MANAGEMENT_WORD_IDS,
   useLifetime,
 } from "@/components/timeline/LifetimeContext";
 
@@ -24,8 +25,6 @@ function Statement({ text, id }: { text: string; id: string }) {
     </h2>
   );
 }
-
-const EMPTY_LIT = new Set<string>();
 
 function WordList({
   words,
@@ -59,7 +58,7 @@ function WordList({
 export function FieldDesk() {
   const t = useT();
   const copy = t.fieldDesk;
-  const { fieldLit, deskLit, isPlaying } = useLifetime();
+  const { fieldLit, deskLit, managementLit, isPlaying } = useLifetime();
 
   return (
     <section
@@ -88,9 +87,9 @@ export function FieldDesk() {
               </p>
               <WordList
                 words={copy.managementWords}
-                ids={[]}
-                lit={EMPTY_LIT}
-                playing={false}
+                ids={MANAGEMENT_WORD_IDS}
+                lit={managementLit}
+                playing={isPlaying}
               />
             </Reveal>
           </div>

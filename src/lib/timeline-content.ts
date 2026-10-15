@@ -1,15 +1,27 @@
-import type { TimelineEventId } from "@/lib/timeline";
+import type { TimelineEventData, TimelineEventId } from "@/lib/timeline";
 
 export const TIMELINE_EMOJIS = {
   born: "🐣",
   "black-belt": "🥷",
   "humi-first-anniversary": "⛩️",
+  "congreso-di-geek": "🎤",
+  "startup-weekend-2014": "🏁",
+  "startup-weekend-2015": "🏁",
   "first-job": "👩‍💻",
+  "summer-camp-2016": "🌊",
+  "summer-camp-2017": "🌊",
   "digital-design-engineering": "🎓",
+  "tkd-bootcamp-2018": "🥋",
   "field-operations-environmental-monitoring": "👷‍♀️",
+  "tkd-bootcamp-2019": "🥋",
   "trato-hecho-product-owner": "🚀",
+  "ki-game-2021": "🏋️",
   "safety-project-management": "♻️",
+  "tkd-games-2022": "🥇",
+  "tkd-games-2023": "🥇",
+  "tkd-games-2024": "🥇",
   "field-operations-responsibility": "⚙️",
+  "sunday-funday-2025": "☀️",
   "humi-16-years": "⛩️",
 } as const satisfies Record<TimelineEventId, string>;
 
@@ -21,17 +33,33 @@ export const TIMELINE_SCRIPTS = {
   born: "Todo empezó antes de que existiera una pantalla.",
   "black-belt": "Aprendí que repetir también es una forma de diseñar.",
   "humi-first-anniversary": "Mi primer servicio, sin tener un plan.",
+  "congreso-di-geek":
+    "Dos días, doscientos participantes, y el comité del evento.",
+  "startup-weekend-2014": "Producción y logística en Startup Weekend.",
+  "startup-weekend-2015": "Otra edición. La misma mesa de producción.",
   "first-job":
     "El primer lugar donde la idea tuvo que sobrevivir al mundo real.",
+  "summer-camp-2016":
+    "Cuatro semanas en el mar, con cincuenta inscritos.",
+  "summer-camp-2017":
+    "Seis semanas. Doscientos cincuenta estudiantes por semana.",
   "trato-hecho-product-owner":
     "El primer lugar donde producto, negocio y usuario tuvieron que encontrarse.",
   "digital-design-engineering": "Aprendí a pensar entre disciplinas.",
+  "tkd-bootcamp-2018":
+    "Logística internacional para trescientos participantes.",
   "field-operations-environmental-monitoring":
     "Del escritorio al campo. Datos, sistemas y condiciones reales.",
+  "tkd-bootcamp-2019": "Segunda edición. El mismo oficio de logística.",
   "safety-project-management":
     "Aprendí que un sistema también tiene que resistir.",
+  "ki-game-2021": "Tres días de CrossFit y taekwondo.",
+  "tkd-games-2022": "Logística deportiva. Ocho horas, trescientos participantes.",
+  "tkd-games-2023": "La misma logística, otra edición.",
+  "tkd-games-2024": "Tercera edición de los Taekwondo Games.",
   "field-operations-responsibility":
     "Más responsabilidad. Menos margen para improvisar.",
+  "sunday-funday-2025": "Una master class con un peleador de UFC.",
   "humi-16-years":
     "Producto, servicios, tecnología y contacto humano.",
 } as const satisfies Record<TimelineEventId, string>;
@@ -40,4 +68,175 @@ export type TimelineScriptId = keyof typeof TIMELINE_SCRIPTS;
 
 export function getTimelineScript(id: string): string | undefined {
   return TIMELINE_SCRIPTS[id as TimelineScriptId];
+}
+
+type TimelineLang = "en" | "es";
+
+type ManagementEventCopy = {
+  title: string;
+  organization?: string;
+  context?: string;
+  subtitle?: string;
+  progression?: string;
+};
+
+const MANAGEMENT_EVENT_COPY = {
+  en: {
+    "congreso-di-geek": {
+      title: "Director of the event committee",
+      organization: "Congreso Di-Geek",
+      context: "Two-day event",
+      progression: "200 participants",
+    },
+    "startup-weekend-2014": {
+      title: "Production and logistics committee",
+      organization: "Startup Weekend Ensenada",
+    },
+    "startup-weekend-2015": {
+      title: "Production and logistics committee",
+      organization: "Startup Weekend Ensenada",
+    },
+    "summer-camp-2016": {
+      title: "Summer Camp at Hotel Coral & Marina",
+      organization: "Summer Camp at Hotel Coral & Marina",
+      context: "Four-week program for preteens and teenagers",
+      progression: "Activities in the sea · 50 enrolled participants",
+    },
+    "summer-camp-2017": {
+      title: "Director and event lead",
+      organization: "2nd Summer Camp at Hotel Coral & Marina",
+      context: "Six-week program · ages 5–15",
+      progression: "250 students per week",
+    },
+    "tkd-bootcamp-2018": {
+      title: "International logistics and event manager",
+      organization: "1st TKD Olympic Bootcamp",
+      context: "Guest: Carlo Molfetta",
+      progression: "300 participants",
+    },
+    "tkd-bootcamp-2019": {
+      title: "International logistics and event manager",
+      organization: "2nd TKD Olympic Bootcamp",
+      context: "Guest: Joel González",
+      progression: "300 participants",
+    },
+    "ki-game-2021": {
+      title: "Ki-Game",
+      organization: "Ki-Game",
+      context: "Three-day event · CrossFit and Taekwondo",
+      progression: "50 participants",
+    },
+    "tkd-games-2022": {
+      title: "Sports logistics",
+      organization: "Taekwondo Games",
+      context: "Eight-hour event",
+      progression: "300 participants",
+    },
+    "tkd-games-2023": {
+      title: "Sports logistics",
+      organization: "Taekwondo Games",
+      context: "Eight-hour event",
+      progression: "300 participants",
+    },
+    "tkd-games-2024": {
+      title: "Sports logistics",
+      organization: "Taekwondo Games",
+      context: "Eight-hour event",
+      progression: "300 participants",
+    },
+    "sunday-funday-2025": {
+      title: "Sunday Funday Master Class",
+      organization: "Sunday Funday Master Class",
+      context: "Master class with a UFC fighter",
+    },
+  },
+  es: {
+    "congreso-di-geek": {
+      title: "Directora del comité del evento",
+      organization: "Congreso Di-Geek",
+      context: "Evento de dos días",
+      progression: "200 participantes",
+    },
+    "startup-weekend-2014": {
+      title: "Comité de producción y logística",
+      organization: "Startup Weekend Ensenada",
+    },
+    "startup-weekend-2015": {
+      title: "Comité de producción y logística",
+      organization: "Startup Weekend Ensenada",
+    },
+    "summer-camp-2016": {
+      title: "Campamento de verano en Hotel Coral & Marina",
+      organization: "Campamento de verano en Hotel Coral & Marina",
+      context: "Programa de cuatro semanas para preadolescentes y adolescentes",
+      progression: "Actividades en el mar · 50 participantes inscritos",
+    },
+    "summer-camp-2017": {
+      title: "Directora y líder del evento",
+      organization: "2.º campamento de verano en Hotel Coral & Marina",
+      context: "Programa de seis semanas · 5 a 15 años",
+      progression: "250 estudiantes por semana",
+    },
+    "tkd-bootcamp-2018": {
+      title: "Logística internacional y gestión del evento",
+      organization: "1.er Bootcamp olímpico de TKD",
+      context: "Invitado: Carlo Molfetta",
+      progression: "300 participantes",
+    },
+    "tkd-bootcamp-2019": {
+      title: "Logística internacional y gestión del evento",
+      organization: "2.º Bootcamp olímpico de TKD",
+      context: "Invitado: Joel González",
+      progression: "300 participantes",
+    },
+    "ki-game-2021": {
+      title: "Ki-Game",
+      organization: "Ki-Game",
+      context: "Evento de tres días · CrossFit y Taekwondo",
+      progression: "50 participantes",
+    },
+    "tkd-games-2022": {
+      title: "Logística deportiva",
+      organization: "Taekwondo Games",
+      context: "Evento de ocho horas",
+      progression: "300 participantes",
+    },
+    "tkd-games-2023": {
+      title: "Logística deportiva",
+      organization: "Taekwondo Games",
+      context: "Evento de ocho horas",
+      progression: "300 participantes",
+    },
+    "tkd-games-2024": {
+      title: "Logística deportiva",
+      organization: "Taekwondo Games",
+      context: "Evento de ocho horas",
+      progression: "300 participantes",
+    },
+    "sunday-funday-2025": {
+      title: "Sunday Funday Master Class",
+      organization: "Sunday Funday Master Class",
+      context: "Master class con un peleador de UFC",
+    },
+  },
+} as const satisfies Record<
+  TimelineLang,
+  Partial<Record<TimelineEventId, ManagementEventCopy>>
+>;
+
+export function applyTimelineCopy(
+  event: TimelineEventData,
+  lang: TimelineLang
+): TimelineEventData {
+  const copy = MANAGEMENT_EVENT_COPY[lang][
+    event.id as keyof (typeof MANAGEMENT_EVENT_COPY)["en"]
+  ];
+  if (!copy) return event;
+  return {
+    ...event,
+    title: copy.title,
+    organization: "organization" in copy ? copy.organization : undefined,
+    context: "context" in copy ? copy.context : undefined,
+    progression: "progression" in copy ? copy.progression : undefined,
+  };
 }

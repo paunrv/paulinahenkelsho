@@ -16,8 +16,16 @@ export const DESK_DISCIPLINES = [
   "technology",
 ] as const;
 
+export const MANAGEMENT_DISCIPLINES = [
+  "leadership",
+  "people",
+  "event-coordination",
+  "project-management",
+] as const;
+
 export type FieldDiscipline = (typeof FIELD_DISCIPLINES)[number];
 export type DeskDiscipline = (typeof DESK_DISCIPLINES)[number];
+export type ManagementDiscipline = (typeof MANAGEMENT_DISCIPLINES)[number];
 
 export type TimelineEventData = {
   id: string;
@@ -30,6 +38,7 @@ export type TimelineEventData = {
   type?: TimelineEventType;
   field?: readonly FieldDiscipline[];
   desk?: readonly DeskDiscipline[];
+  management?: readonly ManagementDiscipline[];
 };
 
 export type TimelineYearSpan = {
@@ -61,6 +70,37 @@ export const TIMELINE_EVENTS = [
     field: ["clients"],
   },
   {
+    id: "congreso-di-geek",
+    year: "2013",
+    title: "Director of the event committee",
+    organization: "Congreso Di-Geek",
+    context: "Two-day event",
+    progression: "200 participants",
+    type: "job",
+    management: [
+      "leadership",
+      "people",
+      "event-coordination",
+      "project-management",
+    ],
+  },
+  {
+    id: "startup-weekend-2014",
+    year: "2014",
+    title: "Production and logistics committee",
+    organization: "Startup Weekend Ensenada",
+    type: "job",
+    management: ["event-coordination", "project-management"],
+  },
+  {
+    id: "startup-weekend-2015",
+    year: "2015",
+    title: "Production and logistics committee",
+    organization: "Startup Weekend Ensenada",
+    type: "job",
+    management: ["event-coordination", "project-management"],
+  },
+  {
     id: "first-job",
     year: "2015–2018",
     title: "La Ruta VCC+",
@@ -71,10 +111,50 @@ export const TIMELINE_EVENTS = [
     desk: ["product"],
   },
   {
+    id: "summer-camp-2016",
+    year: "2016",
+    title: "Summer Camp at Hotel Coral & Marina",
+    organization: "Summer Camp at Hotel Coral & Marina",
+    context: "Four-week program for preteens and teenagers",
+    progression: "Activities in the sea · 50 enrolled participants",
+    type: "job",
+    management: ["people", "event-coordination"],
+  },
+  {
+    id: "summer-camp-2017",
+    year: "2017",
+    title: "Director and event lead",
+    organization: "2nd Summer Camp at Hotel Coral & Marina",
+    context: "Six-week program · ages 5–15",
+    progression: "250 students per week",
+    type: "job",
+    management: [
+      "leadership",
+      "people",
+      "event-coordination",
+      "project-management",
+    ],
+  },
+  {
     id: "digital-design-engineering",
     year: "2017",
     title: "Digital Art Engineer",
     desk: ["design", "technology", "product"],
+  },
+  {
+    id: "tkd-bootcamp-2018",
+    year: "2018",
+    title: "International logistics and event manager",
+    organization: "1st TKD Olympic Bootcamp",
+    context: "Guest: Carlo Molfetta",
+    progression: "300 participants",
+    type: "job",
+    management: [
+      "leadership",
+      "people",
+      "event-coordination",
+      "project-management",
+    ],
   },
   {
     id: "field-operations-environmental-monitoring",
@@ -87,6 +167,21 @@ export const TIMELINE_EVENTS = [
     desk: ["systems", "research", "technology"],
   },
   {
+    id: "tkd-bootcamp-2019",
+    year: "2019",
+    title: "International logistics and event manager",
+    organization: "2nd TKD Olympic Bootcamp",
+    context: "Guest: Joel González",
+    progression: "300 participants",
+    type: "job",
+    management: [
+      "leadership",
+      "people",
+      "event-coordination",
+      "project-management",
+    ],
+  },
+  {
     id: "trato-hecho-product-owner",
     year: "2020–2021",
     title: "Trato Hecho",
@@ -95,6 +190,16 @@ export const TIMELINE_EVENTS = [
     type: "job",
     desk: ["product", "design", "technology", "systems"],
     field: ["clients"],
+  },
+  {
+    id: "ki-game-2021",
+    year: "2021",
+    title: "Ki-Game",
+    organization: "Ki-Game",
+    context: "Three-day event · CrossFit and Taekwondo",
+    progression: "50 participants",
+    type: "job",
+    management: ["people", "event-coordination"],
   },
   {
     id: "safety-project-management",
@@ -107,6 +212,36 @@ export const TIMELINE_EVENTS = [
     desk: ["systems", "research", "product"],
   },
   {
+    id: "tkd-games-2022",
+    year: "2022",
+    title: "Sports logistics",
+    organization: "Taekwondo Games",
+    context: "Eight-hour event",
+    progression: "300 participants",
+    type: "job",
+    management: ["people", "event-coordination"],
+  },
+  {
+    id: "tkd-games-2023",
+    year: "2023",
+    title: "Sports logistics",
+    organization: "Taekwondo Games",
+    context: "Eight-hour event",
+    progression: "300 participants",
+    type: "job",
+    management: ["people", "event-coordination"],
+  },
+  {
+    id: "tkd-games-2024",
+    year: "2024",
+    title: "Sports logistics",
+    organization: "Taekwondo Games",
+    context: "Eight-hour event",
+    progression: "300 participants",
+    type: "job",
+    management: ["people", "event-coordination"],
+  },
+  {
     id: "field-operations-responsibility",
     year: "2025",
     title: "Field operations",
@@ -115,6 +250,15 @@ export const TIMELINE_EVENTS = [
     type: "job",
     field: ["operations", "monitoring", "logistics", "clients"],
     desk: ["systems", "research"],
+  },
+  {
+    id: "sunday-funday-2025",
+    year: "2025",
+    title: "Sunday Funday Master Class",
+    organization: "Sunday Funday Master Class",
+    context: "Master class with a UFC fighter",
+    type: "job",
+    management: ["event-coordination", "project-management"],
   },
   {
     id: "humi-16-years",
@@ -151,4 +295,105 @@ export function getEventSpan(year: string | null): TimelineYearSpan | null {
 
 export function getTimelineEvents(): readonly TimelineEventData[] {
   return TIMELINE_EVENTS;
+}
+
+export type TimelineDomain = {
+  min: number;
+  weights: number[];
+  total: number;
+};
+
+export type TimelinePlacement = {
+  left: number;
+  width: number;
+  anchor: number;
+};
+
+export function getTimelineDomain(
+  events: readonly TimelineEventData[]
+): TimelineDomain {
+  let min = Infinity;
+  let max = -Infinity;
+  for (const event of events) {
+    const span = getEventSpan(event.year);
+    if (!span) continue;
+    min = Math.min(min, span.start);
+    max = Math.max(max, span.end);
+  }
+  if (!Number.isFinite(min) || !Number.isFinite(max)) {
+    return { min: 0, weights: [1], total: 1 };
+  }
+  const weights: number[] = [];
+  for (let year = min; year <= max; year += 1) {
+    let covering = 0;
+    for (const event of events) {
+      const span = getEventSpan(event.year);
+      if (!span) continue;
+      if (year >= span.start && year <= span.end) covering += 1;
+    }
+    weights.push(1 + covering);
+  }
+  const total = weights.reduce((sum, value) => sum + value, 0);
+  return { min, weights, total: Math.max(1, total) };
+}
+
+export function yearToPercent(
+  year: number,
+  min: number,
+  weights: number[],
+  total: number
+) {
+  let acc = 0;
+  for (let y = min; y < year; y += 1) {
+    acc += weights[y - min] ?? 1;
+  }
+  return (acc / total) * 100;
+}
+
+function pointNudge(
+  event: TimelineEventData,
+  events: readonly TimelineEventData[],
+  domain: TimelineDomain
+) {
+  const span = getEventSpan(event.year);
+  if (!span || span.end > span.start) return 0;
+  const year = span.start;
+  const points = events.filter((item) => {
+    const itemSpan = getEventSpan(item.year);
+    return Boolean(itemSpan && itemSpan.start === year && itemSpan.end === year);
+  });
+  if (points.length < 2) return 0;
+
+  const yearWidth =
+    ((domain.weights[year - domain.min] ?? 1) / domain.total) * 100;
+  const anchor = points.find((item) => !item.management?.length);
+  if (anchor?.id === event.id) return 0;
+
+  const extras = anchor
+    ? points.filter((item) => item.id !== anchor.id)
+    : points;
+  const index = Math.max(
+    0,
+    extras.findIndex((item) => item.id === event.id)
+  );
+  const slots = anchor ? extras.length + 1 : extras.length;
+  if (!anchor) return (yearWidth * (index + 0.5)) / slots;
+  return (yearWidth * (index + 1)) / slots;
+}
+
+export function getEventPlacement(
+  event: TimelineEventData,
+  events: readonly TimelineEventData[],
+  domain: TimelineDomain
+): TimelinePlacement {
+  const span = getEventSpan(event.year);
+  const start = span?.start ?? domain.min;
+  const end = span?.end ?? start;
+  const startLeft = yearToPercent(start, domain.min, domain.weights, domain.total);
+  const endLeft = yearToPercent(end, domain.min, domain.weights, domain.total);
+  const nudge = pointNudge(event, events, domain);
+  const left = startLeft + nudge;
+  const width = Math.max(0, endLeft - startLeft);
+  const anchor = width > 0 ? startLeft + width / 2 : left;
+  return { left, width, anchor };
 }

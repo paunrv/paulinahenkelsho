@@ -180,6 +180,10 @@
   color: rgb(var(--fd-desk-accent));
 }
 
+.field-desk-management .field-desk-word.is-lit {
+  color: rgb(var(--fd-management-accent));
+}
+
 .field-desk-word.is-dim {
   opacity: 0.4;
 }

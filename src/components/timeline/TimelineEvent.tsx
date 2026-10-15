@@ -1,6 +1,8 @@
 import type { CSSProperties } from "react";
+import { useI18n } from "@/i18n/i18n";
 import type { TimelineEventData } from "@/lib/timeline";
 import { getEventSpan } from "@/lib/timeline";
+import { applyTimelineCopy } from "@/lib/timeline-content";
 
 type TimelineEventProps = {
   event: TimelineEventData;
@@ -76,12 +78,15 @@ export function TimelineEvent({
   onPointRef,
   onActivate,
 }: TimelineEventProps) {
+  const { lang } = useI18n();
+  const copy = applyTimelineCopy(event, lang);
   const span = getEventSpan(event.year);
   const isRange = Boolean(span && span.end > span.start);
   const className = [
     "timeline-event",
     isActive ? "is-active" : "",
     isRange ? "is-span" : "is-point",
+    event.management?.length ? "is-management" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -144,12 +149,12 @@ export function TimelineEvent({
         )}
       </div>
       <div className="sr-only">
-        {event.year ? <span>{event.year}. </span> : null}
-        {event.organization ? <span>{event.organization}. </span> : null}
-        {event.context ? <span>{event.context}. </span> : null}
-        <span>{event.title}. </span>
-        {event.subtitle ? <span>{event.subtitle}. </span> : null}
-        {event.progression ? <span>{event.progression}.</span> : null}
+        {copy.year ? <span>{copy.year}. </span> : null}
+        {copy.organization ? <span>{copy.organization}. </span> : null}
+        {copy.context ? <span>{copy.context}. </span> : null}
+        <span>{copy.title}. </span>
+        {copy.subtitle ? <span>{copy.subtitle}. </span> : null}
+        {copy.progression ? <span>{copy.progression}.</span> : null}
       </div>
     </li>
   );

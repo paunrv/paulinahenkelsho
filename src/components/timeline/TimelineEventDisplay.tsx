@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { useI18n } from "@/i18n/i18n";
 import {
   HUMI_EVENT_IDS,
   HUMI_IDS,
-  getEventSpan,
+  getEventPlacement,
+  getTimelineDomain,
   type TimelineEventData,
 } from "@/lib/timeline";
-import { getTimelineEmoji } from "@/lib/timeline-content";
+import { applyTimelineCopy, getTimelineEmoji } from "@/lib/timeline-content";
 
 type TimelineEventDisplayProps = {
   activeEventId: string | null;
@@ -19,63 +21,6 @@ type Piece = {
   emoji: string;
   left: number;
 };
-
-function buildYearWeights(
-  events: readonly TimelineEventData[],
-  min: number,
-  max: number
-) {
-  const weights: number[] = [];
-  for (let year = min; year <= max; year += 1) {
-    let covering = 0;
-    for (const item of events) {
-      const span = getEventSpan(item.year);
-      if (!span) continue;
-      if (year >= span.start && year <= span.end) covering += 1;
-    }
-    weights.push(1 + covering);
-  }
-  return weights;
-}
-
-function yearToPercent(
-  year: number,
-  min: number,
-  weights: number[],
-  total: number
-) {
-  let acc = 0;
-  for (let y = min; y < year; y += 1) {
-    acc += weights[y - min] ?? 1;
-  }
-  return (acc / total) * 100;
-}
-
-function eventLeftPercent(
-  events: readonly TimelineEventData[],
-  event: TimelineEventData
-) {
-  let min = Infinity;
-  let max = -Infinity;
-  for (const item of events) {
-    const span = getEventSpan(item.year);
-    if (!span) continue;
-    min = Math.min(min, span.start);
-    max = Math.max(max, span.end);
-  }
-  if (!Number.isFinite(min) || !Number.isFinite(max)) return 0;
-  const weights = buildYearWeights(events, min, max);
-  const total = Math.max(
-    1,
-    weights.reduce((sum, value) => sum + value, 0)
-  );
-  const span = getEventSpan(event.year);
-  if (!span) return 0;
-  const start = yearToPercent(span.start, min, weights, total);
-  if (span.end <= span.start) return start;
-  const end = yearToPercent(span.end, min, weights, total);
-  return (start + end) / 2;
-}
 
 function eventsToShow(
   activeEventId: string | null,
@@ -118,14 +63,16 @@ export function TimelineEventDisplay({
     return () => cancelAnimationFrame(frame);
   }, [signature]);
 
+  const { lang } = useI18n();
+  const domain = useMemo(() => getTimelineDomain(events), [events]);
   const pieces: Piece[] = shown.flatMap((event) => {
     const emoji = getTimelineEmoji(event.id);
     if (!emoji) return [];
     return [
       {
-        event,
+        event: applyTimelineCopy(event, lang),
         emoji,
-        left: eventLeftPercent(events, event),
+        left: getEventPlacement(event, events, domain).anchor,
       },
     ];
   });
