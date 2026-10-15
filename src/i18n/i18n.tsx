@@ -24,8 +24,7 @@ const DICT = {
     },
     hero: {
       role: "Hello, I'm",
-      headline:
-        "I've worked industrial sites in boots and built software from a desk.",
+      headline: "I work across operations, projects, and technology.",
       subheadline: "I like order, design, discipline, and technology.",
       ctaWork: "View My Work",
       ctaNotes: "Read My Notes",
@@ -44,11 +43,12 @@ const DICT = {
       principles: ["Listen.", "Understand.", "Simplify.", "Build.", "Iterate."],
     },
     fieldDesk: {
-      core: "I work between the physical and the digital.",
-      headline: "Different environments. Same way of thinking.",
-      support: "I understand the work first. Then I build around it.",
+      core: "People, operations, and technology.",
+      headline: "Different environments. The same good judgment.",
+      support: "First, I understand the context.",
       fieldLabel: "FIELD",
       deskLabel: "DESK",
+      managementLabel: "MANAGEMENT",
       fieldWords: [
         "Operations",
         "Safety",
@@ -57,6 +57,12 @@ const DICT = {
         "Clients",
       ],
       deskWords: ["Product", "Systems", "Research", "Design", "Technology"],
+      managementWords: [
+        "Leadership",
+        "People",
+        "Event Coordination",
+        "Project Management",
+      ],
     },
     building: {
       eyebrow: "Building",
@@ -280,7 +286,7 @@ const DICT = {
     hero: {
       role: "Hola, soy",
       headline:
-        "Cumplo la normativa industrial en botas y casco, o construyo software desde mi escritorio.",
+        "Coordino procesos industriales y trabajo en proyectos de tecnolog\u00eda.",
       subheadline: "Me gusta el orden, el dise\u00f1o, la disciplina y la tecnolog\u00eda.",
       ctaWork: "Ver mi trabajo",
       ctaNotes: "Leer mis notas",
@@ -311,6 +317,7 @@ const DICT = {
         "Primero entiendo el trabajo. Despu\u00e9s construyo alrededor de \u00e9l.",
       fieldLabel: "FIELD",
       deskLabel: "DESK",
+      managementLabel: "MANAGEMENT",
       fieldWords: [
         "Operaciones",
         "Seguridad",
@@ -324,6 +331,12 @@ const DICT = {
         "Investigaci\u00f3n",
         "Dise\u00f1o",
         "Tecnolog\u00eda",
+      ],
+      managementWords: [
+        "Liderazgo",
+        "Personas",
+        "Coordinaci\u00f3n de eventos",
+        "Gesti\u00f3n de proyectos",
       ],
     },
     building: {

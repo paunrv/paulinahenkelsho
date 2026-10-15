@@ -1,6 +1,8 @@
 import type { CSSProperties } from "react";
+import { useI18n } from "@/i18n/i18n";
 import type { TimelineEventData } from "@/lib/timeline";
 import { getEventSpan } from "@/lib/timeline";
+import { applyTimelineCopy } from "@/lib/timeline-content";
 
 type TimelineEventProps = {
   event: TimelineEventData;
@@ -10,6 +12,7 @@ type TimelineEventProps = {
   worldSeam?: number;
   onPointRef?: (id: string, node: HTMLElement | null) => void;
   onActivate?: (id: string) => void;
+  onPick?: (clientX: number) => void;
 };
 
 function rangeWorlds(left: number, width: number, worldSeam: number) {
@@ -29,42 +32,68 @@ function rangeWorlds(left: number, width: number, worldSeam: number) {
   };
 }
 
+type RangeTone = "management" | "field" | "desk" | "blend" | "world";
+
 export function TimelineRangeFill({
   left,
   width,
   worldSeam,
+  tone = "world",
 }: {
   left: number;
   width: number;
   worldSeam: number;
+  tone?: RangeTone;
 }) {
   const worlds = rangeWorlds(left, width, worldSeam);
+  const paint =
+    tone === "blend" && worlds.crosses
+      ? "world"
+      : tone === "world" && !worlds.crosses
+        ? worlds.deskWidth > 0
+          ? "desk"
+          : "field"
+        : tone;
 
-  return (
-    <span className="timeline-event-range-fill">
-      {worlds.fieldWidth > 0 ? (
-        <span
-          className="timeline-event-range-seg is-field"
-          style={{ width: `${worlds.fieldWidth}%` }}
-        />
-      ) : null}
-      {worlds.crosses ? (
-        <span
-          className="timeline-event-range-seg is-seam"
-          style={{ left: `${worlds.seamLeft}%` }}
-        />
-      ) : null}
-      {worlds.deskWidth > 0 ? (
-        <span
-          className="timeline-event-range-seg is-desk"
-          style={{
-            left: `${worlds.deskLeft}%`,
-            width: `${worlds.deskWidth}%`,
-          }}
-        />
-      ) : null}
-    </span>
-  );
+  if (paint === "world") {
+    return (
+      <span
+        className="timeline-event-range-fill is-world"
+        style={{ "--seam": `${worlds.seamLeft}%` } as CSSProperties}
+      />
+    );
+  }
+
+  return <span className={`timeline-event-range-fill is-${paint}`} />;
+}
+
+function rangeTone(event: TimelineEventData): RangeTone {
+  const field = Boolean(event.field?.length);
+  const desk = Boolean(event.desk?.length);
+  const management = Boolean(event.management?.length);
+  if (management && !field && !desk) return "management";
+  if (field && desk) return "blend";
+  if (field) return "field";
+  if (desk) return "desk";
+  return "world";
+}
+
+function endpointTone(
+  event: TimelineEventData,
+  edge: number,
+  worldSeam: number,
+  which: "start" | "end",
+  crosses: boolean
+) {
+  const field = Boolean(event.field?.length);
+  const desk = Boolean(event.desk?.length);
+  const management = Boolean(event.management?.length);
+  if (management && !field && !desk) return "management";
+  if (field && !desk) return "field";
+  if (desk && !field) return "desk";
+  if (field && desk && !crosses) return which === "start" ? "field" : "desk";
+  if (which === "start") return edge < worldSeam ? "field" : "desk";
+  return edge > worldSeam ? "desk" : "field";
 }
 
 export function TimelineEvent({
@@ -75,13 +104,23 @@ export function TimelineEvent({
   worldSeam = 50,
   onPointRef,
   onActivate,
+  onPick,
 }: TimelineEventProps) {
+  const { lang } = useI18n();
+  const copy = applyTimelineCopy(event, lang);
   const span = getEventSpan(event.year);
   const isRange = Boolean(span && span.end > span.start);
+  const crosses = left < worldSeam && left + width > worldSeam;
+  const tone = rangeTone(event);
+  const startTone = endpointTone(event, left, worldSeam, "start", crosses);
+  const endTone = endpointTone(event, left + width, worldSeam, "end", crosses);
   const className = [
     "timeline-event",
     isActive ? "is-active" : "",
     isRange ? "is-span" : "is-point",
+    event.field?.length ? "is-field" : "",
+    event.desk?.length ? "is-desk" : "",
+    event.management?.length ? "is-management" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -93,7 +132,7 @@ export function TimelineEvent({
       tabIndex={-1}
       aria-current={isActive ? "true" : undefined}
       onFocus={() => onActivate?.(event.id)}
-      onClick={() => onActivate?.(event.id)}
+      onClick={(domEvent) => onPick?.(domEvent.clientX)}
       style={
         {
           left: `${left}%`,
@@ -129,11 +168,11 @@ export function TimelineEvent({
                 left={left}
                 width={width}
                 worldSeam={worldSeam}
+                tone={tone}
               />
-              <span className="timeline-event-range-arrow">→</span>
             </span>
-            <span className="timeline-event-tick" />
-            <span className="timeline-event-tick" />
+            <span className={`timeline-event-tick is-start is-${startTone}`} />
+            <span className={`timeline-event-tick is-end is-${endTone}`} />
           </div>
         ) : (
           <span
@@ -144,12 +183,12 @@ export function TimelineEvent({
         )}
       </div>
       <div className="sr-only">
-        {event.year ? <span>{event.year}. </span> : null}
-        {event.organization ? <span>{event.organization}. </span> : null}
-        {event.context ? <span>{event.context}. </span> : null}
-        <span>{event.title}. </span>
-        {event.subtitle ? <span>{event.subtitle}. </span> : null}
-        {event.progression ? <span>{event.progression}.</span> : null}
+        {copy.year ? <span>{copy.year}. </span> : null}
+        {copy.organization ? <span>{copy.organization}. </span> : null}
+        {copy.context ? <span>{copy.context}. </span> : null}
+        <span>{copy.title}. </span>
+        {copy.subtitle ? <span>{copy.subtitle}. </span> : null}
+        {copy.progression ? <span>{copy.progression}.</span> : null}
       </div>
     </li>
   );

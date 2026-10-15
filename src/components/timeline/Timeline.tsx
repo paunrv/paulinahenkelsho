@@ -9,7 +9,13 @@ import {
   type ReactNode,
 } from "react";
 import type { TimelineEventData } from "@/lib/timeline";
-import { HUMI_IDS, getEventSpan } from "@/lib/timeline";
+import {
+  HUMI_IDS,
+  getEventPlacement,
+  getEventSpan,
+  getTimelineDomain,
+  yearToPercent,
+} from "@/lib/timeline";
 import { useT } from "@/i18n/i18n";
 import { TimelineEvent, TimelineRangeFill } from "./TimelineEvent";
 import "./timeline.css";
@@ -23,56 +29,25 @@ type TimelineProps = {
 
 function distanceToHit(clientX: number, node: HTMLElement) {
   const rect = node.getBoundingClientRect();
+  const centerX = rect.left + rect.width / 2;
+  const center = Math.abs(clientX - centerX);
   if (node.dataset.timelineHit === "span") {
-    if (clientX >= rect.left && clientX <= rect.right) {
-      return { distance: 0, size: rect.width };
-    }
+    const inside = clientX >= rect.left && clientX <= rect.right;
     return {
-      distance: Math.min(
-        Math.abs(clientX - rect.left),
-        Math.abs(clientX - rect.right)
-      ),
+      distance: inside
+        ? 0
+        : Math.min(Math.abs(clientX - rect.left), Math.abs(clientX - rect.right)),
       size: rect.width,
+      center,
     };
   }
 
-  const centerX = rect.left + rect.width / 2;
   const radius = Math.max(rect.width / 2, 14);
   return {
     distance: Math.max(0, Math.abs(clientX - centerX) - radius),
     size: rect.width,
+    center,
   };
-}
-
-function buildYearWeights(
-  events: readonly TimelineEventData[],
-  min: number,
-  max: number
-) {
-  const weights: number[] = [];
-  for (let year = min; year <= max; year += 1) {
-    let covering = 0;
-    for (const event of events) {
-      const span = getEventSpan(event.year);
-      if (!span) continue;
-      if (year >= span.start && year <= span.end) covering += 1;
-    }
-    weights.push(1 + covering);
-  }
-  return weights;
-}
-
-function yearToPercent(
-  year: number,
-  min: number,
-  weights: number[],
-  total: number
-) {
-  let acc = 0;
-  for (let y = min; y < year; y += 1) {
-    acc += weights[y - min] ?? 1;
-  }
-  return (acc / total) * 100;
 }
 
 export function Timeline({
@@ -85,22 +60,7 @@ export function Timeline({
   const [showTapHint, setShowTapHint] = useState(true);
   const pointRefs = useRef(new Map<string, HTMLElement>());
 
-  const domain = useMemo(() => {
-    let min = Infinity;
-    let max = -Infinity;
-    for (const event of events) {
-      const span = getEventSpan(event.year);
-      if (!span) continue;
-      min = Math.min(min, span.start);
-      max = Math.max(max, span.end);
-    }
-    if (!Number.isFinite(min) || !Number.isFinite(max)) {
-      return { min: 0, weights: [1], total: 1 };
-    }
-    const weights = buildYearWeights(events, min, max);
-    const total = weights.reduce((sum, value) => sum + value, 0);
-    return { min, weights, total: Math.max(1, total) };
-  }, [events]);
+  const domain = useMemo(() => getTimelineDomain(events), [events]);
 
   const registerPoint = useCallback((id: string, node: HTMLElement | null) => {
     if (node) pointRefs.current.set(id, node);
@@ -111,18 +71,23 @@ export function Timeline({
     (clientX: number) => {
       let nextId: string | null = null;
       let nextDistance = Infinity;
+      let nextCenter = Infinity;
       let nextSize = Infinity;
 
       for (const event of events) {
         const point = pointRefs.current.get(event.id);
         if (!point) continue;
 
-        const { distance, size } = distanceToHit(clientX, point);
+        const { distance, size, center } = distanceToHit(clientX, point);
         if (
           distance < nextDistance ||
-          (distance === nextDistance && size < nextSize)
+          (distance === nextDistance && center < nextCenter) ||
+          (distance === nextDistance &&
+            center === nextCenter &&
+            size < nextSize)
         ) {
           nextDistance = distance;
+          nextCenter = center;
           nextSize = size;
           nextId = event.id;
         }
@@ -144,6 +109,14 @@ export function Timeline({
       onActiveEventIdChange(id);
     },
     [onActiveEventIdChange]
+  );
+
+  const onPick = useCallback(
+    (clientX: number) => {
+      const id = nearestEventId(clientX);
+      if (id) onActivate(id);
+    },
+    [nearestEventId, onActivate]
   );
 
   const worldSeam = yearToPercent(
@@ -209,21 +182,7 @@ export function Timeline({
           ) : null}
           <ol className="timeline-track">
             {events.map((item) => {
-              const span = getEventSpan(item.year);
-              const start = span?.start ?? domain.min;
-              const end = span?.end ?? start;
-              const left = yearToPercent(
-                start,
-                domain.min,
-                domain.weights,
-                domain.total
-              );
-              const right = yearToPercent(
-                end,
-                domain.min,
-                domain.weights,
-                domain.total
-              );
+              const placement = getEventPlacement(item, events, domain);
 
               return (
                 <TimelineEvent
@@ -235,11 +194,12 @@ export function Timeline({
                       : activeEventId === item.id ||
                         (humiActive && HUMI_IDS.has(item.id))
                   }
-                  left={left}
-                  width={Math.max(0, right - left)}
+                  left={placement.left}
+                  width={placement.width}
                   worldSeam={worldSeam}
                   onPointRef={registerPoint}
                   onActivate={onActivate}
+                  onPick={onPick}
                 />
               );
             })}
