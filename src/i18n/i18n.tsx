@@ -24,9 +24,8 @@ const DICT = {
     },
     hero: {
       role: "EXECUTIVE & PERSONAL OPERATIONS",
-      headline: "I connect people, solve problems, and make things happen.",
-      subheadline:
-        "Experience across industrial operations, project management, and technology. Clear communication, sound judgment, and follow-through from start to finish.",
+      headline: "I make things happen.",
+      subheadline: "Order. Design. Discipline. People.",
       ctaWork: "View My Work",
       ctaNotes: "Read My Notes",
     },
@@ -279,10 +278,8 @@ const DICT = {
     },
     hero: {
       role: "EXECUTIVE & PERSONAL OPERATIONS",
-      headline:
-        "Conecto personas, resuelvo problemas y hago que las cosas avancen.",
-      subheadline:
-        "Experiencia en operaciones industriales, gesti\u00f3n de proyectos y tecnolog\u00eda. Comunicaci\u00f3n, criterio y seguimiento de principio a fin.",
+      headline: "Hago que las cosas sucedan.",
+      subheadline: "Orden. Dise\u00f1o. Disciplina. Personas.",
       ctaWork: "Ver mi trabajo",
       ctaNotes: "Leer mis notas",
     },
