@@ -48,6 +48,7 @@ const DICT = {
       support: "First, I understand the context.",
       fieldLabel: "FIELD",
       deskLabel: "DESK",
+      managementLabel: "MANAGEMENT",
       fieldWords: [
         "Operations",
         "Safety",
@@ -56,6 +57,12 @@ const DICT = {
         "Clients",
       ],
       deskWords: ["Product", "Systems", "Research", "Design", "Technology"],
+      managementWords: [
+        "Leadership",
+        "People",
+        "Event Coordination",
+        "Project Management",
+      ],
     },
     building: {
       eyebrow: "Building",
@@ -308,6 +315,7 @@ const DICT = {
       support: "Primero entiendo el contexto.",
       fieldLabel: "FIELD",
       deskLabel: "DESK",
+      managementLabel: "MANAGEMENT",
       fieldWords: [
         "Operaciones",
         "Seguridad",
@@ -321,6 +329,12 @@ const DICT = {
         "Investigaci\u00f3n",
         "Dise\u00f1o",
         "Tecnolog\u00eda",
+      ],
+      managementWords: [
+        "Liderazgo",
+        "Personas",
+        "Coordinaci\u00f3n de eventos",
+        "Gesti\u00f3n de proyectos",
       ],
     },
     building: {
