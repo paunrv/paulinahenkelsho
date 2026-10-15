@@ -49,6 +49,7 @@ const DICT = {
       support: "I understand the work first. Then I build around it.",
       fieldLabel: "FIELD",
       deskLabel: "DESK",
+      managementLabel: "MANAGEMENT",
       fieldWords: [
         "Operations",
         "Safety",
@@ -57,6 +58,12 @@ const DICT = {
         "Clients",
       ],
       deskWords: ["Product", "Systems", "Research", "Design", "Technology"],
+      managementWords: [
+        "Leadership",
+        "People",
+        "Event Coordination",
+        "Project Management",
+      ],
     },
     building: {
       eyebrow: "Building",
@@ -311,6 +318,7 @@ const DICT = {
         "Primero entiendo el trabajo. Despu\u00e9s construyo alrededor de \u00e9l.",
       fieldLabel: "FIELD",
       deskLabel: "DESK",
+      managementLabel: "MANAGEMENT",
       fieldWords: [
         "Operaciones",
         "Seguridad",
@@ -324,6 +332,12 @@ const DICT = {
         "Investigaci\u00f3n",
         "Dise\u00f1o",
         "Tecnolog\u00eda",
+      ],
+      managementWords: [
+        "Liderazgo",
+        "Personas",
+        "Coordinaci\u00f3n de eventos",
+        "Gesti\u00f3n de proyectos",
       ],
     },
     building: {
