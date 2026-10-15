@@ -24,8 +24,7 @@ const DICT = {
     },
     hero: {
       role: "Hello, I'm",
-      headline:
-        "I've worked industrial sites in boots and built software from a desk.",
+      headline: "I work across operations, projects, and technology.",
       subheadline: "I like order, design, discipline, and technology.",
       ctaWork: "View My Work",
       ctaNotes: "Read My Notes",
