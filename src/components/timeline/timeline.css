@@ -109,7 +109,7 @@
 }
 
 .timeline-event.is-span.is-active {
-  z-index: 2;
+  z-index: 1;
 }
 
 .timeline-event.is-point.is-active {
@@ -206,6 +206,22 @@
   background: rgb(var(--ph-seam));
 }
 
+.timeline-floor .timeline-event.is-active.is-field:not(.is-desk) .timeline-event-dot {
+  background: rgb(var(--ph-lime));
+}
+
+.timeline-floor .timeline-event.is-active.is-desk:not(.is-field) .timeline-event-dot {
+  background: rgb(var(--ph-electric));
+}
+
+.timeline-floor .timeline-event.is-active.is-field.is-desk .timeline-event-dot {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--ph-lime)) 0%,
+    rgb(var(--ph-electric)) 100%
+  );
+}
+
 .timeline-event.is-active .timeline-event-dot {
   transform: scale(1.45);
 }
@@ -282,34 +298,40 @@
   transform: scaleX(1);
 }
 
-.timeline-event-range-seg {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
+.timeline-event-range-fill.is-management {
+  background: rgb(var(--ph-seam));
 }
 
-.timeline-event-range-seg.is-field {
-  background-color: rgb(var(--ph-lime));
+.timeline-event-range-fill.is-field {
+  background: rgb(var(--ph-lime));
 }
 
-.timeline-event-range-seg.is-desk {
-  background-color: rgb(var(--ph-electric));
+.timeline-event-range-fill.is-desk {
+  background: rgb(var(--ph-electric));
 }
 
-.timeline-event-range-seg.is-seam,
-.timeline-event-range-seg.is-management {
-  background-color: rgb(var(--ph-seam));
+.timeline-event-range-fill.is-blend {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--ph-lime)) 0%,
+    rgb(var(--ph-electric)) 100%
+  );
 }
 
-.timeline-event-range-seg.is-seam {
-  width: 1rem;
-  transform: translateX(-50%);
-  z-index: 1;
+.timeline-event-range-fill.is-world {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--ph-lime)) 0%,
+    rgb(var(--ph-lime)) calc(var(--seam) - 1.25rem),
+    rgb(var(--ph-seam)) var(--seam),
+    rgb(var(--ph-electric)) calc(var(--seam) + 1.25rem),
+    rgb(var(--ph-electric)) 100%
+  );
 }
 
 .timeline-event-display {
   position: relative;
+  display: grid;
   box-sizing: border-box;
   width: auto;
   max-width: none;
@@ -320,10 +342,9 @@
 }
 
 .timeline-event-piece {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
+  position: relative;
+  grid-area: 1 / 1;
+  align-self: start;
   display: block;
   width: 100%;
   container-type: inline-size;

@@ -31,6 +31,8 @@ function rangeWorlds(left: number, width: number, worldSeam: number) {
   };
 }
 
+type RangeTone = "management" | "field" | "desk" | "blend" | "world";
+
 export function TimelineRangeFill({
   left,
   width,
@@ -40,57 +42,55 @@ export function TimelineRangeFill({
   left: number;
   width: number;
   worldSeam: number;
-  tone?: "world" | "management";
+  tone?: RangeTone;
 }) {
-  if (tone === "management") {
+  const worlds = rangeWorlds(left, width, worldSeam);
+  const paint =
+    tone === "blend" && worlds.crosses
+      ? "world"
+      : tone === "world" && !worlds.crosses
+        ? worlds.deskWidth > 0
+          ? "desk"
+          : "field"
+        : tone;
+
+  if (paint === "world") {
     return (
-      <span className="timeline-event-range-fill">
-        <span
-          className="timeline-event-range-seg is-management"
-          style={{ width: "100%" }}
-        />
-      </span>
+      <span
+        className="timeline-event-range-fill is-world"
+        style={{ "--seam": `${worlds.seamLeft}%` } as CSSProperties}
+      />
     );
   }
 
-  const worlds = rangeWorlds(left, width, worldSeam);
+  return <span className={`timeline-event-range-fill is-${paint}`} />;
+}
 
-  return (
-    <span className="timeline-event-range-fill">
-      {worlds.fieldWidth > 0 ? (
-        <span
-          className="timeline-event-range-seg is-field"
-          style={{ width: `${worlds.fieldWidth}%` }}
-        />
-      ) : null}
-      {worlds.crosses ? (
-        <span
-          className="timeline-event-range-seg is-seam"
-          style={{ left: `${worlds.seamLeft}%` }}
-        />
-      ) : null}
-      {worlds.deskWidth > 0 ? (
-        <span
-          className="timeline-event-range-seg is-desk"
-          style={{
-            left: `${worlds.deskLeft}%`,
-            width: `${worlds.deskWidth}%`,
-          }}
-        />
-      ) : null}
-    </span>
-  );
+function rangeTone(event: TimelineEventData): RangeTone {
+  const field = Boolean(event.field?.length);
+  const desk = Boolean(event.desk?.length);
+  const management = Boolean(event.management?.length);
+  if (management && !field && !desk) return "management";
+  if (field && desk) return "blend";
+  if (field) return "field";
+  if (desk) return "desk";
+  return "world";
 }
 
 function endpointTone(
   event: TimelineEventData,
   edge: number,
   worldSeam: number,
-  which: "start" | "end"
+  which: "start" | "end",
+  crosses: boolean
 ) {
-  if (event.management?.length && !event.field?.length && !event.desk?.length) {
-    return "management";
-  }
+  const field = Boolean(event.field?.length);
+  const desk = Boolean(event.desk?.length);
+  const management = Boolean(event.management?.length);
+  if (management && !field && !desk) return "management";
+  if (field && !desk) return "field";
+  if (desk && !field) return "desk";
+  if (field && desk && !crosses) return which === "start" ? "field" : "desk";
   if (which === "start") return edge < worldSeam ? "field" : "desk";
   return edge > worldSeam ? "desk" : "field";
 }
@@ -108,12 +108,16 @@ export function TimelineEvent({
   const copy = applyTimelineCopy(event, lang);
   const span = getEventSpan(event.year);
   const isRange = Boolean(span && span.end > span.start);
-  const startTone = endpointTone(event, left, worldSeam, "start");
-  const endTone = endpointTone(event, left + width, worldSeam, "end");
+  const crosses = left < worldSeam && left + width > worldSeam;
+  const tone = rangeTone(event);
+  const startTone = endpointTone(event, left, worldSeam, "start", crosses);
+  const endTone = endpointTone(event, left + width, worldSeam, "end", crosses);
   const className = [
     "timeline-event",
     isActive ? "is-active" : "",
     isRange ? "is-span" : "is-point",
+    event.field?.length ? "is-field" : "",
+    event.desk?.length ? "is-desk" : "",
     event.management?.length ? "is-management" : "",
   ]
     .filter(Boolean)
@@ -162,7 +166,7 @@ export function TimelineEvent({
                 left={left}
                 width={width}
                 worldSeam={worldSeam}
-                tone={startTone === "management" ? "management" : "world"}
+                tone={tone}
               />
             </span>
             <span className={`timeline-event-tick is-start is-${startTone}`} />
