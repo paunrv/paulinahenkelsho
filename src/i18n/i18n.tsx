@@ -24,8 +24,7 @@ const DICT = {
     },
     hero: {
       role: "Hello, I'm",
-      headline:
-        "I've worked industrial sites in boots and built software from a desk.",
+      headline: "I work across operations, projects, and technology.",
       subheadline: "I like order, design, discipline, and technology.",
       ctaWork: "View My Work",
       ctaNotes: "Read My Notes",
@@ -44,9 +43,9 @@ const DICT = {
       principles: ["Listen.", "Understand.", "Simplify.", "Build.", "Iterate."],
     },
     fieldDesk: {
-      core: "I work between the physical and the digital.",
-      headline: "Different environments. Same way of thinking.",
-      support: "I understand the work first. Then I build around it.",
+      core: "People, operations, and technology.",
+      headline: "Different environments. The same good judgment.",
+      support: "First, I understand the context.",
       fieldLabel: "FIELD",
       deskLabel: "DESK",
       fieldWords: [
@@ -279,8 +278,7 @@ const DICT = {
     },
     hero: {
       role: "Hola, soy",
-      headline:
-        "Cumplo la normativa industrial en botas y casco, o construyo software desde mi escritorio.",
+      headline: "Trabajo entre operaciones, proyectos y tecnolog\u00eda.",
       subheadline: "Me gusta el orden, el dise\u00f1o, la disciplina y la tecnolog\u00eda.",
       ctaWork: "Ver mi trabajo",
       ctaNotes: "Leer mis notas",
@@ -305,10 +303,9 @@ const DICT = {
       ],
     },
     fieldDesk: {
-      core: "Trabajo entre lo f\u00edsico y lo digital.",
-      headline: "Entornos distintos. La misma forma de pensar.",
-      support:
-        "Primero entiendo el trabajo. Despu\u00e9s construyo alrededor de \u00e9l.",
+      core: "Personas, operaciones y tecnolog\u00eda.",
+      headline: "Distintos entornos. Un mismo criterio.",
+      support: "Primero entiendo el contexto.",
       fieldLabel: "FIELD",
       deskLabel: "DESK",
       fieldWords: [
