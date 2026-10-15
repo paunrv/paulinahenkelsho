@@ -23,10 +23,10 @@ const DICT = {
       cv: "CV",
     },
     hero: {
-      role: "Hello, I'm",
-      headline:
-        "I've worked industrial sites in boots and built software from a desk.",
-      subheadline: "I like order, design, discipline, and technology.",
+      role: "EXECUTIVE & PERSONAL OPERATIONS",
+      headline: "I connect people, solve problems, and make things happen.",
+      subheadline:
+        "Experience across industrial operations, project management, and technology. Clear communication, sound judgment, and follow-through from start to finish.",
       ctaWork: "View My Work",
       ctaNotes: "Read My Notes",
     },
@@ -278,10 +278,11 @@ const DICT = {
       cv: "CV",
     },
     hero: {
-      role: "Hola, soy",
+      role: "EXECUTIVE & PERSONAL OPERATIONS",
       headline:
-        "Cumplo la normativa industrial en botas y casco, o construyo software desde mi escritorio.",
-      subheadline: "Me gusta el orden, el dise\u00f1o, la disciplina y la tecnolog\u00eda.",
+        "Conecto personas, resuelvo problemas y hago que las cosas avancen.",
+      subheadline:
+        "Experiencia en operaciones industriales, gesti\u00f3n de proyectos y tecnolog\u00eda. Comunicaci\u00f3n, criterio y seguimiento de principio a fin.",
       ctaWork: "Ver mi trabajo",
       ctaNotes: "Leer mis notas",
     },
