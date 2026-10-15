@@ -77,8 +77,9 @@ const MANAGEMENT_EVENT_COPY = {
       progression: "200 participants",
     },
     "startup-weekend-ensenada": {
-      title: "Production and logistics committee.",
+      title: "Startup Weekend Ensenada by Google",
       organization: "Startup Weekend Ensenada by Google",
+      context: "Production and logistics committee.",
     },
     "summer-camp": {
       title: "Project Manager",
@@ -122,13 +123,14 @@ const MANAGEMENT_EVENT_COPY = {
       progression: "200 participantes",
     },
     "startup-weekend-ensenada": {
-      title: "Comité de producción y logística.",
+      title: "Startup Weekend Ensenada by Google",
       organization: "Startup Weekend Ensenada by Google",
+      context: "Comité de producción y logística.",
     },
     "summer-camp": {
       title: "Gerente de proyecto",
       organization:
-        "Gerente de proyecto — Campamento de verano en Hotel Coral & Marina",
+        "Project Manager — Campamento de verano en Hotel Coral & Marina",
       context:
         "Programa de cuatro semanas para preadolescentes y adolescentes · Actividades en el mar · 50 participantes inscritos",
     },

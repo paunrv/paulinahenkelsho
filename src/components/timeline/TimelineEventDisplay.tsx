@@ -94,21 +94,72 @@ export function TimelineEventDisplay({
   );
 }
 
+const PROJECT_DETAIL_IDS = new Set([
+  "startup-weekend-ensenada",
+  "summer-camp",
+  "tkd-olympic-bootcamp",
+]);
+
+function phraseBreaks(text: string) {
+  const parts = text.split(" · ");
+  if (parts.length < 2) return text;
+  return parts.map((part, index) => (
+    <span key={`${part}-${index}`} className="timeline-event-piece-phrase">
+      {part}
+      {index < parts.length - 1 ? (
+        <span className="timeline-event-piece-sep">{"\u00a0·\u00a0"}</span>
+      ) : null}
+    </span>
+  ));
+}
+
+function CampTitle({ text }: { text: string }) {
+  const marker = " — ";
+  const splitAt = text.indexOf(marker);
+  if (splitAt < 0) return text;
+  const lead = text.slice(0, splitAt + marker.length);
+  const name = text.slice(splitAt + marker.length);
+  const hotel = "Coral & Marina";
+  const hotelAt = name.lastIndexOf(hotel);
+  const before = hotelAt >= 0 ? name.slice(0, hotelAt) : name;
+  const ending = hotelAt >= 0 ? name.slice(hotelAt) : "";
+
+  return (
+    <>
+      <span className="timeline-event-piece-title-lead">{lead}</span>
+      <span className="timeline-event-piece-title-name">
+        {before}
+        {ending ? (
+          <span className="timeline-event-piece-keep">{ending}</span>
+        ) : null}
+      </span>
+    </>
+  );
+}
+
 function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
   const { event, emoji, left } = piece;
   const isJob = event.type === "job";
+  const isProject = PROJECT_DETAIL_IDS.has(event.id);
+  const isCamp = event.id === "summer-camp";
   const organization = event.organization ?? (isJob ? event.title : undefined);
   const context = event.context ?? event.subtitle;
   const role =
     event.organization && event.title !== event.organization
       ? event.title
       : undefined;
+  const pieceClass = [
+    "timeline-event-piece",
+    active ? "is-in" : "",
+    isProject ? "is-project" : "",
+    isCamp ? "is-camp" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <div
-      className={
-        active ? "timeline-event-piece is-in" : "timeline-event-piece"
-      }
+      className={pieceClass}
       style={{ "--active-left": String(left) } as CSSProperties}
     >
       <div className="timeline-event-piece-emoji" aria-hidden>
@@ -123,12 +174,20 @@ function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
         {isJob ? (
           <>
             {organization ? (
-              <p className="timeline-event-piece-title">{organization}</p>
+              <p className="timeline-event-piece-title">
+                {isCamp ? <CampTitle text={organization} /> : organization}
+              </p>
             ) : null}
             {context ? (
-              <p className="timeline-event-piece-context">{context}</p>
+              <p className="timeline-event-piece-context">
+                {isProject ? phraseBreaks(context) : context}
+              </p>
             ) : null}
-            {role ? <p className="timeline-event-piece-role">{role}</p> : null}
+            {role ? (
+              <p className="timeline-event-piece-role">
+                {isProject ? phraseBreaks(role) : role}
+              </p>
+            ) : null}
             {event.progression ? (
               <p className="timeline-event-piece-progression">
                 {event.progression}

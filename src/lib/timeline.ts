@@ -87,8 +87,9 @@ export const TIMELINE_EVENTS = [
   {
     id: "startup-weekend-ensenada",
     year: "2013–2015",
-    title: "Production and logistics committee.",
+    title: "Startup Weekend Ensenada by Google",
     organization: "Startup Weekend Ensenada by Google",
+    context: "Production and logistics committee.",
     type: "job",
     management: ["event-coordination", "project-management"],
   },
