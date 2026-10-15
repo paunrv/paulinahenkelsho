@@ -44,9 +44,9 @@ const DICT = {
       principles: ["Listen.", "Understand.", "Simplify.", "Build.", "Iterate."],
     },
     fieldDesk: {
-      core: "I work between the physical and the digital.",
-      headline: "Different environments. Same way of thinking.",
-      support: "I understand the work first. Then I build around it.",
+      core: "People, operations, and technology.",
+      headline: "Different environments. The same good judgment.",
+      support: "First, I understand the context.",
       fieldLabel: "FIELD",
       deskLabel: "DESK",
       fieldWords: [
@@ -305,10 +305,9 @@ const DICT = {
       ],
     },
     fieldDesk: {
-      core: "Trabajo entre lo f\u00edsico y lo digital.",
-      headline: "Entornos distintos. La misma forma de pensar.",
-      support:
-        "Primero entiendo el trabajo. Despu\u00e9s construyo alrededor de \u00e9l.",
+      core: "Personas, operaciones y tecnolog\u00eda.",
+      headline: "Distintos entornos. Un mismo criterio.",
+      support: "Primero entiendo el contexto.",
       fieldLabel: "FIELD",
       deskLabel: "DESK",
       fieldWords: [
