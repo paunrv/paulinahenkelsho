@@ -268,11 +268,40 @@
   background-color: rgb(var(--ph-electric));
 }
 
+.timeline-event-range-seg.is-seam,
+.timeline-event-range-seg.is-management {
+  background-color: rgb(var(--ph-seam));
+}
+
 .timeline-event-range-seg.is-seam {
   width: 1rem;
   transform: translateX(-50%);
-  background-color: rgb(var(--ph-seam));
   z-index: 1;
+}
+
+.timeline-series {
+  position: absolute;
+  z-index: 0;
+  left: var(--timeline-gutter);
+  right: var(--timeline-gutter);
+  top: calc(var(--timeline-year-row) + (var(--timeline-mark-row) / 2));
+  height: 0;
+  pointer-events: none;
+}
+
+.timeline-series-bar {
+  position: absolute;
+  top: 0;
+  height: 5px;
+  margin-top: -2.5px;
+}
+
+.timeline-series.is-active .timeline-event-range-fill {
+  transform: scaleX(1);
+}
+
+.timeline-event.is-management .timeline-event-range-arrow {
+  color: rgb(26 34 30);
 }
 
 .timeline-event-range-arrow {
@@ -461,6 +490,13 @@
   .timeline-event-piece-emoji {
     font-size: 1.7rem;
   }
+
+  .timeline-event-piece-title,
+  .timeline-event-piece-context,
+  .timeline-event-piece-role,
+  .timeline-event-piece-progression {
+    max-width: min(36rem, calc(100vw - 3rem));
+  }
 }
 
 @media (min-width: 1024px) {
@@ -516,7 +552,8 @@
     transform: scaleX(1);
   }
 
-  .timeline-humi-era.is-active .timeline-event-range-fill {
+  .timeline-humi-era.is-active .timeline-event-range-fill,
+  .timeline-series.is-active .timeline-event-range-fill {
     transform: scaleX(1);
   }
 

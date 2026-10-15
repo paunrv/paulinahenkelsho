@@ -39,6 +39,8 @@ export type TimelineEventData = {
   field?: readonly FieldDiscipline[];
   desk?: readonly DeskDiscipline[];
   management?: readonly ManagementDiscipline[];
+  /** Point events that stay individually selectable and share one connector. */
+  series?: string;
 };
 
 export type TimelineYearSpan = {
@@ -85,18 +87,10 @@ export const TIMELINE_EVENTS = [
     ],
   },
   {
-    id: "startup-weekend-2014",
-    year: "2014",
-    title: "Production and logistics committee",
-    organization: "Startup Weekend Ensenada",
-    type: "job",
-    management: ["event-coordination", "project-management"],
-  },
-  {
-    id: "startup-weekend-2015",
-    year: "2015",
-    title: "Production and logistics committee",
-    organization: "Startup Weekend Ensenada",
+    id: "startup-weekend-ensenada",
+    year: "2013–2015",
+    title: "Production and logistics committee.",
+    organization: "Startup Weekend Ensenada by Google",
     type: "job",
     management: ["event-coordination", "project-management"],
   },
@@ -214,31 +208,34 @@ export const TIMELINE_EVENTS = [
   {
     id: "tkd-games-2022",
     year: "2022",
-    title: "Sports logistics",
+    title: "Taekwondo Games",
     organization: "Taekwondo Games",
-    context: "Eight-hour event",
-    progression: "300 participants",
+    context:
+      "Annual Taekwondo Games event. Eight-hour competition with 300 participants. Sports logistics.",
     type: "job",
+    series: "taekwondo-games",
     management: ["people", "event-coordination"],
   },
   {
     id: "tkd-games-2023",
     year: "2023",
-    title: "Sports logistics",
+    title: "Taekwondo Games",
     organization: "Taekwondo Games",
-    context: "Eight-hour event",
-    progression: "300 participants",
+    context:
+      "Annual Taekwondo Games event. Eight-hour competition with 300 participants. Sports logistics.",
     type: "job",
+    series: "taekwondo-games",
     management: ["people", "event-coordination"],
   },
   {
     id: "tkd-games-2024",
     year: "2024",
-    title: "Sports logistics",
+    title: "Taekwondo Games",
     organization: "Taekwondo Games",
-    context: "Eight-hour event",
-    progression: "300 participants",
+    context:
+      "Annual Taekwondo Games event. Eight-hour competition with 300 participants. Sports logistics.",
     type: "job",
+    series: "taekwondo-games",
     management: ["people", "event-coordination"],
   },
   {
@@ -396,4 +393,45 @@ export function getEventPlacement(
   const width = Math.max(0, endLeft - startLeft);
   const anchor = width > 0 ? startLeft + width / 2 : left;
   return { left, width, anchor };
+}
+
+export type TimelineSeriesBar = {
+  id: string;
+  left: number;
+  width: number;
+  active: boolean;
+  tone: "management";
+};
+
+/** Connector across individually selectable editions of one recurring event. */
+export function getRecurringSeries(
+  events: readonly TimelineEventData[],
+  domain: TimelineDomain,
+  activeEventId: string | null
+): TimelineSeriesBar[] {
+  const groups = new Map<string, TimelineEventData[]>();
+  for (const event of events) {
+    if (!event.series) continue;
+    const members = groups.get(event.series) ?? [];
+    members.push(event);
+    groups.set(event.series, members);
+  }
+
+  const bars: TimelineSeriesBar[] = [];
+  for (const [id, members] of groups) {
+    if (members.length < 2) continue;
+    const anchors = members.map(
+      (item) => getEventPlacement(item, events, domain).anchor
+    );
+    const left = Math.min(...anchors);
+    const right = Math.max(...anchors);
+    bars.push({
+      id,
+      left,
+      width: Math.max(0, right - left),
+      active: members.some((item) => item.id === activeEventId),
+      tone: "management",
+    });
+  }
+  return bars;
 }

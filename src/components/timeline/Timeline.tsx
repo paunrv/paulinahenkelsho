@@ -13,6 +13,7 @@ import {
   HUMI_IDS,
   getEventPlacement,
   getEventSpan,
+  getRecurringSeries,
   getTimelineDomain,
   yearToPercent,
 } from "@/lib/timeline";
@@ -129,6 +130,10 @@ export function Timeline({
     humiLeft != null && humiRight != null
       ? { left: humiLeft, width: Math.max(0, humiRight - humiLeft) }
       : null;
+  const seriesBars = useMemo(
+    () => getRecurringSeries(events, domain, activeEventId),
+    [events, domain, activeEventId]
+  );
   const revealingBorn = activeEventId == null || activeEventId === "born";
   const humiActive =
     activeEventId != null && HUMI_IDS.has(activeEventId);
@@ -167,6 +172,27 @@ export function Timeline({
               </div>
             </div>
           ) : null}
+          {seriesBars.map((bar) => (
+            <div
+              key={bar.id}
+              className={
+                bar.active ? "timeline-series is-active" : "timeline-series"
+              }
+              aria-hidden
+            >
+              <div
+                className="timeline-series-bar"
+                style={{ left: `${bar.left}%`, width: `${bar.width}%` }}
+              >
+                <span className="timeline-event-range-fill">
+                  <span
+                    className="timeline-event-range-seg is-management"
+                    style={{ width: "100%" }}
+                  />
+                </span>
+              </div>
+            </div>
+          ))}
           <ol className="timeline-track">
             {events.map((item) => {
               const placement = getEventPlacement(item, events, domain);

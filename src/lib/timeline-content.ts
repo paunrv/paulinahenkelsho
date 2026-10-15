@@ -5,8 +5,7 @@ export const TIMELINE_EMOJIS = {
   "black-belt": "🥷",
   "humi-first-anniversary": "⛩️",
   "congreso-di-geek": "🎤",
-  "startup-weekend-2014": "🏁",
-  "startup-weekend-2015": "🏁",
+  "startup-weekend-ensenada": "🏁",
   "first-job": "👩‍💻",
   "summer-camp-2016": "🌊",
   "summer-camp-2017": "🌊",
@@ -35,8 +34,8 @@ export const TIMELINE_SCRIPTS = {
   "humi-first-anniversary": "Mi primer servicio, sin tener un plan.",
   "congreso-di-geek":
     "Dos días, doscientos participantes, y el comité del evento.",
-  "startup-weekend-2014": "Producción y logística en Startup Weekend.",
-  "startup-weekend-2015": "Otra edición. La misma mesa de producción.",
+  "startup-weekend-ensenada":
+    "Tres años en el comité de producción y logística.",
   "first-job":
     "El primer lugar donde la idea tuvo que sobrevivir al mundo real.",
   "summer-camp-2016":
@@ -54,9 +53,12 @@ export const TIMELINE_SCRIPTS = {
   "safety-project-management":
     "Aprendí que un sistema también tiene que resistir.",
   "ki-game-2021": "Tres días de CrossFit y taekwondo.",
-  "tkd-games-2022": "Logística deportiva. Ocho horas, trescientos participantes.",
-  "tkd-games-2023": "La misma logística, otra edición.",
-  "tkd-games-2024": "Tercera edición de los Taekwondo Games.",
+  "tkd-games-2022":
+    "Edición anual. Ocho horas y trescientos participantes.",
+  "tkd-games-2023":
+    "Edición anual. Ocho horas y trescientos participantes.",
+  "tkd-games-2024":
+    "Edición anual. Ocho horas y trescientos participantes.",
   "field-operations-responsibility":
     "Más responsabilidad. Menos margen para improvisar.",
   "sunday-funday-2025": "Una master class con un peleador de UFC.",
@@ -88,13 +90,9 @@ const MANAGEMENT_EVENT_COPY = {
       context: "Two-day event",
       progression: "200 participants",
     },
-    "startup-weekend-2014": {
-      title: "Production and logistics committee",
-      organization: "Startup Weekend Ensenada",
-    },
-    "startup-weekend-2015": {
-      title: "Production and logistics committee",
-      organization: "Startup Weekend Ensenada",
+    "startup-weekend-ensenada": {
+      title: "Production and logistics committee.",
+      organization: "Startup Weekend Ensenada by Google",
     },
     "summer-camp-2016": {
       title: "Summer Camp at Hotel Coral & Marina",
@@ -127,22 +125,22 @@ const MANAGEMENT_EVENT_COPY = {
       progression: "50 participants",
     },
     "tkd-games-2022": {
-      title: "Sports logistics",
+      title: "Taekwondo Games",
       organization: "Taekwondo Games",
-      context: "Eight-hour event",
-      progression: "300 participants",
+      context:
+        "Annual Taekwondo Games event. Eight-hour competition with 300 participants. Sports logistics.",
     },
     "tkd-games-2023": {
-      title: "Sports logistics",
+      title: "Taekwondo Games",
       organization: "Taekwondo Games",
-      context: "Eight-hour event",
-      progression: "300 participants",
+      context:
+        "Annual Taekwondo Games event. Eight-hour competition with 300 participants. Sports logistics.",
     },
     "tkd-games-2024": {
-      title: "Sports logistics",
+      title: "Taekwondo Games",
       organization: "Taekwondo Games",
-      context: "Eight-hour event",
-      progression: "300 participants",
+      context:
+        "Annual Taekwondo Games event. Eight-hour competition with 300 participants. Sports logistics.",
     },
     "sunday-funday-2025": {
       title: "Sunday Funday Master Class",
@@ -157,13 +155,9 @@ const MANAGEMENT_EVENT_COPY = {
       context: "Evento de dos días",
       progression: "200 participantes",
     },
-    "startup-weekend-2014": {
-      title: "Comité de producción y logística",
-      organization: "Startup Weekend Ensenada",
-    },
-    "startup-weekend-2015": {
-      title: "Comité de producción y logística",
-      organization: "Startup Weekend Ensenada",
+    "startup-weekend-ensenada": {
+      title: "Comité de producción y logística.",
+      organization: "Startup Weekend Ensenada by Google",
     },
     "summer-camp-2016": {
       title: "Campamento de verano en Hotel Coral & Marina",
@@ -196,22 +190,22 @@ const MANAGEMENT_EVENT_COPY = {
       progression: "50 participantes",
     },
     "tkd-games-2022": {
-      title: "Logística deportiva",
+      title: "Taekwondo Games",
       organization: "Taekwondo Games",
-      context: "Evento de ocho horas",
-      progression: "300 participantes",
+      context:
+        "Edición anual de Taekwondo Games. Evento deportivo de ocho horas con 300 participantes. Logística deportiva.",
     },
     "tkd-games-2023": {
-      title: "Logística deportiva",
+      title: "Taekwondo Games",
       organization: "Taekwondo Games",
-      context: "Evento de ocho horas",
-      progression: "300 participantes",
+      context:
+        "Edición anual de Taekwondo Games. Evento deportivo de ocho horas con 300 participantes. Logística deportiva.",
     },
     "tkd-games-2024": {
-      title: "Logística deportiva",
+      title: "Taekwondo Games",
       organization: "Taekwondo Games",
-      context: "Evento de ocho horas",
-      progression: "300 participantes",
+      context:
+        "Edición anual de Taekwondo Games. Evento deportivo de ocho horas con 300 participantes. Logística deportiva.",
     },
     "sunday-funday-2025": {
       title: "Sunday Funday Master Class",

@@ -35,11 +35,24 @@ export function TimelineRangeFill({
   left,
   width,
   worldSeam,
+  tone = "world",
 }: {
   left: number;
   width: number;
   worldSeam: number;
+  tone?: "world" | "management";
 }) {
+  if (tone === "management") {
+    return (
+      <span className="timeline-event-range-fill">
+        <span
+          className="timeline-event-range-seg is-management"
+          style={{ width: "100%" }}
+        />
+      </span>
+    );
+  }
+
   const worlds = rangeWorlds(left, width, worldSeam);
 
   return (
@@ -134,6 +147,13 @@ export function TimelineEvent({
                 left={left}
                 width={width}
                 worldSeam={worldSeam}
+                tone={
+                  event.management?.length &&
+                  !event.field?.length &&
+                  !event.desk?.length
+                    ? "management"
+                    : "world"
+                }
               />
               <span className="timeline-event-range-arrow">→</span>
             </span>
