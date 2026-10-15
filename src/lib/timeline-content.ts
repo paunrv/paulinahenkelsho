@@ -10,15 +10,12 @@ export const TIMELINE_EMOJIS = {
   "summer-camp-2016": "🌊",
   "summer-camp-2017": "🌊",
   "digital-design-engineering": "🎓",
-  "tkd-bootcamp-2018": "🥋",
+  "tkd-olympic-bootcamp": "🥋",
   "field-operations-environmental-monitoring": "👷‍♀️",
-  "tkd-bootcamp-2019": "🥋",
   "trato-hecho-product-owner": "🚀",
   "ki-game-2021": "🏋️",
   "safety-project-management": "♻️",
-  "tkd-games-2022": "🥇",
-  "tkd-games-2023": "🥇",
-  "tkd-games-2024": "🥇",
+  "taekwondo-games": "🥇",
   "field-operations-responsibility": "⚙️",
   "sunday-funday-2025": "☀️",
   "humi-16-years": "⛩️",
@@ -45,20 +42,15 @@ export const TIMELINE_SCRIPTS = {
   "trato-hecho-product-owner":
     "El primer lugar donde producto, negocio y usuario tuvieron que encontrarse.",
   "digital-design-engineering": "Aprendí a pensar entre disciplinas.",
-  "tkd-bootcamp-2018":
-    "Logística internacional para trescientos participantes.",
+  "tkd-olympic-bootcamp":
+    "Master classes con campeones olímpicos. Logística internacional, desarrollo y ejecución del programa.",
   "field-operations-environmental-monitoring":
     "Del escritorio al campo. Datos, sistemas y condiciones reales.",
-  "tkd-bootcamp-2019": "Segunda edición. El mismo oficio de logística.",
   "safety-project-management":
     "Aprendí que un sistema también tiene que resistir.",
   "ki-game-2021": "Tres días de CrossFit y taekwondo.",
-  "tkd-games-2022":
-    "Edición anual. Ocho horas y trescientos participantes.",
-  "tkd-games-2023":
-    "Edición anual. Ocho horas y trescientos participantes.",
-  "tkd-games-2024":
-    "Edición anual. Ocho horas y trescientos participantes.",
+  "taekwondo-games":
+    "Evento anual. Logística deportiva. 300 participantes.",
   "field-operations-responsibility":
     "Más responsabilidad. Menos margen para improvisar.",
   "sunday-funday-2025": "Una master class con un peleador de UFC.",
@@ -106,17 +98,10 @@ const MANAGEMENT_EVENT_COPY = {
       context: "Six-week program · ages 5–15",
       progression: "250 students per week",
     },
-    "tkd-bootcamp-2018": {
-      title: "International logistics and event manager",
-      organization: "1st TKD Olympic Bootcamp",
-      context: "Guest: Carlo Molfetta",
-      progression: "300 participants",
-    },
-    "tkd-bootcamp-2019": {
-      title: "International logistics and event manager",
-      organization: "2nd TKD Olympic Bootcamp",
-      context: "Guest: Joel González",
-      progression: "300 participants",
+    "tkd-olympic-bootcamp": {
+      title: "International logistics · Program development · Execution",
+      organization: "TKD Olympic Bootcamp",
+      context: "Master classes with Olympic champions",
     },
     "ki-game-2021": {
       title: "Ki-Game",
@@ -124,23 +109,10 @@ const MANAGEMENT_EVENT_COPY = {
       context: "Three-day event · CrossFit and Taekwondo",
       progression: "50 participants",
     },
-    "tkd-games-2022": {
+    "taekwondo-games": {
       title: "Taekwondo Games",
       organization: "Taekwondo Games",
-      context:
-        "Annual Taekwondo Games event. Eight-hour competition with 300 participants. Sports logistics.",
-    },
-    "tkd-games-2023": {
-      title: "Taekwondo Games",
-      organization: "Taekwondo Games",
-      context:
-        "Annual Taekwondo Games event. Eight-hour competition with 300 participants. Sports logistics.",
-    },
-    "tkd-games-2024": {
-      title: "Taekwondo Games",
-      organization: "Taekwondo Games",
-      context:
-        "Annual Taekwondo Games event. Eight-hour competition with 300 participants. Sports logistics.",
+      context: "Annual event · Sports logistics · 300 participants",
     },
     "sunday-funday-2025": {
       title: "Sunday Funday Master Class",
@@ -171,17 +143,10 @@ const MANAGEMENT_EVENT_COPY = {
       context: "Programa de seis semanas · 5 a 15 años",
       progression: "250 estudiantes por semana",
     },
-    "tkd-bootcamp-2018": {
-      title: "Logística internacional y gestión del evento",
-      organization: "1.er Bootcamp olímpico de TKD",
-      context: "Invitado: Carlo Molfetta",
-      progression: "300 participantes",
-    },
-    "tkd-bootcamp-2019": {
-      title: "Logística internacional y gestión del evento",
-      organization: "2.º Bootcamp olímpico de TKD",
-      context: "Invitado: Joel González",
-      progression: "300 participantes",
+    "tkd-olympic-bootcamp": {
+      title: "Logística internacional · Desarrollo y ejecución del programa",
+      organization: "TKD Olympic Bootcamp",
+      context: "Master classes con campeones olímpicos",
     },
     "ki-game-2021": {
       title: "Ki-Game",
@@ -189,23 +154,10 @@ const MANAGEMENT_EVENT_COPY = {
       context: "Evento de tres días · CrossFit y Taekwondo",
       progression: "50 participantes",
     },
-    "tkd-games-2022": {
+    "taekwondo-games": {
       title: "Taekwondo Games",
       organization: "Taekwondo Games",
-      context:
-        "Edición anual de Taekwondo Games. Evento deportivo de ocho horas con 300 participantes. Logística deportiva.",
-    },
-    "tkd-games-2023": {
-      title: "Taekwondo Games",
-      organization: "Taekwondo Games",
-      context:
-        "Edición anual de Taekwondo Games. Evento deportivo de ocho horas con 300 participantes. Logística deportiva.",
-    },
-    "tkd-games-2024": {
-      title: "Taekwondo Games",
-      organization: "Taekwondo Games",
-      context:
-        "Edición anual de Taekwondo Games. Evento deportivo de ocho horas con 300 participantes. Logística deportiva.",
+      context: "Evento anual · Logística deportiva · 300 participantes",
     },
     "sunday-funday-2025": {
       title: "Sunday Funday Master Class",

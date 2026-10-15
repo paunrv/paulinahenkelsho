@@ -82,6 +82,19 @@ export function TimelineRangeFill({
   );
 }
 
+function endpointTone(
+  event: TimelineEventData,
+  edge: number,
+  worldSeam: number,
+  which: "start" | "end"
+) {
+  if (event.management?.length && !event.field?.length && !event.desk?.length) {
+    return "management";
+  }
+  if (which === "start") return edge < worldSeam ? "field" : "desk";
+  return edge > worldSeam ? "desk" : "field";
+}
+
 export function TimelineEvent({
   event,
   isActive = false,
@@ -95,6 +108,8 @@ export function TimelineEvent({
   const copy = applyTimelineCopy(event, lang);
   const span = getEventSpan(event.year);
   const isRange = Boolean(span && span.end > span.start);
+  const startTone = endpointTone(event, left, worldSeam, "start");
+  const endTone = endpointTone(event, left + width, worldSeam, "end");
   const className = [
     "timeline-event",
     isActive ? "is-active" : "",
@@ -147,18 +162,11 @@ export function TimelineEvent({
                 left={left}
                 width={width}
                 worldSeam={worldSeam}
-                tone={
-                  event.management?.length &&
-                  !event.field?.length &&
-                  !event.desk?.length
-                    ? "management"
-                    : "world"
-                }
+                tone={startTone === "management" ? "management" : "world"}
               />
-              <span className="timeline-event-range-arrow">→</span>
             </span>
-            <span className="timeline-event-tick" />
-            <span className="timeline-event-tick" />
+            <span className={`timeline-event-tick is-start is-${startTone}`} />
+            <span className={`timeline-event-tick is-end is-${endTone}`} />
           </div>
         ) : (
           <span

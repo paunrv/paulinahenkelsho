@@ -39,8 +39,6 @@ export type TimelineEventData = {
   field?: readonly FieldDiscipline[];
   desk?: readonly DeskDiscipline[];
   management?: readonly ManagementDiscipline[];
-  /** Point events that stay individually selectable and share one connector. */
-  series?: string;
 };
 
 export type TimelineYearSpan = {
@@ -136,19 +134,13 @@ export const TIMELINE_EVENTS = [
     desk: ["design", "technology", "product"],
   },
   {
-    id: "tkd-bootcamp-2018",
-    year: "2018",
-    title: "International logistics and event manager",
-    organization: "1st TKD Olympic Bootcamp",
-    context: "Guest: Carlo Molfetta",
-    progression: "300 participants",
+    id: "tkd-olympic-bootcamp",
+    year: "2017–2020",
+    title: "International logistics · Program development · Execution",
+    organization: "TKD Olympic Bootcamp",
+    context: "Master classes with Olympic champions",
     type: "job",
-    management: [
-      "leadership",
-      "people",
-      "event-coordination",
-      "project-management",
-    ],
+    management: ["event-coordination", "project-management"],
   },
   {
     id: "field-operations-environmental-monitoring",
@@ -159,21 +151,6 @@ export const TIMELINE_EVENTS = [
     type: "job",
     field: ["operations", "monitoring", "logistics", "clients"],
     desk: ["systems", "research", "technology"],
-  },
-  {
-    id: "tkd-bootcamp-2019",
-    year: "2019",
-    title: "International logistics and event manager",
-    organization: "2nd TKD Olympic Bootcamp",
-    context: "Guest: Joel González",
-    progression: "300 participants",
-    type: "job",
-    management: [
-      "leadership",
-      "people",
-      "event-coordination",
-      "project-management",
-    ],
   },
   {
     id: "trato-hecho-product-owner",
@@ -206,36 +183,12 @@ export const TIMELINE_EVENTS = [
     desk: ["systems", "research", "product"],
   },
   {
-    id: "tkd-games-2022",
-    year: "2022",
+    id: "taekwondo-games",
+    year: "2022–2024",
     title: "Taekwondo Games",
     organization: "Taekwondo Games",
-    context:
-      "Annual Taekwondo Games event. Eight-hour competition with 300 participants. Sports logistics.",
+    context: "Annual event · Sports logistics · 300 participants",
     type: "job",
-    series: "taekwondo-games",
-    management: ["people", "event-coordination"],
-  },
-  {
-    id: "tkd-games-2023",
-    year: "2023",
-    title: "Taekwondo Games",
-    organization: "Taekwondo Games",
-    context:
-      "Annual Taekwondo Games event. Eight-hour competition with 300 participants. Sports logistics.",
-    type: "job",
-    series: "taekwondo-games",
-    management: ["people", "event-coordination"],
-  },
-  {
-    id: "tkd-games-2024",
-    year: "2024",
-    title: "Taekwondo Games",
-    organization: "Taekwondo Games",
-    context:
-      "Annual Taekwondo Games event. Eight-hour competition with 300 participants. Sports logistics.",
-    type: "job",
-    series: "taekwondo-games",
     management: ["people", "event-coordination"],
   },
   {
@@ -395,43 +348,3 @@ export function getEventPlacement(
   return { left, width, anchor };
 }
 
-export type TimelineSeriesBar = {
-  id: string;
-  left: number;
-  width: number;
-  active: boolean;
-  tone: "management";
-};
-
-/** Connector across individually selectable editions of one recurring event. */
-export function getRecurringSeries(
-  events: readonly TimelineEventData[],
-  domain: TimelineDomain,
-  activeEventId: string | null
-): TimelineSeriesBar[] {
-  const groups = new Map<string, TimelineEventData[]>();
-  for (const event of events) {
-    if (!event.series) continue;
-    const members = groups.get(event.series) ?? [];
-    members.push(event);
-    groups.set(event.series, members);
-  }
-
-  const bars: TimelineSeriesBar[] = [];
-  for (const [id, members] of groups) {
-    if (members.length < 2) continue;
-    const anchors = members.map(
-      (item) => getEventPlacement(item, events, domain).anchor
-    );
-    const left = Math.min(...anchors);
-    const right = Math.max(...anchors);
-    bars.push({
-      id,
-      left,
-      width: Math.max(0, right - left),
-      active: members.some((item) => item.id === activeEventId),
-      tone: "management",
-    });
-  }
-  return bars;
-}
