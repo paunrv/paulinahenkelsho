@@ -71,20 +71,20 @@ const MANAGEMENT_EVENT_COPY = {
       title: "Technology Events & Community Programs",
       organization: "Technology Events & Community Programs",
       context:
-        "Event production and logistics for youth, women, and children · Licensed industry brands",
+        "Event production and logistics for youth, women, and children · Licensed for Google Startup Weekend and Hackathon",
     },
     "summer-camp": {
       title: "Project Manager",
       organization: "Project Manager — Summer Camp at Hotel Coral & Marina",
       context:
-        "Four- to six-week programs · Sea activities · Program coordination",
+        "Six-week program for children ages 5 to 15 · Sea activities · Program development, safety, and staff management. Oversight of 100 children per week",
     },
     "tkd-olympic-bootcamp": {
       title: "International logistics · Program development · Execution",
       organization: "Project Manager — TKD Olympic Bootcamp",
       context: "Master classes with Olympic champions",
       progression:
-        "Private and government funding · 300+ registered participants",
+        "Private and government funding · 600+ registered participants",
     },
     "ki-game-2021": {
       title: "Ki-Game",
@@ -106,7 +106,8 @@ const MANAGEMENT_EVENT_COPY = {
     "sunday-funday-2025": {
       title: "Sunday Funday Master Class",
       organization: "Sunday Funday Master Class",
-      context: "Master class with a UFC fighter",
+      context:
+        "Master class with a UFC fighter · Six-hour event · 300 registered participants",
     },
   },
   es: {
@@ -114,20 +115,20 @@ const MANAGEMENT_EVENT_COPY = {
       title: "Eventos de Tecnología y Comunidad",
       organization: "Eventos de Tecnología y Comunidad",
       context:
-        "Producción y logística de eventos para jóvenes, mujeres y niños · Marcas con licencias de la industria",
+        "Producción y logística de eventos para jóvenes, mujeres y niños · Con licencia de Google Startup Weekend y Hackathon",
     },
     "summer-camp": {
       title: "Project Manager",
       organization: "Project Manager — Summer Camp en Hotel Coral & Marina",
       context:
-        "Programas de cuatro a seis semanas · Actividades en el mar · Coordinación del programa",
+        "Programa de seis semanas para niños desde los 5 hasta los 15 años · Actividades en el mar · Desarrollo de programa, seguridad y gestión de personal. Control de 100 niños por semana",
     },
     "tkd-olympic-bootcamp": {
       title: "Logística internacional · Desarrollo y ejecución del programa",
       organization: "Project Manager — TKD Olympic Bootcamp",
       context: "Master classes con campeones olímpicos",
       progression:
-        "Financiamiento privado y gubernamental · Más de 300 inscritos",
+        "Financiamiento privado y gubernamental · Más de 600 inscritos",
     },
     "ki-game-2021": {
       title: "Ki-Game",
@@ -149,7 +150,8 @@ const MANAGEMENT_EVENT_COPY = {
     "sunday-funday-2025": {
       title: "Sunday Funday Master Class",
       organization: "Sunday Funday Master Class",
-      context: "Master class con un peleador de UFC",
+      context:
+        "Master class con un peleador de UFC · Evento de seis horas · 300 inscritos",
     },
   },
 } as const satisfies Record<
