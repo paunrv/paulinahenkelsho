@@ -97,9 +97,9 @@ export function NotesIndexPage() {
             One notebook. Three ways of thinking.
           </p>
           <p className="notes-index-intro">
-            Projects show what was built. Notes show how she thinks — while
-            building, while observing, while reflecting. Categories organize
-            the shelf. They are not separate products.
+            Projects show what I build. Notes show how I think — while building,
+            while observing, while reflecting. Categories organize my thoughts;
+            they’re not separate products.
           </p>
           <p className="notes-index-aside">A notebook. Not a blog.</p>
 
