@@ -100,7 +100,7 @@ export const TIMELINE_EVENTS = [
     title: "Project Manager",
     organization: "Project Manager — Summer Camp at Hotel Coral & Marina",
     context:
-      "Six-week program for children ages 5 to 15 · Sea activities · Program development, safety, and staff management. Oversight of 100 children per week",
+      "Six-week program for children and teenagers · Sea activities · Program development and management, safety, and staff. Oversight of 100 children per week",
     type: "job",
     management: [
       "leadership",

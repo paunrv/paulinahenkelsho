@@ -77,7 +77,7 @@ const MANAGEMENT_EVENT_COPY = {
       title: "Project Manager",
       organization: "Project Manager — Summer Camp at Hotel Coral & Marina",
       context:
-        "Six-week program for children ages 5 to 15 · Sea activities · Program development, safety, and staff management. Oversight of 100 children per week",
+        "Six-week program for children and teenagers · Sea activities · Program development and management, safety, and staff. Oversight of 100 children per week",
     },
     "tkd-olympic-bootcamp": {
       title: "International logistics · Program development · Execution",
@@ -121,7 +121,7 @@ const MANAGEMENT_EVENT_COPY = {
       title: "Project Manager",
       organization: "Project Manager — Summer Camp en Hotel Coral & Marina",
       context:
-        "Programa de seis semanas para niños desde los 5 hasta los 15 años · Actividades en el mar · Desarrollo de programa, seguridad y gestión de personal. Control de 100 niños por semana",
+        "Programa de seis semanas para niños y adolescentes · Actividades en el mar · Desarrollo y gestión de programa, seguridad y personal. Control de 100 niños por semana",
     },
     "tkd-olympic-bootcamp": {
       title: "Logística internacional · Desarrollo y ejecución del programa",
