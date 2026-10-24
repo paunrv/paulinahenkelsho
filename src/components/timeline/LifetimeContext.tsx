@@ -11,6 +11,7 @@ import {
   DESK_DISCIPLINES,
   FIELD_DISCIPLINES,
   HUMI_IDS,
+  MANAGEMENT_DISCIPLINES,
   getTimelineEvents,
 } from "@/lib/timeline";
 
@@ -19,6 +20,7 @@ type LifetimeContextValue = {
   setActiveEventId: (id: string | null) => void;
   fieldLit: ReadonlySet<string>;
   deskLit: ReadonlySet<string>;
+  managementLit: ReadonlySet<string>;
   isPlaying: boolean;
 };
 
@@ -27,8 +29,9 @@ const LifetimeContext = createContext<LifetimeContextValue | null>(null);
 function collectLit(activeEventId: string | null) {
   const fieldLit = new Set<string>();
   const deskLit = new Set<string>();
+  const managementLit = new Set<string>();
   if (!activeEventId || activeEventId === "born") {
-    return { fieldLit, deskLit, isPlaying: false };
+    return { fieldLit, deskLit, managementLit, isPlaying: false };
   }
 
   const events = getTimelineEvents();
@@ -40,12 +43,14 @@ function collectLit(activeEventId: string | null) {
     const event = events.find((item) => item.id === id);
     event?.field?.forEach((item) => fieldLit.add(item));
     event?.desk?.forEach((item) => deskLit.add(item));
+    event?.management?.forEach((item) => managementLit.add(item));
   }
 
   return {
     fieldLit,
     deskLit,
-    isPlaying: fieldLit.size > 0 || deskLit.size > 0,
+    managementLit,
+    isPlaying: fieldLit.size > 0 || deskLit.size > 0 || managementLit.size > 0,
   };
 }
 
@@ -71,3 +76,4 @@ export function useLifetime() {
 
 export const FIELD_WORD_IDS = FIELD_DISCIPLINES;
 export const DESK_WORD_IDS = DESK_DISCIPLINES;
+export const MANAGEMENT_WORD_IDS = MANAGEMENT_DISCIPLINES;

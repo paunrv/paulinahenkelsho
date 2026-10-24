@@ -5,6 +5,7 @@ import { useT } from "@/i18n/i18n";
 import {
   DESK_WORD_IDS,
   FIELD_WORD_IDS,
+  MANAGEMENT_WORD_IDS,
   useLifetime,
 } from "@/components/timeline/LifetimeContext";
 
@@ -57,7 +58,7 @@ function WordList({
 export function FieldDesk() {
   const t = useT();
   const copy = t.fieldDesk;
-  const { fieldLit, deskLit, isPlaying } = useLifetime();
+  const { fieldLit, deskLit, managementLit, isPlaying } = useLifetime();
 
   return (
     <section
@@ -78,32 +79,48 @@ export function FieldDesk() {
           </Reveal>
         </div>
 
-        <div className="field-desk-field">
-          <Reveal delay={0.06}>
-            <p className="field-desk-pole text-[rgb(var(--fd-field-accent))]">
-              {copy.fieldLabel}
-            </p>
-            <WordList
-              words={copy.fieldWords}
-              ids={FIELD_WORD_IDS}
-              lit={fieldLit}
-              playing={isPlaying}
-            />
-          </Reveal>
-        </div>
+        <div className="field-desk-stage">
+          <div className="field-desk-management">
+            <Reveal delay={0.04}>
+              <p className="field-desk-pole text-[rgb(var(--fd-management-accent))]">
+                {copy.managementLabel}
+              </p>
+              <WordList
+                words={copy.managementWords}
+                ids={MANAGEMENT_WORD_IDS}
+                lit={managementLit}
+                playing={isPlaying}
+              />
+            </Reveal>
+          </div>
 
-        <div className="field-desk-desk">
-          <Reveal delay={0.1}>
-            <p className="field-desk-pole text-[rgb(var(--fd-desk-accent))]">
-              {copy.deskLabel}
-            </p>
-            <WordList
-              words={copy.deskWords}
-              ids={DESK_WORD_IDS}
-              lit={deskLit}
-              playing={isPlaying}
-            />
-          </Reveal>
+          <div className="field-desk-field">
+            <Reveal delay={0.06}>
+              <p className="field-desk-pole text-[rgb(var(--fd-field-accent))]">
+                {copy.fieldLabel}
+              </p>
+              <WordList
+                words={copy.fieldWords}
+                ids={FIELD_WORD_IDS}
+                lit={fieldLit}
+                playing={isPlaying}
+              />
+            </Reveal>
+          </div>
+
+          <div className="field-desk-desk">
+            <Reveal delay={0.1}>
+              <p className="field-desk-pole text-[rgb(var(--fd-desk-accent))]">
+                {copy.deskLabel}
+              </p>
+              <WordList
+                words={copy.deskWords}
+                ids={DESK_WORD_IDS}
+                lit={deskLit}
+                playing={isPlaying}
+              />
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>
