@@ -75,7 +75,7 @@ export const TIMELINE_EVENTS = [
     title: "Technology Events & Community Programs",
     organization: "Technology Events & Community Programs",
     context:
-      "Event production and logistics for youth, women, and children · Licensed industry brands",
+      "Event production and logistics for youth, women, and children · Licensed for Google Startup Weekend and Hackathon",
     type: "job",
     management: [
       "leadership",
@@ -100,7 +100,7 @@ export const TIMELINE_EVENTS = [
     title: "Project Manager",
     organization: "Project Manager — Summer Camp at Hotel Coral & Marina",
     context:
-      "Four- to six-week programs · Sea activities · Program coordination",
+      "Six-week program for children and teenagers · Sea activities · Program development and management, safety, and staff. Oversight of 100 children per week",
     type: "job",
     management: [
       "leadership",
@@ -122,7 +122,7 @@ export const TIMELINE_EVENTS = [
     organization: "Project Manager — TKD Olympic Bootcamp",
     context: "Master classes with Olympic champions",
     progression:
-      "Private and government funding · 300+ registered participants",
+      "Private and government funding · 600+ registered participants",
     type: "job",
     management: ["event-coordination", "project-management"],
   },
@@ -140,8 +140,8 @@ export const TIMELINE_EVENTS = [
     id: "trato-hecho-product-owner",
     year: "2020–2021",
     title: "Trato Hecho",
-    subtitle: "Startup inmobiliario",
-    progression: "Front end + SEO → Product owner",
+    subtitle: "Startup inmobiliaria para inversionistas",
+    progression: "Asesoría SEO → Desarrollo front-end → Product Owner",
     type: "job",
     desk: ["product", "design", "technology", "systems"],
     field: ["clients"],
@@ -181,7 +181,8 @@ export const TIMELINE_EVENTS = [
     year: "2025",
     title: "Sunday Funday Master Class",
     organization: "Sunday Funday Master Class",
-    context: "Master class with a UFC fighter",
+    context:
+      "Master class with a UFC fighter · Six-hour event · 300 registered participants",
     type: "job",
     management: ["event-coordination", "project-management"],
   },
