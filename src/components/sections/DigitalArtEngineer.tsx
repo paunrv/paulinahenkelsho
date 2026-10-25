@@ -16,6 +16,7 @@ export function DigitalArtEngineer() {
       className="timeline-floor pb-10 md:pb-14"
       onPointerLeave={(event) => {
         if (event.pointerType === "touch") return;
+        if (window.matchMedia("(max-width: 767px)").matches) return;
         setActiveEventId(null);
       }}
     >

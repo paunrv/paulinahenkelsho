@@ -55,72 +55,112 @@ function WordList({
   );
 }
 
+function Editorial({ headingId }: { headingId?: string }) {
+  const copy = useT().fieldDesk;
+
+  return (
+    <div className="field-desk-editorial">
+      <Reveal className="field-desk-bridge">
+        <p className="text-sm leading-[1.55] text-[rgb(var(--fd-muted))] md:text-[15px]">
+          {copy.core}
+        </p>
+        <Statement
+          id={headingId ?? "field-desk-heading-mobile"}
+          text={copy.headline}
+        />
+        <p className="mt-6 text-lg leading-[1.65] text-[rgb(var(--fd-muted))] md:mt-10">
+          {copy.support}
+        </p>
+      </Reveal>
+    </div>
+  );
+}
+
+function ManagementPanel() {
+  const copy = useT().fieldDesk;
+  const { managementLit, isPlaying } = useLifetime();
+
+  return (
+    <div className="field-desk-management">
+      <Reveal delay={0.04}>
+        <p className="field-desk-pole text-[rgb(var(--fd-management-accent))]">
+          {copy.managementLabel}
+        </p>
+        <WordList
+          words={copy.managementWords}
+          ids={MANAGEMENT_WORD_IDS}
+          lit={managementLit}
+          playing={isPlaying}
+        />
+      </Reveal>
+    </div>
+  );
+}
+
+function FieldPanel() {
+  const copy = useT().fieldDesk;
+  const { fieldLit, isPlaying } = useLifetime();
+
+  return (
+    <div className="field-desk-field">
+      <Reveal delay={0.06}>
+        <p className="field-desk-pole text-[rgb(var(--fd-field-accent))]">
+          {copy.fieldLabel}
+        </p>
+        <WordList
+          words={copy.fieldWords}
+          ids={FIELD_WORD_IDS}
+          lit={fieldLit}
+          playing={isPlaying}
+        />
+      </Reveal>
+    </div>
+  );
+}
+
+function DeskPanel() {
+  const copy = useT().fieldDesk;
+  const { deskLit, isPlaying } = useLifetime();
+
+  return (
+    <div className="field-desk-desk">
+      <Reveal delay={0.1}>
+        <p className="field-desk-pole text-[rgb(var(--fd-desk-accent))]">
+          {copy.deskLabel}
+        </p>
+        <WordList
+          words={copy.deskWords}
+          ids={DESK_WORD_IDS}
+          lit={deskLit}
+          playing={isPlaying}
+        />
+      </Reveal>
+    </div>
+  );
+}
+
 export function FieldDesk() {
-  const t = useT();
-  const copy = t.fieldDesk;
-  const { fieldLit, deskLit, managementLit, isPlaying } = useLifetime();
+  const heading = useT().fieldDesk.headline;
 
   return (
     <section
       id="field-desk"
-      aria-labelledby="field-desk-heading"
+      aria-label={heading}
       className="field-desk"
     >
-      <div className="field-desk-grid">
-        <div className="field-desk-editorial">
-          <Reveal className="field-desk-bridge">
-            <p className="text-sm leading-[1.55] text-[rgb(var(--fd-muted))] md:text-[15px]">
-              {copy.core}
-            </p>
-            <Statement id="field-desk-heading" text={copy.headline} />
-            <p className="mt-8 text-lg leading-[1.65] text-[rgb(var(--fd-muted))] md:mt-10">
-              {copy.support}
-            </p>
-          </Reveal>
-        </div>
+      <div className="field-desk-mobile">
+        <Editorial />
+        <ManagementPanel />
+        <DeskPanel />
+        <FieldPanel />
+      </div>
 
+      <div className="field-desk-desktop">
+        <Editorial headingId="field-desk-heading" />
         <div className="field-desk-stage">
-          <div className="field-desk-management">
-            <Reveal delay={0.04}>
-              <p className="field-desk-pole text-[rgb(var(--fd-management-accent))]">
-                {copy.managementLabel}
-              </p>
-              <WordList
-                words={copy.managementWords}
-                ids={MANAGEMENT_WORD_IDS}
-                lit={managementLit}
-                playing={isPlaying}
-              />
-            </Reveal>
-          </div>
-
-          <div className="field-desk-field">
-            <Reveal delay={0.06}>
-              <p className="field-desk-pole text-[rgb(var(--fd-field-accent))]">
-                {copy.fieldLabel}
-              </p>
-              <WordList
-                words={copy.fieldWords}
-                ids={FIELD_WORD_IDS}
-                lit={fieldLit}
-                playing={isPlaying}
-              />
-            </Reveal>
-          </div>
-
-          <div className="field-desk-desk">
-            <Reveal delay={0.1}>
-              <p className="field-desk-pole text-[rgb(var(--fd-desk-accent))]">
-                {copy.deskLabel}
-              </p>
-              <WordList
-                words={copy.deskWords}
-                ids={DESK_WORD_IDS}
-                lit={deskLit}
-                playing={isPlaying}
-              />
-            </Reveal>
-          </div>
+          <ManagementPanel />
+          <FieldPanel />
+          <DeskPanel />
         </div>
       </div>
     </section>

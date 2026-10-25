@@ -18,6 +18,7 @@ import {
 } from "@/lib/timeline";
 import { useT } from "@/i18n/i18n";
 import { TimelineEvent, TimelineRangeFill } from "./TimelineEvent";
+import { TimelineMobile } from "./TimelineMobile";
 import "./timeline.css";
 
 type TimelineProps = {
@@ -155,7 +156,7 @@ export function Timeline({
       }
       onPointerMove={onPointerMove}
     >
-      <div className="timeline-scroll">
+      <div className="timeline-scroll timeline-horizontal">
         <div className="timeline-board">
           <div className="timeline-line" aria-hidden />
           {humiEra ? (
@@ -217,6 +218,11 @@ export function Timeline({
           {children}
         </div>
       </div>
+      <TimelineMobile
+        events={events}
+        activeEventId={activeEventId}
+        onSelect={onActivate}
+      />
     </div>
   );
 }

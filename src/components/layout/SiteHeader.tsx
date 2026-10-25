@@ -8,6 +8,42 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const LANGS: Lang[] = ["en", "es"];
 
+function LangSwitch({
+  lang,
+  setLang,
+  label,
+  names,
+  buttonClassName,
+}: {
+  lang: Lang;
+  setLang: (lang: Lang) => void;
+  label: string;
+  names: { en: string; es: string };
+  buttonClassName: (active: boolean) => string;
+}) {
+  return (
+    <div className="flex items-center gap-1" role="group" aria-label={label}>
+      {LANGS.map((l, idx) => (
+        <span key={l} className="flex items-center gap-1">
+          <button
+            type="button"
+            onClick={() => setLang(l)}
+            aria-pressed={l === lang}
+            className={buttonClassName(l === lang)}
+          >
+            {names[l]}
+          </button>
+          {idx === 0 ? (
+            <span className="text-line" aria-hidden>
+              /
+            </span>
+          ) : null}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export function SiteHeader() {
   const t = useT();
   const { lang, setLang, dict } = useI18n();
@@ -53,30 +89,35 @@ export function SiteHeader() {
             </nav>
 
             <div className="flex items-center gap-1 border-l border-line pl-5">
-              {LANGS.map((l, idx) => (
-                <span key={l} className="flex items-center gap-1 text-[12px] font-medium tracking-[0.08em] text-subtle">
-                  <button
-                    type="button"
-                    onClick={() => setLang(l)}
-                    aria-pressed={l === lang}
-                    className={`transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink ${l === lang ? "text-ink" : "hover:text-ink"}`}
-                  >
-                    {dict.language[l]}
-                  </button>
-                  {idx === 0 && <span className="text-line">/</span>}
-                </span>
-              ))}
+              <LangSwitch
+                lang={lang}
+                setLang={setLang}
+                label={dict.language.switchLabel}
+                names={dict.language}
+                buttonClassName={(active) =>
+                  `text-[12px] font-medium tracking-[0.08em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink ${active ? "text-ink" : "text-subtle hover:text-ink"}`
+                }
+              />
               <ThemeToggle />
             </div>
           </div>
 
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-1 md:hidden">
+            <LangSwitch
+              lang={lang}
+              setLang={setLang}
+              label={dict.language.switchLabel}
+              names={dict.language}
+              buttonClassName={(active) =>
+                `inline-flex h-11 min-w-9 items-center justify-center px-1 text-[12px] font-medium tracking-[0.08em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink ${active ? "text-ink" : "text-subtle"}`
+              }
+            />
             <ThemeToggle />
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="flex h-8 w-8 items-center justify-center text-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              className="flex h-11 w-11 items-center justify-center text-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+              aria-label={mobileOpen ? t.nav.closeMenu : t.nav.openMenu}
               aria-expanded={mobileOpen}
             >
               <div className="flex w-4 flex-col gap-[5px]">
@@ -119,21 +160,16 @@ export function SiteHeader() {
                 </motion.div>
               ))}
             </nav>
-            <div className="flex items-center justify-between border-t border-line px-gutter py-6">
-              <div className="flex gap-3 text-sm font-medium text-subtle">
-                {LANGS.map((l, idx) => (
-                  <span key={l} className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setLang(l)}
-                      className={`focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink ${l === lang ? "text-ink" : ""}`}
-                    >
-                      {dict.language[l]}
-                    </button>
-                    {idx === 0 && <span className="text-line">/</span>}
-                  </span>
-                ))}
-              </div>
+            <div className="flex items-center border-t border-line px-gutter py-5">
+              <LangSwitch
+                lang={lang}
+                setLang={setLang}
+                label={dict.language.switchLabel}
+                names={dict.language}
+                buttonClassName={(active) =>
+                  `inline-flex h-11 min-w-11 items-center justify-center px-2 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink ${active ? "text-ink" : "text-subtle"}`
+                }
+              />
             </div>
           </motion.div>
         )}

@@ -14,6 +14,7 @@ import { applyTimelineCopy, getTimelineEmoji } from "@/lib/timeline-content";
 type TimelineEventDisplayProps = {
   activeEventId: string | null;
   events: readonly TimelineEventData[];
+  variant?: "rail" | "stacked";
 };
 
 type Piece = {
@@ -44,6 +45,7 @@ function eventsToShow(
 export function TimelineEventDisplay({
   activeEventId,
   events,
+  variant = "rail",
 }: TimelineEventDisplayProps) {
   const shown = useMemo(
     () => eventsToShow(activeEventId, events),
@@ -79,7 +81,11 @@ export function TimelineEventDisplay({
 
   return (
     <div
-      className="timeline-event-display"
+      className={
+        variant === "stacked"
+          ? "timeline-event-display is-stacked"
+          : "timeline-event-display"
+      }
       aria-live="polite"
       aria-atomic="true"
     >
