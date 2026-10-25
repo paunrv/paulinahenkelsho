@@ -21,6 +21,8 @@ const DICT = {
       notes: "Notes",
       about: "About",
       cv: "CV",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
     },
     hero: {
       role: "Hello, I'm",
@@ -31,6 +33,13 @@ const DICT = {
     },
     timeline: {
       tapHint: "Tap to explore \u2192",
+      previous: "Previous milestone",
+      next: "Next milestone",
+      previousShort: "Previous",
+      nextShort: "Next",
+      chronology: "Chronology",
+      milestone: "Milestone",
+      of: "of",
     },
     philosophy: {
       headline:
@@ -282,6 +291,8 @@ const DICT = {
       notes: "Notas",
       about: "Acerca",
       cv: "CV",
+      openMenu: "Abrir menú",
+      closeMenu: "Cerrar menú",
     },
     hero: {
       role: "Hola, soy",
@@ -293,6 +304,13 @@ const DICT = {
     },
     timeline: {
       tapHint: "Toca para explorar \u2192",
+      previous: "Hito anterior",
+      next: "Siguiente hito",
+      previousShort: "Anterior",
+      nextShort: "Siguiente",
+      chronology: "Cronología",
+      milestone: "Hito",
+      of: "de",
     },
     philosophy: {
       headline:

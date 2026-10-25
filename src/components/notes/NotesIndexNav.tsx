@@ -68,7 +68,7 @@ export function NotesIndexNav() {
       <button
         type="button"
         className="notes-index-menu"
-        aria-label={open ? "Close menu" : "Open menu"}
+        aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
       >

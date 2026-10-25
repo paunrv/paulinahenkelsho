@@ -90,17 +90,27 @@
   --fd-management-muted: 64 40 54;
   --fd-ink: 250 247 244;
   --fd-muted: 214 210 200;
-  --fd-pole-size: clamp(2.95rem, 12.75vw, 4.5rem);
-  --fd-panel-pad-block: clamp(1.7rem, 8vw, 2.5rem);
+  --fd-pole-size: clamp(2.05rem, 8.4vw, 2.75rem);
+  --fd-panel-pad-block: clamp(1.25rem, 5vw, 1.85rem);
 }
 
-.field-desk-grid {
+.field-desk-mobile {
   display: grid;
-  grid-template-areas:
-    "management"
-    "field"
-    "editorial"
-    "desk";
+}
+
+.field-desk-mobile .field-desk-editorial,
+.field-desk-mobile .field-desk-management,
+.field-desk-mobile .field-desk-field,
+.field-desk-mobile .field-desk-desk {
+  grid-area: auto;
+}
+
+.field-desk-desktop {
+  display: none;
+}
+
+.field-desk-mobile .field-desk-management {
+  border-top: 1px solid rgb(var(--fd-bridge));
 }
 
 .field-desk-stage {
@@ -127,7 +137,7 @@
   grid-area: editorial;
   background-color: rgb(var(--fd-hinge));
   border-top: 1px solid rgb(var(--fd-bridge));
-  padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 4vw, 2.5rem);
+  padding: clamp(2.4rem, 7vw, 3.2rem) clamp(1.25rem, 4vw, 2.5rem);
 }
 
 .field-desk-management,
@@ -213,7 +223,12 @@
     --fd-panel-min: 29.4vh;
   }
 
-  .field-desk-grid {
+  .field-desk-mobile {
+    display: none;
+  }
+
+  .field-desk-desktop {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     grid-template-areas:
