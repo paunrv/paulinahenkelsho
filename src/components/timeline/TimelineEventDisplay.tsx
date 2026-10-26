@@ -3,8 +3,6 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { useI18n } from "@/i18n/i18n";
 import {
-  HUMI_EVENT_IDS,
-  HUMI_IDS,
   getEventPlacement,
   getTimelineDomain,
   type TimelineEventData,
@@ -30,12 +28,6 @@ function eventsToShow(
   if (!activeEventId || activeEventId === "born") {
     const born = events.find((item) => item.id === "born");
     return born ? [born] : [];
-  }
-
-  if (HUMI_IDS.has(activeEventId)) {
-    return HUMI_EVENT_IDS.map((id) =>
-      events.find((item) => item.id === id)
-    ).filter((item): item is TimelineEventData => Boolean(item));
   }
 
   const event = events.find((item) => item.id === activeEventId);
@@ -100,14 +92,6 @@ export function TimelineEventDisplay({
   );
 }
 
-const PROJECT_DETAIL_IDS = new Set([
-  "technology-events",
-  "summer-camp",
-  "tkd-olympic-bootcamp",
-]);
-
-const SPLIT_TITLE_IDS = new Set(["summer-camp", "tkd-olympic-bootcamp"]);
-
 function phraseBreaks(text: string) {
   const parts = text.split(" · ");
   if (parts.length < 2) return text;
@@ -121,47 +105,13 @@ function phraseBreaks(text: string) {
   ));
 }
 
-function CampTitle({ text }: { text: string }) {
-  const marker = " — ";
-  const splitAt = text.indexOf(marker);
-  if (splitAt < 0) return text;
-  const lead = text.slice(0, splitAt + marker.length);
-  const name = text.slice(splitAt + marker.length);
-  const hotel = "Coral & Marina";
-  const hotelAt = name.lastIndexOf(hotel);
-  const before = hotelAt >= 0 ? name.slice(0, hotelAt) : name;
-  const ending = hotelAt >= 0 ? name.slice(hotelAt) : "";
-
-  return (
-    <>
-      <span className="timeline-event-piece-title-lead">{lead}</span>
-      <span className="timeline-event-piece-title-name">
-        {before}
-        {ending ? (
-          <span className="timeline-event-piece-keep">{ending}</span>
-        ) : null}
-      </span>
-    </>
-  );
-}
-
 function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
   const { event, emoji, left } = piece;
-  const isJob = event.type === "job";
-  const isProject = PROJECT_DETAIL_IDS.has(event.id);
-  const isSplitTitle = SPLIT_TITLE_IDS.has(event.id);
-  const organization = event.organization ?? (isJob ? event.title : undefined);
-  const context = event.context ?? event.subtitle;
-  const role =
-    event.organization && event.title !== event.organization
-      ? event.title
+  const organization =
+    event.organization && event.organization !== event.title
+      ? event.organization
       : undefined;
-  const pieceClass = [
-    "timeline-event-piece",
-    active ? "is-in" : "",
-    isProject ? "is-project" : "",
-    isSplitTitle ? "is-split-title" : "",
-  ]
+  const pieceClass = ["timeline-event-piece", active ? "is-in" : ""]
     .filter(Boolean)
     .join(" ");
 
@@ -179,39 +129,23 @@ function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
             {event.year}
           </time>
         ) : null}
-        {isJob ? (
-          <>
-            {organization ? (
-              <p className="timeline-event-piece-title">
-                {isSplitTitle ? <CampTitle text={organization} /> : organization}
-              </p>
-            ) : null}
-            {context ? (
-              <p className="timeline-event-piece-context">
-                {isProject ? phraseBreaks(context) : context}
-              </p>
-            ) : null}
-            {role ? (
-              <p className="timeline-event-piece-role">
-                {isProject ? phraseBreaks(role) : role}
-              </p>
-            ) : null}
-            {event.progression ? (
-              <p className="timeline-event-piece-progression">
-                {isProject ? phraseBreaks(event.progression) : event.progression}
-              </p>
-            ) : null}
-          </>
-        ) : (
-          <>
-            <p className="timeline-event-piece-title">
-              {event.id === "humi-16-years" ? "HUMI 16vo" : event.title}
-            </p>
-            {event.id !== "humi-16-years" && event.subtitle ? (
-              <p className="timeline-event-piece-context">{event.subtitle}</p>
-            ) : null}
-          </>
-        )}
+        <p className="timeline-event-piece-title">{event.title}</p>
+        {organization ? (
+          <p className="timeline-event-piece-role">{organization}</p>
+        ) : null}
+        {event.subtitle ? (
+          <p className="timeline-event-piece-role">{event.subtitle}</p>
+        ) : null}
+        {event.context ? (
+          <p className="timeline-event-piece-context">
+            {phraseBreaks(event.context)}
+          </p>
+        ) : null}
+        {event.progression ? (
+          <p className="timeline-event-piece-progression">
+            {phraseBreaks(event.progression)}
+          </p>
+        ) : null}
       </div>
     </div>
   );

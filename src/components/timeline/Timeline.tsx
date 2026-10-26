@@ -192,8 +192,7 @@ export function Timeline({
                   isActive={
                     item.id === "born"
                       ? revealingBorn
-                      : activeEventId === item.id ||
-                        (humiActive && HUMI_IDS.has(item.id))
+                      : activeEventId === item.id
                   }
                   left={placement.left}
                   width={placement.width}

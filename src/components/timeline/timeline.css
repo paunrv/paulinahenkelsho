@@ -670,6 +670,15 @@
   translate: none;
 }
 
+.timeline-event-display.is-stacked .timeline-event-piece-title {
+  font-size: 1.15rem;
+}
+
+.timeline-event-display.is-stacked .timeline-event-piece-context,
+.timeline-event-display.is-stacked .timeline-event-piece-progression {
+  font-size: 0.875rem;
+}
+
 .timeline-event-display.is-stacked .timeline-event-piece.is-split-title .timeline-event-piece-title,
 .timeline-event-display.is-stacked .timeline-event-piece.is-project .timeline-event-piece-title,
 .timeline-event-display.is-stacked .timeline-event-piece.is-project .timeline-event-piece-context,
@@ -789,7 +798,7 @@
   }
 
   .timeline-mobile-item {
-    scroll-margin-top: 7.5rem;
+    scroll-margin-top: 9rem;
   }
 
   .timeline-mobile-row {
@@ -806,8 +815,7 @@
     text-align: left;
   }
 
-  .timeline-mobile-item.is-current .timeline-mobile-row,
-  .timeline-mobile-item.is-related .timeline-mobile-row {
+  .timeline-mobile-item.is-current .timeline-mobile-row {
     color: rgb(var(--ph-text));
   }
 

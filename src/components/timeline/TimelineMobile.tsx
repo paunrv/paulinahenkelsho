@@ -2,11 +2,7 @@
 
 import { useEffect, useRef, type KeyboardEvent } from "react";
 import { useI18n, useT } from "@/i18n/i18n";
-import {
-  HUMI_IDS,
-  getEventSpan,
-  type TimelineEventData,
-} from "@/lib/timeline";
+import { getEventSpan, type TimelineEventData } from "@/lib/timeline";
 import { applyTimelineCopy } from "@/lib/timeline-content";
 import { TimelineEventDisplay } from "./TimelineEventDisplay";
 
@@ -15,6 +11,14 @@ type TimelineMobileProps = {
   activeEventId: string | null;
   onSelect: (id: string) => void;
 };
+
+function listLabel(event: TimelineEventData) {
+  if (event.organization && event.organization !== event.title) {
+    return `${event.title} — ${event.organization}`;
+  }
+  if (event.subtitle) return `${event.title} — ${event.subtitle}`;
+  return event.title;
+}
 
 function markerTone(event: TimelineEventData) {
   const field = Boolean(event.field?.length);
@@ -47,12 +51,30 @@ export function TimelineMobile({
     events.findIndex((event) => event.id === currentId)
   );
   const current = events[index];
-  const humiSelected = HUMI_IDS.has(currentId);
 
   useEffect(() => {
     if (!shouldScroll.current) return;
     shouldScroll.current = false;
-    itemRefs.current.get(currentId)?.scrollIntoView({ block: "nearest" });
+    const node = itemRefs.current.get(currentId);
+    if (!node) return;
+    const header = document.querySelector("header");
+    const nav = node
+      .closest(".timeline-mobile")
+      ?.querySelector(".timeline-mobile-nav");
+    const offset =
+      (header?.getBoundingClientRect().height ?? 0) +
+      (nav?.getBoundingClientRect().height ?? 0) +
+      12;
+    const top = node.getBoundingClientRect().top;
+    if (top >= offset && top < window.innerHeight * 0.45) return;
+    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)")
+      .matches
+      ? "auto"
+      : "smooth";
+    window.scrollTo({
+      top: Math.max(0, top + window.scrollY - offset),
+      behavior,
+    });
   }, [currentId]);
 
   function select(nextIndex: number, moveFocus = false) {
@@ -121,9 +143,8 @@ export function TimelineMobile({
       <ol className="timeline-mobile-list" aria-label={t.timeline.chronology}>
         {events.map((event, rowIndex) => {
           const copy = applyTimelineCopy(event, lang);
-          const label = copy.organization ?? copy.title;
+          const label = listLabel(copy);
           const isCurrent = event.id === currentId;
-          const isRelated = humiSelected && HUMI_IDS.has(event.id);
           const span = getEventSpan(event.year);
           const isRange = Boolean(span && span.end > span.start);
           const tone = markerTone(event);
@@ -138,9 +159,7 @@ export function TimelineMobile({
               className={
                 isCurrent
                   ? "timeline-mobile-item is-current"
-                  : isRelated
-                    ? "timeline-mobile-item is-related"
-                    : "timeline-mobile-item"
+                  : "timeline-mobile-item"
               }
             >
               <button
