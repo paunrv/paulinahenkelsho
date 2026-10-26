@@ -154,16 +154,14 @@ export function FieldDesk() {
     >
       <div className="field-desk-mobile">
         <Editorial />
-        <div className="field-desk-mobile-browse">
-          <TimelineMobile
-            events={events}
-            activeEventId={activeEventId}
-            onSelect={setActiveEventId}
-          />
-          <ManagementPanel />
-          <DeskPanel />
-          <FieldPanel />
-        </div>
+        <ManagementPanel />
+        <DeskPanel />
+        <FieldPanel />
+        <TimelineMobile
+          events={events}
+          activeEventId={activeEventId}
+          onSelect={setActiveEventId}
+        />
       </div>
 
       <div className="field-desk-desktop">
