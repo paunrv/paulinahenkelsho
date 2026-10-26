@@ -10,7 +10,6 @@ import {
 import {
   DESK_DISCIPLINES,
   FIELD_DISCIPLINES,
-  HUMI_IDS,
   MANAGEMENT_DISCIPLINES,
   getTimelineEvents,
 } from "@/lib/timeline";
@@ -34,17 +33,10 @@ function collectLit(activeEventId: string | null) {
     return { fieldLit, deskLit, managementLit, isPlaying: false };
   }
 
-  const events = getTimelineEvents();
-  const ids = HUMI_IDS.has(activeEventId)
-    ? [...HUMI_IDS]
-    : [activeEventId];
-
-  for (const id of ids) {
-    const event = events.find((item) => item.id === id);
-    event?.field?.forEach((item) => fieldLit.add(item));
-    event?.desk?.forEach((item) => deskLit.add(item));
-    event?.management?.forEach((item) => managementLit.add(item));
-  }
+  const event = getTimelineEvents().find((item) => item.id === activeEventId);
+  event?.field?.forEach((item) => fieldLit.add(item));
+  event?.desk?.forEach((item) => deskLit.add(item));
+  event?.management?.forEach((item) => managementLit.add(item));
 
   return {
     fieldLit,

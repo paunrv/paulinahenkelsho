@@ -67,91 +67,155 @@ type ManagementEventCopy = {
 
 const MANAGEMENT_EVENT_COPY = {
   en: {
+    born: { title: "Born" },
+    "black-belt": { title: "Jr. Black Belt" },
+    "humi-first-anniversary": {
+      title: "Founder",
+      organization: "HUMI Taekwondo",
+      context: "Founded the academy and community.",
+    },
     "technology-events": {
-      title: "Technology Events & Community Programs",
-      organization: "Technology Events & Community Programs",
+      title: "Event production",
+      organization: "Technology & Community",
       context:
-        "Event production and logistics for youth, women, and children · Licensed for Google Startup Weekend and Hackathon",
+        "Logistics for youth, women, and children · Licensed for Google Startup Weekend and Hackathon",
+    },
+    "first-job": {
+      title: "Sales",
+      organization: "La Ruta VCC+",
+      context: "Tourism startup",
+      progression: "Professional internship → Sales",
     },
     "summer-camp": {
       title: "Project Manager",
-      organization: "Project Manager — Summer Camp at Hotel Coral & Marina",
+      organization: "Hotel Coral & Marina Summer Camp",
       context:
-        "Six-week program for children and teenagers · Sea activities · Program development and management, safety, and staff. Oversight of 100 children per week",
+        "Six-week program for children ages 5 to 15 · Marine activities · Program development, coordination, safety, and staff",
+      progression: "100 children per week",
+    },
+    "digital-design-engineering": {
+      title: "Digital Design Engineer Degree",
+      subtitle: "CETYS Universidad",
     },
     "tkd-olympic-bootcamp": {
-      title: "International logistics · Program development · Execution",
-      organization: "Project Manager — TKD Olympic Bootcamp",
-      context: "Master classes with Olympic champions",
-      progression:
-        "Private and government funding · 600+ registered participants",
+      title: "Project Manager",
+      organization: "TKD Olympic Bootcamp",
+      context:
+        "Master classes with Olympic champions · International logistics · Program development and execution",
+      progression: "Private and government funding · 600+ registered participants",
+    },
+    "field-operations-environmental-monitoring": {
+      title: "Field Operations & Environmental Monitoring",
+      organization: "Cisco",
+      context: "Environmental consulting",
+    },
+    "trato-hecho-product-owner": {
+      title: "Product Owner",
+      organization: "Trato Hecho",
+      context: "Real-estate startup for investors",
+      progression: "SEO consulting → Front-end development → Product Owner",
     },
     "ki-game-2021": {
       title: "Ki-Game",
-      organization: "Ki-Game",
-      context: "Three-day event · CrossFit and Taekwondo",
-      progression: "50 participants",
+      context:
+        "Event coordination · Three-day event · CrossFit and Taekwondo · 50 participants",
     },
     "cisco-consulting": {
-      title: "Safety & project management",
+      title: "Safety & Project Management",
       organization: "Cisco",
       context: "Environmental consulting",
-      progression: "Field operations",
     },
     "taekwondo-games": {
       title: "Taekwondo Games",
-      organization: "Taekwondo Games",
-      context: "Annual event · Sports logistics · 300 participants",
+      context:
+        "Event coordination · Annual event · Sports logistics · 300 participants",
     },
     "sunday-funday-2025": {
       title: "Sunday Funday Master Class",
-      organization: "Sunday Funday Master Class",
       context:
-        "Master class with a UFC fighter · Six-hour event · 300 registered participants",
+        "Event coordination and project management · Master class with a UFC fighter · Six-hour event · 300 participants",
+    },
+    "humi-16-years": {
+      title: "HUMI",
+      subtitle: "16th anniversary",
+      context: "Sixteen years of the academy. HUMI io is its operations product.",
     },
   },
   es: {
+    born: { title: "Nacimiento" },
+    "black-belt": { title: "Cinta negra jr." },
+    "humi-first-anniversary": {
+      title: "Fundadora",
+      organization: "HUMI Taekwondo",
+      context: "Fundación de la academia y la comunidad.",
+    },
     "technology-events": {
-      title: "Eventos de Tecnología y Comunidad",
-      organization: "Eventos de Tecnología y Comunidad",
+      title: "Producción de eventos",
+      organization: "Tecnología y comunidad",
       context:
-        "Producción y logística de eventos para jóvenes, mujeres y niños · Con licencia de Google Startup Weekend y Hackathon",
+        "Logística para jóvenes, mujeres y niños · Con licencia de Google Startup Weekend y Hackathon",
+    },
+    "first-job": {
+      title: "Ventas",
+      organization: "La Ruta VCC+",
+      context: "Startup de turismo",
+      progression: "Prácticas profesionales → Ventas",
     },
     "summer-camp": {
       title: "Project Manager",
-      organization: "Project Manager — Summer Camp en Hotel Coral & Marina",
+      organization: "Summer Camp en Hotel Coral & Marina",
       context:
-        "Programa de seis semanas para niños y adolescentes · Actividades en el mar · Desarrollo y gestión de programa, seguridad y personal. Control de 100 niños por semana",
+        "Programa de seis semanas para niños de 5 a 15 años · Actividades en el mar · Desarrollo y coordinación del programa, seguridad y gestión de personal",
+      progression: "100 niños por semana",
+    },
+    "digital-design-engineering": {
+      title: "Título de Ingeniería en Diseño Digital",
+      subtitle: "CETYS Universidad",
     },
     "tkd-olympic-bootcamp": {
-      title: "Logística internacional · Desarrollo y ejecución del programa",
-      organization: "Project Manager — TKD Olympic Bootcamp",
-      context: "Master classes con campeones olímpicos",
+      title: "Project Manager",
+      organization: "TKD Olympic Bootcamp",
+      context:
+        "Master classes con campeones olímpicos · Logística internacional · Desarrollo y ejecución del programa",
       progression:
         "Financiamiento privado y gubernamental · Más de 600 inscritos",
     },
+    "field-operations-environmental-monitoring": {
+      title: "Operaciones de campo y monitoreo ambiental",
+      organization: "Cisco",
+      context: "Consultoría ambiental",
+    },
+    "trato-hecho-product-owner": {
+      title: "Product Owner",
+      organization: "Trato Hecho",
+      context: "Startup inmobiliaria para inversionistas",
+      progression: "Asesoría SEO → Desarrollo front-end → Product Owner",
+    },
     "ki-game-2021": {
       title: "Ki-Game",
-      organization: "Ki-Game",
-      context: "Evento de tres días · CrossFit y Taekwondo",
-      progression: "50 participantes",
+      context:
+        "Coordinación del evento · Evento de tres días · CrossFit y Taekwondo · 50 participantes",
     },
     "cisco-consulting": {
       title: "Seguridad y gestión de proyectos",
       organization: "Cisco",
       context: "Consultoría ambiental",
-      progression: "Operaciones de campo",
     },
     "taekwondo-games": {
       title: "Taekwondo Games",
-      organization: "Taekwondo Games",
-      context: "Evento anual · Logística deportiva · 300 participantes",
+      context:
+        "Coordinación del evento · Evento anual · Logística deportiva · 300 participantes",
     },
     "sunday-funday-2025": {
       title: "Sunday Funday Master Class",
-      organization: "Sunday Funday Master Class",
       context:
-        "Master class con un peleador de UFC · Evento de seis horas · 300 inscritos",
+        "Coordinación del evento y gestión del proyecto · Master class con un peleador de UFC · Evento de seis horas · 300 participantes",
+    },
+    "humi-16-years": {
+      title: "HUMI",
+      subtitle: "16.º aniversario",
+      context:
+        "Dieciséis años de la academia. HUMI io es su producto de operación.",
     },
   },
 } as const satisfies Record<
@@ -173,5 +237,6 @@ export function applyTimelineCopy(
     organization: "organization" in copy ? copy.organization : undefined,
     context: "context" in copy ? copy.context : undefined,
     progression: "progression" in copy ? copy.progression : undefined,
+    subtitle: "subtitle" in copy ? copy.subtitle : undefined,
   };
 }
