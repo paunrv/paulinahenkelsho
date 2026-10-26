@@ -769,18 +769,29 @@
   }
 
   .timeline-mobile-label {
-    margin-top: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.22rem;
+    margin-top: 0.35rem;
+    min-width: 0;
+    color: rgb(var(--ph-text));
+  }
+
+  .timeline-mobile-emoji {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  .timeline-mobile-name {
+    min-width: 0;
     font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
     font-size: 1.0625rem;
     font-weight: 700;
     letter-spacing: -0.02em;
-    line-height: 1.4;
-    color: rgb(var(--ph-text));
-    overflow-wrap: break-word;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
+    line-height: 1.35;
+    text-align: center;
+    text-wrap: balance;
   }
 
   .timeline-mobile-count {
