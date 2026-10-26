@@ -679,6 +679,10 @@
   font-size: 0.875rem;
 }
 
+.timeline-event-display.is-stacked .timeline-event-piece-copy > :first-child {
+  margin-top: 0;
+}
+
 .timeline-event-display.is-stacked .timeline-event-piece.is-split-title .timeline-event-piece-title,
 .timeline-event-display.is-stacked .timeline-event-piece.is-project .timeline-event-piece-title,
 .timeline-event-display.is-stacked .timeline-event-piece.is-project .timeline-event-piece-context,

@@ -86,6 +86,7 @@ export function TimelineEventDisplay({
           key={piece.event.id}
           piece={piece}
           active={phase === "in"}
+          variant={variant}
         />
       ))}
     </div>
@@ -105,8 +106,19 @@ function phraseBreaks(text: string) {
   ));
 }
 
-function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
+function PieceView({
+  piece,
+  active,
+  variant,
+}: {
+  piece: Piece;
+  active: boolean;
+  variant: "rail" | "stacked";
+}) {
   const { event, emoji, left } = piece;
+  const hasSupport = Boolean(event.context || event.progression);
+  if (variant === "stacked" && !hasSupport) return null;
+
   const organization =
     event.organization && event.organization !== event.title
       ? event.organization
@@ -114,6 +126,7 @@ function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
   const pieceClass = ["timeline-event-piece", active ? "is-in" : ""]
     .filter(Boolean)
     .join(" ");
+  const showIdentity = variant === "rail";
 
   return (
     <div
@@ -124,16 +137,18 @@ function PieceView({ piece, active }: { piece: Piece; active: boolean }) {
         {emoji}
       </div>
       <div className="timeline-event-piece-copy">
-        {event.year ? (
+        {showIdentity && event.year ? (
           <time className="sr-only" dateTime={event.year}>
             {event.year}
           </time>
         ) : null}
-        <p className="timeline-event-piece-title">{event.title}</p>
-        {organization ? (
+        {showIdentity ? (
+          <p className="timeline-event-piece-title">{event.title}</p>
+        ) : null}
+        {showIdentity && organization ? (
           <p className="timeline-event-piece-role">{organization}</p>
         ) : null}
-        {event.subtitle ? (
+        {showIdentity && event.subtitle ? (
           <p className="timeline-event-piece-role">{event.subtitle}</p>
         ) : null}
         {event.context ? (
