@@ -3,7 +3,7 @@
 import type { KeyboardEvent } from "react";
 import { useI18n, useT } from "@/i18n/i18n";
 import type { TimelineEventData } from "@/lib/timeline";
-import { applyTimelineCopy } from "@/lib/timeline-content";
+import { applyTimelineCopy, getTimelineEmoji } from "@/lib/timeline-content";
 
 type TimelineMobileProps = {
   events: readonly TimelineEventData[];
@@ -38,6 +38,7 @@ export function TimelineMobile({
   const current = events[index];
   const copy = current ? applyTimelineCopy(current, lang) : null;
   const label = copy ? listLabel(copy) : "";
+  const emoji = current ? getTimelineEmoji(current.id) : undefined;
 
   function select(nextIndex: number) {
     const next = events[nextIndex];
@@ -81,7 +82,14 @@ export function TimelineMobile({
         </button>
         <div className="timeline-mobile-now" aria-live="polite">
           <p className="timeline-mobile-year">{current?.year}</p>
-          <p className="timeline-mobile-label">{label}</p>
+          <p className="timeline-mobile-label">
+            {emoji ? (
+              <span className="timeline-mobile-emoji" aria-hidden>
+                {emoji}
+              </span>
+            ) : null}
+            <span className="timeline-mobile-name">{label}</span>
+          </p>
           <p className="timeline-mobile-count">
             <span className="sr-only">
               {t.timeline.milestone} {index + 1} {t.timeline.of} {events.length}
