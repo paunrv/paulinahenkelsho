@@ -19,7 +19,7 @@ const instrumentSerif = Instrument_Serif({
 
 const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["300", "500", "700", "800"],
+  weight: ["300", "500", "600", "700", "800"],
   variable: "--font-outfit",
   display: "swap",
 });
