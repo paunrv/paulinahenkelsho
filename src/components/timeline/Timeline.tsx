@@ -18,7 +18,6 @@ import {
 } from "@/lib/timeline";
 import { useT } from "@/i18n/i18n";
 import { TimelineEvent, TimelineRangeFill } from "./TimelineEvent";
-import { TimelineMobile } from "./TimelineMobile";
 import "./timeline.css";
 
 type TimelineProps = {
@@ -101,6 +100,7 @@ export function Timeline({
 
   const onPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (event.pointerType === "touch") return;
+    if (window.matchMedia("(max-width: 767px)").matches) return;
     onActiveEventIdChange(nearestEventId(event.clientX));
   };
 
@@ -217,11 +217,6 @@ export function Timeline({
           {children}
         </div>
       </div>
-      <TimelineMobile
-        events={events}
-        activeEventId={activeEventId}
-        onSelect={onActivate}
-      />
     </div>
   );
 }
