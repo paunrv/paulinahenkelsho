@@ -93,7 +93,7 @@ export const TIMELINE_EVENTS = [
     title: "Sales",
     organization: "La Ruta VCC+",
     context: "Tourism startup",
-    progression: "Professional internship → Sales",
+    progression: "Professional internship",
     type: "job",
     field: ["operations", "logistics", "clients"],
     desk: ["product"],
@@ -123,7 +123,7 @@ export const TIMELINE_EVENTS = [
   },
   {
     id: "tkd-olympic-bootcamp",
-    year: "2017–2020",
+    year: "2017–2019",
     title: "Project Manager",
     organization: "TKD Olympic Bootcamp",
     context:
@@ -148,7 +148,6 @@ export const TIMELINE_EVENTS = [
     title: "Product Owner",
     organization: "Trato Hecho",
     context: "Real-estate startup for investors",
-    progression: "SEO consulting → Front-end development → Product Owner",
     type: "job",
     desk: ["product", "design", "technology", "systems"],
     field: ["clients"],
@@ -186,7 +185,7 @@ export const TIMELINE_EVENTS = [
     year: "2025",
     title: "Sunday Funday Master Class",
     context:
-      "Event coordination and project management · Master class with a UFC fighter · Six-hour event · 300 participants",
+      "Event coordination and project management · With a UFC fighter · Six-hour event · 300 participants",
     type: "job",
     management: ["event-coordination", "project-management"],
   },
@@ -196,7 +195,7 @@ export const TIMELINE_EVENTS = [
     title: "HUMI",
     subtitle: "16th anniversary",
     context:
-      "Sixteen years of the academy. HUMI io is its operations product.",
+      "HUMI io is its operations product.",
     desk: ["product", "design", "technology"],
     field: ["clients"],
   },

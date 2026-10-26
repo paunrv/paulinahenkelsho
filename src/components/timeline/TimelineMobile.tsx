@@ -144,6 +144,7 @@ export function TimelineMobile({
         {events.map((event, rowIndex) => {
           const copy = applyTimelineCopy(event, lang);
           const label = listLabel(copy);
+          const hasDetail = Boolean(copy.context || copy.progression);
           const isCurrent = event.id === currentId;
           const span = getEventSpan(event.year);
           const isRange = Boolean(span && span.end > span.start);
@@ -169,7 +170,7 @@ export function TimelineMobile({
                 }}
                 className="timeline-mobile-row"
                 aria-current={isCurrent ? "true" : undefined}
-                aria-expanded={isCurrent}
+                aria-expanded={hasDetail ? isCurrent : undefined}
                 onClick={() => select(rowIndex)}
                 onKeyDown={(domEvent) => onRowKeyDown(domEvent, rowIndex)}
               >
@@ -186,7 +187,7 @@ export function TimelineMobile({
                 />
                 <span className="timeline-mobile-label">{label}</span>
               </button>
-              {isCurrent ? (
+              {isCurrent && hasDetail ? (
                 <div className="timeline-mobile-detail">
                   <TimelineEventDisplay
                     activeEventId={currentId}

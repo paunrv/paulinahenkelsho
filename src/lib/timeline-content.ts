@@ -84,7 +84,7 @@ const MANAGEMENT_EVENT_COPY = {
       title: "Sales",
       organization: "La Ruta VCC+",
       context: "Tourism startup",
-      progression: "Professional internship → Sales",
+      progression: "Professional internship",
     },
     "summer-camp": {
       title: "Project Manager",
@@ -113,7 +113,6 @@ const MANAGEMENT_EVENT_COPY = {
       title: "Product Owner",
       organization: "Trato Hecho",
       context: "Real-estate startup for investors",
-      progression: "SEO consulting → Front-end development → Product Owner",
     },
     "ki-game-2021": {
       title: "Ki-Game",
@@ -133,12 +132,12 @@ const MANAGEMENT_EVENT_COPY = {
     "sunday-funday-2025": {
       title: "Sunday Funday Master Class",
       context:
-        "Event coordination and project management · Master class with a UFC fighter · Six-hour event · 300 participants",
+        "Event coordination and project management · With a UFC fighter · Six-hour event · 300 participants",
     },
     "humi-16-years": {
       title: "HUMI",
       subtitle: "16th anniversary",
-      context: "Sixteen years of the academy. HUMI io is its operations product.",
+      context: "HUMI io is its operations product.",
     },
   },
   es: {
@@ -159,7 +158,7 @@ const MANAGEMENT_EVENT_COPY = {
       title: "Ventas",
       organization: "La Ruta VCC+",
       context: "Startup de turismo",
-      progression: "Prácticas profesionales → Ventas",
+      progression: "Prácticas profesionales",
     },
     "summer-camp": {
       title: "Project Manager",
@@ -189,7 +188,6 @@ const MANAGEMENT_EVENT_COPY = {
       title: "Product Owner",
       organization: "Trato Hecho",
       context: "Startup inmobiliaria para inversionistas",
-      progression: "Asesoría SEO → Desarrollo front-end → Product Owner",
     },
     "ki-game-2021": {
       title: "Ki-Game",
@@ -209,13 +207,13 @@ const MANAGEMENT_EVENT_COPY = {
     "sunday-funday-2025": {
       title: "Sunday Funday Master Class",
       context:
-        "Coordinación del evento y gestión del proyecto · Master class con un peleador de UFC · Evento de seis horas · 300 participantes",
+        "Coordinación del evento y gestión del proyecto · Con un peleador de UFC · Evento de seis horas · 300 participantes",
     },
     "humi-16-years": {
       title: "HUMI",
       subtitle: "16.º aniversario",
       context:
-        "Dieciséis años de la academia. HUMI io es su producto de operación.",
+        "HUMI io es su producto de operación.",
     },
   },
 } as const satisfies Record<
