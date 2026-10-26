@@ -198,6 +198,18 @@
   opacity: 0.4;
 }
 
+@media (max-width: 767px) {
+  .field-desk-mobile .field-desk-word:not(.is-lit) {
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field-desk-word {
+    transition: none;
+  }
+}
+
 .field-desk-desk {
   grid-area: desk;
   background-color: rgb(var(--fd-desk));

@@ -2,12 +2,14 @@
 
 import { Reveal } from "@/components/motion/Reveal";
 import { useT } from "@/i18n/i18n";
+import { TimelineMobile } from "@/components/timeline/TimelineMobile";
 import {
   DESK_WORD_IDS,
   FIELD_WORD_IDS,
   MANAGEMENT_WORD_IDS,
   useLifetime,
 } from "@/components/timeline/LifetimeContext";
+import { getTimelineEvents } from "@/lib/timeline";
 
 function Statement({ text, id }: { text: string; id: string }) {
   const lines = text.split(/(?<=\.)\s+/);
@@ -141,6 +143,8 @@ function DeskPanel() {
 
 export function FieldDesk() {
   const heading = useT().fieldDesk.headline;
+  const { activeEventId, setActiveEventId } = useLifetime();
+  const events = getTimelineEvents();
 
   return (
     <section
@@ -150,9 +154,16 @@ export function FieldDesk() {
     >
       <div className="field-desk-mobile">
         <Editorial />
-        <ManagementPanel />
-        <DeskPanel />
-        <FieldPanel />
+        <div className="field-desk-mobile-browse">
+          <TimelineMobile
+            events={events}
+            activeEventId={activeEventId}
+            onSelect={setActiveEventId}
+          />
+          <ManagementPanel />
+          <DeskPanel />
+          <FieldPanel />
+        </div>
       </div>
 
       <div className="field-desk-desktop">
